@@ -15,9 +15,9 @@
  */
 package gwt.dojo.mobile.client;
 
+import gwt.dojo.client.util.JsArray;
 import gwt.dojo.client.util.JsObject;
 
-import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
 
 public class Parser extends JsObject {
@@ -31,11 +31,11 @@ public class Parser extends JsObject {
 	protected Parser() {
 	}
 
-	public final native JsArray<JsObject> parse() /*-{
+	public final native JsArray/*<JsObject>*/ parse() /*-{
 		return this.parse();
 	}-*/;
 
-	public final native JsArray<JsObject> parse(Element node) /*-{
+	public final native JsArray/*<JsObject>*/ parse(Element node) /*-{
 		return this.parse(node);
 	}-*/;
 }

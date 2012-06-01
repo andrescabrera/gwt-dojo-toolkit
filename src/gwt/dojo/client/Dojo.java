@@ -15,38 +15,47 @@
  */
 package gwt.dojo.client;
 
+import gwt.dojo.client.util.JsArray;
+import gwt.dojo.client.util.JsObject;
+
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.json.client.JSONArray;
-import com.google.gwt.json.client.JSONString;
 
 public class Dojo {
 
-	public static void require(String... modules) {
-		JSONArray arr = new JSONArray();
-		for (int i = 0; i < modules.length; i++) {
-			arr.set(i, new JSONString(modules[i]));
-		}
-		require(arr.getJavaScriptObject());
-	}
-
-	private static native void require(JavaScriptObject modules) /*-{
+	public static native void require(JsArray modules) /*-{
 		$wnd.require(modules);
 	}-*/;
 
-	public static void require(RequireCallback callback, String... modules) {
-		JSONArray arr = new JSONArray();
-		for (int i = 0; i < modules.length; i++) {
-			arr.set(i, new JSONString(modules[i]));
-		}
-		require(arr.getJavaScriptObject(), callback);
-	}
-
-	private static native void require(JavaScriptObject modules,
+	/**
+	 * Load AMD required modules.
+	 * 
+	 * @param dependencies
+	 *            A list of module identifiers to load before calling callback.
+	 * @param callback
+	 *            Callback to call when dependencies are loaded.
+	 */
+	public static native void require(JsArray/* <String> */dependencies,
 			RequireCallback callback) /*-{
-		var func = function(lang, DataGrid, ItemFileWriteStore, dom) {
-			callback.@gwt.dojo.client.RequireCallback::callback(Lgwt/dojo/client/util/JsObject;)(arguments);
+		var func = function() {
+			if (typeof $wnd.dojo.ready === 'undefined') {
+				callback.@gwt.dojo.client.RequireCallback::callback(Lgwt/dojo/client/util/JsObject;)(arguments);
+			} else {
+				var _arguments = arguments;
+				$wnd.dojo.ready(function() {
+					callback.@gwt.dojo.client.RequireCallback::callback(Lgwt/dojo/client/util/JsObject;)(_arguments);
+				});
+			}
 		};
-		$wnd.require(modules, func);
+		$wnd.require(dependencies, func);
+	}-*/;
+	
+	/**
+	 * 
+	 * @param dependency
+	 * @return
+	 */
+	public static native JsObject require(String dependency) /*-{
+		return $wnd.require(dependency);
 	}-*/;
 
 	/**

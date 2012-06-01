@@ -42,6 +42,16 @@ public class JsArray extends JavaScriptObject {
 		}
 		return result;
 	};
+	
+	public static JsArray create(String... strings) {
+		JsArray result = JavaScriptObject.createArray().cast();
+		if (strings != null) {
+			for (int i = 0; i < strings.length; i++) {
+				result.push(strings[i]);
+			}
+		}
+		return result;
+	};
 
 	public static <T extends JsArray> T cast(JavaScriptObject array) {
 		return array.cast();

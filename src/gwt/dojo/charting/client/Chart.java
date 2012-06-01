@@ -60,7 +60,7 @@ public class Chart extends JsObject {
 	 *            The theme to be used for visual rendering.
 	 * @return A reference to the current {@code Chart} for chaining purposes.
 	 */
-	public final native Chart setTheme(JsObject theme) /*-{
+	public final native Chart setTheme(Theme theme) /*-{
 		try {
 			this.setTheme(theme);
 		} catch (e) {
@@ -112,6 +112,22 @@ public class Chart extends JsObject {
 	 * Add a data series to the chart for rendering.
 	 * 
 	 * @param name
+	 * @param data
+	 * @return
+	 */
+	public final native Chart addSeries(String name, JsObject data) /*-{
+		try {
+			alert(data instanceof Array);
+			this.addSeries(name, data);
+		} catch (e) {
+			alert("-4-" + e);
+		}
+	}-*/;
+
+	/**
+	 * Add a data series to the chart for rendering.
+	 * 
+	 * @param name
 	 *            The name of the data series to be plotted.
 	 * @param data
 	 *            The array of data (either numbers or objects) that represents
@@ -120,7 +136,9 @@ public class Chart extends JsObject {
 	 */
 	public final native Chart addSeries(String name, JsArray data) /*-{
 		try {
-			this.addSeries(name, [ 1, 2, 0.5, 1.5, 1, 2.8, 0.4 ]);
+			this.addSeries(name, {
+				data : data
+			}); // XXX
 		} catch (e) {
 			alert("-4-" + e);
 		}
