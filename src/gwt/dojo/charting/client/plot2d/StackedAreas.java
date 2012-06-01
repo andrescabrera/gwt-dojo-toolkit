@@ -15,16 +15,21 @@
  */
 package gwt.dojo.charting.client.plot2d;
 
+import gwt.dojo.charting.client.Chart;
 import gwt.dojo.client.util.JsObject;
 
-public class StackedAreas extends JsObject {
+public class StackedAreas extends Stacked {
 
 	public static native JsObject ref() /*-{
 		return $wnd.dojox.charting.plot2d.StackedAreas;
 	}-*/;
-	
-	public static native JsObject create() /*-{
-		return new $wnd.dojox.charting.plot2d.StackedAreas();
+
+	public static native StackedAreas create(Chart chart) /*-{
+		return new $wnd.dojox.charting.plot2d.StackedAreas(chart);
+	}-*/;
+
+	public static native StackedAreas create(Chart chart, JsObject kwArgs) /*-{
+		return new $wnd.dojox.charting.plot2d.StackedAreas(chart, kwArgs);
 	}-*/;
 
 	protected StackedAreas() {
