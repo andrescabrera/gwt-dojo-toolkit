@@ -18,14 +18,13 @@ package gwt.dojo.charting.client.plot2d;
 import gwt.dojo.client.Dojo;
 import gwt.dojo.client.util.JsObject;
 
-public class Default extends Base {
-	public static final String MODULE = "dojox/charting/plot2d/Default";
-	
+public class StackedLines extends Stacked {
+	public static final String MODULE = "dojox/charting/plot2d/StackedLines";
+
 	public static JsObject ref() {
 		return Dojo.require(MODULE);
-	}
+	};
 
-	protected Default() {
+	protected StackedLines() {
 	}
-
 }

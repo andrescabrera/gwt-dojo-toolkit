@@ -15,8 +15,6 @@
  */
 package gwt.dojo.charting.client;
 
-import com.google.gwt.dom.client.Element;
-
 import gwt.dojo.client.util.JsArray;
 import gwt.dojo.client.util.JsObject;
 
@@ -33,23 +31,47 @@ import gwt.dojo.client.util.JsObject;
 public class Chart extends JsObject {
 
 	public final static String MODULE = "dojox/charting/Chart";
+	
+	/**
+	 * title: String (null)
+	 * <p>
+	 * Chart title text.
+	 */
+	public static final String TITLE = "title";
+	
+	/**
+	 * titleGap: Number (20)
+	 * <p>
+	 * Determine the spacing between the title and the chart.
+	 */
+	public static final String TITLEGAP = "titleGap";
+	
+	/**
+	 * titlePos: String ("top")
+	 * <p>
+	 * Determine adding title at the top/bottom of the chart.
+	 */
+	public static final String TITLEPOS = "titlePos";
+	
+	public static final String TITLEFONT = "titleFont";
+	public static final String TITLEFONTCOLOR = "titleFontColor";
 
 	public static native Chart create(String nodeId) /*-{
 		try {
-			return new $wnd.dojox.charting.Chart(nodeId);
+			return new  $wnd.dojox.charting.Chart(nodeId);
 		} catch (e) {
 			alert(e);
 		}
 	}-*/;
-
-	public static native Chart create(Element node) /*-{
+	
+	public static native Chart create(String nodeId, JsObject kwArgs) /*-{
 		try {
-			return new $wnd.dojox.charting.Chart(node);
+			return new $wnd.dojox.charting.Chart(nodeId, kwArgs);
 		} catch (e) {
 			alert(e);
 		}
-	}-*/;
-
+	}-*/;	
+	
 	protected Chart() {
 	}
 

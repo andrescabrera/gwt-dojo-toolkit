@@ -9,7 +9,7 @@
   
   <!-- Default page to serve -->
   <welcome-file-list>
-    <welcome-file>Gwt_dojo.html</welcome-file>
+    <welcome-file>Showcase.html</welcome-file>
   </welcome-file-list>
 
 </web-app>
