@@ -21,6 +21,7 @@ import gwt.dojo.client.EventCallback;
 import gwt.dojo.client.RequireCallback;
 import gwt.dojo.client.SubscribeCallback;
 import gwt.dojo.client.TopicEvent;
+import gwt.dojo.client.util.JsArray;
 import gwt.dojo.client.util.JsObject;
 import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._Container;
@@ -40,7 +41,6 @@ import gwt.dojo.showcase.client.controllers.FormsController;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.RunAsyncCallback;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
@@ -68,18 +68,18 @@ public class Showcase implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		Dojo.require(new RequireCallback() {
-			@Override
-			public void callback(JsObject arguments) {
-				startup(arguments);
-			}
-		}, "dojox/mobile/deviceTheme", "dojox/mobile", "dojox/mobile/parser",
+		Dojo.require(JsArray.create("dojox/mobile/deviceTheme", "dojox/mobile", "dojox/mobile/parser",
 				"dojox/mobile/compat", "dojox/mobile/Button",
 				"dojox/mobile/ToolBarButton", "dojox/mobile/FixedSplitter",
 				"dojox/mobile/ScrollableView",
 				"dojox/mobile/ProgressIndicator",
 				"dojox/mobile/FixedSplitterPane", "dojox/mobile/SwapView",
-				"dojox/mobile/TabBar", "dojo/domReady!");
+				"dojox/mobile/TabBar", "dojo/domReady!"), new RequireCallback() {
+			@Override
+			public void callback(JsObject arguments) {
+				startup(arguments);
+			}
+		});
 	}
 
 	protected void startup(JavaScriptObject arguments) {
@@ -269,10 +269,10 @@ public class Showcase implements EntryPoint {
 								.createDivElement();
 						tmpContainer.setInnerHTML(response.getText());
 						rightPane.appendChild(tmpContainer);
-						JsArray<JsObject> ws = Parser.get().parse(tmpContainer);
+						JsArray ws = Parser.get().parse(tmpContainer);
 						for (int i = 0, n = ws.length(); i < n; i++) {
-							if (ws.get(i).hasProperty("startup")) {
-								_WidgetBase.cast(ws.get(i)).startup();
+							if (ws.getJsObject(i).hasProperty("startup")) {
+								_WidgetBase.cast(ws.getJsObject(i)).startup();
 							}
 						}
 

@@ -18,6 +18,7 @@ package gwt.dojo.showcase.client.controllers;
 import gwt.dojo.client.Dojo;
 import gwt.dojo.client.EventCallback;
 import gwt.dojo.client.RequireCallback;
+import gwt.dojo.client.util.JsArray;
 import gwt.dojo.client.util.JsObject;
 import gwt.dojo.dijit.client._WidgetBase;
 import gwt.dojo.mobile.client.Button;
@@ -40,16 +41,16 @@ public class FormsController implements Controller, EventCallback {
 
 	@Override
 	public void callback(final JsObject source, NativeEvent event) {
-		Dojo.require(new RequireCallback() {
+		Dojo.require(JsArray.create("dojox/mobile/TextBox", "dojox/mobile/TextArea",
+				"dojox/mobile/CheckBox", "dojox/mobile/RadioButton",
+				"dojox/mobile/Slider"),new RequireCallback() {
 			@Override
 			public void callback(final JsObject arguments) {
 				ListItem listItem = source.cast();
 				listItem.set("controller", FormsController.this);
 				showcase.showView(listItem);
 			}
-		}, "dojox/mobile/TextBox", "dojox/mobile/TextArea",
-				"dojox/mobile/CheckBox", "dojox/mobile/RadioButton",
-				"dojox/mobile/Slider");
+		});
 	}
 
 	@Override
