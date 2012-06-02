@@ -22,6 +22,25 @@ svn -co http://gwt-dojo-toolkit.googlecode.com/svn/branches/gwt-dojo-toolkit-mob
 
 and add it to eclipse.
 
+GWT Dojo Mobile has to be added to your GWT application *.gwt.xml file:
+
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='gwt_dojo_toolkit_mobile'>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<!-- Other module inherits -->
+	<inherits name='gwt.dojo.mobile.Mobile'/>
+
+	<!-- Specify the app entry point class. -->
+	<entry-point class='gwt.dojo.mobile.app.client.Main' />
+
+	<!-- Specify the paths for translatable code -->
+	<source path='client' />
+</module>
+}}} 
+
 Like any web application, it's important that the structure of the HTML page is intelligently designed. Important to include are:
 
   * The proper DOCTYPE
@@ -74,4 +93,4 @@ just before:
 
 That configuration option causes Dojo 1.7 to switch into “baseless” mode (also known as “async mode” or “AMD mode”). In this mode, modules like fx, xhr, and query aren’t loaded automatically. In fact, in this mode, the only thing that gets loaded automatically is the module loader itself. This enables you to truly require only what you need, making code written with Dojo 1.7 smaller and faster than code written with other, more monolithic libraries.
 
-Also, one more thing you’ll probably notice immediately, is that no Dojo related CSS theme is loaded.  Dojo Mobile, since 1.6, provides a dojox/mobile/deviceTheme resource to include theme resources based on User Agent detection. That means we don't have to hardcode a theme in our HTML page.
+Note also, that NO Dojo related CSS theme is loaded.  Dojo Mobile (since 1.6) provides a dojox/mobile/deviceTheme resource to include theme resources based on User Agent detection. That means we don't have to hardcode a theme in our HTML page.
