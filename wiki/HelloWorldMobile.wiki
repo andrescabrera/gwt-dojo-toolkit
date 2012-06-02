@@ -132,3 +132,5 @@ public class Main implements EntryPoint, RequireCallback {
 	}
 }
 }}}
+
+NOTE: Requiring dojox/mobile/compat is not necessary but is certainly best practice if your mobile web application should cater to multiple devices. Its functionality is not baked into dojox/mobile's base to keep dojox/mobile as compact as possible. 
