@@ -22,7 +22,7 @@ svn -co http://gwt-dojo-toolkit.googlecode.com/svn/branches/gwt-dojo-toolkit-mob
 
 and add it to eclipse.
 
-GWT Dojo Mobile has to be added to your GWT application *.gwt.xml file:
+GWT Dojo Mobile has to be added to your GWT Application module file:
 
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
@@ -41,7 +41,7 @@ GWT Dojo Mobile has to be added to your GWT application *.gwt.xml file:
 </module>
 }}} 
 
-Like any web application, it's important that the structure of the HTML page is intelligently designed. Important to include are:
+Next, like any web application, it's important that the structure of the HTML page is intelligently designed. Important to include are:
 
   * The proper DOCTYPE
   * Mobile-specific META tags (see: [http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html Mobile Safari Supported Meta Tags])
