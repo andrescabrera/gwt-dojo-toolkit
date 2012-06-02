@@ -53,4 +53,25 @@ Consider the following a template to start your mobile application with:
 	<body>
 		<!-- application will go here -->
 	</body>
-</html>}}}
+</html>
+}}}
+
+Including Dojo happens automatically by GWT Dojo Toolkit. The only thing needed is adding:
+
+{{{
+<script>
+dojoConfig= {
+	async: true
+};
+</script>
+}}}
+
+just before:
+
+{{{
+<script type="text/javascript" src="gwt_dojo_toolkit_mobile/gwt_dojo_toolkit_mobile.nocache.js"></script>
+}}}
+
+That configuration option causes Dojo 1.7 to switch into “baseless” mode (also known as “async mode” or “AMD mode”). In this mode, modules like fx, xhr, and query aren’t loaded automatically. In fact, in this mode, the only thing that gets loaded automatically is the module loader itself. This enables you to truly require only what you need, making code written with Dojo 1.7 smaller and faster than code written with other, more monolithic libraries.
+
+Also, Dojo Mobile provides a dojox/mobile/deviceTheme resource to include theme resources based on User Agent detection. That means we don't have to hardcode a theme in our HTML page.
