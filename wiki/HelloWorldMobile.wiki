@@ -7,3 +7,13 @@ The Dojo Mobile package (dojox/mobile) provides a number of widgets that can be 
 Dojo Mobile is designed to be as lightweight as possible. It only has a few dependencies on other dojo modules. Also it has its own very small parser that is a subset of the core dojo.parser, but has enough capability to bootstrap your application.
 
 = Structuring Your Mobile Application =
+
+A sample GWT Dojo Mobile Application can be found at:
+
+https://code.google.com/p/gwt-dojo-toolkit/source/browse/branches/gwt-dojo-toolkit-mobile/
+
+Please use that as a skeleton application for this tutorial. Just do:
+
+svn -co http://gwt-dojo-toolkit.googlecode.com/svn/branches/gwt-dojo-toolkit-mobile/ gwt-dojo-toolkit-mobile
+
+and add it to eclipse.
