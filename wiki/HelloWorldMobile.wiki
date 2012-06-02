@@ -150,7 +150,6 @@ Before we start creating widgets, let's review a few of the widgets dojox/mobile
 Now, let's create a basic view with heading, a few list items, and a switch. To do so, we need to modify the HTML page and add the following lines in the HTML body:
 
 {{{
-<!-- the view or "page"; select it as the "home" screen -->
 <div id="settings" data-dojo-type="dojox.mobile.View" data-dojo-props="selected: true">
  
     <!-- a sample heading -->
@@ -160,15 +159,15 @@ Now, let's create a basic view with heading, a few list items, and a switch. To 
     <ul data-dojo-type="dojox.mobile.RoundRectList">
  
         <!-- list item with an icon containing a switch -->
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="icon:'../../app/images/i-icon-1.png'">
+        <li data-dojo-type="dojox.mobile.ListItem">
             Airplane Mode
             <!-- the switch -->
             <div class="mblItemSwitch" data-dojo-type="dojox.mobile.Switch"></div>
         </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="icon:'../../app/images/i-icon-2.png', rightText:'mac'">
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'mac'">
             Wi-Fi
         </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="icon:'../../app/images/i-icon-3.png', rightText:'AcmePhone'">
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'AcmePhone'">
             Carrier
         </li>
     </ul>
