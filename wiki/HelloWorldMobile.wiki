@@ -22,7 +22,7 @@ svn -co http://gwt-dojo-toolkit.googlecode.com/svn/branches/gwt-dojo-toolkit-mob
 
 and add it to eclipse.
 
-GWT Dojo Mobile has to be added to your GWT Application module file:
+First, Dojo Mobile has to be added to your GWT Application Module file. Below you see the contents of Application.gwt.xml from gwt-dojo-toolkit-mobile application:
 
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
