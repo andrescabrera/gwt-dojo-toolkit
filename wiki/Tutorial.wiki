@@ -1,4 +1,4 @@
 #summary Tutorial.
 #labels Featured
 
- * *Introduction to GWT Dojo Toolkit*
+ * *Introduction to GWT Dojo Mobile*
