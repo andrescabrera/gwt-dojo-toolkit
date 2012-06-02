@@ -14,6 +14,8 @@ https://code.google.com/p/gwt-dojo-toolkit/source/browse/branches/gwt-dojo-toolk
 
 Please use that as a skeleton application for this tutorial. Just do:
 
+{{{
 svn -co http://gwt-dojo-toolkit.googlecode.com/svn/branches/gwt-dojo-toolkit-mobile/ gwt-dojo-toolkit-mobile
+}}}
 
 and add it to eclipse.
