@@ -15,9 +15,9 @@
  */
 package gwt.dojo.dijit.client.layout;
 
-import gwt.dojo.dijit.client._TemplatedMixin;
+import gwt.dojo.dijit.client.ITemplatedMixin;
 
-public class LinkPane extends ContentPane implements _TemplatedMixin {
+public class LinkPane extends ContentPane implements ITemplatedMixin {
 
 	protected LinkPane() {
 	}

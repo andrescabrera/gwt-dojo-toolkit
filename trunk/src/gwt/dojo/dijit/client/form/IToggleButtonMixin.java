@@ -13,19 +13,24 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.mobile.client;
+package gwt.dojo.dijit.client.form;
 
-import gwt.dojo.dijit.client.form.IExpandingTextAreaMixin;
+/**
+ * A mixin to provide functionality to allow a button that can be in two states
+ * (checked or not).
+ * 
+ * @author ggeorg
+ */
+public interface IToggleButtonMixin {
 
-public class ExpandingTextArea extends TextArea implements IExpandingTextAreaMixin {
-	
-	public static final String MODULE = "dojox/mobile/ExpandingTextArea";
-
-	public static native ExpandingTextArea create() /*-{
-		return new $wnd.dojox.mobile.ExpandingTextArea();
-	}-*/;
-	
-	protected ExpandingTextArea() {
-	}
+	/**
+	 * checked: Boolean
+	 * <p>
+	 * Corresponds to the native HTML <input> element's attribute. In markup,
+	 * specified as "checked='checked'" or just "checked". {@code true} if the
+	 * button is depressed, or the checkbox is checked, or the radio button is
+	 * selected, etc.
+	 */
+	static final String CHECKED = "checked";
 
 }

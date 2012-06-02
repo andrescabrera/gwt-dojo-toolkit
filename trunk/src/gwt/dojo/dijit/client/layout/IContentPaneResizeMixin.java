@@ -13,17 +13,25 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.dijit.client;
+package gwt.dojo.dijit.client.layout;
 
 /**
- * Base class for all Dijit widgets.
+ * Provides resize functionality of {@code ContentPane}. If there's a single
+ * layout widget child then it will call {@code resize()} with the same
+ * dimensions as the {@code ContentPane}. Otherwise just calls resize on each
+ * child.
  * 
  * @author ggeorg
  */
-public class _Widget extends _WidgetBase implements
-		/* _OnDijitClickMixin, */IFocusMixin {
+public interface IContentPaneResizeMixin {
 
-	protected _Widget() {
-	}
+	/**
+	 * doLayout: Boolean
+	 * <p>
+	 * If {@code false} don't adjust size of children; if {@code true} if there
+	 * is a single visible child widget, set it's size to however big the
+	 * {@code ContentPane} is.
+	 */
+	static final String DOLAYOUT = "doLayout";
 
 }

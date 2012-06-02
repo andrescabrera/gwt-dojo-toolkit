@@ -15,20 +15,23 @@
  */
 package gwt.dojo.dijit.client;
 
-import gwt.dojo.client.util.JsObject;
+import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Mixin for widgets that contain a set of widget children.
  * 
  * @author ggeorg
  */
-public class _Container extends JsObject {
+public class _Container extends JavaScriptObject {
 
 	public static _Container cast(IContainer widget) {
 		assert widget instanceof _WidgetBase : "Not a widget";
 		return ((_WidgetBase) widget).cast();
 	}
 
+	/**
+	 * Not directly instantiable.
+	 */
 	protected _Container() {
 	}
 

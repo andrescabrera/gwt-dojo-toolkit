@@ -15,8 +15,17 @@
  */
 package gwt.dojo.mobile.client;
 
-public class Tooltip {
+import gwt.dojo.dijit.client._WidgetBase;
+
+public class Tooltip extends _WidgetBase {
 
 	public static final String MODULE = "dojox/mobile/Tooltip";
+
+	public static native Tooltip create() /*-{
+		return new $wnd.dojox.mobile.Tooltip();
+	}-*/;
+
+	protected Tooltip() {
+	}
 
 }

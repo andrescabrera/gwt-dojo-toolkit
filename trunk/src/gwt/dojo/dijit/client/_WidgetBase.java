@@ -23,6 +23,14 @@ import gwt.dojo.client.util.JsObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
 
+/**
+ * Base class for Dijit widgets.
+ * <p>
+ * ({@link _Widget} extends this class adding support for various features
+ * needed by desktop.
+ * 
+ * @author ggeorg
+ */
 public class _WidgetBase extends Stateful {
 
 	public static _WidgetBase cast(JsObject o) {
@@ -43,9 +51,96 @@ public class _WidgetBase extends Stateful {
 	public static final String ID = "id";
 
 	/**
+	 * lang: [const] String
+	 * <p>
+	 * Rarely used. Overrides the default Dojo locale used to render this
+	 * widget, as defined by the <a
+	 * href="http://www.w3.org/TR/html401/struct/dirlang.html#adef-lang">[HTML
+	 * LANG]</a> attribute. Value must be among the list of locales specified
+	 * during by the Dojo bootstrap, formatted according to <a
+	 * href="http://www.ietf.org/rfc/rfc3066.txt">[RFC 3066]</a> (like en-us).
+	 */
+	public static final String LANG = "lang";
+
+	/**
+	 * dir: [cont] String
+	 * <p>
+	 * Bi-directional support, as defined by the <a
+	 * href="http://www.w3.org/TR/html401/struct/dirlang.html#adef-dir">[HTML
+	 * DIR]</a> attribute. Either left-to-right "ltr" or right-to-left "rtl". If
+	 * undefined, widgets renders in page's default direction.
+	 */
+	public static final String DIR = "dir";
+
+	/**
+	 * textDir: String
+	 * <p>
+	 * Bi-directional support, the main variable which is responsible for the
+	 * direction of the text. The text direction can be different than the GUI
+	 * direction by using this parameter in creation of a widget.
+	 * <p>
+	 * Allowed values:
+	 * <ol>
+	 * <li>"ltr"</li>
+	 * <li>"rtl"</li>
+	 * <li>"auto" - contextual the direction of a text defined by first strong
+	 * letter.</li>
+	 * </ol>
+	 * By default is as the page direction.
+	 */
+	public static final String TEXTDIR = "textDir";
+
+	/**
+	 * class: String
+	 * <p>
+	 * HTML class attribute.
+	 */
+	public static final String CLASS = "class";
+
+	/**
+	 * style: String|Object
+	 * <p>
+	 * HTML style attribute as cssText string or name/value hash.
+	 */
+	public static final String STYLE = "style";
+
+	/**
+	 * title: String
+	 * <p>
+	 * HTML title attribute.
+	 * <p>
+	 * For form widgets this specifies a tooltip to display when hovering over
+	 * the widget (just like the native HTML title attribute).
+	 * <p>
+	 * For TitlePane or for when this widget is a child of a TabContainer,
+	 * AccordionContainer, etc., it's used to specify the tab label, accordion
+	 * pane title, etc.
+	 */
+	public static final String TITLE = "title";
+
+	/**
+	 * tooltip: String
+	 * <p>
+	 * When this widget's title attribute is used to for a tab label, accordion
+	 * pane title, etc., this specifies the tooltip to appear when the mouse is
+	 * hovered over that text.
+	 */
+	public static final String TOOLTIP = "tooltip";
+
+	/**
+	 * srcNodeRef: [readonly] DomNode
+	 * <p>
+	 * Pointer to original DOM node.
+	 */
+	public static final String SRCNODEREF = "srcNodeRef";
+
+	/**
 	 * domNode: [readonly] DomNode
 	 * <p>
-	 * This is our visible representation of the widget!
+	 * This is our visible representation of the widget! Other DOM Nodes may by
+	 * assigned to other properties, usually through the template system's
+	 * data-dojo-attach-point syntax, but the domNode property is the canonical
+	 * "top level" node in widget UI.
 	 */
 	public static final String DOMNODE = "domNode";
 
@@ -57,7 +152,8 @@ public class _WidgetBase extends Stateful {
 	public static final String CONTAINERNODE = "containerNode";
 
 	/**
-	 * Default constructor.
+	 * Not directly instantiable. All subclasses must also define a protected,
+	 * empty, no-arg constructor.
 	 */
 	protected _WidgetBase() {
 	}
@@ -72,7 +168,11 @@ public class _WidgetBase extends Stateful {
 	 * as a wiring phase.
 	 */
 	public final native void startup() /*-{
-		this.startup();
+		try {
+			this.startup();
+		} catch (e) {
+			alert(e);
+		}
 	}-*/;
 
 	/**

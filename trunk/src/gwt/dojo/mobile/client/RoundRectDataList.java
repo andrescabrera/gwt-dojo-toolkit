@@ -15,7 +15,6 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.client.util.JsObject;
 import gwt.dojo.dijit.client.Registry;
 
 public class RoundRectDataList extends RoundRectList implements IDataListMixin {
@@ -32,15 +31,5 @@ public class RoundRectDataList extends RoundRectList implements IDataListMixin {
 
 	protected RoundRectDataList() {
 	}
-
-	@Override
-	public final native void setStore(JsObject store) /*-{
-		this.setStore(store);
-	}-*/;
-
-	@Override
-	public final native void refresh() /*-{
-		this.refresh();
-	}-*/;
 
 }

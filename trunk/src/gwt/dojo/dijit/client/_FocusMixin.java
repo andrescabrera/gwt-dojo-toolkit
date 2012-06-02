@@ -15,20 +15,25 @@
  */
 package gwt.dojo.dijit.client;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 /**
  * Mixin to widget to provide {@code _onFocus()} and {@code _onBlur()} methods
  * that fire when a widget or it's descendants get/lose focus.
  * 
  * @author ggeorg
  */
-public interface _FocusMixin {
+public class _FocusMixin extends JavaScriptObject {
+	
+	public static _FocusMixin cast(IFocusMixin widget) {
+		assert widget instanceof _WidgetBase : "Not a widget";
+		return ((_WidgetBase) widget).cast();
+	}
 
 	/**
-	 * focused: [readonly] Boolean
-	 * <p>
-	 * This widget or a widget it containes has focus, or it "active" because it
-	 * was recently clicked.
+	 * Not directly instantiable.
 	 */
-	static final String FOCUSED = "focused";
+	protected _FocusMixin() {
+	}
 
 }

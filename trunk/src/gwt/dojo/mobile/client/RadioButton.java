@@ -15,7 +15,9 @@
  */
 package gwt.dojo.mobile.client;
 
-public class RadioButton extends CheckBox {
+import gwt.dojo.dijit.client.form.IRadioButtonMixin;
+
+public class RadioButton extends CheckBox implements IRadioButtonMixin {
 	
 	public static final String MODULE = "dojox/mobile/RadioButton";
 

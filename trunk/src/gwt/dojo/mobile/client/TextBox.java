@@ -16,15 +16,18 @@
 package gwt.dojo.mobile.client;
 
 import gwt.dojo.dijit.client._WidgetBase;
+import gwt.dojo.dijit.client.form.IFormValueMixin;
+import gwt.dojo.dijit.client.form.ITextBoxMixin;
 
-public class TextBox extends _WidgetBase {
-	
+public class TextBox extends _WidgetBase implements IFormValueMixin,
+		ITextBoxMixin {
+
 	public static final String MODULE = "dojox/mobile/TextBox";
 
 	public static native TextBox create() /*-{
 		return new $wnd.dojox.mobile.TextBox();
 	}-*/;
-	
+
 	protected TextBox() {
 	}
 

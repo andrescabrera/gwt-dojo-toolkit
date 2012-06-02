@@ -15,7 +15,7 @@
  */
 package gwt.dojo.mobile.client;
 
-public class SwapView extends View {
+public class SwapView extends View implements IScrollableMixin {
 	
 	public static final String MODULE = "dojox/mobile/SwapView";
 

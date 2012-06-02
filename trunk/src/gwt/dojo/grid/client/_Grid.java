@@ -15,7 +15,7 @@
  */
 package gwt.dojo.grid.client;
 
-import gwt.dojo.dijit.client._TemplatedMixin;
+import gwt.dojo.dijit.client.ITemplatedMixin;
 import gwt.dojo.dijit.client._Widget;
 
 /**
@@ -30,7 +30,7 @@ import gwt.dojo.dijit.client._Widget;
  * 
  * @author ggeorg
  */
-public class _Grid extends _Widget implements _TemplatedMixin {
+public class _Grid extends _Widget implements ITemplatedMixin {
 
 	/**
 	 * rowCound: Integer (default: 5)

@@ -15,11 +15,18 @@
  */
 package gwt.dojo.dijit.client;
 
-/**
- * Mixin for widgets that are instantiated from a template.
- * 
- * @author ggeorg
- */
-public interface _TemplatedMixin {
+import com.google.gwt.core.client.JavaScriptObject;
 
+public class _TemplatedMixin extends JavaScriptObject {
+	
+	public static _TemplatedMixin cast(ITemplatedMixin widget) {
+		assert widget instanceof _WidgetBase : "Not a widget";
+		return ((_WidgetBase) widget).cast();
+	}
+
+	/**
+	 * Not directly instantiable.
+	 */
+	protected _TemplatedMixin() {}
+	
 }

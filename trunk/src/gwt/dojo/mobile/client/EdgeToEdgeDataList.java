@@ -15,7 +15,7 @@
  */
 package gwt.dojo.mobile.client;
 
-public class EdgeToEdgeDataList extends EdgeToEdgeList {
+public class EdgeToEdgeDataList extends EdgeToEdgeList implements IDataListMixin {
 
 	public static final String MODULE = "dojox/mobile/EdgeToEdgeDataList";
 

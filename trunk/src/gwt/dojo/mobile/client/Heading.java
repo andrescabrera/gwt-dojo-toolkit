@@ -15,13 +15,14 @@
  */
 package gwt.dojo.mobile.client;
 
+import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client._WidgetBase;
 
 import com.google.gwt.dom.client.Node;
 
-public class Heading extends _WidgetBase implements IContainer {
+public class Heading extends _WidgetBase implements IContainer, IContained {
 	
 	public static final String MODULE = "dojox/mobile/Heading";
 	

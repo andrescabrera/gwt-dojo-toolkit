@@ -13,19 +13,30 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.mobile.client;
+package gwt.dojo.dijit.client.form;
 
-import gwt.dojo.dijit.client.form.IExpandingTextAreaMixin;
+/**
+ * A mixin to add a thin standard API wrapper to a normal HTML button.
+ * <p>
+ * A label should always be specified (through innerHTML) or the label
+ * attribute.
+ * 
+ * @author ggeorg
+ */
+public interface IButtonMixin {
 
-public class ExpandingTextArea extends TextArea implements IExpandingTextAreaMixin {
-	
-	public static final String MODULE = "dojox/mobile/ExpandingTextArea";
+	/**
+	 * label: HTML String
+	 * <p>
+	 * Content to display in button.
+	 */
+	public static final String LABEL = "label";
 
-	public static native ExpandingTextArea create() /*-{
-		return new $wnd.dojox.mobile.ExpandingTextArea();
-	}-*/;
-	
-	protected ExpandingTextArea() {
-	}
+	/**
+	 * type: [const] String
+	 * <p>
+	 * Type of button (submit, reset, button, checkbox, radio).
+	 */
+	public static final String TYPE = "type";
 
 }

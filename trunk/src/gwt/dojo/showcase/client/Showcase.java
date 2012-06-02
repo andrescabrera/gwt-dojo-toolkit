@@ -23,6 +23,7 @@ import gwt.dojo.client.SubscribeCallback;
 import gwt.dojo.client.TopicEvent;
 import gwt.dojo.client.util.JsArray;
 import gwt.dojo.client.util.JsObject;
+import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._Container;
 import gwt.dojo.dijit.client._WidgetBase;
@@ -68,21 +69,22 @@ public class Showcase implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		Dojo.require(JsArray.create("dojox/mobile/deviceTheme", "dojox/mobile", "dojox/mobile/parser",
-				"dojox/mobile/compat", "dojox/mobile/Button",
-				"dojox/mobile/ToolBarButton", "dojox/mobile/FixedSplitter",
-				"dojox/mobile/ScrollableView",
+		Dojo.require(JsArray.create("dojox/mobile/deviceTheme", "dojox/mobile",
+				"dojox/mobile/parser", "dojox/mobile/compat",
+				"dojox/mobile/Button", "dojox/mobile/ToolBarButton",
+				"dojox/mobile/FixedSplitter", "dojox/mobile/ScrollableView",
 				"dojox/mobile/ProgressIndicator",
 				"dojox/mobile/FixedSplitterPane", "dojox/mobile/SwapView",
-				"dojox/mobile/TabBar", "dojo/domReady!"), new RequireCallback() {
-			@Override
-			public void callback(JsObject arguments) {
-				startup(arguments);
-			}
-		});
+				"dojox/mobile/TabBar", "dojo/domReady!"),
+				new RequireCallback() {
+					@Override
+					public void callback(JsObject arguments) {
+						startup(arguments);
+					}
+				});
 	}
 
-	protected void startup(JavaScriptObject arguments) {
+	protected void startup(JsObject arguments) {
 		Parser.get().parse();
 
 		{
@@ -125,7 +127,7 @@ public class Showcase implements EntryPoint {
 
 		EdgeToEdgeCategory cat = EdgeToEdgeCategory.create();
 		cat.set("label", "Controls");
-		_Container.cast(navView).addChild(cat);
+		_Container.cast((IContainer) navView).addChild(cat);
 
 		EdgeToEdgeList list = EdgeToEdgeList.create();
 		list.set("id", "controls").set("iconBase",
@@ -354,7 +356,8 @@ public class Showcase implements EntryPoint {
 							// button and load the source code of current view.
 							headerLabel.setInnerHTML(listItem
 									.getString("label"));
-							ToolBarButton srcBtn = ToolBarButton.byId("sourceButton");
+							ToolBarButton srcBtn = ToolBarButton
+									.byId("sourceButton");
 							srcBtn.set("backTo", listItem.getString("viewId"));
 							srcBtn.select(true);
 							sourceButton.setInnerHTML(srcBtn.getBoolean(

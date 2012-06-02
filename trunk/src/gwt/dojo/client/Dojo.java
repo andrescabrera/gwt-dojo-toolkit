@@ -16,7 +16,6 @@
 package gwt.dojo.client;
 
 import gwt.dojo.client.util.JsArray;
-import gwt.dojo.client.util.JsObject;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -48,13 +47,13 @@ public class Dojo {
 		};
 		$wnd.require(dependencies, func);
 	}-*/;
-	
+
 	/**
 	 * 
 	 * @param dependency
 	 * @return
 	 */
-	public static native JsObject require(String dependency) /*-{
+	public static native <T extends JavaScriptObject> T require(String dependency) /*-{
 		return $wnd.require(dependency);
 	}-*/;
 

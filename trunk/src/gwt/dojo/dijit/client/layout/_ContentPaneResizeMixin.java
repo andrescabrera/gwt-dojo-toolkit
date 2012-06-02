@@ -15,25 +15,20 @@
  */
 package gwt.dojo.dijit.client.layout;
 
-/**
- * Provides resize functionality of {@code ContentPane}. If there's a single
- * layout widget child then it will call {@code resize()} with the same
- * dimensions as the {@code ContentPane}. Otherwise just calls resize on each
- * child.
- * 
- * @author ggeorg
- */
-public interface _ContentPaneResizeMixin {
+import gwt.dojo.dijit.client._WidgetBase;
+
+import com.google.gwt.core.client.JavaScriptObject;
+
+public class _ContentPaneResizeMixin extends JavaScriptObject {
+
+	public static _ContentPaneResizeMixin cast(IContentPaneResizeMixin widget) {
+		assert widget instanceof _WidgetBase : "Not a widget";
+		return ((_WidgetBase) widget).cast();
+	}
 
 	/**
-	 * doLayout: Boolean
-	 * <p>
-	 * If {@code false} don't adjust size of children; if {@code true} if there
-	 * is a single visible child widget, set it's size to however big the
-	 * {@code ContentPane} is.
+	 * Not directly instantiable.
 	 */
-	static final String DOLAYOUT = "doLayout";
-	
-	// TODO void resize();
-
+	protected _ContentPaneResizeMixin() {
+	}
 }

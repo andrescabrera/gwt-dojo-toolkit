@@ -15,7 +15,9 @@
  */
 package gwt.dojo.mobile.client;
 
-public class ToggleButton extends Button {
+import gwt.dojo.dijit.client.form.IToggleButtonMixin;
+
+public class ToggleButton extends Button implements IToggleButtonMixin {
 	
 	public static final String MODULE = "dojox/mobile/ToggleButton";
 

@@ -15,6 +15,10 @@
  */
 package gwt.dojo.dijit.client.form;
 
+import gwt.dojo.dijit.client._WidgetBase;
+
+import com.google.gwt.core.client.JavaScriptObject;
+
 /**
  * Mixin for widgets corresponding to native HTML elements such as <checkbox> or
  * <button>, which can be children of a <form> node or a {@link Form} widget.
@@ -24,74 +28,24 @@ package gwt.dojo.dijit.client.form;
  * 
  * @author ggeorg
  */
-public interface _FormWidgetMixin {
+public class _FormWidgetMixin extends JavaScriptObject {
+
+	public static _FormWidgetMixin cast(IFormWidgetMixin widget) {
+		assert widget instanceof _WidgetBase : "Not a widget";
+		return ((_WidgetBase) widget).cast();
+	}
 
 	/**
-	 * name: String
-	 * <p>
-	 * Name used when submitting form; same as "name" attribute or plain HTML
-	 * elements.
+	 * Not directly instantiable.
 	 */
-	static final String NAME = "name";
-
-	/**
-	 * alt: String
-	 * <p>
-	 * Corresponds to the native HTML <input> element's attribute.
-	 */
-	static final String ALT = "alt";
-
-	/**
-	 * value: String
-	 * <p>
-	 * Corresponds to the native HTML <input> element's attribute.
-	 */
-	static final String VALUE = "value";
-
-	/**
-	 * type: [const] String
-	 * <p>
-	 * Corresponds to the native HTML <input> element's attribute.
-	 */
-	static final String TYPE = "type";
-
-	/**
-	 * tabIndex: Integer
-	 * <p>
-	 * Order fields are traversed when user hits the tab key.
-	 */
-	static final String TABINDEX = "tabIndex";
-
-	/**
-	 * disabled: Boolean
-	 * <p>
-	 * Should this widget respond to user input? In markup, this is specified as
-	 * "disabled='disabled'", or just "disabled".
-	 */
-	static final String DISABLED = "disabled";
-
-	/**
-	 * intermediateChanges: Boolean
-	 * <p>
-	 * Fires {@code onChange} for each value change or only on demand.
-	 */
-	static final String INTERMEDIATECHANGES = "intermediateChanges";
-
-	/**
-	 * scrollOnFocus: Boolean
-	 * <p>
-	 * On focus, should this widget scroll into view?
-	 */
-	static final String SCROLLONFOCUS = "scrollOnFocus";
-
-	/**
-	 * Callback when this widget's value is changed.
-	 */
-	static final String ONCHANGE = "onChange";
-
+	protected _FormWidgetMixin() {
+	}
+	
 	/**
 	 * Put focus on this widget.
 	 */
-	void focus();
+	public final native void focus() /*-{
+		this.focus();
+	}-*/;
 
 }
