@@ -133,4 +133,44 @@ public class Main implements EntryPoint, RequireCallback {
 }
 }}}
 
-NOTE: Requiring dojox/mobile/compat is not necessary but is certainly best practice if your mobile web application should cater to multiple devices. Its functionality is not baked into dojox/mobile's base to keep dojox/mobile as compact as possible. 
+NOTE: Requiring dojox/mobile/compat is not necessary but is certainly best practice if your mobile web application should cater to multiple devices. Its functionality is not baked into dojox/mobile's base to keep dojox/mobile as compact as possible.
+
+= Adding Widgets To The Page =
+
+Before we start creating widgets, let's review a few of the widgets dojox/mobile proves:
+
+  * *View* - A view is a virtual "page" within a mobile app. It scrolls to the left and right and the page can be any number of views deep.
+  * *ScrollingView* - Allows for a header and/or footer to be anchored to the top or bottom allowing the middle content portion to be scrolled.
+  * *Button* - A simple button.
+  * *Switch* - An on/off toggling switch.
+  * *Heading* - A simple heading.
+  * *ListItem* - A basic list item.
+  * *TabBar & TabBarButton* - Tabbed content management.
+
+Now, let's create a basic view with heading, a few list items, and a switch. To do so, we need to modify the HTML page and add the following lines in the HTML body:
+
+{{{
+<!-- the view or "page"; select it as the "home" screen -->
+<div id="settings" data-dojo-type="dojox.mobile.View" data-dojo-props="selected: true">
+ 
+    <!-- a sample heading -->
+    <h1 data-dojo-type="dojox.mobile.Heading">Settings</h1>
+ 
+    <!-- a rounded rectangle list container -->
+    <ul data-dojo-type="dojox.mobile.RoundRectList">
+ 
+        <!-- list item with an icon containing a switch -->
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="icon:'../../app/images/i-icon-1.png'">
+            Airplane Mode
+            <!-- the switch -->
+            <div class="mblItemSwitch" data-dojo-type="dojox.mobile.Switch"></div>
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="icon:'../../app/images/i-icon-2.png', rightText:'mac'">
+            Wi-Fi
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="icon:'../../app/images/i-icon-3.png', rightText:'AcmePhone'">
+            Carrier
+        </li>
+    </ul>
+</div>
+}}}
