@@ -16,15 +16,25 @@
 package gwt.dojo.mobile.client;
 
 import gwt.dojo.dijit.client._WidgetBase;
+import gwt.dojo.dijit.client.form.IAutoCompleterMixin;
 
-public class ComboBox extends _WidgetBase {
-	
+/**
+ * A non-templated auto-completing text box widget.
+ * 
+ * @author ggeorg
+ */
+public class ComboBox extends _WidgetBase implements IAutoCompleterMixin {
+
 	public static final String MODULE = "dojox/mobile/ComboBox";
 
 	public static native ComboBox create() /*-{
 		return new $wnd.dojox.mobile.ComboBox();
 	}-*/;
-	
+
+	/**
+	 * Not directly instantiable. All subclasses must also define a protected,
+	 * empty, no-arg constructor.
+	 */
 	protected ComboBox() {
 	}
 

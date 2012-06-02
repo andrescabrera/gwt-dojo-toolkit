@@ -30,7 +30,7 @@ import gwt.dojo.dijit.client._Widget;
  * 
  * @author ggeorg
  */
-public class ContentPane extends _Widget implements _ContentPaneResizeMixin {
+public class ContentPane extends _Widget implements IContentPaneResizeMixin {
 
 	public static final String MODULE = "dijit/layout/ContentPane";
 

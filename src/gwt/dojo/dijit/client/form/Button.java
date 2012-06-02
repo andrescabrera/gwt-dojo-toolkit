@@ -25,13 +25,20 @@ package gwt.dojo.dijit.client.form;
  * 
  * @author ggeorg
  */
-public class Button extends _FormWidget implements _ButtonMixin {
+public class Button extends _FormWidget implements IButtonMixin {
 
 	public static final String MODULE = "dijit/form/Button";
 
 	public static native Button create() /*-{
 		return new $wnd.dijit.form.Button();
 	}-*/;
+
+	/**
+	 * duration: Number (1000)
+	 * <p>
+	 * Duration of selection, milliseconds or -1 for no post-click CSS styling.
+	 */
+	public static final String DURATION = "duration";
 
 	/**
 	 * showLabel: Boolean

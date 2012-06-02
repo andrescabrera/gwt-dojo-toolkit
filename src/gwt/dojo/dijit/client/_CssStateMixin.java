@@ -15,6 +15,8 @@
  */
 package gwt.dojo.dijit.client;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 /**
  * Mixin for widgets to set CSS classes on the widget DOM nodes depending on
  * hover/mouse press/focus state changes, and also higher-level state changes
@@ -22,21 +24,17 @@ package gwt.dojo.dijit.client;
  * 
  * @author ggeorg
  */
-public interface _CssStateMixin {
+public class _CssStateMixin extends JavaScriptObject {
+
+	public static _CssStateMixin cast(ICssStateMixin widget) {
+		assert widget instanceof _WidgetBase : "Not a widget";
+		return ((_WidgetBase) widget).cast();
+	}
 
 	/**
-	 * hovering: [readonly] Boolean
-	 * <p>
-	 * {@code true} if cursor is over this widget.
+	 * Not directly instantiable.
 	 */
-	static final String HOVERING = "hovering";
-
-	/**
-	 * active: [readonly] Boolean
-	 * <p>
-	 * {@code true} if mouse was pressed while over this widget, and hasn't been
-	 * released yet.
-	 */
-	static final String ACTIVE = "active";
+	protected _CssStateMixin() {
+	}
 
 }

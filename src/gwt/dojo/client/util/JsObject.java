@@ -18,11 +18,47 @@ package gwt.dojo.client.util;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class JsObject extends JavaScriptObject {
-
-	public static <T extends JsObject> T create() {
-		return JavaScriptObject.createObject().cast();
+	
+	public static JsObject cast(JavaScriptObject obj) {
+		return obj.cast();
 	}
 
+	public static JsObject create() {
+		return JavaScriptObject.createObject().cast();
+	};
+
+	public native static JsObject create(String property, Object value) /*-{
+		return { property: value }
+	}-*/;
+	
+	public native static JsObject create(String property, JavaScriptObject value) /*-{
+		return { property: value }
+	}-*/;
+	
+	public native static JsObject create(String property, JsObject value) /*-{
+		return { property: value }
+	}-*/;
+	
+	public native static JsObject create(String property, String value) /*-{
+		return { property: value }
+	}-*/;
+	
+	public native static JsObject create(String property, int value) /*-{
+		return { property: value }
+	}-*/;
+	
+	public native static JsObject create(String property, double value) /*-{
+		return { property: value }
+	}-*/;
+	
+	public native static JsObject create(String property, boolean value) /*-{
+		return { property: value }
+	}-*/;
+
+	/**
+	 * Not directly instantiable. All subclasses must also define a protected,
+	 * empty, no-arg constructor.
+	 */
 	protected JsObject() {
 	}
 

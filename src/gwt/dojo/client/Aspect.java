@@ -25,8 +25,22 @@ import com.google.gwt.core.client.JavaScriptObject;
  * 
  * @author ggeorg
  */
-public class Aspect extends JavaScriptObject {
+public class Aspect extends JsObject {
+	public static final String MODULE = "dojo/aspect";
+	
+	/**
+	 * Return instance of {@code Aspect} class.
+	 * 
+	 * @return {@code Aspect} instance.
+	 */
+	public static Aspect ref() {
+		return Dojo.require(MODULE);
+	}
 
+	/**
+	 * Not directly instantiable. All subclasses must also define a protected,
+	 * empty, no-arg constructor.
+	 */
 	protected Aspect() {
 	}
 

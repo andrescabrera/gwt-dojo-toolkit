@@ -15,8 +15,23 @@
  */
 package gwt.dojo.mobile.client;
 
-public class Overlay {
+import gwt.dojo.dijit.client._WidgetBase;
+
+/**
+ * A non-templated widget that animates up from the bottom, overlaying the
+ * current content.
+ * 
+ * @author ggeorg
+ */
+public class Overlay extends _WidgetBase {
 
 	public static final String MODULE = "dojox/mobile/Overlay";
+
+	public static native ListItem create() /*-{
+		return new $wnd.dojox.mobile.Overlay();
+	}-*/;
+
+	protected Overlay() {
+	}
 
 }

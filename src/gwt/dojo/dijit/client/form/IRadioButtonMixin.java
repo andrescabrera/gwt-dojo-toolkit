@@ -13,19 +13,13 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.mobile.client;
+package gwt.dojo.dijit.client.form;
 
-import gwt.dojo.dijit.client.form.IExpandingTextAreaMixin;
-
-public class ExpandingTextArea extends TextArea implements IExpandingTextAreaMixin {
-	
-	public static final String MODULE = "dojox/mobile/ExpandingTextArea";
-
-	public static native ExpandingTextArea create() /*-{
-		return new $wnd.dojox.mobile.ExpandingTextArea();
-	}-*/;
-	
-	protected ExpandingTextArea() {
-	}
+/**
+ * Mixin to provide widget functionality corresponding to an HTML checkbox.
+ * 
+ * @author ggeorg
+ */
+public interface IRadioButtonMixin {
 
 }

@@ -15,21 +15,29 @@
  */
 package gwt.dojo.dijit.client.form;
 
-import gwt.dojo.dijit.client._WidgetBase;
-
-import com.google.gwt.core.client.JavaScriptObject;
-
-public class _ButtonMixin extends JavaScriptObject {
-
-	public static _ButtonMixin cast(IButtonMixin widget) {
-		assert widget instanceof _WidgetBase : "Not a widget";
-		return ((_WidgetBase) widget).cast();
-	}
+/**
+ * Mixin to provide widget functionality corresponding to an HTML checkbox.
+ * 
+ * @author ggeorg
+ */
+public interface ICheckBoxMixin {
 
 	/**
-	 * Not directly instantiable.
+	 * value: String (default: "on")
+	 * <p>
+	 * As an initialization parameter, equivalent to value field on normal
+	 * checkbox (if checked, the value is passed as the value when form is
+	 * submitted).
 	 */
-	protected _ButtonMixin() {
-	}
-	
+	static final String VALUE = "value";
+
+	/**
+	 * readOnly: Boolean (default: false)
+	 * <p>
+	 * Should this widget respond to user input? In markup, this is specified as
+	 * "readOnly". Similar to disabled except readOnly form values are
+	 * submitted.
+	 */
+	static final String READONLY = "readOnly";
+
 }

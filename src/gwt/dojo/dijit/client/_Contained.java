@@ -15,6 +15,8 @@
  */
 package gwt.dojo.dijit.client;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 import gwt.dojo.client.util.JsObject;
 
 /**
@@ -22,13 +24,16 @@ import gwt.dojo.client.util.JsObject;
  * 
  * @author ggeorg
  */
-public class _Contained {
+public class _Contained extends JavaScriptObject {
 
 	public static _Container cast(IContained widget) {
 		assert widget instanceof _WidgetBase : "Not a widget";
 		return ((_WidgetBase) widget).cast();
 	}
 
+	/**
+	 * Not directly instantiable.
+	 */
 	protected _Contained() {
 	}
 

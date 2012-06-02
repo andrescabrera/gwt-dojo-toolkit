@@ -20,7 +20,7 @@ package gwt.dojo.dijit.client.form;
  * 
  * @author ggeorg
  */
-public class ToggleButton extends Button implements _ToggleButtonMixin {
+public class ToggleButton extends Button implements IToggleButtonMixin {
 
 	public static final String MODULE = "dijit/form/ToggleButton";
 
@@ -30,10 +30,5 @@ public class ToggleButton extends Button implements _ToggleButtonMixin {
 
 	protected ToggleButton() {
 	}
-
-	@Override
-	public final native void reset() /*-{
-		this.reset();
-	}-*/;
 
 }

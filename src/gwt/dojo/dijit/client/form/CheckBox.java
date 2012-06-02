@@ -20,7 +20,7 @@ package gwt.dojo.dijit.client.form;
  * 
  * @author ggeorg
  */
-public class CheckBox extends ToggleButton implements _CheckBoxMixin {
+public class CheckBox extends ToggleButton implements ICheckBoxMixin {
 
 	public static final String MODULE = "dijit/form/CheckBox";
 

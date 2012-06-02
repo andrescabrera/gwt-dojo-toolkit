@@ -15,26 +15,24 @@
  */
 package gwt.dojo.dijit.client.form;
 
-/**
- * A mixin to provide functionality to allow a button that can be in two states
- * (checked or not).
- * 
- * @author ggeorg
- */
-public interface _ToggleButtonMixin {
+import gwt.dojo.dijit.client._WidgetBase;
+
+import com.google.gwt.core.client.JavaScriptObject;
+
+public class _ToggleButtonMixin extends JavaScriptObject {
+
+	public static _ToggleButtonMixin cast(IToggleButtonMixin widget) {
+		assert widget instanceof _WidgetBase : "Not a widget";
+		return ((_WidgetBase) widget).cast();
+	}
 
 	/**
-	 * checked: Boolean
-	 * <p>
-	 * Corresponds to the native HTML <input> element's attribute. In markup,
-	 * specified as "checked='checked'" or just "checked". {@code true} if the
-	 * button is depressed, or the checkbox is checked, or the radio button is
-	 * selected, etc.
+	 * Not directly instantiable.
 	 */
-	static final String CHECKED = "checked";
+	protected _ToggleButtonMixin() {
+	}
 	
-	/**
-	 * Reset the widget's value to what it was at initialization time.
-	 */
-	void reset();
+	public final native void reset() /*-{
+		this.reset();
+	}-*/;
 }

@@ -27,11 +27,14 @@ public class Stateful extends JsObject {
 
 	public static final String MODULE = "dojo/Stateful";
 
-	@SuppressWarnings("unchecked")
 	public static native Stateful create() /*-{
 		return new $wnd.dojo.Stateful();
 	}-*/;
 
+	/**
+	 * Not directly instantiable. All subclasses must also define a protected,
+	 * empty, no-arg constructor.
+	 */
 	protected Stateful() {
 	}
 

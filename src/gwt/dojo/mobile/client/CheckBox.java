@@ -15,7 +15,14 @@
  */
 package gwt.dojo.mobile.client;
 
-public class CheckBox extends ToggleButton {
+import gwt.dojo.dijit.client.form.ICheckBoxMixin;
+
+/**
+ * A non-templated checkbox widget that can be in two states (checked or not).
+ * 
+ * @author ggeorg
+ */
+public class CheckBox extends ToggleButton implements ICheckBoxMixin {
 	
 	public static final String MODULE = "dojox/mobile/CheckBox";
 
@@ -23,6 +30,10 @@ public class CheckBox extends ToggleButton {
 		return new $wnd.dojox.mobile.CheckBox();
 	}-*/;
 	
+	/**
+	 * Not directly instantiable. All subclasses must also define a protected,
+	 * empty, no-arg constructor.
+	 */
 	protected CheckBox() {
 	}
 

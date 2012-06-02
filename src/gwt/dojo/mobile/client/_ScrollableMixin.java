@@ -15,15 +15,16 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.client.util.JsObject;
 import gwt.dojo.dijit.client._WidgetBase;
+
+import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Mixin for widgets to have touch scrolling capability.
  * 
  * @author ggeorg
  */
-public class _ScrollableMixin extends JsObject {
+public class _ScrollableMixin extends JavaScriptObject {
 
 	public static _ScrollableMixin cast(IScrollableMixin widget) {
 		assert widget instanceof _WidgetBase : "Not a widget";

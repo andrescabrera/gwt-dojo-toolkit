@@ -15,8 +15,6 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.client.util.JsObject;
-
 /**
  * Interface for widgets to generate the list items corresponding to the data
  * provider object.
@@ -31,18 +29,5 @@ public interface IDataListMixin {
 	 * Reference to data provider object.
 	 */
 	static final String STORE = "store";
-
-	/**
-	 * Sets the store to use with this widget.
-	 * 
-	 * @param store
-	 *            The store.
-	 */
-	void setStore(JsObject store);
-
-	/**
-	 * Fetches the data and generates the list items.
-	 */
-	void refresh();
 
 }

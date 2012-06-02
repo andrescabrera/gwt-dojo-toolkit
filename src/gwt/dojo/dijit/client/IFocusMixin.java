@@ -13,19 +13,22 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.mobile.client;
+package gwt.dojo.dijit.client;
 
-import gwt.dojo.dijit.client.form.IExpandingTextAreaMixin;
+/**
+ * Mixin to widget to provide {@code _onFocus()} and {@code _onBlur()} methods
+ * that fire when a widget or it's descendants get/lose focus.
+ * 
+ * @author ggeorg
+ */
+public interface IFocusMixin {
 
-public class ExpandingTextArea extends TextArea implements IExpandingTextAreaMixin {
-	
-	public static final String MODULE = "dojox/mobile/ExpandingTextArea";
-
-	public static native ExpandingTextArea create() /*-{
-		return new $wnd.dojox.mobile.ExpandingTextArea();
-	}-*/;
-	
-	protected ExpandingTextArea() {
-	}
+	/**
+	 * focused: [readonly] Boolean
+	 * <p>
+	 * This widget or a widget it containes has focus, or it "active" because it
+	 * was recently clicked.
+	 */
+	static final String FOCUSED = "focused";
 
 }

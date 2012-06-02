@@ -13,19 +13,22 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.mobile.client;
+package gwt.dojo.dijit.client.form;
 
-import gwt.dojo.dijit.client.form.IExpandingTextAreaMixin;
+import gwt.dojo.dijit.client._WidgetBase;
 
-public class ExpandingTextArea extends TextArea implements IExpandingTextAreaMixin {
-	
-	public static final String MODULE = "dojox/mobile/ExpandingTextArea";
+import com.google.gwt.core.client.JavaScriptObject;
 
-	public static native ExpandingTextArea create() /*-{
-		return new $wnd.dojox.mobile.ExpandingTextArea();
-	}-*/;
-	
-	protected ExpandingTextArea() {
+public class _ExpandingTextAreaMixin extends JavaScriptObject {
+
+	public static _ExpandingTextAreaMixin cast(IExpandingTextAreaMixin widget) {
+		assert widget instanceof _WidgetBase : "Not a widget";
+		return ((_WidgetBase) widget).cast();
 	}
 
+	/**
+	 * Not directly instantiable.
+	 */
+	protected _ExpandingTextAreaMixin() {
+	}
 }

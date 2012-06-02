@@ -18,6 +18,8 @@ package gwt.dojo.mobile.client;
 import gwt.dojo.client.util.JsObject;
 import gwt.dojo.dijit.client._WidgetBase;
 
+import com.google.gwt.core.client.JavaScriptObject;
+
 /**
  * Mixin for widgets to generate the list items corresponding to the data
  * provider object.
@@ -28,7 +30,7 @@ import gwt.dojo.dijit.client._WidgetBase;
  * 
  * @author ggeorg
  */
-public class _DataListMixin extends JsObject {
+public class _DataListMixin extends JavaScriptObject {
 
 	public static _DataListMixin cast(IDataListMixin widget) {
 		assert widget instanceof _WidgetBase : "Not a widget";
@@ -37,4 +39,22 @@ public class _DataListMixin extends JsObject {
 
 	protected _DataListMixin() {
 	}
+	
+	/**
+	 * Sets the store to use with this widget.
+	 * 
+	 * @param store
+	 *            The store.
+	 */
+	public final native void setStore(JsObject store) /*-{
+		this.setStore(store);
+	}-*/;
+
+	/**
+	 * Fetches the data and generates the list items.
+	 */
+	public final native void refresh() /*-{
+		this.refresh();
+	}-*/;
+
 }

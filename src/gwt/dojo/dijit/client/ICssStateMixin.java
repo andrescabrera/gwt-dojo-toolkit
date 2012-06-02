@@ -16,14 +16,27 @@
 package gwt.dojo.dijit.client;
 
 /**
- * Base class for all Dijit widgets.
+ * Mixin for widgets to set CSS classes on the widget DOM nodes depending on
+ * hover/mouse press/focus state changes, and also higher-level state changes
+ * such becoming disabled or selected.
  * 
  * @author ggeorg
  */
-public class _Widget extends _WidgetBase implements
-		/* _OnDijitClickMixin, */IFocusMixin {
+public interface ICssStateMixin {
 
-	protected _Widget() {
-	}
+	/**
+	 * hovering: [readonly] Boolean
+	 * <p>
+	 * {@code true} if cursor is over this widget.
+	 */
+	static final String HOVERING = "hovering";
+
+	/**
+	 * active: [readonly] Boolean
+	 * <p>
+	 * {@code true} if mouse was pressed while over this widget, and hasn't been
+	 * released yet.
+	 */
+	static final String ACTIVE = "active";
 
 }

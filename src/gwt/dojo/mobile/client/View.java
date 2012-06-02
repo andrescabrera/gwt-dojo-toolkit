@@ -21,9 +21,9 @@ import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._WidgetBase;
 
 public class View extends _WidgetBase implements IContainer, IContained {
-	
+
 	public static final String MODULE = "dojox/mobile/View";
-	
+
 	public static View byId(String id) {
 		return Registry.get().byId(id);
 	}
@@ -31,7 +31,7 @@ public class View extends _WidgetBase implements IContainer, IContained {
 	public static native View create() /*-{
 		return new $wnd.dojox.mobile.View();
 	}-*/;
-	
+
 	protected View() {
 	}
 

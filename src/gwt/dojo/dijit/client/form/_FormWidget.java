@@ -15,8 +15,8 @@
  */
 package gwt.dojo.dijit.client.form;
 
-import gwt.dojo.dijit.client._CssStateMixin;
-import gwt.dojo.dijit.client._TemplatedMixin;
+import gwt.dojo.dijit.client.ICssStateMixin;
+import gwt.dojo.dijit.client.ITemplatedMixin;
 import gwt.dojo.dijit.client._Widget;
 
 /**
@@ -29,15 +29,10 @@ import gwt.dojo.dijit.client._Widget;
  * 
  * @author ggeorg
  */
-public class _FormWidget extends _Widget implements _TemplatedMixin,
-		_CssStateMixin, _FormWidgetMixin {
+public class _FormWidget extends _Widget implements ITemplatedMixin,
+		ICssStateMixin, IFormWidgetMixin {
 
 	protected _FormWidget() {
 	}
-
-	@Override
-	public final native void focus() /*-{
-		this.focus();
-	}-*/;
 
 }

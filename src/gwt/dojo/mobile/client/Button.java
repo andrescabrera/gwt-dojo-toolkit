@@ -17,11 +17,14 @@ package gwt.dojo.mobile.client;
 
 import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._WidgetBase;
+import gwt.dojo.dijit.client.form.IButtonMixin;
+import gwt.dojo.dijit.client.form.IFormWidgetMixin;
 
-public class Button extends _WidgetBase {
-	
+public class Button extends _WidgetBase implements IFormWidgetMixin,
+		IButtonMixin {
+
 	public static final String MODULE = "dojox/mobile/Button";
-	
+
 	public static Button byId(String string) {
 		return Registry.get().byId(string);
 	}
@@ -29,7 +32,11 @@ public class Button extends _WidgetBase {
 	public static native Button create() /*-{
 		return new $wnd.dojox.mobile.Button();
 	}-*/;
-	
+
+	/**
+	 * Not directly instantiable. All subclasses must also define a protected,
+	 * empty, no-arg constructor.
+	 */
 	protected Button() {
 	}
 
