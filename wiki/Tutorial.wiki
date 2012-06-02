@@ -2,3 +2,4 @@
 #labels Featured
 
  * *Introduction to GWT Dojo Mobile*
+  * [HelloWorldMobile Hello, World!]
