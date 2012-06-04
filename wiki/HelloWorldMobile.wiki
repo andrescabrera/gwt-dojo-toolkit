@@ -196,3 +196,4 @@ Now, let's create a basic view with heading, a few list items, and a switch. To 
     </ul>
 </div>
 }}}
+*[http://ggeorg.arkasoft.com/wiki-mobile-1 View Demo]*
