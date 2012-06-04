@@ -128,7 +128,7 @@ public class Main implements EntryPoint, RequireCallback {
 	@Override
 	public void callback(JsObject arguments) {
 		// Parse the page for widgets!
-		Parser.get().parse();
+		Parser.ref().parse();
 	}
 }
 }}}
