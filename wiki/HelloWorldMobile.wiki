@@ -235,3 +235,6 @@ just after before the closing BODY tag in our HTML page. The "loadDiv" will hide
 		});
 	}
 }}}
+
+|| http://qrcode.kaywa.com/img.php?s=5&d=http%3A%2F%2Ftinyurl.com%2Fcc4mqv3&t=img.png ||
+*[http://ggeorg.arkasoft.com/wiki-mobile-2/index.html View Demo]*
