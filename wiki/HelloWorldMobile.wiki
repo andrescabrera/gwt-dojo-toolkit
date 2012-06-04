@@ -147,7 +147,7 @@ Before we start creating widgets, let's review a few of the widgets dojox/mobile
   * *ListItem* - A basic list item.
   * *TabBar & TabBarButton* - Tabbed content management.
 
-Now, let's create a basic view with heading, a few list items, and a switch. To do so, we need to modify the HTML page and add the following lines in the HTML body:
+Now, let's create a basic mobile web application with two views and headings; a few list items, and a switch. To do so, we need to modify the HTML page and add the following lines in the HTML body:
 
 {{{
 <div id="general" data-dojo-type="dojox.mobile.View">
