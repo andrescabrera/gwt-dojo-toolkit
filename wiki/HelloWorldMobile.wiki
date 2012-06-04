@@ -220,7 +220,7 @@ NOTE: There is a small cosmetic issue at startup. One possible fix for that is t
 }}}
 just before the closing BODY tag in our HTML page.
 
-The "loadDiv" will hide the UI declarations during the loading and parsing period. But, once the application is started we need to hide it. To do that we do the following change in the application EntryPoint class:
+The "loadDiv" will hide the UI declarations during the loading and parsing period. Once the application is started we need to hide it. To do that we do the following change in the application EntryPoint class:
 {{{
 	@Override
 	public void callback(JsObject arguments) {
