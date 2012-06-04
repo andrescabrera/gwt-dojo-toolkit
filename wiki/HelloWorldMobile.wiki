@@ -228,9 +228,9 @@ The "loadDiv" will hide the UI declarations during the loading and parsing perio
 		Parser.ref().parse();
 
 		// Hide the "loadDiv" once the selected View is started.
-		Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+		Dojo.subscribe("/dojox/mobile/startView", new SubscribeCallback() {
 			@Override
-			public void execute() {
+			public void callback(JsObject source, TopicEvent event) {
 				Document.get().getElementById("loadDiv").getStyle()
 						.setVisibility(Visibility.HIDDEN);
 			}
