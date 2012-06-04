@@ -210,7 +210,7 @@ Now, let's create a basic mobile web application with two views and headings; a 
 
 Congratulations, you've just created your first dojox/mobile web application! While your mobile web application will be more complex than our sample above, it's important to note that dojox/mobile provides the basic themes, widgets, methodology for creating multi-view web applications.
 
- ---- 
+----
 
 There is a small cosmetic issue at startup. One possible fix for that is to add:
 {{{
