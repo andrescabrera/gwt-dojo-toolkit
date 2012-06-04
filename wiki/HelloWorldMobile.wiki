@@ -228,8 +228,13 @@ The "loadDiv" will hide the UI declarations during the loading and parsing perio
 		Parser.ref().parse();
 
 		// Hide the "loadDiv" once the selected View is started.
-		Document.get().getElementById("loadDiv").getStyle()
-				.setVisibility(Visibility.HIDDEN);
+		Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+			@Override
+			public void execute() {
+				Document.get().getElementById("loadDiv").getStyle()
+						.setVisibility(Visibility.HIDDEN);
+			}
+		});
 	}
 }}}
 
