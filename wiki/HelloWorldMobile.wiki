@@ -197,3 +197,5 @@ Now, let's create a basic view with heading, a few list items, and a switch. To 
 </div>
 }}}
 *[http://ggeorg.arkasoft.com/wiki-mobile-1/index.html View Demo]*
+
+Congratulations, you've just created your first dojox/mobile web application! While your mobile web application will be more complex than our sample above, it's important to note that dojox/mobile provides the basic themes, widgets, methodology for creating multi-view web applications.
