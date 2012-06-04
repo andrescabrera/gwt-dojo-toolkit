@@ -218,7 +218,7 @@ OK, there is a small cosmetic issue at startup. One possible fix for that is to 
 	<span style="display:table-cell; vertical-align:middle; font-size: 150%;"">Loading...</span>
 </div>
 }}}
-just after before the closing </body> tag in our HTML page. The "loadDiv" will hide the UI declarations, but, once the application is started we need to hide it. To do that we do the following change in the Main.java EntryPoint class:
+just after before the closing BODY tag in our HTML page. The "loadDiv" will hide the UI declarations, but, once the application is started we need to hide it. To do that we do the following change in the Main.java EntryPoint class:
 {{{
 	@Override
 	public void callback(JsObject arguments) {
