@@ -15,6 +15,7 @@
  */
 package gwt.dojo.mobile.client;
 
+import gwt.dojo.client.Dojo;
 import gwt.dojo.client.util.JsArray;
 import gwt.dojo.client.util.JsObject;
 
@@ -24,9 +25,9 @@ public class Parser extends JsObject {
 
 	public static final String MODULE = "dojox/mobile/parser";
 
-	public static native Parser get() /*-{
-		return $wnd.dojox.mobile.parser;
-	}-*/;
+	public static  Parser ref() {
+		return Dojo.require(MODULE);
+	}
 
 	protected Parser() {
 	}
