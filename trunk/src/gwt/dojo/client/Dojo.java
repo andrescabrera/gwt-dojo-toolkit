@@ -18,6 +18,7 @@ package gwt.dojo.client;
 import gwt.dojo.client.util.JsArray;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.Element;
 
 public class Dojo {
 
@@ -40,9 +41,10 @@ public class Dojo {
 				callback.@gwt.dojo.client.RequireCallback::callback(Lgwt/dojo/client/util/JsObject;)(arguments);
 			} else {
 				var _arguments = arguments;
-				$wnd.dojo.ready(function() {
-					callback.@gwt.dojo.client.RequireCallback::callback(Lgwt/dojo/client/util/JsObject;)(_arguments);
-				});
+				$wnd.dojo
+						.ready(function() {
+							callback.@gwt.dojo.client.RequireCallback::callback(Lgwt/dojo/client/util/JsObject;)(_arguments);
+						});
 			}
 		};
 		$wnd.require(dependencies, func);
@@ -53,7 +55,8 @@ public class Dojo {
 	 * @param dependency
 	 * @return
 	 */
-	public static native <T extends JavaScriptObject> T require(String dependency) /*-{
+	public static native <T extends JavaScriptObject> T require(
+			String dependency) /*-{
 		return $wnd.require(dependency);
 	}-*/;
 
@@ -88,6 +91,29 @@ public class Dojo {
 	 */
 	public static native String toJson(JavaScriptObject obj, boolean prettyPrint) /*-{
 		return $wnd.dojo.toJson(obj, prettyPrint);
+	}-*/;
+
+	/**
+	 * 
+	 * @param node
+	 * @param type
+	 * @param callback
+	 * @return
+	 */
+	public static final native EventHandle on(Element node, String event,
+			EventCallback callback) /*-{
+		var func = function(e) {
+			try {
+				callback.@gwt.dojo.client.EventCallback::callback(Lgwt/dojo/client/util/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(this,e);
+			} catch (e) {
+				alert(e)
+			}
+		};
+		try {
+			return $wnd.require('dojo/on')(node, event, func);
+		} catch (e) {
+			alert(e)
+		}
 	}-*/;
 
 	/**
