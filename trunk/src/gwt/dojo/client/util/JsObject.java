@@ -16,9 +16,10 @@
 package gwt.dojo.client.util;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.Element;
 
 public class JsObject extends JavaScriptObject {
-	
+
 	public static JsObject cast(JavaScriptObject obj) {
 		return obj.cast();
 	}
@@ -27,33 +28,33 @@ public class JsObject extends JavaScriptObject {
 		return JavaScriptObject.createObject().cast();
 	};
 
-	public native static JsObject create(String property, Object value) /*-{
-		return { property: value }
-	}-*/;
-	
-	public native static JsObject create(String property, JavaScriptObject value) /*-{
-		return { property: value }
-	}-*/;
-	
-	public native static JsObject create(String property, JsObject value) /*-{
-		return { property: value }
-	}-*/;
-	
-	public native static JsObject create(String property, String value) /*-{
-		return { property: value }
-	}-*/;
-	
-	public native static JsObject create(String property, int value) /*-{
-		return { property: value }
-	}-*/;
-	
-	public native static JsObject create(String property, double value) /*-{
-		return { property: value }
-	}-*/;
-	
-	public native static JsObject create(String property, boolean value) /*-{
-		return { property: value }
-	}-*/;
+	public static JsObject create(String property, Object value) {
+		return create().put(property, value);
+	};
+
+	public static JsObject create(String property, JavaScriptObject value) {
+		return create().put(property, value);
+	};
+
+	public static JsObject create(String property, JsObject value) {
+		return create().put(property, value);
+	};
+
+	public static JsObject create(String property, String value) {
+		return create().put(property, value);
+	};
+
+	public static JsObject create(String property, int value) {
+		return create().put(property, value);
+	};
+
+	public static JsObject create(String property, double value) {
+		return create().put(property, value);
+	};
+
+	public static JsObject create(String property, boolean value){
+		return create().put(property, value);
+	};
 
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,
@@ -96,6 +97,19 @@ public class JsObject extends JavaScriptObject {
 	};
 
 	public final native JsObject put(String property, JsObject value) /*-{
+		this[property] = value;
+		return this;
+	}-*/;
+
+	// JavaScriptObject property
+
+	@SuppressWarnings("unchecked")
+	public final <T extends Element> T getElement(String property) {
+		Object o = get(property);
+		return o != null && o instanceof Element ? (T) o : null;
+	};
+
+	public final native JsObject put(String property, Element value) /*-{
 		this[property] = value;
 		return this;
 	}-*/;
