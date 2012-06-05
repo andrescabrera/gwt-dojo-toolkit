@@ -17,9 +17,9 @@ package gwt.dojo.mobile.client;
 
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
-import gwt.dojo.dijit.client._WidgetBase;
+import gwt.dojo.dijit.client._ContainMixin;
 
-public class _ItemBase extends _WidgetBase implements IContainer, IContained {
+public class _ItemBase extends _ContainMixin implements IContainer, IContained {
 
 	/**
 	 * Default constructor.
