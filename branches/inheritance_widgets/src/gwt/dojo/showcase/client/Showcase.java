@@ -23,9 +23,7 @@ import gwt.dojo.client.SubscribeCallback;
 import gwt.dojo.client.TopicEvent;
 import gwt.dojo.client.util.JsArray;
 import gwt.dojo.client.util.JsObject;
-import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client.Registry;
-import gwt.dojo.dijit.client._Container;
 import gwt.dojo.dijit.client._WidgetBase;
 import gwt.dojo.mobile.client.EdgeToEdgeCategory;
 import gwt.dojo.mobile.client.EdgeToEdgeList;
@@ -41,7 +39,6 @@ import gwt.dojo.showcase.client.controllers.FormsController;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.RunAsyncCallback;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
@@ -127,92 +124,92 @@ public class Showcase implements EntryPoint {
 
 		EdgeToEdgeCategory cat = EdgeToEdgeCategory.create();
 		cat.set("label", "Controls");
-		_Container.cast((IContainer) navView).addChild(cat);
+		navView.addChild(cat);
 
 		EdgeToEdgeList list = EdgeToEdgeList.create();
 		list.set("id", "controls").set("iconBase",
 				"images/navigation_list_all_29.png");
-		_Container.cast(navView).addChild(list);
+		navView.addChild(list);
 
 		ListItem item = ListItem.create();
 		item.set("viewId", "buttons").set("label", "Buttons")
 				.set("iconPos", "0,0,29,29")
 				.set("demourl", "views/buttons.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		item = ListItem.create();
 		item.set("viewId", "forms").set("label", "Forms")
 				.set("iconPos", "29,0,29,29")
 				.set("demourl", "views/forms.html").set("moveTo", "#");
 		item.on("click", new FormsController(this));
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		item = ListItem.create();
 		item.set("viewId", "mobileSwitches").set("label", "Switches")
 				.set("iconPos", "29,0,29,29")
 				.set("demourl", "views/mobileSwitches.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		item = ListItem.create();
 		item.set("viewId", "flippableView").set("label", "Flippable")
 				.set("iconPos", "58,0,29,29")
 				.set("demourl", "views/flippableViews.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		item = ListItem.create();
 		item.set("viewId", "icons").set("label", "Icons")
 				.set("iconPos", "87,0,29,29");
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		item = ListItem.create();
 		item.set("viewId", "tabBar").set("label", "Tab Bar")
 				.set("iconPos", "116,0,29,29")
 				.set("demourl", "views/tabBar.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		item = ListItem.create();
 		item.set("viewId", "headings").set("label", "Headings")
 				.set("iconPos", "145,0,29,29");
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		item = ListItem.create();
 		item.set("viewId", "list").set("label", "Lists")
 				.set("iconPos", "203,0,29,29")
 				.set("demourl", "views/lists.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		cat = EdgeToEdgeCategory.create();
 		cat.set("label", "Effects");
-		_Container.cast(navView).addChild(cat);
+		navView.addChild(cat);
 
 		list = EdgeToEdgeList.create();
 		list.set("id", "effects").set("iconBase",
 				"images/navigation_list_all_29.png");
-		_Container.cast(navView).addChild(list);
+		navView.addChild(list);
 
 		item = ListItem.create();
 		item.set("viewId", "mobileTransitions").set("label", "Transitions")
 				.set("iconPos", "290,0,29,29");
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		item = ListItem.create();
 		item.set("viewId", "css3").set("label", "CSS 3")
 				.set("iconPos", "406,0,29,29");
-		_Container.cast(list).addChild(item);
+		list.addChild(item);
 
 		cat = EdgeToEdgeCategory.create();
 		cat.set("label", "Data");
-		_Container.cast(navView).addChild(cat);
+		navView.addChild(cat);
 
 		list = EdgeToEdgeList.create();
 		list.set("id", "dataList").set("iconBase",
 				"images/navigation_list_all_29.png");
-		_Container.cast(navView).addChild(list);
+		navView.addChild(list);
 	}
 
 	/**

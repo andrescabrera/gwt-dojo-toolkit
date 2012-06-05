@@ -16,9 +16,9 @@
 package gwt.dojo.mobile.client;
 
 import gwt.dojo.dijit.client.IContained;
-import gwt.dojo.dijit.client._WidgetBase;
+import gwt.dojo.dijit.client._Contained;
 
-public class SpinWheelSlot extends _WidgetBase implements IContained,
+public class SpinWheelSlot extends _Contained implements IContained,
 		IScrollableMixin {
 
 	public static final String MODULE = "dojox/mobile/SpinWheelSlot";

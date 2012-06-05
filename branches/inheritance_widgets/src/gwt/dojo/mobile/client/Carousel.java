@@ -18,14 +18,14 @@ package gwt.dojo.mobile.client;
 import gwt.dojo.client.util.JsObject;
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
-import gwt.dojo.dijit.client._WidgetBase;
+import gwt.dojo.dijit.client._ContainMixin;
 
 /**
  * A carousel widget that manages a list of images.
  * 
  * @author ggeorg
  */
-public class Carousel extends _WidgetBase implements IContainer, IContained {
+public class Carousel extends _ContainMixin implements IContainer, IContained {
 
 	public static final String MODULE = "dojox/mobile/Carousel";
 
@@ -109,7 +109,7 @@ public class Carousel extends _WidgetBase implements IContainer, IContained {
 			JsObject queryOptions) /*-{
 		this.setStore(store, query, queryOptions);
 	}-*/;
-	
+
 	public final native void refresh() /*-{
 		this.refresh();
 	}-*/;
