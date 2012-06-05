@@ -35,4 +35,30 @@ public class View extends _WidgetBase implements IContainer, IContained {
 	protected View() {
 	}
 
+	/**
+	 * 
+	 * @param moveTo
+	 *            The id of the transition destination view which resides in the
+	 *            current page.
+	 *            <p>
+	 *            TODO
+	 * 
+	 * @param dir
+	 *            The transition direction. If 1, transition forward. If -1,
+	 *            transition backward. For example, the slide transition slides
+	 *            the view from right to left when dir == 1, and from left to
+	 *            right when dir == -1.
+	 * @param transition
+	 *            A type of animated transition effect. You can choose from the
+	 *            standard transition types, "slide", "fade", "flip", or from
+	 *            the extended transition types, "cover", "coverv", "dissolve",
+	 *            "reveal", "revealv", "scaleIn", "scaleOut", "slidev", "swirl",
+	 *            "zoomIn", "zoomOut". If "none" is specified, transition occurs
+	 *            immediately without animation.
+	 */
+	public final native void performTransition(String moveTo, int dir,
+			String transition) /*-{
+		this.performTransition(moveTo, dir, transition);
+	}-*/;
+
 }
