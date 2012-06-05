@@ -228,11 +228,19 @@ public class _WidgetBase extends Stateful {
 	 */
 	public final native EventHandle on(String type, EventCallback callback) /*-{
 		var func = function(e) {
-			try{
-			callback.@gwt.dojo.client.EventCallback::callback(Lgwt/dojo/client/util/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(this,e);
-			}catch(e){alert(e)};
+			try {
+				callback.@gwt.dojo.client.EventCallback::callback(Lgwt/dojo/client/util/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(this,e);
+			} catch (e) {
+				alert(e)
+			}
+			;
 		};
-		return this.on(type, func);
+		try {
+			return this.on(type, func);
+		} catch (e) {
+			alert(e)
+		}
+		;
 	}-*/;
 
 	/**
