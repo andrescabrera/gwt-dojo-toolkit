@@ -15,6 +15,9 @@
  */
 package gwt.dojo.client;
 
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.Element;
+
 import gwt.dojo.client.util.JsObject;
 
 /**
@@ -41,6 +44,27 @@ public class Stateful extends JsObject {
 	// Object property
 
 	public final native Stateful set(String property, Object value) /*-{
+		this.set(property, value);
+		return this;
+	}-*/;
+
+	// JavaScriptObject property
+
+	public final native JsObject set(String property, JavaScriptObject value) /*-{
+		this.set(property, value);
+		return this;
+	}-*/;
+
+	// JsObject property
+
+	public final native JsObject set(String property, JsObject value) /*-{
+		this.set(property, value);
+		return this;
+	}-*/;
+	
+	// JavaScriptObject property
+
+	public final native JsObject set(String property, Element value) /*-{
 		this.set(property, value);
 		return this;
 	}-*/;
