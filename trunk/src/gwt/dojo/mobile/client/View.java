@@ -36,6 +36,8 @@ public class View extends _WidgetBase implements IContainer, IContained {
 	}
 
 	/**
+	 * Method to perform the various types of view transitions, such as fade,
+	 * slide, and flip.
 	 * 
 	 * @param moveTo
 	 *            The id of the transition destination view which resides in the

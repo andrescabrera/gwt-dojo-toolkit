@@ -35,4 +35,11 @@ public interface IScrollableMixin {
 	 * Id of the fixed footer.
 	 */
 	static final String FIXEDFOOTER = "fixedFooter";
+	
+	/**
+	 * scrollDir: String (default: "v")
+	 * <p>
+	 * v: vertical, h: horizontal, vh: both, f: flip
+	 */
+	static final String SCROLLDIR = "scrollDir";
 }
