@@ -35,7 +35,7 @@ public class MessageHub extends JsObject {
 	 * 
 	 * @return {@code MessageHub} instance.
 	 */
-	public static MessageHub ref() {
+	private static MessageHub ref() {
 		return Dojo.require(MODULE);
 	}
 
@@ -55,17 +55,17 @@ public class MessageHub extends JsObject {
 	 * @param message
 	 *            A message to distribute to the topic listeners.
 	 */
-	public final void publish(String topic, Object... message) {
+	public static void publish(String topic, Object... message) {
 		JsArray args = JavaScriptObject.createArray().cast();
 		if (message != null) {
 			for (int i = 0, n = message.length; i < n; i++) {
 				args.push(message[i]);
 			}
 		}
-		this.publish(topic, args);
+		ref()._publish(topic, args);
 	};
 
-	private final native void publish(String topic, JsArray args) /*-{
+	private final native void _publish(String topic, JsArray args) /*-{
 		this.publish(topic, args);
 	}-*/;
 
@@ -80,7 +80,12 @@ public class MessageHub extends JsObject {
 	 * @return A simple object containing a {@code remove()} method, which can
 	 *         be called to unsubscribe the listener.
 	 */
-	public final native SubscribeHandle subscribe(String topic,
+	public static SubscribeHandle subscribe(String topic,
+			SubscribeCallback callback) {
+		return ref()._subscribe(topic, callback);
+	}
+
+	private final native SubscribeHandle _subscribe(String topic,
 			SubscribeCallback callback) /*-{
 		var func = function(message) {
 			if (!(typeof message == 'object' && message instanceof Array)) {
