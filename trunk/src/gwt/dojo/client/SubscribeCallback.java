@@ -17,6 +17,10 @@ package gwt.dojo.client;
 
 import gwt.dojo.client.util.JsObject;
 
+/**
+ * 
+ * @author ggeorg
+ */
 public interface SubscribeCallback {
-	void callback(JsObject source, TopicEvent event);
+	void callback(String topic, JsObject message);
 }
