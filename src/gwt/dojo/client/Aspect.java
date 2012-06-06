@@ -17,8 +17,6 @@ package gwt.dojo.client;
 
 import gwt.dojo.client.util.JsObject;
 
-import com.google.gwt.core.client.JavaScriptObject;
-
 /**
  * Provides aspect oriented programming functionality, allowing for one to add
  * before, around, or after advice on existing methods.
@@ -38,8 +36,7 @@ public class Aspect extends JsObject {
 	}
 
 	/**
-	 * Not directly instantiable. All subclasses must also define a protected,
-	 * empty, no-arg constructor.
+	 * Not directly instantiable.
 	 */
 	protected Aspect() {
 	}

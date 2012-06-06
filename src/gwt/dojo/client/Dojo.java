@@ -143,43 +143,6 @@ public class Dojo {
 		return $wnd.dojo.connect(obj, event, context, func);
 	}-*/;
 
-	/**
-	 * Publishes a message to a topic on the pub/sub hub.
-	 * <p>
-	 * Requires: "dojo/topic"
-	 * 
-	 * @param topic
-	 *            The name of the topic to publish to.
-	 * @param event
-	 *            An event to distribute to the listeners.
-	 */
-	public static native void publish(String topic, Object event) /*-{
-		$wnd.dojo.publish(topic, event);
-	}-*/;
-
-	/**
-	 * Subscribes to topic on the pub/sub hub.
-	 * <p>
-	 * Note: "dojo/topic"
-	 * 
-	 * @param topic
-	 *            The topic to subscribe to.
-	 * @param callback
-	 *            A function callback to call when a message is published to the
-	 *            given topic.
-	 */
-	public static native SubscribeHandle subscribe(String topic,
-			SubscribeCallback callback) /*-{
-		var func = function(event) {
-			var data = {
-				topic : topic,
-				event : event
-			};
-			callback.@gwt.dojo.client.SubscribeCallback::callback(Lgwt/dojo/client/util/JsObject;Lgwt/dojo/client/TopicEvent;)(this,data);
-		};
-		return $wnd.dojo.subscribe(topic, func);
-	}-*/;
-
 	private Dojo() {
 		// hidden constructor
 	}

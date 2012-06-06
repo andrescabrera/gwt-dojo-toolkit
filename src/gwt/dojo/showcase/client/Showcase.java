@@ -18,9 +18,9 @@ package gwt.dojo.showcase.client;
 import gwt.dojo.client.ConnectCallback;
 import gwt.dojo.client.Dojo;
 import gwt.dojo.client.EventCallback;
+import gwt.dojo.client.MessageHub;
 import gwt.dojo.client.RequireCallback;
 import gwt.dojo.client.SubscribeCallback;
-import gwt.dojo.client.TopicEvent;
 import gwt.dojo.client.util.JsArray;
 import gwt.dojo.client.util.JsObject;
 import gwt.dojo.dijit.client.IContainer;
@@ -41,7 +41,6 @@ import gwt.dojo.showcase.client.controllers.FormsController;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.RunAsyncCallback;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
@@ -96,11 +95,17 @@ public class Showcase implements EntryPoint {
 
 		initNavList();
 
-		Dojo.subscribe("showView", new SubscribeCallback() {
+		MessageHub.ref().subscribe("showView", new SubscribeCallback() {
+//			@Override
+//			public void callback(JsObject source, TopicEvent event) {
+//				final ListItem listItem = source.cast();
+//				showView(listItem);
+//			}
+
 			@Override
-			public void callback(JsObject source, TopicEvent event) {
-				final ListItem listItem = source.cast();
-				showView(listItem);
+			public void callback(String topic, JsObject message) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 
