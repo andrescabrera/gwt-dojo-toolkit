@@ -95,7 +95,7 @@ public class Showcase implements EntryPoint {
 
 		initNavList();
 
-		MessageHub.ref().subscribe("showView", new SubscribeCallback() {
+		MessageHub.subscribe("showView", new SubscribeCallback() {
 //			@Override
 //			public void callback(JsObject source, TopicEvent event) {
 //				final ListItem listItem = source.cast();
@@ -103,7 +103,7 @@ public class Showcase implements EntryPoint {
 //			}
 
 			@Override
-			public void callback(String topic, JsObject message) {
+			public void callback(String topic, JsArray message) {
 				// TODO Auto-generated method stub
 				
 			}
