@@ -15,12 +15,21 @@
  */
 package gwt.dojo.client;
 
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.client.util.JsArray;
 
 /**
+ * Callback to call when a message is published to a topic on the pub/sub hub.
  * 
  * @author ggeorg
  */
 public interface SubscribeCallback {
-	void callback(String topic, JsObject message);
+	/**
+	 * The callback method to implement by handlers.
+	 * 
+	 * @param topic
+	 *            The topic of the message.
+	 * @param message
+	 *            The message as a single argument which is an array.
+	 */
+	void callback(String topic, JsArray message);
 }

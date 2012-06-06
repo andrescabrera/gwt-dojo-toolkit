@@ -83,7 +83,14 @@ public class MessageHub extends JsObject {
 	public final native SubscribeHandle subscribe(String topic,
 			SubscribeCallback callback) /*-{
 		var func = function(message) {
-			callback.@gwt.dojo.client.SubscribeCallback::callback(Ljava/lang/String;Lgwt/dojo/client/util/JsObject;)(topic, message);
+			if (!(typeof message == 'object' && message instanceof Array)) {
+				if (message) {
+					message = [ message ];
+				} else {
+					message = [];
+				}
+			}
+			callback.@gwt.dojo.client.SubscribeCallback::callback(Ljava/lang/String;Lgwt/dojo/client/util/JsArray;)(topic, message);
 		}
 		return this.subscribe(topic, func);
 	}-*/;
