@@ -25,18 +25,26 @@ public class Parser extends JsObject {
 
 	public static final String MODULE = "dojox/mobile/parser";
 
-	public static  Parser ref() {
+	private static Parser ref() {
 		return Dojo.require(MODULE);
 	}
 
 	protected Parser() {
 	}
 
-	public final native JsArray/*<JsObject>*/ parse() /*-{
+	public static JsArray/* <JsObject> */parse() {
+		return ref()._parse();
+	}
+
+	private final native JsArray/* <JsObject> */_parse() /*-{
 		return this.parse();
 	}-*/;
+	
+	public static JsArray/* <JsObject> */parse(Element node) {
+		return ref()._parse(node);
+	}
 
-	public final native JsArray/*<JsObject>*/ parse(Element node) /*-{
+	public final native JsArray/* <JsObject> */_parse(Element node) /*-{
 		return this.parse(node);
 	}-*/;
 }

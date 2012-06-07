@@ -23,6 +23,9 @@ import gwt.dojo.client.util.JsObject;
 /**
  * Base class for objects that provide named properties with optional
  * getter/setter control and the ability to watch for property changes.
+ * <p>
+ * This class can be very useful for creating live bindings that utilize current
+ * property states and must react to any changes in properties.
  * 
  * @author ggeorg
  */
@@ -61,7 +64,7 @@ public class Stateful extends JsObject {
 		this.set(property, value);
 		return this;
 	}-*/;
-	
+
 	// JavaScriptObject property
 
 	public final native JsObject set(String property, Element value) /*-{
@@ -112,10 +115,10 @@ public class Stateful extends JsObject {
 	 *         property.
 	 */
 	public final native WatchHandle watch(String name, WatchCallback callback) /*-{
-		var func = function(name, oldValue, newValue) {
+		var func = function(name, oldValue, value) {
 			var event = {
 				oldValue : oldValue,
-				newValue : newValue
+				value : value
 			};
 			callback.@gwt.dojo.client.WatchCallback::callback(Lgwt/dojo/client/util/JsObject;Ljava/lang/String;Lgwt/dojo/client/PropertyChangeEvent;)(this, name, event);
 		};
