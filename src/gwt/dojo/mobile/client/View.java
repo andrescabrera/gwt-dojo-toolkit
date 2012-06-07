@@ -17,16 +17,11 @@ package gwt.dojo.mobile.client;
 
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
-import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._WidgetBase;
 
 public class View extends _WidgetBase implements IContainer, IContained {
 
 	public static final String MODULE = "dojox/mobile/View";
-
-	public static View byId(String id) {
-		return Registry.get().byId(id);
-	}
 
 	public static native View create() /*-{
 		return new $wnd.dojox.mobile.View();
@@ -61,6 +56,22 @@ public class View extends _WidgetBase implements IContainer, IContained {
 	public final native void performTransition(String moveTo, int dir,
 			String transition) /*-{
 		this.performTransition(moveTo, dir, transition);
+	}-*/;
+
+	/**
+	 * Find the currently showing view from any sibling views.
+	 * 
+	 * @return The currently showing view.
+	 */
+	public final native View getShowingView() /*-{
+		return this.getShowingView();
+	}-*/;
+
+	/**
+	 * Shows this view without a transition animation.
+	 */
+	public final native void show() /*-{
+		this.show();
 	}-*/;
 
 }

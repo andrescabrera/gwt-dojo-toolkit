@@ -24,6 +24,12 @@ import gwt.dojo.client.util.JsObject;
  */
 public interface WatchCallback {
 
+	/**
+	 * 
+	 * @param source
+	 * @param name
+	 * @param event
+	 */
 	void callback(JsObject source, String name,
 			PropertyChangeEvent event);
 

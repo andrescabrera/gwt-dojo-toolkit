@@ -84,7 +84,7 @@ public class Showcase implements EntryPoint {
 	}
 
 	protected void startup(JsObject arguments) {
-		Parser.ref().parse();
+		Parser.parse();
 
 		{
 			// initialize view with two splitter panes
@@ -276,7 +276,7 @@ public class Showcase implements EntryPoint {
 								.createDivElement();
 						tmpContainer.setInnerHTML(response.getText());
 						rightPane.appendChild(tmpContainer);
-						JsArray ws = Parser.ref().parse(tmpContainer);
+						JsArray ws = Parser.parse(tmpContainer);
 						for (int i = 0, n = ws.length(); i < n; i++) {
 							if (ws.getJsObject(i).hasProperty("startup")) {
 								_WidgetBase.cast(ws.getJsObject(i)).startup();

@@ -17,10 +17,14 @@ package gwt.dojo.client;
 
 import gwt.dojo.client.util.JsObject;
 
+/**
+ * 
+ * @author ggeorg
+ */
 public class PropertyChangeEvent extends JsObject {
 	
-	public static final String OLD_VALUE = "oldValue";
-	public static final String NEW_VALUE = "newValue";
+	public static final String OLDVALUE = "oldValue";
+	public static final String VALUE = "value";
 	
 	protected PropertyChangeEvent() {
 	}
