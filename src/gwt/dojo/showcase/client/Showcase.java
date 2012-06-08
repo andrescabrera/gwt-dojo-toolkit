@@ -337,7 +337,7 @@ public class Showcase implements EntryPoint {
 	}
 
 	protected void initView(final ListItem listItem) {
-		View view = View.byId(listItem.getString("viewId"));
+		View view = Registry.get().byId(listItem.getString("viewId"));
 
 		final String viewType = listItem.hasProperty("viewType") ? listItem
 				.getString("viewType") : "demo";
