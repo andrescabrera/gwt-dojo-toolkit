@@ -161,6 +161,10 @@ public class JsObject extends JavaScriptObject {
 
 	// ---
 
+	public final native boolean isNull(String property) /*-{
+		return this[property] === null;
+	}-*/;
+
 	public final native boolean hasProperty(String property) /*-{
 		return !(typeof this[property] === "undefined");
 	}-*/;
