@@ -52,7 +52,7 @@ public class JsObject extends JavaScriptObject {
 		return create().put(property, value);
 	};
 
-	public static JsObject create(String property, boolean value){
+	public static JsObject create(String property, boolean value) {
 		return create().put(property, value);
 	};
 
@@ -167,6 +167,15 @@ public class JsObject extends JavaScriptObject {
 
 	public final native String typeof(String property) /*-{
 		return typeof this[property];
+	}-*/;
+
+	public final native boolean isArray(String property) /*-{
+		return typeof this[property] === "object"
+				&& this[property] instanceof Array;
+	}-*/;
+
+	public final native boolean isArray() /*-{
+		return this instanceof Array;
 	}-*/;
 
 }
