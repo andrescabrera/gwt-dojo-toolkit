@@ -29,6 +29,13 @@ public class View extends _WidgetBase implements IContainer, IContained {
 
 	protected View() {
 	}
+	
+	/**
+	 * Calls resize() of each child widget.
+	 */
+	public final native void resize() /*-{
+		this.resize();
+	}-*/;
 
 	/**
 	 * Method to perform the various types of view transitions, such as fade,
