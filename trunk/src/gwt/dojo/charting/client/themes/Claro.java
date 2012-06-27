@@ -13,25 +13,19 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.mobile.client;
+package gwt.dojo.charting.client.themes;
 
-import gwt.dojo.dijit.client._WidgetBase;
+import gwt.dojo.charting.client.Theme;
+import gwt.dojo.client.Dojo;
 
-import com.google.gwt.core.client.JavaScriptObject;
+public class Claro extends Theme {
+	public static final String MODULE = "dojox/charting/themes/Claro";
 
-/**
- * Mixin for widgets to have touch scrolling capability.
- * 
- * @author ggeorg
- */
-public class _ScrollableMixin extends JavaScriptObject {
-
-	public static _ScrollableMixin cast(IScrollableMixin widget) {
-		assert widget instanceof _WidgetBase : "Not a widget";
-		return ((_WidgetBase) widget).cast();
+	public static Claro ref() {
+		return Dojo.require(MODULE).cast();
 	}
-	
-	protected _ScrollableMixin() {
+
+	protected Claro() {
 	}
 
 }

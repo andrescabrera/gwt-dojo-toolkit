@@ -15,15 +15,32 @@
  */
 package gwt.dojo.mobile.client;
 
+/**
+ * A container that can be flipped horizontally.
+ * <p>
+ * SwapView is a container widget that represents entire mobile device screen,
+ * and can be swiped horizontally. When SwapView is swiped, it finds an adjacent
+ * SwapView to open it.
+ * 
+ * @author ggeorg
+ */
 public class SwapView extends View implements IScrollableMixin {
-	
+
 	public static final String MODULE = "dojox/mobile/SwapView";
 
 	public static native SwapView create() /*-{
 		return new $wnd.dojox.mobile.SwapView();
 	}-*/;
-	
+
 	protected SwapView() {
 	}
 
+	/**
+	 * Moves to the next or previous view.
+	 * 
+	 * @param dir
+	 */
+	public final native void goTo(int dir) /*-{
+		this.goTo(dir);
+	}-*/;
 }

@@ -15,6 +15,7 @@
  */
 package gwt.dojo.charting.client;
 
+import gwt.dojo.client.ConnectHandle;
 import gwt.dojo.client.util.JsArray;
 import gwt.dojo.client.util.JsObject;
 
@@ -31,47 +32,47 @@ import gwt.dojo.client.util.JsObject;
 public class Chart extends JsObject {
 
 	public final static String MODULE = "dojox/charting/Chart";
-	
+
 	/**
 	 * title: String (null)
 	 * <p>
 	 * Chart title text.
 	 */
 	public static final String TITLE = "title";
-	
+
 	/**
 	 * titleGap: Number (20)
 	 * <p>
 	 * Determine the spacing between the title and the chart.
 	 */
 	public static final String TITLEGAP = "titleGap";
-	
+
 	/**
 	 * titlePos: String ("top")
 	 * <p>
 	 * Determine adding title at the top/bottom of the chart.
 	 */
 	public static final String TITLEPOS = "titlePos";
-	
+
 	public static final String TITLEFONT = "titleFont";
 	public static final String TITLEFONTCOLOR = "titleFontColor";
 
 	public static native Chart create(String nodeId) /*-{
 		try {
-			return new  $wnd.dojox.charting.Chart(nodeId);
+			return new $wnd.dojox.charting.Chart(nodeId);
 		} catch (e) {
 			alert(e);
 		}
 	}-*/;
-	
+
 	public static native Chart create(String nodeId, JsObject kwArgs) /*-{
 		try {
 			return new $wnd.dojox.charting.Chart(nodeId, kwArgs);
 		} catch (e) {
 			alert(e);
 		}
-	}-*/;	
-	
+	}-*/;
+
 	protected Chart() {
 	}
 
@@ -87,6 +88,21 @@ public class Chart extends JsObject {
 			this.setTheme(theme);
 		} catch (e) {
 			alert("-1-" + e);
+		}
+	}-*/;
+	
+	/**
+	 * Add an axis to the chart, for rendering.
+	 * 
+	 * @param name
+	 *            The name of the axis.
+	 * @return A reference to the current {@code Chart} for chaining purposes.
+	 */
+	public final native Chart addAxis(String name) /*-{
+		try {
+			this.addAxis(name);
+		} catch (e) {
+			alert("-addChart- : " + e);
 		}
 	}-*/;
 
@@ -180,4 +196,9 @@ public class Chart extends JsObject {
 			alert("-5-" + e);
 		}
 	}-*/;
+	
+	public final native ConnectHandle connectTo() /*-{
+	
+	}-*/;
+
 }
