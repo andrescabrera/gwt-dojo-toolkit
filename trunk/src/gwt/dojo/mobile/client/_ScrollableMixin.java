@@ -34,4 +34,10 @@ public class _ScrollableMixin extends JavaScriptObject {
 	protected _ScrollableMixin() {
 	}
 
+	/**
+	 * Search for application-specific header or footer.
+	 */
+	public final native void findAppBars() /*-{
+		this.findAppBars();
+	}-*/;
 }
