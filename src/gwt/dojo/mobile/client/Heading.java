@@ -16,23 +16,23 @@
 package gwt.dojo.mobile.client;
 
 import gwt.dojo.dijit.client.IContained;
-import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client._WidgetBase;
-
-import com.google.gwt.dom.client.Node;
 
 public class Heading extends _WidgetBase implements IContainer, IContained {
 	
 	public static final String MODULE = "dojox/mobile/Heading";
-	
-	public static Heading byNode(Node node) {
-		return Registry.get().byNode(node);
-	}
 
 	public static native Heading create() /*-{
 		return new $wnd.dojox.mobile.Heading();
 	}-*/;
+	
+	/**
+	 * fixed: String
+	 * <p>
+	 * "top" or "bottom".
+	 */
+	public static final String FIXED = "fixed";
 	
 	protected Heading() {
 	}

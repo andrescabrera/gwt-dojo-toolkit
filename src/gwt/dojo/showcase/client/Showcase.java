@@ -369,7 +369,7 @@ public class Showcase implements EntryPoint {
 									"selected", false) ? "Demo" : "Source");
 
 							// set the header's moveTo attribute to "navigation"
-							Heading heading = Heading.byNode(header);
+							Heading heading = Registry.get().byNode(header);
 							heading.set("moveTo", "navigation");
 							// restore sourceButton if applicable
 							if (sourceButton.getClassName().contains("hidden")) {
