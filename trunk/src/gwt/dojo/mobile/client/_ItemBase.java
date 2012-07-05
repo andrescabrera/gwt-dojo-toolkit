@@ -22,6 +22,17 @@ import gwt.dojo.dijit.client._WidgetBase;
 public class _ItemBase extends _WidgetBase implements IContainer, IContained {
 
 	/**
+	 * transition: String
+	 * <p>
+	 * A type of animated transition effect. You can choose from the standard
+	 * transition types, "slide", "fade", "flip", or from the extended
+	 * transition types, "cover", "coverv", "dissolve", "reveal", "revealv",
+	 * "scaleIn", "scaleOut", "slidev", "swirl", "zoomIn", "zoomOut". If "none"
+	 * is specified, transition occurs immediately without animation.
+	 */
+	public static final String TRANSITION = "transition";
+
+	/**
 	 * label: String
 	 * <p>
 	 * A label of the item. If the label is not specified, innerHTML is used as
