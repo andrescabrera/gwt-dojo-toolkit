@@ -17,6 +17,7 @@ package gwt.dojo.client.util;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.json.client.JSONObject;
 
 public class JsObject extends JavaScriptObject {
 
@@ -181,5 +182,15 @@ public class JsObject extends JavaScriptObject {
 	public final native boolean isArray() /*-{
 		return this instanceof Array;
 	}-*/;
+
+	// ---
+
+	/**
+	 * Converts a JsObject into a JSON representation that can be used to
+	 * communicate with a JSON service.
+	 */
+	public final String toJson() {
+		return new JSONObject(this).toString();
+	}
 
 }
