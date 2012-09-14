@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <inherits name="com.google.gwt.json.JSON" />
+    
+    <script src="dojo-release-1.7.3/dojo/dojo.js" />
+</module>
