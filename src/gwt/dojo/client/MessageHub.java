@@ -24,8 +24,6 @@ import gwt.dojo.client.util.JsObject;
  * A centralized hub for publishing and subscribing to global messages by topic.
  * One can subscribe to the messages by using {@code subscribe()}, and one can
  * publish by using {@link #publish(String, Object...)}.
- * 
- * @author ggeorg
  */
 public class MessageHub extends JsObject {
 	public static final String MODULE = "dojo/topic";
@@ -40,7 +38,7 @@ public class MessageHub extends JsObject {
 	}
 
 	/**
-	 * Not directly instantiable.
+	 * Not directly instantiable (required by JSNI).
 	 */
 	protected MessageHub() {
 	}
