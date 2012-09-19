@@ -25,13 +25,19 @@ public class Parser extends JsObject {
 
 	public static final String MODULE = "dojox/mobile/parser";
 
+	/**
+	 * Return instance of {@code Parser} class.
+	 * 
+	 * @return {@code Parser} instance.
+	 */
 	private static Parser ref() {
 		return Dojo.require(MODULE);
 	}
 
 	protected Parser() {
+		// Required by JSNI
 	}
-
+	
 	public static JsArray/* <JsObject> */parse() {
 		return ref()._parse();
 	}
@@ -39,7 +45,7 @@ public class Parser extends JsObject {
 	private final native JsArray/* <JsObject> */_parse() /*-{
 		return this.parse();
 	}-*/;
-	
+
 	public static JsArray/* <JsObject> */parse(Element node) {
 		return ref()._parse(node);
 	}
