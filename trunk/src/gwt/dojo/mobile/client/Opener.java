@@ -15,8 +15,32 @@
  */
 package gwt.dojo.mobile.client;
 
-public class Opener {
-	
+import gwt.dojo.dijit.client._WidgetBase;
+
+public class Opener extends _WidgetBase {
+
 	public static final String MODULE = "dojox/mobile/Opener";
+
+	public static native Opener create() /*-{
+		return new $wnd.dojox.mobile.Opener();
+	}-*/;
+
+	protected Opener() {
+	}
+
+	/**
+	 * Shows this view without a transition animation.
+	 * @param string 
+	 */
+	public final native void show(String nodeId) /*-{
+		this.show(nodeId);
+	}-*/;
+
+	/**
+	 * Hides this view without a transition animation.
+	 */
+	public final native void hide() /*-{
+		this.hide();
+	}-*/;
 
 }

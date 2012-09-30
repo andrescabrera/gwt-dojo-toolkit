@@ -27,7 +27,7 @@ public class Overlay extends _WidgetBase {
 
 	public static final String MODULE = "dojox/mobile/Overlay";
 
-	public static native ListItem create() /*-{
+	public static native Overlay create() /*-{
 		return new $wnd.dojox.mobile.Overlay();
 	}-*/;
 
