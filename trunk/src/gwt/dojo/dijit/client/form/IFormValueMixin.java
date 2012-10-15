@@ -15,6 +15,6 @@
  */
 package gwt.dojo.dijit.client.form;
 
-public interface IFormValueMixin {
+public interface IFormValueMixin extends IFormWidgetMixin {
 
 }

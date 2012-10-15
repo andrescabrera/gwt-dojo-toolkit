@@ -110,7 +110,7 @@ public class StorageProvider extends JavaScriptObject {
 	 */
 	public final native void put(String key, JsObject value,
 			ResultsHandler resultsHandler, String namespace) /*-{
-		var func = function(flag, key, event) {
+		var func = function(flag, key) {
 			resultsHandler.@gwt.dojo.storage.client.ResultsHandler::callback(Ljava/lang/String;Ljava/lang/String;)(flag, key);
 		}
 		this.put(key, value, func, namespace);

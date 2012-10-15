@@ -22,7 +22,7 @@ public class ToolBarButton extends _ItemBase {
 	public static final String MODULE = "dojox/mobile/ToolBarButton";
 	
 	public static ToolBarButton byId(String id) {
-		return Registry.get().byId(id);
+		return Registry.byId(id);
 	}
 
 	public static native ToolBarButton create() /*-{

@@ -18,6 +18,7 @@ package gwt.dojo.mobile.client;
 import gwt.dojo.dijit.client._WidgetBase;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.Element;
 
 /**
  * Mixin for widgets to have touch scrolling capability.
@@ -30,7 +31,7 @@ public class _ScrollableMixin extends JavaScriptObject {
 		assert widget instanceof _WidgetBase : "Not a widget";
 		return ((_WidgetBase) widget).cast();
 	}
-	
+
 	protected _ScrollableMixin() {
 	}
 
@@ -39,5 +40,12 @@ public class _ScrollableMixin extends JavaScriptObject {
 	 */
 	public final native void findAppBars() /*-{
 		this.findAppBars();
+	}-*/;
+
+	/**
+	 * Sets the given node as selectable or unselectable.
+	 */
+	public final native void setSelectable(Element node, boolean selectable) /*-{
+		this.setSelectable(node, selectable);
 	}-*/;
 }

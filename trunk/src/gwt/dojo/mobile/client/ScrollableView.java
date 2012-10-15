@@ -22,7 +22,7 @@ public class ScrollableView extends View implements IScrollableMixin {
 	public static final String MODULE = "dojox/mobile/ScrollableView";
 	
 	public static ScrollableView byId(String id) {
-		return Registry.get().byId(id);
+		return Registry.byId(id);
 	}
 
 	public static native ScrollableView create() /*-{
