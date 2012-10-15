@@ -26,7 +26,7 @@ public class Button extends _WidgetBase implements IFormWidgetMixin,
 	public static final String MODULE = "dojox/mobile/Button";
 
 	public static Button byId(String string) {
-		return Registry.get().byId(string);
+		return Registry.byId(string);
 	}
 
 	public static native Button create() /*-{

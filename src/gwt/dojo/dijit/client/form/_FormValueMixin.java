@@ -31,4 +31,18 @@ public class _FormValueMixin extends JavaScriptObject {
 	 */
 	protected _FormValueMixin() {
 	}
+
+	/**
+	 * Restore the value to the last value passed to onChange.
+	 */
+	public final native void undo() /*-{
+		this.undo();
+	}-*/;
+
+	/**
+	 * Reset the widget's value to what it was at initialization time.
+	 */
+	public final native void reset() /*-{
+		this.reset();
+	}-*/;
 }

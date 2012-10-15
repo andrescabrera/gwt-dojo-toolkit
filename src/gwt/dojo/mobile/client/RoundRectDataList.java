@@ -22,7 +22,7 @@ public class RoundRectDataList extends RoundRectList implements IDataListMixin {
 	public static final String MODULE = "dojox/mobile/RoundRectDataList";
 
 	public static RoundRectDataList byId(String id) {
-		return Registry.get().byId(id);
+		return Registry.byId(id);
 	}
 
 	public static native RoundRectDataList create() /*-{

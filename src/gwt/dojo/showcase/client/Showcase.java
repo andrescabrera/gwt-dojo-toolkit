@@ -251,7 +251,7 @@ public class Showcase implements EntryPoint {
 		showProgressIndicator(false);
 
 		String viewId = listItem.getString("viewId");
-		if (Registry.get().byId(viewId) != null) {
+		if (Registry.byId(viewId) != null) {
 			// inTransitionOrLoading = true;
 			listItem.transitionTo(viewId);
 		} else {
@@ -337,7 +337,7 @@ public class Showcase implements EntryPoint {
 	}
 
 	protected void initView(final ListItem listItem) {
-		View view = Registry.get().byId(listItem.getString("viewId"));
+		View view = Registry.byId(listItem.getString("viewId"));
 
 		final String viewType = listItem.hasProperty("viewType") ? listItem
 				.getString("viewType") : "demo";
@@ -369,7 +369,7 @@ public class Showcase implements EntryPoint {
 									"selected", false) ? "Demo" : "Source");
 
 							// set the header's moveTo attribute to "navigation"
-							Heading heading = Registry.get().byNode(header);
+							Heading heading = Registry.byNode(header);
 							heading.set("moveTo", "navigation");
 							// restore sourceButton if applicable
 							if (sourceButton.getClassName().contains("hidden")) {

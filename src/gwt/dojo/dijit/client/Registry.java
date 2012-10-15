@@ -22,14 +22,7 @@ import com.google.gwt.dom.client.Node;
 public class Registry extends JsObject {
 	
 	public static final String MODULE = "dijit/registry";
-
-	public static native Registry get() /*-{
-		return $wnd.dijit.registry;
-	}-*/;
-
-	protected Registry() {
-	}
-
+	
 	/**
 	 * Find a widget by it's id.
 	 * 
@@ -37,7 +30,29 @@ public class Registry extends JsObject {
 	 *            The widget's id.
 	 * @return The widget or {@code null}.
 	 */
-	public final native <T extends JsObject> T byId(String id) /*-{
+	public static <T extends JsObject> T byId(String id) {
+		return Registry.get()._byId(id);
+	}
+	
+	/**
+	 * Find a widget by it's corresponding DOM node.
+	 * 
+	 * @param node
+	 *            The widget's DOM node.
+	 * @return The widget or {@code null}.
+	 */
+	public static <T extends JsObject> T byNode(Node node) {
+		return Registry.get()._byNode(node);
+	};
+
+	private static native Registry get() /*-{
+		return $wnd.dijit.registry;
+	}-*/;
+
+	protected Registry() {
+	}
+
+	public final native <T extends JsObject> T _byId(String id) /*-{
 		return this.byId(id);
 	}-*/;
 
@@ -48,7 +63,7 @@ public class Registry extends JsObject {
 	 *            The widget's DOM node.
 	 * @return The widget or {@code null}.
 	 */
-	public final native <T extends JsObject> T byNode(Node node) /*-{
+	public final native <T extends JsObject> T _byNode(Node node) /*-{
 		return this.byNode(node);
 	}-*/;
 }

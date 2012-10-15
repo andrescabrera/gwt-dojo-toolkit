@@ -17,6 +17,7 @@ package gwt.dojo.mobile.client;
 
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
+import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._WidgetBase;
 
 public class View extends _WidgetBase implements IContainer, IContained {
@@ -26,6 +27,16 @@ public class View extends _WidgetBase implements IContainer, IContained {
 	public static native View create() /*-{
 		return new $wnd.dojox.mobile.View();
 	}-*/;
+	
+	public static View byId(String string) {
+		return Registry.byId(string);
+	}
+	
+	public static final String TOPIC_STARTVIEW = "/dojox/mobile/startView";
+	public static final String TOPIC_BEFORETRANSITIONIN = "/dojox/mobile/beforeTransitionIn";
+	public static final String TOPIC_AFTERTRANSITIONIN = "/dojox/mobile/afterTransitionIn";
+	public static final String TOPIC_BEFORETRANSITIONOUT = "/dojox/mobile/beforeTransitionOut";
+	public static final String TOPIC_AFTERTRANSITIONOUT = "/dojox/mobile/afterTransitionOut";
 
 	protected View() {
 	}

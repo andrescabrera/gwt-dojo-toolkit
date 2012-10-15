@@ -23,7 +23,7 @@ public class Slider extends _WidgetBase {
 	public static final String MODULE = "dojox/mobile/Slider";
 
 	public static Slider byId(String id) {
-		return Registry.get().byId(id);
+		return Registry.byId(id);
 	}
 	
 	public static native Slider create() /*-{

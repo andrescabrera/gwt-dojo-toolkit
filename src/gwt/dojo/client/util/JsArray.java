@@ -16,9 +16,9 @@
 package gwt.dojo.client.util;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArrayMixed;
+import com.google.gwt.json.client.JSONObject;
 
-public class JsArray extends JsArrayMixed {
+public class JsArray extends JavaScriptObject {
 
 	public static JsArray cast(JavaScriptObject array) {
 		return array.cast();
@@ -110,6 +110,20 @@ public class JsArray extends JsArrayMixed {
 	}-*/;
 
 	// String entry
+	
+	public final native String getString(int index) /*-{
+		return String(this[index]);
+	}-*/;
+	
+	public final native JsArray set(int index, String value) /*-{
+		this[index] = value;
+		return this;
+	}-*/;
+
+	public final native JsArray push(String value) /*-{
+		this[this.length] = value;
+		return this;
+	}-*/;
 
 	// Integer property
 
@@ -129,18 +143,86 @@ public class JsArray extends JsArrayMixed {
 
 	// Double property
 
-	public final double getDouble(int index) {
-		return super.getNumber(index);
-	};
+	public final native double getDouble(int index) /*-{
+		return Number(this[index]);
+	}-*/;
 
 	public final native double getDouble(int index, double defaultValue) /*-{
 		return this[index] || defaultValue;
 	}-*/;
+	
+	public final native JsArray set(int index, double value) /*-{
+		this[index] = value;
+		return this;
+	}-*/;
+
+	public final native JsArray push(double value) /*-{
+		this[this.length] = value;
+		return this;
+	}-*/;
 
 	// Boolean property
+	
+	public final native boolean getBoolean(int index) /*-{
+		return Boolean(this[index]);
+	}-*/;
 
 	public final native boolean getBoolean(int index, boolean defaultValue) /*-{
 		return this[index] || defaultValue;
 	}-*/;
+	
+	public final native void set(int index, boolean value) /*-{
+		this[index] = value;
+	}-*/;
+
+	public final native JsArray push(boolean value) /*-{
+		this[this.length] = value;
+		return this;
+	}-*/;
+	
+	/**
+	 * Converts a JsObject into a JSON representation that can be used to
+	 * communicate with a JSON service.
+	 */
+	public final String toJson() {
+		return new JSONObject(this).toString();
+	}
+	
+	/**
+	 * Convert each element of the array to a String and join them with a comma
+	 * separator. The value returned from this method may vary between browsers
+	 * based on how JavaScript values are converted into strings.
+	 */
+	public final String join() {
+		// As per JS spec
+		return join(",");
+	}
+
+	/**
+	 * Convert each element of the array to a String and join them with a comma
+	 * separator. The value returned from this method may vary between browsers
+	 * based on how JavaScript values are converted into strings.
+	 */
+	public final native String join(String separator) /*-{
+		return this.join(separator);
+	}-*/;
+	
+	/**
+	 * Gets the length of the array.
+	 * 
+	 * @return the array length
+	 */
+	public final native int length() /*-{
+		return this.length;
+	}-*/;
+
+  /**
+   * Reset the length of the array.
+   * 
+   * @param newLength the new length of the array
+   */
+  public final native void setLength(int newLength) /*-{
+    this.length = newLength;
+  }-*/;
 
 }

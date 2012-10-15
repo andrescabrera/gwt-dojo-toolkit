@@ -38,7 +38,7 @@ public class _WidgetBase extends Stateful {
 	}
 
 	public static Stateful byId(String id) {
-		return Registry.get().byId(id);
+		return Registry.byId(id);
 	}
 
 	/**
