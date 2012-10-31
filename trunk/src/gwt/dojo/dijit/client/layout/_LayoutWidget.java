@@ -17,13 +17,13 @@ package gwt.dojo.dijit.client.layout;
 
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
-import gwt.dojo.dijit.client._Widget;
+import gwt.dojo.dijit.client._WidgetController;
 
 /**
  * 
  * @author ggeorg
  */
-public class _LayoutWidget extends _Widget implements IContainer, IContained {
+public class _LayoutWidget extends _WidgetController implements IContainer, IContained {
 
 	/**
 	 * Default constructor.

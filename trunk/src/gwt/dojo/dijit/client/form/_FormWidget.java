@@ -17,7 +17,7 @@ package gwt.dojo.dijit.client.form;
 
 import gwt.dojo.dijit.client.ICssStateMixin;
 import gwt.dojo.dijit.client.ITemplatedMixin;
-import gwt.dojo.dijit.client._Widget;
+import gwt.dojo.dijit.client._WidgetController;
 
 /**
  * Base class for widgets corresponding to native HTML elements such as
@@ -29,7 +29,7 @@ import gwt.dojo.dijit.client._Widget;
  * 
  * @author ggeorg
  */
-public class _FormWidget extends _Widget implements ITemplatedMixin,
+public class _FormWidget extends _WidgetController implements ITemplatedMixin,
 		ICssStateMixin, IFormWidgetMixin {
 
 	protected _FormWidget() {

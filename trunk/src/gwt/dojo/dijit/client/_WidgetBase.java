@@ -26,7 +26,7 @@ import com.google.gwt.dom.client.Element;
 /**
  * Base class for Dijit widgets.
  * <p>
- * ({@link _Widget} extends this class adding support for various features
+ * ({@link _WidgetController} extends this class adding support for various features
  * needed by desktop.
  * 
  * @author ggeorg
@@ -202,6 +202,18 @@ public class _WidgetBase extends Stateful {
 	 */
 	public final native void destroy(boolean preserveDom) /*-{
 		this.destroy(preserveDom);
+	}-*/;
+
+	/**
+	 * Destroys the DOM nodes associated with this widget.
+	 * 
+	 * @param preserveDom
+	 *            If {@code true}, this method will leave the original DOM
+	 *            structure alone. Note: this will not work with _Templated
+	 *            widgets.
+	 */
+	protected final native void destroyRendering(boolean preserveDom) /*-{
+		this.destroyRendering(preserveDom);
 	}-*/;
 
 	/**
