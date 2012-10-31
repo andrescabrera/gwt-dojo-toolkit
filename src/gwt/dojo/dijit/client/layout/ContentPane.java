@@ -15,7 +15,7 @@
  */
 package gwt.dojo.dijit.client.layout;
 
-import gwt.dojo.dijit.client._Widget;
+import gwt.dojo.dijit.client._WidgetController;
 
 /**
  * A widget containing an HTML fragment, specified inline or by uri. Fragment
@@ -30,7 +30,7 @@ import gwt.dojo.dijit.client._Widget;
  * 
  * @author ggeorg
  */
-public class ContentPane extends _Widget implements IContentPaneResizeMixin {
+public class ContentPane extends _WidgetController implements IContentPaneResizeMixin {
 
 	public static final String MODULE = "dijit/layout/ContentPane";
 

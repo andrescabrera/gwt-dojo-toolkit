@@ -91,6 +91,16 @@ public class JsArray extends JavaScriptObject {
 		return this;
 	}-*/;
 
+	public final JsArray push(Object... values) {
+		JsArray result = this;
+		if (values != null) {
+			for (int i = 0; i < values.length; i++) {
+				this.push(values[i]);
+			}
+		}
+		return result;
+	}
+
 	// JsObject entry
 
 	@SuppressWarnings("unchecked")
@@ -108,13 +118,23 @@ public class JsArray extends JavaScriptObject {
 		this[this.length] = value;
 		return this;
 	}-*/;
+	
+	public final JsArray push(JsObject... values) {
+		JsArray result = this;
+		if (values != null) {
+			for (int i = 0; i < values.length; i++) {
+				this.push(values[i]);
+			}
+		}
+		return result;
+	}
 
 	// String entry
-	
+
 	public final native String getString(int index) /*-{
 		return String(this[index]);
 	}-*/;
-	
+
 	public final native JsArray set(int index, String value) /*-{
 		this[index] = value;
 		return this;
@@ -124,6 +144,16 @@ public class JsArray extends JavaScriptObject {
 		this[this.length] = value;
 		return this;
 	}-*/;
+	
+	public final JsArray push(String... values) {
+		JsArray result = this;
+		if (values != null) {
+			for (int i = 0; i < values.length; i++) {
+				this.push(values[i]);
+			}
+		}
+		return result;
+	}
 
 	// Integer property
 
@@ -140,6 +170,16 @@ public class JsArray extends JavaScriptObject {
 		this[this.length] = value;
 		return this;
 	}-*/;
+	
+	public final JsArray push(int... values) {
+		JsArray result = this;
+		if (values != null) {
+			for (int i = 0; i < values.length; i++) {
+				this.push(values[i]);
+			}
+		}
+		return result;
+	}
 
 	// Double property
 
@@ -150,7 +190,7 @@ public class JsArray extends JavaScriptObject {
 	public final native double getDouble(int index, double defaultValue) /*-{
 		return this[index] || defaultValue;
 	}-*/;
-	
+
 	public final native JsArray set(int index, double value) /*-{
 		this[index] = value;
 		return this;
@@ -160,9 +200,19 @@ public class JsArray extends JavaScriptObject {
 		this[this.length] = value;
 		return this;
 	}-*/;
+	
+	public final JsArray push(double... values) {
+		JsArray result = this;
+		if (values != null) {
+			for (int i = 0; i < values.length; i++) {
+				this.push(values[i]);
+			}
+		}
+		return result;
+	}
 
 	// Boolean property
-	
+
 	public final native boolean getBoolean(int index) /*-{
 		return Boolean(this[index]);
 	}-*/;
@@ -170,7 +220,7 @@ public class JsArray extends JavaScriptObject {
 	public final native boolean getBoolean(int index, boolean defaultValue) /*-{
 		return this[index] || defaultValue;
 	}-*/;
-	
+
 	public final native void set(int index, boolean value) /*-{
 		this[index] = value;
 	}-*/;
@@ -180,6 +230,16 @@ public class JsArray extends JavaScriptObject {
 		return this;
 	}-*/;
 	
+	public final JsArray push(boolean... values) {
+		JsArray result = this;
+		if (values != null) {
+			for (int i = 0; i < values.length; i++) {
+				this.push(values[i]);
+			}
+		}
+		return result;
+	}
+
 	/**
 	 * Converts a JsObject into a JSON representation that can be used to
 	 * communicate with a JSON service.
@@ -187,7 +247,7 @@ public class JsArray extends JavaScriptObject {
 	public final String toJson() {
 		return new JSONObject(this).toString();
 	}
-	
+
 	/**
 	 * Convert each element of the array to a String and join them with a comma
 	 * separator. The value returned from this method may vary between browsers
@@ -206,7 +266,7 @@ public class JsArray extends JavaScriptObject {
 	public final native String join(String separator) /*-{
 		return this.join(separator);
 	}-*/;
-	
+
 	/**
 	 * Gets the length of the array.
 	 * 
@@ -216,13 +276,89 @@ public class JsArray extends JavaScriptObject {
 		return this.length;
 	}-*/;
 
-  /**
-   * Reset the length of the array.
-   * 
-   * @param newLength the new length of the array
-   */
-  public final native void setLength(int newLength) /*-{
-    this.length = newLength;
-  }-*/;
+	/**
+	 * Reset the length of the array.
+	 * 
+	 * @param newLength
+	 *            the new length of the array
+	 */
+	public final native void setLength(int newLength) /*-{
+		this.length = newLength;
+	}-*/;
+	
+	// ------------------------------------------------------------------------
+	
+	  /**
+	   * Shifts the first value off the array.
+	   * 
+	   * @return the shifted boolean
+	   */
+	  public final native boolean shiftBoolean() /*-{
+	    return Boolean(this.shift());
+	  }-*/;
+
+	  /**
+	   * Shifts the first value off the array.
+	   * 
+	   * @return the shifted double
+	   */
+	  public final native double shiftNumber() /*-{
+	    return Number(this.shift());
+	  }-*/;
+
+	  /**
+	   * Shifts the first value off the array.
+	   * 
+	   * @return the shifted {@link JavaScriptObject}
+	   */
+	  public final native <T extends JavaScriptObject> T shiftObject() /*-{
+	    return Object(this.shift());
+	  }-*/;
+
+	  /**
+	   * Shifts the first value off the array.
+	   * 
+	   * @return the shifted String
+	   */
+	  public final native String shiftString() /*-{
+	    return String(this.shift());
+	  }-*/;
+
+	  /**
+	   * Shifts a boolean onto the beginning of the array.
+	   * 
+	   * @param value the value to the stored
+	   */
+	  public final native void unshift(boolean value) /*-{
+	    this.unshift(value);
+	  }-*/;
+
+	  /**
+	   * Shifts a double onto the beginning of the array.
+	   * 
+	   * @param value the value to store
+	   */
+	  public final native void unshift(double value) /*-{
+	    this.unshift(value);
+	  }-*/;
+
+	  /**
+	   * Shifts a {@link JavaScriptObject} onto the beginning of the array.
+	   * 
+	   * @param value the value to store
+	   */
+	  public final native void unshift(JavaScriptObject value) /*-{
+	    this.unshift(value);
+	  }-*/;
+
+	  /**
+	   * Shifts a String onto the beginning of the array.
+	   * 
+	   * @param value the value to store
+	   */
+	  public final native void unshift(String value) /*-{
+	    this.unshift(value);
+	  }-*/;
+
 
 }

@@ -16,38 +16,29 @@
 package gwt.dojo.client;
 
 import gwt.dojo.client.util.JsArray;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.dijit.client._WidgetController._WidgetControllerFactory;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 
 public class Dojo {
-	
-	public static native void define(String module, JsArray/* <String> */dependencies) /*-{
+
+	/**
+	 * Create a feature-rich constructor from compact notation. TODO
+	 * 
+	 * @param className
+	 * @param factory
+	 */
+	public static native void declare(String className,
+			_WidgetControllerFactory factory) /*-{
 		try {
-			var func = function() {
-				try {
-					alert("--------------------2");
-					return $wnd.declare("dojox.mobile.SwapView", [View, ScrollableMixin], {
-	
-					});
-				}catch(e){alert(e);}
-			};
-			alert("------------1"+$wnd.define);
-			$wnd.define(module, dependencies, func);
-			alert("------------2");
-		}catch(e){alert(e);}
-	}-*/;
-	
-	public static native void declare(String moduleName, JsObject d) /*-{
-		try {
-			//alert($wnd.require("dojo/_base/declare"));
-			$wnd.require("dojo/_base/declare")(moduleName, null, {
-				constructor: function() {
-					alert('---------------------');
-				}
-			});
-		}catch(e){alert(e);}
+			var superClass = factory
+					.@gwt.dojo.dijit.client._WidgetController._WidgetControllerFactory::getSuperClass();
+			var props = factory.@gwt.dojo.dijit.client._WidgetController._WidgetControllerFactory::init(Lgwt/dojo/client/util/JsObject;)({});
+			$wnd.require("dojo/_base/declare")(className, superClass, props);
+		} catch (e) {
+			alert(e);
+		}
 	}-*/;
 
 	public static native void require(JsArray modules) /*-{
