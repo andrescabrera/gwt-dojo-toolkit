@@ -19,6 +19,64 @@
 		<script type="text/javascript" src="gwt_dojo_toolkit_mobile/gwt_dojo_toolkit_mobile.nocache.js"></script>
 	</head>
 	<body>
-		<!-- application will go here -->
+
+<div id="general" data-dojo-type="dojox.mobile.View">
+    <h1 data-dojo-type="dojox.mobile.Heading">General</h1>
+    <ul data-dojo-type="dojox.mobile.RoundRectList">
+        <li data-dojo-type="dojox.mobile.ListItem">
+            Airplane Mode
+            <!-- the switch -->
+            <div class="mblItemSwitch" data-dojo-type="dojox.mobile.Switch"></div>
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'mac'">
+            Wi-Fi
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'AcmePhone'">
+            Carrier
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'about'">
+            About
+        </li>
+    </ul>
+</div>
+ 
+<div id="about" data-dojo-type="dojox.mobile.View">
+    <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="back:'General', moveTo:'general'">About</h1>
+    <h2 data-dojo-type="dojox.mobile.RoundRectCategory">Generic Mobile Device</h2>
+    <ul data-dojo-type="dojox.mobile.RoundRectList">
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'AcmePhone'">
+            Network                                            
+        </li>                                                
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'AcmePhone'">
+            Line
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'1024'">
+            Songs
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'10'">
+            Videos
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'96'">
+            Photos
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'2'">
+            Applications
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'29.3 BG'">
+            Capacity
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'28.0 BG'">
+            Available
+        </li>
+        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'3.0 (7A341)'">
+            Version
+        </li>
+    </ul>
+</div>
+
+<div id="loadDiv" style="position:absolute; left:0px; top:0px; width:100%; height:100%; z-index:999; display:table; text-align:center; background-color: white;">
+	<span style="display:table-cell; vertical-align:middle; font-size: 150%;"">Loading...</span>
+</div>
+
 	</body>
 </html>
