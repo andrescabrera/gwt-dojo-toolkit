@@ -15,6 +15,7 @@
  */
 package gwt.dojo.mobile.client;
 
+import gwt.dojo.client.util.JsObject;
 import gwt.dojo.dijit.client._WidgetBase;
 
 import com.google.gwt.core.client.JavaScriptObject;
@@ -47,5 +48,20 @@ public class _ScrollableMixin extends JavaScriptObject {
 	 */
 	public final native void setSelectable(Element node, boolean selectable) /*-{
 		this.setSelectable(node, selectable);
+	}-*/;
+
+	/**
+	 * Scrolls to the given position to{x:value,y:value}
+	 */
+	public final native void scrollTo(JsObject to) /*-{
+		this.scrollTo(to);
+	}-*/;
+
+	/**
+	 * Slides to the given position to{x:value,y:value}, duration, easing
+	 * algorithm
+	 */
+	public final native void slideTo(JsObject to, double duration, String easing) /*-{
+		this.slideTo(to, duration, easing);
 	}-*/;
 }
