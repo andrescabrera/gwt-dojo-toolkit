@@ -1,3 +1,0 @@
-require([
-	'dojo/store/Memory'
-]);

@@ -1,7 +1,7 @@
-package gwt.dojo.store.client;
+package gwt.dojo.core.client.store;
 
 import gwt.dojo.core.client.JsObject;
-import gwt.dojo.store.client.api.Store;
+import gwt.dojo.core.client.store.api.Store;
 
 public class MemoryStore extends JsObject implements Store {
 
