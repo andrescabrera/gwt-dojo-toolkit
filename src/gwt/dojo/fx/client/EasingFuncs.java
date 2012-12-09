@@ -7,8 +7,6 @@ import gwt.dojo.client.util.JsObject;
  * Collection of easing functions to use.
  * <p>
  * TODO
- * 
- * @author ggeorg
  */
 public class EasingFuncs extends JsObject {
 	public static final String MODULE = "dojo/fx/easing";

@@ -16,7 +16,7 @@
 package gwt.dojo.grid.client;
 
 import gwt.dojo.dijit.client.ITemplatedMixin;
-import gwt.dojo.dijit.client._WidgetController;
+import gwt.dojo.dijit.client._WidgetBase;
 
 /**
  * A grid widget with several scrolling, cell editing, complex rows, sorting,
@@ -30,7 +30,7 @@ import gwt.dojo.dijit.client._WidgetController;
  * 
  * @author ggeorg
  */
-public class _Grid extends _WidgetController implements ITemplatedMixin {
+public class _Grid extends _WidgetBase implements ITemplatedMixin {
 
 	/**
 	 * rowCound: Integer (default: 5)

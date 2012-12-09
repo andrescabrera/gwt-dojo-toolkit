@@ -15,20 +15,32 @@
  */
 package gwt.dojo.client;
 
+import gwt.dojo.client.util.JsArray;
+
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class Parser extends JavaScriptObject {
-	
+
 	public static final String MODULE = "dojo/parser";
 
-	public static native Parser get() /*-{
-		return $wnd.dojo.parser;
-	}-*/;
+	/**
+	 * Return instance of {@code Parser} class.
+	 * 
+	 * @return {@code Parser} instance.
+	 */
+	private static Parser ref() {
+		return Dojo.require(MODULE);
+	};
 
 	protected Parser() {
+		// Required by JSNI
 	}
 
-	public final native void parse() /*-{
-		this.parse();
+	public static JsArray/* <JsObject> */parse() {
+		return ref()._parse();
+	}
+
+	private final native JsArray/* <JsObject> */_parse() /*-{
+		return this.parse();
 	}-*/;
 }
