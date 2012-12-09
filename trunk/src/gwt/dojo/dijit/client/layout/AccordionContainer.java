@@ -15,6 +15,7 @@
  */
 package gwt.dojo.dijit.client.layout;
 
+
 /**
  * Holds a set of panes where every pane's title is visible, but only one pane's
  * content is visible at a time, and switching between panes is visualized by

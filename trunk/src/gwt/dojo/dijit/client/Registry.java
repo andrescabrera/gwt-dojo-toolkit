@@ -15,7 +15,7 @@
  */
 package gwt.dojo.dijit.client;
 
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsObject;
 
 import com.google.gwt.dom.client.Node;
 

@@ -1,7 +1,7 @@
 package gwt.dojo.charting.client.plot2d;
 
-import gwt.dojo.client.Dojo;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.JsObject;
 
 /**
  * A plot representing bubbles. Note that data for Bubbles requires 3

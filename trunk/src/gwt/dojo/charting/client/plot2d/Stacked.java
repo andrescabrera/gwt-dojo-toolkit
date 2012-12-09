@@ -16,7 +16,7 @@
 package gwt.dojo.charting.client.plot2d;
 
 import gwt.dojo.charting.client.Chart;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsObject;
 
 public class Stacked extends Default {
 

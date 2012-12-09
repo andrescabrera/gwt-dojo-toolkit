@@ -1,6 +1,6 @@
 package gwt.dojo.storage.client;
 
-import gwt.dojo.client.Dojo;
+import gwt.dojo.core.client.Dojo;
 
 import com.google.gwt.core.client.JavaScriptObject;
 

@@ -15,8 +15,8 @@
  */
 package gwt.dojo.charting.client.plot2d;
 
-import gwt.dojo.client.Dojo;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.JsObject;
 
 public class StackedLines extends Stacked {
 	public static final String MODULE = "dojox/charting/plot2d/StackedLines";

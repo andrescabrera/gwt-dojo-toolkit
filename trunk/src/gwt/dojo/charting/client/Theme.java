@@ -15,7 +15,7 @@
  */
 package gwt.dojo.charting.client;
 
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsObject;
 
 /**
  * A {@code Theme} is a pre-defined object, primarily JSON-based, that makes up

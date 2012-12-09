@@ -15,9 +15,9 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.client.Dojo;
-import gwt.dojo.client.util.JsArray;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
 
 import com.google.gwt.dom.client.Element;
 

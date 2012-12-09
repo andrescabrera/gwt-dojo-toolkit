@@ -17,7 +17,7 @@ package gwt.dojo.dijit.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsObject;
 
 /**
  * Mixin for widgets that are children of a container widget.

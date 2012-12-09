@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
     <stylesheet src="dojo/gridx/resources/claro/Gridx.css"/>
+    <stylesheet src="dojo/gridx/gwt-gridx-style.css"/>
 </module>
