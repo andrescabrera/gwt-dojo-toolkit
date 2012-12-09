@@ -18,7 +18,7 @@ package gwt.dojo.dijit.client;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class _TemplatedMixin extends JavaScriptObject {
-	
+
 	public static _TemplatedMixin cast(ITemplatedMixin widget) {
 		assert widget instanceof _WidgetBase : "Not a widget";
 		return ((_WidgetBase) widget).cast();
@@ -27,6 +27,7 @@ public class _TemplatedMixin extends JavaScriptObject {
 	/**
 	 * Not directly instantiable.
 	 */
-	protected _TemplatedMixin() {}
-	
+	protected _TemplatedMixin() {
+	}
+
 }

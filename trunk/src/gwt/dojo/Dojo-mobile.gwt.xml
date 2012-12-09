@@ -2,5 +2,5 @@
 <module>
     <inherits name="com.google.gwt.json.JSON" />
 
-    <script src="dojo-mobile-release-1.8.1/dojo/dojo.js" />
+    <script src="dojo-mobile-release-1.8.1/dojo/dojo.js"/>
 </module>

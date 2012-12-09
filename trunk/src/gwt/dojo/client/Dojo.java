@@ -56,10 +56,11 @@ public class Dojo {
 	public static native void require(JsArray/* <String> */dependencies,
 			RequireCallback callback) /*-{
 		var func = function() {
+			var _arguments = arguments;
+
 			if (typeof $wnd.dojo.ready === 'undefined') {
-				callback.@gwt.dojo.client.RequireCallback::callback(Lgwt/dojo/client/util/JsObject;)(arguments);
+				callback.@gwt.dojo.client.RequireCallback::callback(Lgwt/dojo/client/util/JsObject;)(_arguments);
 			} else {
-				var _arguments = arguments;
 				$wnd.dojo
 						.ready(function() {
 							callback.@gwt.dojo.client.RequireCallback::callback(Lgwt/dojo/client/util/JsObject;)(_arguments);
