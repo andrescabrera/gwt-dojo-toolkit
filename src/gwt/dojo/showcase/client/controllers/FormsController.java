@@ -15,17 +15,18 @@
  */
 package gwt.dojo.showcase.client.controllers;
 
-import gwt.dojo.client.Dojo;
-import gwt.dojo.client.EventCallback;
-import gwt.dojo.client.RequireCallback;
-import gwt.dojo.client.util.JsArray;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.EventCallback;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
+import gwt.dojo.core.client.RequireCallback;
 import gwt.dojo.dijit.client._WidgetBase;
 import gwt.dojo.mobile.client.Button;
 import gwt.dojo.mobile.client.ListItem;
 import gwt.dojo.mobile.client.Slider;
 import gwt.dojo.showcase.client.Showcase;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.FormElement;
 import com.google.gwt.dom.client.NativeEvent;
@@ -41,9 +42,11 @@ public class FormsController implements Controller, EventCallback {
 
 	@Override
 	public void callback(final JsObject source, NativeEvent event) {
-		Dojo.require(JsArray.create("dojox/mobile/TextBox", "dojox/mobile/TextArea",
+		JsArray modules = JavaScriptObject.createArray().cast();
+		modules.push("dojox/mobile/TextBox", "dojox/mobile/TextArea",
 				"dojox/mobile/CheckBox", "dojox/mobile/RadioButton",
-				"dojox/mobile/Slider"),new RequireCallback() {
+				"dojox/mobile/Slider");
+		Dojo.require(modules, new RequireCallback() {
 			@Override
 			public void callback(final JsObject arguments) {
 				ListItem listItem = source.cast();

@@ -15,8 +15,8 @@
  */
 package gwt.dojo.data.client;
 
-import gwt.dojo.client.Stateful;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsObject;
+import gwt.dojo.core.client.Stateful;
 
 public class ItemFileReadStore extends Stateful {
 

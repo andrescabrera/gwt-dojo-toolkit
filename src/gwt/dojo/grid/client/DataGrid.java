@@ -15,8 +15,8 @@
  */
 package gwt.dojo.grid.client;
 
-import gwt.dojo.client.util.JsArray;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
 
 public class DataGrid extends _Grid {
 

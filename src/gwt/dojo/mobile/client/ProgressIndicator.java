@@ -15,7 +15,7 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsObject;
 
 /**
  * A progress indication widget.

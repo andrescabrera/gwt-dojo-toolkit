@@ -15,14 +15,14 @@
  */
 package gwt.dojo.showcase.client;
 
-import gwt.dojo.client.ConnectCallback;
-import gwt.dojo.client.Dojo;
-import gwt.dojo.client.EventCallback;
-import gwt.dojo.client.MessageHub;
-import gwt.dojo.client.RequireCallback;
-import gwt.dojo.client.SubscribeCallback;
-import gwt.dojo.client.util.JsArray;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.ConnectCallback;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.EventCallback;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
+import gwt.dojo.core.client.MessageHub;
+import gwt.dojo.core.client.RequireCallback;
+import gwt.dojo.core.client.SubscribeCallback;
 import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._Container;
@@ -41,6 +41,7 @@ import gwt.dojo.showcase.client.controllers.FormsController;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.RunAsyncCallback;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
@@ -68,19 +69,20 @@ public class Showcase implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		Dojo.require(JsArray.create("dojox/mobile/deviceTheme", "dojox/mobile",
+		JsArray modules = JavaScriptObject.createArray().cast();
+		modules.push("dojox/mobile/deviceTheme", "dojox/mobile",
 				"dojox/mobile/parser", "dojox/mobile/compat",
 				"dojox/mobile/Button", "dojox/mobile/ToolBarButton",
 				"dojox/mobile/FixedSplitter", "dojox/mobile/ScrollableView",
 				"dojox/mobile/ProgressIndicator",
 				"dojox/mobile/FixedSplitterPane", "dojox/mobile/SwapView",
-				"dojox/mobile/TabBar", "dojo/domReady!"),
-				new RequireCallback() {
-					@Override
-					public void callback(JsObject arguments) {
-						startup(arguments);
-					}
-				});
+				"dojox/mobile/TabBar", "dojo/domReady!");
+		Dojo.require(modules, new RequireCallback() {
+			@Override
+			public void callback(JsObject arguments) {
+				startup(arguments);
+			}
+		});
 	}
 
 	protected void startup(JsObject arguments) {
@@ -96,16 +98,16 @@ public class Showcase implements EntryPoint {
 		initNavList();
 
 		MessageHub.subscribe("showView", new SubscribeCallback() {
-//			@Override
-//			public void callback(JsObject source, TopicEvent event) {
-//				final ListItem listItem = source.cast();
-//				showView(listItem);
-//			}
+			// @Override
+			// public void callback(JsObject source, TopicEvent event) {
+			// final ListItem listItem = source.cast();
+			// showView(listItem);
+			// }
 
 			@Override
 			public void callback(String topic, JsArray message) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 

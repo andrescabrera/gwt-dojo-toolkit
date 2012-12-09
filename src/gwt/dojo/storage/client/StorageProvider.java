@@ -1,7 +1,7 @@
 package gwt.dojo.storage.client;
 
-import gwt.dojo.client.util.JsArray;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
 
 import com.google.gwt.core.client.JavaScriptObject;
 

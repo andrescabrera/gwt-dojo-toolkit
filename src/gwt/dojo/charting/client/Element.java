@@ -15,7 +15,7 @@
  */
 package gwt.dojo.charting.client;
 
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsObject;
 
 /**
  * A base class that is used to build other elements of a chart, such as a

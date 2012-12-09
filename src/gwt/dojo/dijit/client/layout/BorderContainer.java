@@ -15,6 +15,7 @@
  */
 package gwt.dojo.dijit.client.layout;
 
+
 /**
  * Provides layout in up to 5 regions, a mandatory center with optional borders
  * along its 4 sides.

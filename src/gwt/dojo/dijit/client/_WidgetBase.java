@@ -15,10 +15,10 @@
  */
 package gwt.dojo.dijit.client;
 
-import gwt.dojo.client.EventCallback;
-import gwt.dojo.client.EventHandle;
-import gwt.dojo.client.Stateful;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.EventCallback;
+import gwt.dojo.core.client.EventHandle;
+import gwt.dojo.core.client.JsObject;
+import gwt.dojo.core.client.Stateful;
 
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
@@ -241,7 +241,7 @@ public class _WidgetBase extends Stateful {
 	public final native EventHandle on(String type, EventCallback callback) /*-{
 		var func = function(e) {
 			try {
-				callback.@gwt.dojo.client.EventCallback::callback(Lgwt/dojo/client/util/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(this,e);
+				callback.@gwt.dojo.core.client.EventCallback::callback(Lgwt/dojo/core/client/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(this,e);
 			} catch (e) {
 				alert(e)
 			}

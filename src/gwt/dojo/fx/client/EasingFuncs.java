@@ -1,7 +1,7 @@
 package gwt.dojo.fx.client;
 
-import gwt.dojo.client.Dojo;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.JsObject;
 
 /**
  * Collection of easing functions to use.

@@ -15,9 +15,9 @@
  */
 package gwt.dojo.charting.client;
 
-import gwt.dojo.client.ConnectHandle;
-import gwt.dojo.client.util.JsArray;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.ConnectHandle;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
 
 /**
  * The main chart object in {@code dojox.charting}. This will generate a two

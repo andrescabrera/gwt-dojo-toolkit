@@ -15,7 +15,7 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.JsObject;
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client._WidgetBase;
