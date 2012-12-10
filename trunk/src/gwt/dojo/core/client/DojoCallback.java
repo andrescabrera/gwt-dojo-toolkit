@@ -15,7 +15,6 @@
  */
 package gwt.dojo.core.client;
 
-
-public interface RequireCallback {
-	void callback(JsObject arguments);
+public interface DojoCallback {
+	void callback(JsArray arguments);
 }

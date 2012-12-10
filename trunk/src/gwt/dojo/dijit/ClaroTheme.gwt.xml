@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
     <stylesheet src="dojo/dijit/themes/claro/claro.css"/>
+    <stylesheet src="dojo/dijit/gwt-dijit-style.css"/>
 </module>

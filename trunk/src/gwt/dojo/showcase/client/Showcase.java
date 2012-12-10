@@ -21,7 +21,7 @@ import gwt.dojo.core.client.EventCallback;
 import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.MessageHub;
-import gwt.dojo.core.client.RequireCallback;
+import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.core.client.SubscribeCallback;
 import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client.Registry;
@@ -77,15 +77,15 @@ public class Showcase implements EntryPoint {
 				"dojox/mobile/ProgressIndicator",
 				"dojox/mobile/FixedSplitterPane", "dojox/mobile/SwapView",
 				"dojox/mobile/TabBar", "dojo/domReady!");
-		Dojo.require(modules, new RequireCallback() {
+		Dojo.require(modules, new DojoCallback() {
 			@Override
-			public void callback(JsObject arguments) {
+			public void callback(JsArray arguments) {
 				startup(arguments);
 			}
 		});
 	}
 
-	protected void startup(JsObject arguments) {
+	protected void startup(JsArray arguments) {
 		Parser.parse();
 
 		{

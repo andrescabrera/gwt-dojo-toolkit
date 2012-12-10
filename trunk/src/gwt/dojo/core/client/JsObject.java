@@ -21,6 +21,26 @@ import com.google.gwt.json.client.JSONObject;
 
 public class JsObject extends JavaScriptObject {
 
+	public static JsObject create() {
+		return JavaScriptObject.createObject().cast();
+	}
+
+	public static JsObject create(String property, Object value) {
+		return JsObject.create().put(property, value);
+	}
+
+	public static JsObject create(String property, int value) {
+		return JsObject.create().put(property, value);
+	}
+
+	public static JsObject create(String property, double value) {
+		return JsObject.create().put(property, value);
+	}
+
+	public static JsObject create(String property, boolean value) {
+		return JsObject.create().put(property, value);
+	}
+
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,
 	 * empty, no-arg constructor.
@@ -31,7 +51,22 @@ public class JsObject extends JavaScriptObject {
 	// Object property
 
 	public final native Object get(String property) /*-{
-		return this[property] || null;
+		var value = this[property];
+		switch (typeof value) {
+		case "object":
+		case "undefined":
+			return value;
+		case "string":
+			return @java.lang.String::new(Ljava/lang/String;)(value);
+		case "number":
+			return @java.lang.Double::new(D)(value);
+		case "boolean":
+			return @java.lang.Boolean::new(Z)(value);
+		case "function":
+			return null;
+		default:
+			throw new Error("Can't convert value of type: " + typeof value);
+		}
 	}-*/;
 
 	public final native JsObject put(String property, Object value) /*-{
@@ -41,43 +76,24 @@ public class JsObject extends JavaScriptObject {
 
 	// JavaScriptObject property
 
+	public final JsObject getJsObject(String property) {
+		return getJavaScriptObject(property);
+	}
+
+	public final JsArray getJsArray(String property) {
+		return getJavaScriptObject(property);
+	}
+
+	public final Element getElement(String property) {
+		return getJavaScriptObject(property);
+	}
+
 	@SuppressWarnings("unchecked")
 	public final <T extends JavaScriptObject> T getJavaScriptObject(
 			String property) {
 		Object o = get(property);
 		return o != null && o instanceof JavaScriptObject ? (T) o : null;
 	};
-
-	public final native JsObject put(String property, JavaScriptObject value) /*-{
-		this[property] = value;
-		return this;
-	}-*/;
-
-	// JsObject property
-
-	@SuppressWarnings("unchecked")
-	public final <T extends JsObject> T getJsObject(String property) {
-		Object o = get(property);
-		return o != null && o instanceof JavaScriptObject ? (T) o : null;
-	};
-
-	public final native JsObject put(String property, JsObject value) /*-{
-		this[property] = value;
-		return this;
-	}-*/;
-
-	// JavaScriptObject property
-
-	@SuppressWarnings("unchecked")
-	public final <T extends Element> T getElement(String property) {
-		Object o = get(property);
-		return o != null && o instanceof Element ? (T) o : null;
-	};
-
-	public final native JsObject put(String property, Element value) /*-{
-		this[property] = value;
-		return this;
-	}-*/;
 
 	// String property
 
@@ -86,12 +102,11 @@ public class JsObject extends JavaScriptObject {
 		return o != null && o instanceof String ? (String) o : null;
 	}
 
-	public final native JsObject put(String property, String value) /*-{
-		this[property] = value;
-		return this;
-	}-*/;
-
 	// Integer property
+
+	public final native int getInteger(String property) /*-{
+		return this[property] || 0;
+	}-*/;
 
 	public final native int getInteger(String property, int defaultValue) /*-{
 		return this[property] || defaultValue;
@@ -104,6 +119,10 @@ public class JsObject extends JavaScriptObject {
 
 	// Double property
 
+	public final native double getDouble(String property) /*-{
+		return this[property] || 0;
+	}-*/;
+
 	public final native double getDouble(String property, double defaultValue) /*-{
 		return this[property] || defaultValue;
 	}-*/;
@@ -114,6 +133,10 @@ public class JsObject extends JavaScriptObject {
 	}-*/;
 
 	// Boolean property
+
+	public final native boolean getBoolean(String property) /*-{
+		return this[property] || false;
+	}-*/;
 
 	public final native boolean getBoolean(String property, boolean defaultValue) /*-{
 		return this[property] || defaultValue;
@@ -126,16 +149,45 @@ public class JsObject extends JavaScriptObject {
 
 	// ---
 
-	public final native boolean isNull(String property) /*-{
-		return this[property] === null;
+	public final native boolean isObject(String property) /*-{
+		var value = this[property];
+		switch (typeof value) {
+		case "object":
+		case "undefined":
+			return true;
+		default:
+			return false;
+		}
 	}-*/;
 
-	public final native boolean hasProperty(String property) /*-{
-		return !(typeof this[property] === "undefined");
+	public final native boolean isString(String property) /*-{
+		var value = this[property];
+		switch (typeof value) {
+		case "string":
+			return true;
+		default:
+			return false;
+		}
 	}-*/;
 
-	public final native String typeof(String property) /*-{
-		return typeof this[property];
+	public final native boolean isNumber(String property) /*-{
+		var value = this[property];
+		switch (typeof value) {
+		case "number":
+			return true;
+		default:
+			return false;
+		}
+	}-*/;
+
+	public final native boolean isBoolean(String property) /*-{
+		var value = this[property];
+		switch (typeof value) {
+		case "number":
+			return true;
+		default:
+			return false;
+		}
 	}-*/;
 
 	public final native boolean isArray(String property) /*-{
@@ -143,9 +195,45 @@ public class JsObject extends JavaScriptObject {
 				&& this[property] instanceof Array;
 	}-*/;
 
+	public final native boolean isNull(String property) /*-{
+		return this[property] === null;
+	}-*/;
+
+	public final native boolean hasProperty(String property) /*-{
+		return (property in this);
+	}-*/;
+
+	public final native String typeof(String property) /*-{
+		return typeof this[property];
+	}-*/;
+
 	public final native boolean isArray() /*-{
 		return this instanceof Array;
 	}-*/;
+
+	public final native JsArray/* <String> */keys() /*-{
+		var keys = [];
+		for (property in this) {
+			keys.push(property);
+		}
+		return keys;
+	}-*/;
+
+	public final native JsArray/* <String, ?> */entries() /*-{
+		var entries = [];
+		for (property in this) {
+			var entry = {};
+			entry[property] = this[property];
+			entries.push(entry);
+		}
+		return entries;
+	}-*/;
+
+	// public final native void forEach(JsObjectVisitor visitor) /*-{
+	// for (property in this) {
+	// visitor.@com.arkasoft.gwt.dojo.client.JsObjectVisitor::visit(Ljava/lang/String;)(property);
+	// }
+	// }-*/;
 
 	// ---
 

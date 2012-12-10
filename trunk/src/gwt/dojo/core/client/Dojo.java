@@ -33,15 +33,15 @@ public class Dojo {
 	 *            Callback to call when dependencies are loaded.
 	 */
 	public static native void require(JsArray/* <String> */dependencies,
-			RequireCallback callback) /*-{
+			DojoCallback callback) /*-{
 		var callbackFcn = function() {
 			var _arguments = arguments;
 
 			if (typeof $wnd.dojo.ready === 'undefined') {
-				callback.@gwt.dojo.core.client.RequireCallback::callback(Lgwt/dojo/core/client/JsObject;)(_arguments);
+				callback.@gwt.dojo.core.client.DojoCallback::callback(Lgwt/dojo/core/client/JsArray;)(_arguments);
 			} else {
 				var onReadyFcn = function() {
-					callback.@gwt.dojo.core.client.RequireCallback::callback(Lgwt/dojo/core/client/JsObject;)(_arguments);
+					callback.@gwt.dojo.core.client.DojoCallback::callback(Lgwt/dojo/core/client/JsArray;)(_arguments);
 				};
 				$wnd.dojo.ready(onReadyFcn);
 			}
@@ -52,22 +52,16 @@ public class Dojo {
 
 	/**
 	 * 
-	 * @param callback
-	 */
-	public static void onReady(RequireCallback callback) {
-		JsArray modules = JavaScriptObject.createArray().cast();
-		modules.push("dojo/ready");
-		Dojo.require(modules, callback);
-	};
-
-	/**
-	 * 
 	 * @param dependency
 	 * @return
 	 */
 	public static native <T extends JavaScriptObject> T require(
 			String dependency) /*-{
-		return $wnd.require(dependency);
+		try {
+			return $wnd.require(dependency);
+		} catch (e) {
+			alert(e);
+		}
 	}-*/;
 
 	/**
