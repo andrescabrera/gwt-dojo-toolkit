@@ -72,10 +72,10 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 
 		modules.push(DojoText.MODULE("./data/static.json"));
 		modules.push(JSON.MODULE);
-		modules.push(DojoReady.MODULE);
 		modules.push(MemoryStore.MODULE);
 		modules.push(ObjectStoreModel.MODULE);
 		modules.push(Tree.MODULE);
+		modules.push(DojoReady.MODULE);
 
 		Dojo.require(modules, this);
 	}
