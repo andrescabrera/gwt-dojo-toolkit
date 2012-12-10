@@ -22,7 +22,7 @@ public class Claro extends Theme {
 	public static final String MODULE = "dojox/charting/themes/Claro";
 
 	public static Claro ref() {
-		return Dojo.require(MODULE).cast();
+		return Dojo.require(MODULE);
 	}
 
 	protected Claro() {

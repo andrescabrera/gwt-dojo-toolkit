@@ -7,7 +7,7 @@ public class Tufte extends Theme {
 	public static final String MODULE = "dojox/charting/themes/Tufte";
 
 	public static Wetland ref() {
-		return Dojo.require(MODULE).cast();
+		return Dojo.require(MODULE);
 	}
 
 	protected Tufte() {

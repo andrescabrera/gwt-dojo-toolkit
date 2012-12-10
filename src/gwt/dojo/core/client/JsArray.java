@@ -16,9 +16,30 @@
 package gwt.dojo.core.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 
 public class JsArray extends JavaScriptObject {
+	
+	public static JsArray create() {
+		return JavaScriptObject.createArray().cast();
+	}
+	
+	public static JsArray create(Object... values) {
+		return JsArray.create().push(values);
+	}
+	
+	public static JsArray create(int... values) {
+		return JsArray.create().push(values);
+	}
+	
+	public static JsArray create(double... values) {
+		return JsArray.create().push(values);
+	}
+	
+	public static JsArray create(boolean... values) {
+		return JsArray.create().push(values);
+	}
 
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,
@@ -197,7 +218,7 @@ public class JsArray extends JavaScriptObject {
 	 * communicate with a JSON service.
 	 */
 	public final String toJson() {
-		return new JSONObject(this).toString();
+		return new JSONArray(this).toString();
 	}
 
 	/**

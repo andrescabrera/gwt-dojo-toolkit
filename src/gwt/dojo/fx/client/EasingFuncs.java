@@ -17,7 +17,7 @@ public class EasingFuncs extends JsObject {
 	public static final JsObject BOUNCEINOUT = EasingFuncs.ref().getJsObject("bounceInOut");
 
 	private static EasingFuncs ref() {
-		return Dojo.require(MODULE).cast();
+		return Dojo.require(MODULE);
 	}
 
 	protected EasingFuncs() {
