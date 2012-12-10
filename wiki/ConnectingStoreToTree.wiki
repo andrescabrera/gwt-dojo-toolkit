@@ -49,10 +49,15 @@ import gwt.dojo.core.client.data.api.Item;
 import gwt.dojo.core.client.store.MemoryStore;
 import gwt.dojo.core.client.store.api.Store.GetChildrenCallback;
 import gwt.dojo.dijit.client.Tree;
+import gwt.dojo.dijit.client.Tree.OnClickCallback;
+import gwt.dojo.dijit.client.Tree.OnLoadCallback;
 import gwt.dojo.dijit.client.tree.ObjectStoreModel;
 import gwt.dojo.dijit.client.tree.TreeModel.MayHaveChildrenCallback;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.ImageElement;
+import com.google.gwt.dom.client.NativeEvent;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -108,13 +113,24 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 		// set up the tree, assigning governmentModel
 		JsObject treeOptions = JsObject.create();
 		treeOptions.put(Tree.MODEL, governmentModel);
-		// treeOptions.put("onOpenClick", true);
-		// treeOptions.put("onLoad", onLoad());
-		// treeOptions.put("onClick", onClick());
 
-		Tree governmentTree = Tree.create(treeOptions);
-		governmentTree.placeAt("treeNode");
+		Tree governmentTree = Tree.create(treeOptions);		
+		governmentTree.placeAt("divTree");
 		governmentTree.startup();
+		
+		final ImageElement img = Document.get().getElementById("image").cast();
+		governmentTree.setOnLoad(new OnLoadCallback() {
+			@Override
+			public void callback() {
+				img.setSrc("images/root.jpg");
+			}
+		});
+		governmentTree.setOnClick(new OnClickCallback() {
+			@Override
+			public void callback(JsObject item, JsObject treeNode, NativeEvent event) {
+				img.setSrc("images/" + item.getString("id") + ".jpg");
+			}
+		});
 	}
 }
 }}}
