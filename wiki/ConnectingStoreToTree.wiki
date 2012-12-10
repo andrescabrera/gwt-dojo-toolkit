@@ -121,13 +121,13 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 		final ImageElement img = Document.get().getElementById("image").cast();
 		governmentTree.setOnLoad(new OnLoadCallback() {
 			@Override
-			public void callback() {
+			public void onLoad() {
 				img.setSrc("images/root.jpg");
 			}
 		});
 		governmentTree.setOnClick(new OnClickCallback() {
 			@Override
-			public void callback(JsObject item, JsObject treeNode, NativeEvent event) {
+			public void onClick(JsObject item, JsObject treeNode, NativeEvent event) {
 				img.setSrc("images/" + item.getString("id") + ".jpg");
 			}
 		});
