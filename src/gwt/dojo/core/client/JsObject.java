@@ -57,7 +57,7 @@ public class JsObject extends JavaScriptObject {
 		case "undefined":
 			return value;
 		case "string":
-			return @java.lang.String::new(Ljava/lang/String;)(value);
+			return String(value);
 		case "number":
 			return @java.lang.Double::new(D)(value);
 		case "boolean":
