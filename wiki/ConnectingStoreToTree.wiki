@@ -33,4 +33,6 @@ The first step is to create the data. We will use the Memory store, which means 
 }
 }}}
 
-A tree is served data from an object implementing the [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/dijit/client/tree/TreeModel.java TreeModel]
+A tree is served data from an object implementing the [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/dijit/client/tree/TreeModel.java TreeModel] abstract class (digit/tree/model interface). Usually, that object is an instance of [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/dijit/client/tree/ObjectStoreModel.java ObjectStoreModel] (digit/tree/ObjectStoreModel), and it is fed by a [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/core/client/store/api/Store.java Store] (dojo/store).
+
+The code below creates a [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/core/client/store/MemoryStore.java MemoryStore] (dojo/store/Memory store).
