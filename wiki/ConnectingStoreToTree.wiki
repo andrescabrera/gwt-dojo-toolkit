@@ -42,6 +42,7 @@ import gwt.dojo.core.client.Dojo;
 import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.core.client.DojoReady;
 import gwt.dojo.core.client.DojoText;
+import gwt.dojo.core.client.JSON;
 import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.data.api.Item;
@@ -52,7 +53,6 @@ import gwt.dojo.dijit.client.tree.ObjectStoreModel;
 import gwt.dojo.dijit.client.tree.TreeModel.MayHaveChildrenCallback;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.json.client.JSONParser;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -66,6 +66,7 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 		JsArray modules = JsArray.create();
 
 		modules.push(DojoText.MODULE("/data/static.json"));
+		modules.push(JSON.MODULE);
 		modules.push(DojoReady.MODULE);
 		modules.push(MemoryStore.MODULE);
 		modules.push(ObjectStoreModel.MODULE);
@@ -76,13 +77,11 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 
 	@Override
 	public void callback(JsArray arguments) {
+		JsObject staticData = JSON.parse(arguments.getString(0), false);
 
 		// set up the store to get the tree data
-		JsObject data = JSONParser.parseLenient(arguments.getString(0))
-				.isObject().getJavaScriptObject().cast();
-
 		JsObject storeOptions = JsObject.create();
-		storeOptions.put(MemoryStore.DATA, JsArray.create(data));
+		storeOptions.put(MemoryStore.DATA, JsArray.create(staticData));
 
 		MemoryStore governmentStore = MemoryStore.create(storeOptions);
 		governmentStore.setGetChildrenCallback(new GetChildrenCallback() {
