@@ -70,7 +70,7 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 	public void onModuleLoad() {
 		JsArray modules = JsArray.create();
 
-		modules.push(DojoText.MODULE("/data/static.json"));
+		modules.push(DojoText.MODULE("./data/static.json"));
 		modules.push(JSON.MODULE);
 		modules.push(DojoReady.MODULE);
 		modules.push(MemoryStore.MODULE);
@@ -134,3 +134,10 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 	}
 }
 }}}
+
+ Note how we had to implemented two method callbacks ourselves:
+
+  # GetChildrenCallback - to return a list of children for a given item
+  # MayHaveChildrenCallback - in its simplest form this always returns true, but it can return false if you can tell just by looking at an item that it couldn't possibly have any children. 
+
+[http://ggeorg.arkasoft.com/wiki-tree-store-1/ View Demo]
