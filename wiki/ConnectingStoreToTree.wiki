@@ -1,0 +1,34 @@
+#summary Connecting a Store to a Tree
+
+= Introduction =
+
+The Dojo Tree component is a powerful tool for visual presentation of hierarchical data. In this tutorial we will look at how to connect the tree to a store for quick and efficient data drill-down into nested data.
+
+The first example uses a static tree with the data sourced from a single JSON file. This can be used to provide navigation through data. The second example expands on this design to add powerful features like drag and drop, and dynamic  tree manipulation. The final example shows how data can be be lazy-loaded.
+
+= Tree with a Static Store =
+
+A static store is well-suited for a tree with limited size. In this example, clicking on the tree nodes displays a related image.
+
+The first step is to create the data. We will use the Memory store, which means that the store data is JSON-encoded, and can contain supporting information. In this case, the name is used to label each node of the tree. This tree has four items, and each has a name and an id.
+
+{{{
+{
+    "name": "US Government",
+    "id": "root",
+    "children": [
+        {
+            "name": "Congress",
+            "id": "congress"
+        },
+        {
+            "name": "Executive",
+            "id": "exec"
+        },
+        {
+            "name": "Judicial",
+            "id": "judicial"
+        }
+    ]
+}
+}}}
