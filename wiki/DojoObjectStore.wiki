@@ -93,4 +93,32 @@ jim.put("department", "engineering");
 employeeStore.store(jim);
 }}}
 
-Going back to querying, we can add additional parameters to a query. These additional parameters allow us to limit the query to a specific number of objects, or to sort the objects, using the second argument to the query method. This second argument can be an object with `start` and `count` properties that define the limit on the number f objects returned. Limiting the result 
+Going back to querying, we can add additional parameters to a query. These additional parameters allow us to limit the query to a specific number of objects, or to sort the objects, using the second argument to the query method. This second argument can be an object with `start` and `count` properties that define the limit on the number f objects returned. Limiting the result set can be critical for large-scale data sets that are used by paging-capable widgets (like the grid), where new pages of data are requested on demand. The second argument can also include a sort property, to specify the property and direction to sort on in the query:
+
+{{{
+JsObject query = JsObject.create("department", "sales");
+
+SortInformation sortInformation0 = SortInformation.create();
+sortInformation0.put(SortInformation.ATTRIBUTE, "department");
+sortInformation0.put(SortInformation.DESCENDING, false);
+
+QueryOptions queryOptions = QueryOptions.create();
+queryOptions.put(QueryOptions.SORT, JsArray.create(sortInformation0));
+queryOptions.put(QueryOptions.START, 0);
+queryOptions.put(QueryOptions.COUNT, 10);
+
+employeeStore.query(query, queryOptions)
+		.setMapCallback(new MapCallback() {
+			@Override
+			public JsObject map(JsObject item) {
+				return JsObject.create("name", item.getString("name"));
+			}
+		}).setForEachCallback(new ForEachCallback() {
+			@Override
+			public void forEach(JsObject item) {
+				Window.alert(item.toJson());
+			}
+		});
+}}}
+
+The Memory store is a synchronous store, which means it directly returns the results of an action (`byId` returns the object).
