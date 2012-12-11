@@ -2,6 +2,7 @@
 #labels Featured
 
  * *Working with Data*
+  * [DojoObjectStore Dojo Object Store]
   * [ConnectingStoreToTree Connecting a Store to a Tree]
  * *Introduction to GWT Dojo Mobile*
   * [HelloWorldMobile Hello, World!]
