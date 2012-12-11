@@ -1,0 +1,11 @@
+#summary Dojo Object Store
+
+= Introduction =
+
+Separation of concerns is a fundamental aspect of good programming. Keeping presentation distinct from the data model is a key separation to employ. The Dojo object store architecture establishes a consistent interface for data interaction inspired by the HTML5 object store API.
+
+The Dojo Object Store interface allows you to develop and use well-encapulsated components that can be easily connected to various data providers. Dojo Object Store is an API, and has multiple implementations called stores. Stores include a simple in-memory store, a JSON/REST store, legacy dojo.data stores, and store wrappers that provide additional functionality.
+
+= Gettings Started =
+
+The easiest store to get started is the [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/core/client/store/MemoryStore.java MemoryStore] (dojo/store/Memory). We can simply provide an array of objects to the constructor, and we can start interacting with it. ...
