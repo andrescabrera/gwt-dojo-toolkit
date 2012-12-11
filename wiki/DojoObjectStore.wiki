@@ -69,12 +69,12 @@ This will call an alert with the name of employee in the sales department.
 We could also go on to create new objects in the store, and delete objects:
 
 {{{
-		// add a new employee
-		JsObject newEmployee = JsObject.create();
-		newEmployee.put("name", "George");
-		newEmployee.put("department", "accounting");
-		employeeStore.add(newEmployee);
-		
-		// remove Bill
-		employeeStore.remove("Bill");
+// add a new employee
+JsObject newEmployee = JsObject.create();
+newEmployee.put("name", "George");
+newEmployee.put("department", "accounting");
+employeeStore.add(newEmployee);
+
+// remove Bill
+employeeStore.remove("Bill");
 }}}
