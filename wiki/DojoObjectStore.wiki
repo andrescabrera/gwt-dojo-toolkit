@@ -78,3 +78,16 @@ employeeStore.add(newEmployee);
 // remove Bill
 employeeStore.remove("Bill");
 }}}
+
+We can retrieve objects and update them. Objects in the store are simple plain JavaScript objects, so we can directly access and modify the properties (when you modify properties, make sure you do a store() to save the changes):
+
+{{{
+// retrieve object with the name "Jim"
+JsObject jim = employeeStore.byId("Jim");
+// show the department property
+Window.alert("Jim's department is " + jim.getString("department"));
+// update his department
+jim.put("department", "engineering");
+// and store the change
+employeeStore.store(jim);
+}}}
