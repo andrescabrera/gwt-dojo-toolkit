@@ -3,10 +3,18 @@ package gwt.dojo.core.client.store;
 import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.store.api.Store;
 
+/**
+ * This is a basic in-memory object store.
+ */
 public class MemoryStore extends Store {
 
 	public static final String MODULE = "dojo/store/Memory";
 
+	/**
+	 * Create a new {@code MemoryStore} instance.
+	 * 
+	 * @return {@code MemoryStore} instance.
+	 */
 	public static native MemoryStore create(JsObject options) /*-{
 		try {
 			return new $wnd.dojo.store.Memory(options || {});
@@ -30,6 +38,9 @@ public class MemoryStore extends Store {
 	 */
 	public static final String IDPROPERTY = "idProperty";
 
+	/**
+	 * JSNI constructor.
+	 */
 	protected MemoryStore() {
 	}
 }
