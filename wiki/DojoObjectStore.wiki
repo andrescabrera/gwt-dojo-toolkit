@@ -108,17 +108,17 @@ queryOptions.put(QueryOptions.START, 0);
 queryOptions.put(QueryOptions.COUNT, 10);
 
 employeeStore.query(query, queryOptions)
-		.setMapCallback(new MapCallback() {
-			@Override
-			public JsObject map(JsObject item) {
-				return JsObject.create("name", item.getString("name"));
-			}
-		}).setForEachCallback(new ForEachCallback() {
-			@Override
-			public void forEach(JsObject item) {
-				Window.alert(item.toJson());
-			}
-		});
+	.setMapCallback(new MapCallback() {
+		@Override
+		public JsObject map(JsObject item) {
+			return JsObject.create("name", item.getString("name"));
+		}
+	}).setForEachCallback(new ForEachCallback() {
+		@Override
+		public void forEach(JsObject item) {
+			Window.alert(item.toJson());
+		}
+	});
 }}}
 
 The Memory store is a synchronous store, which means it directly returns the results of an action (`byId` returns the object).
