@@ -11,7 +11,6 @@ The Dojo Object Store interface allows you to develop and use well-encapulsated 
 The easiest store to get started is the [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/core/client/store/MemoryStore.java MemoryStore] (dojo/store/Memory). We can simply provide an array of objects to the constructor, and we can start interacting with it. Once the store is created, we can query it with the `query` method. An easy way to query is to provide an object with name/value pairs that indicate the required values of matched objects. The `query` method always returns an object or array with a `forEach` method (as well as `map` and `filter`):
 
 {{{
-
 import gwt.dojo.core.client.Dojo;
 import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.core.client.JsArray;
