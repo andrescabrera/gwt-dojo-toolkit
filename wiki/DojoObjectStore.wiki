@@ -6,7 +6,7 @@ Separation of concerns is a fundamental aspect of good programming. Keeping pres
 
 The Dojo Object Store interface allows you to develop and use well-encapulsated components that can be easily connected to various data providers. Dojo Object Store is an API, and has multiple implementations called stores. Stores include a simple in-memory store, a JSON/REST store, legacy dojo.data stores, and store wrappers that provide additional functionality.
 
-= Gettings Started =
+= Getting Started =
 
 The easiest store to get started is the [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/core/client/store/MemoryStore.java MemoryStore] (dojo/store/Memory). We can simply provide an array of objects to the constructor, and we can start interacting with it. Once the store is created, we can query it with the `query` method. An easy way to query is to provide an object with name/value pairs that indicate the required values of matched objects. The `query` method always returns an object or array with a `forEach` method (as well as `map` and `filter`):
 
@@ -121,3 +121,7 @@ employeeStore.query(query, queryOptions)
 }}}
 
 The Memory store is a synchronous store, which means it directly returns the results of an action (`byId` returns the object).
+
+= Observing Data Updates =
+
+Dojo also comes with a store wrapper/layer for adding support for notification events of data changes. The query result sets returned from a Observable store will include a observer function than can be used to monitor for changes. The observe function provides indication of the previous and new index values of changed objects to properly update result arrays.
