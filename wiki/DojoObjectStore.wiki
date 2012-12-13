@@ -209,7 +209,7 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 		// will be called)
 		JsObject newSalesEmployee = JsObject.create();
 		newSalesEmployee.put("name", "Roger");
-		newSalesEmployee.put("department", "accounting");
+		newSalesEmployee.put("department", "sales");
 		store.add(newSalesEmployee);
 
 		// remove Bill & Mike
