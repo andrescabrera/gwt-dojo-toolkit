@@ -1,6 +1,6 @@
 #summary JsonRest Store.
 
-[JsonRestStore] (dojo/store/JsonRest) provides full read, write, and notification capabilities through standards based HTTP/REST interaction with the server using GET, PUT, POST, and DELETE commands. This data store allows you to communicate with server side database/persistent data storage using Dojo Store API with JavaScript and efficiently handles create, read, update, and delete (CRUD) operations.
+[JsonRestStore] (dojo/store/JsonRest) provides full read, write, and notification capabilities through standards based HTTP/REST interaction with the server using GET, PUT, POST, and DELETE commands.
 
 To utilize the module, require in the module, create a new instance, pointing it at your RESTful service, and then perform your operations:
 
