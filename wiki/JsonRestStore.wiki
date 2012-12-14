@@ -2,7 +2,22 @@
 
 [JsonRestStore] (dojo/store/JsonRest) provides full read, write, and notification capabilities through standards based HTTP/REST interaction with the server using GET, PUT, POST, and DELETE commands.
 
-To utilize the module, require in the module, create a new instance, pointing it at your RESTful service, and then perform your operations. This is also an example of an asynchronous store. The methods on an asynchronous store return [http://dojotoolkit.org/documentation/tutorials/1.8/promises/ promises].
+To utilize the module, require in the module, create a new instance, pointing it at your RESTful service, and then perform your operations. This is also an example of an asynchronous store. The methods on an asynchronous store return [http://dojotoolkit.org/documentation/tutorials/1.8/promises/ promises]. We can use a promise by providing a callback to the returned promise:
+
+{{{
+final JsonRestStore expensesStore = JsonRestStore.create(storeOptions);
+
+// Get an object by identity.
+QueryResults results = expensesStore.byId(0).cast();
+results.then(new ThenCallback() {
+	@Override
+	public void callback(JsObject item) {
+		Window.alert(item.toJson());
+	}
+});
+}}}
+
+= Example =
 
 {{{
 import gwt.dojo.core.client.Dojo;
