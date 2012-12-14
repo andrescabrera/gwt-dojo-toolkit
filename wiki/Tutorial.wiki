@@ -1,4 +1,4 @@
-#summary Tutorial.
+#summary Developer's Guide.
 #labels Featured,Phase-Implementation
 
  * *Working with Data*
