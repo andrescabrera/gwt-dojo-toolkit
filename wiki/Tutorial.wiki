@@ -3,8 +3,8 @@
 
  * *Working with Data*
   * [DojoObjectStore Dojo Object Store]
-   * [ObservingDataUpdates Observing Data Updates]
    * [JsonRestStore JsonRest Store]
+   * [ObservingDataUpdates Observing Data Updates]
   * [ConnectingStoreToTree Connecting a Store to a Tree]
  * *Introduction to GWT Dojo Mobile*
   * [HelloWorldMobile Hello, World!]
