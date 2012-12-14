@@ -1,5 +1,5 @@
 #summary Developer's Guide.
-#labels Featured,Phase-Implementation
+#labels Featured
 
  * *Working with Data*
   * [DojoObjectStore Dojo Object Store]
