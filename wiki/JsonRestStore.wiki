@@ -1,0 +1,55 @@
+#summary JsonRest Store.
+
+= Introduction =
+
+[JsonRestStore] (dojo/store/JsonRest) provides full read, write, and notification capabilities through standards based HTTP/REST interaction with the server using GET, PUT, POST, and DELETE commands. This data store allows you to communicate with server side database/persistent data storage using Dojo Store API with JavaScript and efficiently handles create, read, update, and delete (CRUD) operations.
+
+= Usage =
+
+To utilize the module, require in the module, create a new instance, pointing it at your RESTful service, and then perform your operations:
+
+{{{
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
+import gwt.dojo.core.client.store.JsonRestStore;
+import gwt.dojo.core.client.store.MemoryStore;
+import gwt.dojo.core.client.store.api.Store.QueryResults;
+import gwt.dojo.core.client.store.api.Store.ThenCallback;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.Window;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
+
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		JsArray modules = JsArray.create();
+		modules.push(JsonRestStore.MODULE);
+		Dojo.require(modules, this);
+	}
+
+	@Override
+	public void callback(JsArray arguments) {
+		JsObject storeOptions = JsObject.create();
+		storeOptions.put(JsonRestStore.TARGET, "/expenses/");
+		storeOptions.put(MemoryStore.IDPROPERTY, "id");
+
+		JsonRestStore employeeStore = JsonRestStore.create(storeOptions);
+		QueryResults results = employeeStore.byId(0).cast();
+		results.then(new ThenCallback() {
+			@Override
+			public void callback(JsObject item) {
+				Window.alert(item.toJson());
+			}
+		});
+	}
+}
+
+}}}
