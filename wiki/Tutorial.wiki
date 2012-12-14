@@ -1,5 +1,5 @@
 #summary Tutorial.
-#labels Featured
+#labels Featured,Phase-Implementation
 
  * *Working with Data*
   * [DojoObjectStore Dojo Object Store]
