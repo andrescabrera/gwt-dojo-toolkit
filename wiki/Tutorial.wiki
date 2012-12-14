@@ -3,6 +3,7 @@
 
  * *Working with Data*
   * [DojoObjectStore Dojo Object Store]
+   * [JsonRestStore JsonRest Store]
   * [ConnectingStoreToTree Connecting a Store to a Tree]
  * *Introduction to GWT Dojo Mobile*
   * [HelloWorldMobile Hello, World!]
