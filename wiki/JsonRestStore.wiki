@@ -11,10 +11,16 @@ import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.store.JsonRestStore;
 import gwt.dojo.core.client.store.MemoryStore;
+import gwt.dojo.core.client.store.api.Store;
+import gwt.dojo.core.client.store.api.Store.ForEachCallback;
+import gwt.dojo.core.client.store.api.Store.QueryOptions;
 import gwt.dojo.core.client.store.api.Store.QueryResults;
+import gwt.dojo.core.client.store.api.Store.SortInformation;
+import gwt.dojo.core.client.store.api.Store.StoreDirectives;
 import gwt.dojo.core.client.store.api.Store.ThenCallback;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.JsDate;
 import com.google.gwt.user.client.Window;
 
 /**
@@ -37,14 +43,54 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 		storeOptions.put(JsonRestStore.TARGET, "/expenses/");
 		storeOptions.put(MemoryStore.IDPROPERTY, "id");
 
-		JsonRestStore employeeStore = JsonRestStore.create(storeOptions);
-		QueryResults results = employeeStore.byId(0).cast();
+		final JsonRestStore expensesStore = JsonRestStore.create(storeOptions);
+
+		// Get an object by identity.
+		QueryResults results = expensesStore.byId(0).cast();
 		results.then(new ThenCallback() {
 			@Override
 			public void callback(JsObject item) {
 				Window.alert(item.toJson());
 			}
 		});
+
+		// Query for objects with options
+		JsObject query = JsObject.create("type", "Meals");
+
+		SortInformation sortInformation0 = Store.createSortInformation();
+		sortInformation0.put(SortInformation.ATTRIBUTE, "date");
+		sortInformation0.put(SortInformation.DESCENDING, false);
+
+		SortInformation sortInformation1 = Store.createSortInformation();
+		sortInformation1.put(SortInformation.ATTRIBUTE, "amount");
+		sortInformation1.put(SortInformation.DESCENDING, true);
+
+		QueryOptions queryOptions = Store.createQueryOptions();
+		queryOptions.put(QueryOptions.SORT,
+				JsArray.create(sortInformation0, sortInformation1));
+		queryOptions.put(QueryOptions.START, 0);
+		queryOptions.put(QueryOptions.COUNT, 10);
+
+		expensesStore.query(query, queryOptions).forEach(new ForEachCallback() {
+			@Override
+			public void callback(JsObject item) {
+				Window.alert(item.toJson());
+			}
+		});
+
+		// Store an object identified by identity
+		JsObject newExpense = JsObject.create();
+		newExpense.put("date", JsDate.create());
+		newExpense.put("type", "Meal");
+		newExpense.put("amount", 25.35D);
+
+		StoreDirectives storeDirectives = Store.createStoreDirectives();
+		storeDirectives.put(StoreDirectives.ID, 100);
+
+		expensesStore.store(newExpense, storeDirectives);
+
+		// Remove an object by ID
+		expensesStore.remove(3);
 	}
 }
 }}}
