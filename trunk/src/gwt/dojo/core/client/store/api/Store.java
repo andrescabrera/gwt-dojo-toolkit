@@ -1,9 +1,9 @@
 package gwt.dojo.core.client.store.api;
 
-import com.google.gwt.core.client.JavaScriptObject;
-
 import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
+
+import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * This is an abstract API that provider implementations conform to.
@@ -26,27 +26,26 @@ public abstract class Store extends JsObject {
 	}
 
 	public interface ForEachCallback {
-		void forEach(JsObject item);
+		void callback(JsObject item);
 	}
 
 	public interface MapCallback {
-		JsObject map(JsObject item);
+		JsObject callback(JsObject item);
+	}
+
+	public interface ThenCallback {
+		void callback(JsObject item);
+	}
+
+	public interface ObserveCallback {
+		void callback(JsObject object, int removedFrom, int insertedInto);
 	}
 
 	/**
-	 * Directives passed to put() and add() handlers for guiding the update and
+	 * Directives passed to store() and add() handlers for guiding the update and
 	 * creation of stored objects.
 	 */
-	public static class PutDirectives extends JsObject {
-		/**
-		 * Create a new {@code PutDirectives} instance.
-		 * 
-		 * @return {@code PutDirectives} instance.
-		 */
-		public static PutDirectives create() {
-			return JavaScriptObject.createObject().cast();
-		}
-
+	public static class StoreDirectives extends JsObject {
 		/**
 		 * id: String|Number?
 		 * <p>
@@ -88,8 +87,17 @@ public abstract class Store extends JsObject {
 		/**
 		 * JSNI constructor.
 		 */
-		protected PutDirectives() {
+		protected StoreDirectives() {
 		}
+	}
+	
+	/**
+	 * Create a new {@code StoreDirectives} instance.
+	 * 
+	 * @return {@code StoreDirectives} instance.
+	 */
+	public static StoreDirectives createStoreDirectives() {
+		return JavaScriptObject.createObject().cast();
 	}
 
 	/**
@@ -97,15 +105,6 @@ public abstract class Store extends JsObject {
 	 * sort.
 	 */
 	public static class SortInformation extends JsObject {
-		/**
-		 * Create a new {@code SortInformation} instance.
-		 * 
-		 * @return {@code SortInformation} instance.
-		 */
-		public static SortInformation create() {
-			return JavaScriptObject.createObject().cast();
-		}
-
 		/**
 		 * attribute: String
 		 * <p>
@@ -126,20 +125,20 @@ public abstract class Store extends JsObject {
 		protected SortInformation() {
 		}
 	}
+	
+	/**
+	 * Create a new {@code SortInformation} instance.
+	 * 
+	 * @return {@code SortInformation} instance.
+	 */
+	public static SortInformation createSortInformation() {
+		return JavaScriptObject.createObject().cast();
+	}
 
 	/**
 	 * Optional object with additional parameters for query results.
 	 */
 	public static class QueryOptions extends JsObject {
-		/**
-		 * Create a new {@code QueryOptions} instance.
-		 * 
-		 * @return {@code QueryOptions} instance.
-		 */
-		public static QueryOptions create() {
-			return JavaScriptObject.createObject().cast();
-		}
-
 		/**
 		 * sort: Store.SortInformation[]?
 		 * <p>
@@ -172,6 +171,27 @@ public abstract class Store extends JsObject {
 		protected QueryOptions() {
 		}
 	}
+	
+	/**
+	 * Create a new {@code QueryOptions} instance.
+	 * 
+	 * @return {@code QueryOptions} instance.
+	 */
+	public static QueryOptions createQueryOptions() {
+		return JavaScriptObject.createObject().cast();
+	}
+
+	public static class ObserverHandle extends JsObject {
+		/**
+		 * JSNI constructor.
+		 */
+		protected ObserverHandle() {
+		}
+
+		public final native void cancel() /*-{
+			this.cancel();
+		}-*/;
+	}
 
 	/**
 	 * This is an object returned from
@@ -195,18 +215,36 @@ public abstract class Store extends JsObject {
 		protected QueryResults() {
 		}
 
-		public final native void setForEachCallback(ForEachCallback callback) /*-{
+		public final native void forEach(ForEachCallback callback) /*-{
 			var callbackFcn = function(item) {
-				callback.@gwt.dojo.core.client.store.api.Store.ForEachCallback::forEach(Lgwt/dojo/core/client/JsObject;)(item);
+				callback.@gwt.dojo.core.client.store.api.Store.ForEachCallback::callback(Lgwt/dojo/core/client/JsObject;)(item);
 			};
 			this.forEach(callbackFcn);
 		}-*/;
 
-		public final native QueryResults setMapCallback(MapCallback callback) /*-{
+		public final native QueryResults map(MapCallback callback) /*-{
 			var callbackFcn = function(item) {
-				return callback.@gwt.dojo.core.client.store.api.Store.MapCallback::map(Lgwt/dojo/core/client/JsObject;)(item);
+				return callback.@gwt.dojo.core.client.store.api.Store.MapCallback::callback(Lgwt/dojo/core/client/JsObject;)(item);
 			};
 			return this.map(callbackFcn);
+		}-*/;
+
+		public final native void then(ThenCallback callback) /*-{
+			var callbackFcn = function(item) {
+				callback.@gwt.dojo.core.client.store.api.Store.ThenCallback::callback(Lgwt/dojo/core/client/JsObject;)(item);
+			}
+			this.then(callbackFcn);
+		}-*/;
+
+		public final native ObserverHandle observe(ObserveCallback callback) /*-{
+			try {
+				var callbackFcn = function(object, removedFrom, insertedInto) {
+					callback.@gwt.dojo.core.client.store.api.Store.ObserveCallback::callback(Lgwt/dojo/core/client/JsObject;II)(object, removedFrom, insertedInto);
+				};
+				return this.observe(callbackFcn);
+			} catch (e) {
+				alert(e);
+			}
 		}-*/;
 	}
 
@@ -293,7 +331,7 @@ public abstract class Store extends JsObject {
 	 *            Additional directives for storing objects.
 	 * @return Number|String (???)
 	 */
-	public final native Object store(JsObject object, PutDirectives directives) /*-{
+	public final native Object store(JsObject object, StoreDirectives directives) /*-{
 		return this.put(object, directives);
 	}-*/;
 
@@ -317,7 +355,7 @@ public abstract class Store extends JsObject {
 	 *            Additional directives for creating objects.
 	 * @return Number|String (???)
 	 */
-	public final native Object add(JsObject object, PutDirectives directives) /*-{
+	public final native Object add(JsObject object, StoreDirectives directives) /*-{
 		return this.add(object, directives);
 	}-*/;
 
