@@ -2,6 +2,7 @@
 #labels Featured
 
  * *DOM, Events and Effects*
+  * [DojoDOM Dojo DOM]
   * [DojoEvents Events with Dojo]
  * *Working with Data*
   * [DojoObjectStore Dojo Object Store]
