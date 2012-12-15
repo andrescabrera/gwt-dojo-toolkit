@@ -1,0 +1,37 @@
+#summary DojoDOM.
+
+= Introduction =
+
+In this tutorial, you'll learn about how to use Dojo to manipulate the DOM in a single, cross-browser way. Using basic DOM knowledge and only a few Dojo functions, you will be able to efficiently create, read, update and delete elements in the page on the fly.
+
+= Getting Started =
+
+As far as browser-based JavaScript is concerned, the Document Object Model (DOM) is the glass that we paint on to put content and user interface in front or our users. If we want to augment, replace or add to the HTML once loaded into the browser, JavaScript and the DOM is how it's done. Dojo aims to make working with DOM easy and efficient by providing a handful of convenience functions that fill some awkward cross-browser incompatibilities and make common operations simpler and less verbose.
+
+To explore those functions we will be manipulating a simple page containing an unordered list with elements in it:
+
+{{{
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Demo: DOM Functions</title>
+		<script>
+			var dojoConfig = {
+				async: true,
+				parseOnLoad: true
+			}
+		</script>
+		<script type="text/javascript" src="gwt_dojo_demo/gwt_dojo_demo.nocache.js"></script>
+	</head>
+    <body>
+        <ul id="list">
+            <li id="one">One</li>
+            <li id="two">Two</li>
+            <li id="three">Three</li>
+            <li id="four">Four</li>
+            <li id="five">Five</li>
+        </ul>
+    </body>
+</html>
+}}}
