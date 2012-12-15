@@ -83,3 +83,50 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 = Creation =
 
 Another thing you will be doing often is creating elements. Dojo doesn't prevent you from using the `Document.get().createElement` method to create elements, but creating the element and setting all the necessary attributes and properties on it can be verbose.
+
+{{{
+
+import gwt.dojo.core.client.DOM;
+import gwt.dojo.core.client.DOMConstruct;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.core.client.DojoReady;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.dom.client.UListElement;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
+
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		JsArray modules = JsArray.create();
+		modules.push(DOMConstruct.MODULE);
+		modules.push(DojoReady.MODULE);
+		Dojo.require(modules, this);
+	}
+
+	@Override
+	public void callback(JsArray arguments) {
+		UListElement list = DOM.byId("list");
+
+		JsObject attr0 = JsObject.create("innerHTML", "Six");
+		DOMConstruct.create("li", attr0, list);
+
+		JsObject attr1 = JsObject.create("innerHTML", "Seven");
+		attr1.put("className", "seven");
+		attr1.put("style", JsObject.create("fontWeight", "bold"));
+		DOMConstruct.create("li", attr1, list);
+
+		DOMConstruct.create("li",
+				JsObject.create("innerHTML", "Three and a half"), "three",
+				"after");
+	}
+}
+}}}
