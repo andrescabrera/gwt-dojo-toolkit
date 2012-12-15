@@ -24,14 +24,14 @@ To explore those functions we will be manipulating a simple page containing an u
 		</script>
 		<script type="text/javascript" src="gwt_dojo_demo/gwt_dojo_demo.nocache.js"></script>
 	</head>
-    <body>
-        <ul id="list">
-            <li id="one">One</li>
-            <li id="two">Two</li>
-            <li id="three">Three</li>
-            <li id="four">Four</li>
-            <li id="five">Five</li>
-        </ul>
-    </body>
+	<body>
+		<ul id="list">
+			<li id="one">One</li>
+			<li id="two">Two</li>
+			<li id="three">Three</li>
+			<li id="four">Four</li>
+			<li id="five">Five</li>
+		</ul>
+	</body>
 </html>
 }}}
