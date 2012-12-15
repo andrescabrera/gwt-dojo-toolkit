@@ -5,7 +5,8 @@
   * [DojoDOM Dojo DOM]
   * [DojoEvents Events with Dojo]
  * *Working with Data*
-  * [DojoObjectStore Dojo Object Store]
+  * Dojo Store
+   * [DojoObjectStore Dojo Object Store]
    * [JsonRestStore JsonRest Store]
    * [ObservingDataUpdates Observing Data Updates]
   * [ConnectingStoreToTree Connecting a Store to a Tree]
