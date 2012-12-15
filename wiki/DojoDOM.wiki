@@ -84,8 +84,9 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 
 Another thing you will be doing often is creating elements. Dojo doesn't prevent you from using the `Document.get().createElement` method to create elements, but creating the element and setting all the necessary attributes and properties on it can be verbose.
 
-{{{
+The arguments to `DOMConstruct.create` are as follows: node name as a string, properties of the node as an object, an optional parent or sibling node, and an optional position if reference to the parent or sibling node (which defaults to "last"). It returns the new DOM element node. Lets take a look at an example:
 
+{{{
 import gwt.dojo.core.client.DOM;
 import gwt.dojo.core.client.DOMConstruct;
 import gwt.dojo.core.client.Dojo;
@@ -128,3 +129,7 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 	}
 }
 }}}
+
+A simple list item is created with the content of "Six" and appended to the list. Next, another list item is created with the content of "Seven", its `className` is set to "seven", it's styled so it has a bold font, and then appended to the list. Finally, a list item is created with the contents "Three and a half" and is inserted after the list item with the ID "three".
+
+= Placement =
