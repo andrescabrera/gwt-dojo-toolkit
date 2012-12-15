@@ -1,6 +1,8 @@
 #summary Tutorial.
 #labels Featured
 
+ * *DOM, Events and Effects*
+  * [DojoEvents Events with Dojo]
  * *Working with Data*
   * [DojoObjectStore Dojo Object Store]
    * [JsonRestStore JsonRest Store]
