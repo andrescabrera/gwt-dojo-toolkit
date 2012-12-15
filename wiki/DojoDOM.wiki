@@ -133,3 +133,18 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 A simple list item is created with the content of "Six" and appended to the list. Next, another list item is created with the content of "Seven", its `className` is set to "seven", it's styled so it has a bold font, and then appended to the list. Finally, a list item is created with the contents "Three and a half" and is inserted after the list item with the ID "three".
 
 = Placement =
+
+If you already have a node and want to place that node, you will need to use `DOMConstruct.place`. The arguments are as follows: a DOM node to place, a DOM node or string ID of a node to use as a reference, and an optional position as a string which defaults to "last" if not provided. This is very similar to what we saw in `DOMConstruct.create`. For our example, we have added a few buttons to the page:
+
+{{{
+<button id="moveFirst">The first item</button>
+<button id="moveBeforeTwo">Before Two</button>
+<button id="moveAfterFour">After Four</button>
+<button id="moveLast">The last item</button>
+}}}
+
+The example defines functions which move the third node around the list using `DOMConstruct.place`:
+
+{{{
+
+}}}
