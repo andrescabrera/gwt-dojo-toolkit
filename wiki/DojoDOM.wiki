@@ -214,3 +214,75 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 [http://ggeorg.arkasoft.com/wiki-dom-construct-1/ View Demo]
 
 The possible values for the placement argument are "before", "after", "replace", "only", "first", and "last". Please see the [http://dojotoolkit.org/reference-guide/1.8/dojo/dom-construct.html#dojo-dom-construct-place reference guide for domConstruct.place] for more details as to what each placement option does, though the names are decently intuitive.
+
+= Destruction =
+
+Most often you'll be creating nodes, but occasionally, you'll want to remove nodes as well. There are two ways to do this in Dojo: `DOMConstruct.destroy` which will destroy a node and all of its children, while `DOMConstruct.empty` will only destroy the children of a given node. Both take a DOM node or a string ID of a node as their only argument. We're going to add two more buttons to our page:
+
+{{{
+<button id="destroyFirst">Destroy the first list item</button>
+<button id="destroyAll">Destroy all list items</button>
+}}}
+
+{{{
+import gwt.dojo.core.client.DOM;
+import gwt.dojo.core.client.DOMConstruct;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.core.client.DojoOn;
+import gwt.dojo.core.client.DojoReady;
+import gwt.dojo.core.client.EventCallback;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.NativeEvent;
+import com.google.gwt.dom.client.NodeList;
+import com.google.gwt.dom.client.UListElement;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
+
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		JsArray modules = JsArray.create();
+		modules.push(DOMConstruct.MODULE);
+		modules.push(DojoOn.MODULE);
+		modules.push(DojoReady.MODULE);
+		Dojo.require(modules, this);
+	}
+
+	@Override
+	public void callback(JsArray arguments) {
+
+		DojoOn.on(DOM.byId("destroyFirst"), "click", new EventCallback() {
+			@Override
+			public void callback(JsObject source, NativeEvent event) {
+				UListElement list = DOM.byId("list");
+				NodeList<Element> items = list.getElementsByTagName("li");
+				
+				if(items.getLength() > 0) {
+					DOMConstruct.destroy(items.getItem(0));
+				}
+			}
+		});
+
+		DojoOn.on(DOM.byId("destroyAll"), "click", new EventCallback() {
+			@Override
+			public void callback(JsObject source, NativeEvent event) {
+				DOMConstruct.empty("list");
+			}
+		});
+
+	}
+}
+}}}
+
+[http://ggeorg.arkasoft.com/wiki-dom-construct-2/ View Demo]
+
+The first button will destroy the first item in the list on each click. The second empties the list 
