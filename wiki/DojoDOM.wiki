@@ -146,5 +146,71 @@ If you already have a node and want to place that node, you will need to use `DO
 The example defines functions which move the third node around the list using `DOMConstruct.place`:
 
 {{{
+import gwt.dojo.core.client.DOM;
+import gwt.dojo.core.client.DOMConstruct;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.core.client.DojoOn;
+import gwt.dojo.core.client.DojoReady;
+import gwt.dojo.core.client.EventCallback;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
 
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.dom.client.LIElement;
+import com.google.gwt.dom.client.NativeEvent;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
+
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		JsArray modules = JsArray.create();
+		modules.push(DOMConstruct.MODULE);
+		modules.push(DojoOn.MODULE);
+		modules.push(DojoReady.MODULE);
+		Dojo.require(modules, this);
+	}
+
+	@Override
+	public void callback(JsArray arguments) {
+		final LIElement three = DOM.byId("three");
+
+		DojoOn.on(DOM.byId("moveFirst"), "click", new EventCallback() {
+			@Override
+			public void callback(JsObject source, NativeEvent event) {
+				DOMConstruct.place(three, "list", "first");
+			}
+		});
+
+		DojoOn.on(DOM.byId("moveBeforeTwo"), "click", new EventCallback() {
+			@Override
+			public void callback(JsObject source, NativeEvent event) {
+				DOMConstruct.place(three, "two", "before");
+			}
+		});
+
+		DojoOn.on(DOM.byId("moveAfterFour"), "click", new EventCallback() {
+			@Override
+			public void callback(JsObject source, NativeEvent event) {
+				DOMConstruct.place(three, "four", "after");
+			}
+		});
+
+		DojoOn.on(DOM.byId("moveLast"), "click", new EventCallback() {
+			@Override
+			public void callback(JsObject source, NativeEvent event) {
+				DOMConstruct.place(three, "list");
+			}
+		});
+	}
+}
 }}}
+
+[http://ggeorg.arkasoft.com/wiki-dom-construct-1/ View Demo]
+
+The possible values for the placement argument are "before", "after", "replace", "only", "first", and "last". Please see the [http://dojotoolkit.org/reference-guide/1.8/dojo/dom-construct.html#dojo-dom-construct-place reference guide for domConstruct.place] for more details as to what each placement option does, though the names are decently intuitive.
