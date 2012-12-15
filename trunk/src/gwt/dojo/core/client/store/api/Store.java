@@ -1,12 +1,32 @@
+/*
+ * Copyright 2012 ArkaSoft LLC.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
 package gwt.dojo.core.client.store.api;
 
 import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
+import gwt.dojo.core.client.promise.Promise;
+import gwt.dojo.core.client.promise.Promise.ThenCallback;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * This is an abstract API that provider implementations conform to.
+ * This is an abstract API that provider implementations conform to. Every
+ * method may return a {@link Promise} for the specified return value if the
+ * execution of the operation is asynchronous (except for {@code query()} which
+ * already defines an asynchronous return value).
  */
 public abstract class Store extends JsObject {
 
@@ -33,17 +53,13 @@ public abstract class Store extends JsObject {
 		JsObject callback(JsObject item);
 	}
 
-	public interface ThenCallback {
-		void callback(JsObject item);
-	}
-
 	public interface ObserveCallback {
 		void callback(JsObject object, int removedFrom, int insertedInto);
 	}
 
 	/**
-	 * Directives passed to store() and add() handlers for guiding the update and
-	 * creation of stored objects.
+	 * Directives passed to store() and add() handlers for guiding the update
+	 * and creation of stored objects.
 	 */
 	public static class StoreDirectives extends JsObject {
 		/**
@@ -90,7 +106,7 @@ public abstract class Store extends JsObject {
 		protected StoreDirectives() {
 		}
 	}
-	
+
 	/**
 	 * Create a new {@code StoreDirectives} instance.
 	 * 
@@ -125,7 +141,7 @@ public abstract class Store extends JsObject {
 		protected SortInformation() {
 		}
 	}
-	
+
 	/**
 	 * Create a new {@code SortInformation} instance.
 	 * 
@@ -171,7 +187,7 @@ public abstract class Store extends JsObject {
 		protected QueryOptions() {
 		}
 	}
-	
+
 	/**
 	 * Create a new {@code QueryOptions} instance.
 	 * 
@@ -231,7 +247,7 @@ public abstract class Store extends JsObject {
 
 		public final native void then(ThenCallback callback) /*-{
 			var callbackFcn = function(item) {
-				callback.@gwt.dojo.core.client.store.api.Store.ThenCallback::callback(Lgwt/dojo/core/client/JsObject;)(item);
+				callback.@gwt.dojo.core.client.promise.Promise.ThenCallback::callback(Lgwt/dojo/core/client/JsObject;)(item);
 			}
 			this.then(callbackFcn);
 		}-*/;

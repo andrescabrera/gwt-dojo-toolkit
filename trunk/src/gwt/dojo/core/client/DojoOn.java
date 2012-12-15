@@ -15,14 +15,24 @@ public class DojoOn extends JsObject {
 	 */
 	public static final String MODULE = "dojo/on";
 
-	public static final DojoOn ref() {
+	public static final EventHandle on(Element node, String event,
+			EventCallback callback) {
+		return DojoOn.ref()._on(node, event, callback);
+	}
+
+	public static final EventHandle on(Element node, JavaScriptObject event,
+			EventCallback callback) {
+		return DojoOn.ref()._on(node, event, callback);
+	}
+
+	private static final DojoOn ref() {
 		return ref(MODULE);
 	}
 
 	protected DojoOn() {
 	}
 
-	public final native EventHandle on(Element node, String event,
+	private final native EventHandle _on(Element node, String event,
 			EventCallback callback) /*-{
 		var func = function(e) {
 			@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/EventCallback;Lgwt/dojo/core/client/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(callback, this, e);
@@ -30,7 +40,7 @@ public class DojoOn extends JsObject {
 		return this(node, event, func);
 	}-*/;
 
-	public final native EventHandle on(Element node, JavaScriptObject event,
+	private final native EventHandle _on(Element node, JavaScriptObject event,
 			EventCallback callback) /*-{
 		var func = function(e) {
 			@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/EventCallback;Lgwt/dojo/core/client/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(callback, this, e);

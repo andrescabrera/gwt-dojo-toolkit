@@ -17,7 +17,6 @@ package gwt.dojo.core.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.json.client.JSONArray;
-import com.google.gwt.json.client.JSONObject;
 
 public class JsArray extends JavaScriptObject {
 	
