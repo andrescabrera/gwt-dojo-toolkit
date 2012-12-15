@@ -79,3 +79,7 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 	}
 }
 }}}
+
+= Creation =
+
+Another thing you will be doing often is creating elements. Dojo doesn't prevent you from using the `Document.get().createElement` method to create elements, but creating the element and setting all the necessary attributes and properties on it can be verbose.
