@@ -4,11 +4,11 @@
  * *DOM, Events and Effects*
   * [DojoDOM Dojo DOM]
   * [DojoEvents Events with Dojo]
+ * Ajax and Data Modeling
+  * [DojoObjectStore Dojo Object Store]
+  * [JsonRestStore JsonRest Store]
+  * [ObservingDataUpdates Observing Data Updates]
  * *Working with Data*
-  * Ajax and Data Modeling
-   * [DojoObjectStore Dojo Object Store]
-   * [JsonRestStore JsonRest Store]
-   * [ObservingDataUpdates Observing Data Updates]
   * [ConnectingStoreToTree Connecting a Store to a Tree]
  * *Introduction to GWT Dojo Mobile*
   * [HelloWorldMobile Hello, World!]
