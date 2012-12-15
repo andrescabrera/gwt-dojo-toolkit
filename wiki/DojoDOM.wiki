@@ -124,9 +124,7 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 		attr1.put("style", JsObject.create("fontWeight", "bold"));
 		DOMConstruct.create("li", attr1, list);
 
-		DOMConstruct.create("li",
-				JsObject.create("innerHTML", "Three and a half"), "three",
-				"after");
+		DOMConstruct.create("li", JsObject.create("innerHTML", "Three and a half"),  "three", "after");
 	}
 }
 }}}
