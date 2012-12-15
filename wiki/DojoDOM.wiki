@@ -35,3 +35,47 @@ To explore those functions we will be manipulating a simple page containing an u
 	</body>
 </html>
 }}}
+
+The page already has the GWT script tag, and you should recognize the Dojo config block. All code that manipulates the DOM must wait until the DOM is ready before it can be executed, this will happen in GWT EntryPoint class.
+
+= Retrieval =
+
+First things first: we need to know how to get elements from the DOM, in order to work with them. The easiest way to do that is by using [DOM] (dojo/dom) resource's `byId` method. When you pass an ID to `DOM.byId`, you will receive the DOM node object with that ID. If no matching node is found, a `null` value will be returned.
+
+This is the equivalent of `Document.get().getElementById`, but is shorter to type. Let's look at an example:
+
+{{{
+import gwt.dojo.core.client.DOM;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.core.client.DojoReady;
+import gwt.dojo.core.client.JsArray;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.dom.client.Element;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
+
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		JsArray modules = JsArray.create();
+		modules.push(DOM.MODULE);
+		modules.push(DojoReady.MODULE);
+		Dojo.require(modules, this);
+	}
+
+	@Override
+	public void callback(JsArray arguments) {
+		Element one = DOM.byId("one");
+		one.setInnerHTML("One has been set");
+		
+		Element two = DOM.byId("two");
+		two.setInnerHTML("Two has been set as well");
+	}
+}
+}}}
