@@ -24,7 +24,7 @@ package gwt.dojo.core.client;
  */
 public class Aspect extends JsObject {
 	public static final String MODULE = "dojo/aspect";
-	
+
 	/**
 	 * Return instance of {@code Aspect} class.
 	 * 

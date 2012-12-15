@@ -15,6 +15,7 @@
  */
 package gwt.dojo.core.client;
 
+import com.google.gwt.core.client.JavaScriptException;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.json.client.JSONObject;
@@ -41,6 +42,24 @@ public class JsObject extends JavaScriptObject {
 		return JsObject.create().put(property, value);
 	}
 
+	public static <T extends JavaScriptObject> T ref(String module) {
+		try {
+			return Dojo.require(module);
+		} catch (JavaScriptException e) {
+			throw new NullPointerException("Undefined module '" + module + "'");
+		}
+	}
+
+	public static <T extends JsObject> T create(String module,
+			JsObject options) {
+		return create(ref(module), options);
+	}
+
+	private static native <T extends JsObject> T create(
+			JavaScriptObject objectRef, JsObject options) /*-{
+		return new objectRef(options);
+	}-*/;
+
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,
 	 * empty, no-arg constructor.
@@ -63,7 +82,7 @@ public class JsObject extends JavaScriptObject {
 		case "boolean":
 			return @java.lang.Boolean::new(Z)(value);
 		case "function":
-			return null;
+			return value;
 		default:
 			throw new Error("Can't convert value of type: " + typeof value);
 		}

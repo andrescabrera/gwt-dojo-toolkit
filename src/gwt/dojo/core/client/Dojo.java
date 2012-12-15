@@ -15,10 +15,17 @@
  */
 package gwt.dojo.core.client;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.NativeEvent;
 
 public class Dojo {
+	private static final Logger sLogger = Logger.getLogger("Dojo");
 
 	public static native void require(JsArray modules) /*-{
 		$wnd.require(modules);
@@ -38,11 +45,12 @@ public class Dojo {
 			var _arguments = arguments;
 
 			if (typeof $wnd.dojo.ready === 'undefined') {
-				callback.@gwt.dojo.core.client.DojoCallback::callback(Lgwt/dojo/core/client/JsArray;)(_arguments);
+				@gwt.dojo.core.client.Dojo::doDojoCallback(Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(callback, _arguments);
 			} else {
 				var onReadyFcn = function() {
-					callback.@gwt.dojo.core.client.DojoCallback::callback(Lgwt/dojo/core/client/JsArray;)(_arguments);
+					@gwt.dojo.core.client.Dojo::doDojoCallback(Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(callback, _arguments);
 				};
+
 				$wnd.dojo.ready(onReadyFcn);
 			}
 		};
@@ -57,11 +65,7 @@ public class Dojo {
 	 */
 	public static native <T extends JavaScriptObject> T require(
 			String dependency) /*-{
-		try {
-			return $wnd.require(dependency);
-		} catch (e) {
-			alert(e);
-		}
+		return $wnd.require(dependency);
 	}-*/;
 
 	/**
@@ -98,29 +102,6 @@ public class Dojo {
 	}-*/;
 
 	/**
-	 * 
-	 * @param node
-	 * @param type
-	 * @param callback
-	 * @return
-	 */
-	public static final native EventHandle on(Element node, String event,
-			EventCallback callback) /*-{
-		var func = function(e) {
-			try {
-				callback.@gwt.dojo.core.client.EventCallback::callback(Lgwt/dojo/core/client/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(this,e);
-			} catch (e) {
-				alert(e)
-			}
-		};
-		try {
-			return $wnd.require('dojo/on')(node, event, func);
-		} catch (e) {
-			alert(e)
-		}
-	}-*/;
-
-	/**
 	 * TODO
 	 * <p>
 	 * Note: requires "dojo/_base/connect"
@@ -146,9 +127,43 @@ public class Dojo {
 		};
 		return $wnd.dojo.connect(obj, event, context, func);
 	}-*/;
+	
+	// ------------------------------------------------------------------------
+	// Helper methods for callback functions & uncaught exceptions.
+	// ------------------------------------------------------------------------
+	
+	private static void doDojoCallback(DojoCallback callback, JsArray arguments) {
+		try {
+			callback.callback(arguments);
+		} catch (Throwable t) {
+			handleUncaughtException(t);
+		}
+	}
+	
+	private static void doCallback(EventCallback callback, JsObject thiz,
+			NativeEvent event) {
+		try {
+			callback.callback(thiz, event);
+		} catch (Throwable t) {
+			handleUncaughtException(t);
+		}
+	}
 
+	private static void handleUncaughtException(Throwable t) {
+		UncaughtExceptionHandler handler = GWT.getUncaughtExceptionHandler();
+		if (handler != null) {
+			handler.onUncaughtException(t);
+		} else if (sLogger.isLoggable(Level.SEVERE)) {
+			sLogger.log(Level.SEVERE, "Uncaught exception escaped: ", t);
+		}
+	}
+	
+	// ------------------------------------------------------------------------
+
+	/**
+	 * Hidden constructor.
+	 */
 	private Dojo() {
-		// hidden constructor
 	}
 
 }
