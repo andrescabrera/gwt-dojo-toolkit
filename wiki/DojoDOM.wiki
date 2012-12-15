@@ -259,7 +259,6 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 
 	@Override
 	public void callback(JsArray arguments) {
-
 		DojoOn.on(DOM.byId("destroyFirst"), "click", new EventCallback() {
 			@Override
 			public void callback(JsObject source, NativeEvent event) {
@@ -278,7 +277,6 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 				DOMConstruct.empty("list");
 			}
 		});
-
 	}
 }
 }}}
