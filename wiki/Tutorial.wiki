@@ -4,7 +4,7 @@
  * *DOM, Events and Effects*
   * [DojoDOM Dojo DOM]
   * [DojoEvents Events with Dojo]
- * Ajax and Data Modeling
+ * *Ajax and Data Modeling*
   * [DojoObjectStore Dojo Object Store]
   * [JsonRestStore JsonRest Store]
   * [ObservingDataUpdates Observing Data Updates]
