@@ -147,10 +147,20 @@ myTitlePane.set('title', 'hello world');
 boolean dis = myButton.getBoolean('disabled');
 }}}
 
-== watch() ==
+==watch()==
 
 Attributes can also be monitored for changes. For example:
 
 {{{
 
 }}}
+
+==Common Attributes of Dijits==
+
+==Events==
+
+==Themes==
+
+==Dijit i18n/a11y==
+
+==Locating Widgets==
