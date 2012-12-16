@@ -27,18 +27,6 @@ import com.google.gwt.core.client.EntryPoint;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
-
-	/**
-	 * This is the entry point method.
-	 */
-//	public void xonModuleLoad() {
-//		JsArray modules = JsArray.create();
-//		modules.push(Parser.MODULE);
-//		modules.push(BorderContainer.MODULE);
-//		modules.push(TabContainer.MODULE);
-//		modules.push(ContentPane.MODULE);
-//		Dojo.require(modules, this);
-//	}
 	
 	/**
 	 * This is the entry point method.
