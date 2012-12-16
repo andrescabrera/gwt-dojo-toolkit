@@ -16,5 +16,5 @@
  * *Reference Guide*
   * *Dojo Core*
    * [DojoOverview Dojo Overview]
-  * *Dojo Dijit*
+  * *Dijit*
    * [DijitOverview Dijit Overview]
