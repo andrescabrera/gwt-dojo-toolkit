@@ -18,5 +18,6 @@
 === Reference Guide ===
 
  * *GWT Dojo Core*
+  * [DojoOverview Dojo Overview]
  * *GWT Dojo Dijit*
   * [DijitOverview Dijit Overview]
