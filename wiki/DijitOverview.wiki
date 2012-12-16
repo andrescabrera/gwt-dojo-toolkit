@@ -2,7 +2,7 @@
 
 The Dijit module includes Dojo's extensive UI library of widgets and components. Some examples of these widgets include dialog boxes, calendars, color palettes, tooltips, and trees. It also includes a set of form controls that provide much more functionality than the standard HTML form controls, as well as complete layout management options.
 
-In *gwt-dojo-toolkit*, Dijit is a separate GWT module. To use it add the following lines in your application's .gwt.xml file.
+In *gwt-dojo-toolkit* Dijit is a separate GWT module. To use it add the following lines in your application's .gwt.xml file.
 
 {{{
 <inherits name='gwt.dojo.dijit.Dijit' />
