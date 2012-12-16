@@ -9,4 +9,4 @@ In *gwt-dojo-toolkit*, Dijit is a separate GWT module. To use it, add:
 <inherits name='gwt.dojo.dijit.ClaroTheme' />
 }}}
 
-into your application *.gwt.xml file.
+in your application *.gwt.xml file.
