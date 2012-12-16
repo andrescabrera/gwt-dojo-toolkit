@@ -146,3 +146,11 @@ myTitlePane.set('title', 'hello world');
 // find out if button is disabled
 boolean dis = myButton.getBoolean('disabled');
 }}}
+
+== watch() ==
+
+Attributes can also be monitored for changes. For example:
+
+{{{
+
+}}}
