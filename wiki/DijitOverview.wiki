@@ -14,8 +14,7 @@ In *gwt-dojo-toolkit* Dijit is a separate GWT module. To use it add the followin
 You can use Dijit in one of two ways: *declaratively* by using special attributes inside of regular HTML tags, and *programmatically* through GWT Java (you are welcome to mix-and-match the two styles). You have the same options either way.
 
 {{{
-
-}}} import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.Dojo;
 import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.core.client.DojoReady;
 import gwt.dojo.core.client.JsArray;
@@ -50,3 +49,4 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 		//myDialog.show();
 	}
 }
+}}}
