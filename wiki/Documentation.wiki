@@ -13,7 +13,8 @@
    * [ConnectingStoreToTree Connecting a Store to a Tree]
   * *Introduction to GWT Dojo Mobile*
    * [HelloWorldMobile Hello, World!]
- * ===Reference Guide===
+----
+ * *Reference Guide*
   * *GWT Dojo Core*
    * [DojoOverview Dojo Overview]
   * *GWT Dojo Dijit*
