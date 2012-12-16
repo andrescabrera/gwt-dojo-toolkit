@@ -135,4 +135,14 @@ Widgets have attributes much like DOM nodes. The attributes are one of the two m
 
 == set() and get() ==
 
-In general attributes can be both set at initialization and modified after the widget is created, although some attributes, like `id` and `type`, which are marked [const], can only be set at initialization. Other attributes, like "focused" 
+In general attributes can be both set at initialization and modified after the widget is created, although some attributes, like `id` and `type`, which are marked [const], can only be set at initialization. Other attributes, like "focused", which are marked [readonly], can only be read.
+
+This basically mirrors how vanilla HTML DOM nodes work, although the syntax is a bit different. Specifically, to get/set attributes after initialization, you need to use the get() and set() methods:
+
+{{{
+// set title
+myTitlePane.set('title', 'hello world');
+
+// find out if button is disabled
+boolean dis = myButton.getBoolean('disabled');
+}}}
