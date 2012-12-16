@@ -59,4 +59,44 @@ is identical to:
 <div data-dojo-type="dijit/Dialog" title="Hello Dijit!" id="someId"></div>
 }}}
 
-The declarative method requires you include the [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/core/client/Parser.java Parser] (dojo/parser) and have either dojoConfig.parseOnLoad set to true, or you manually call parser.parse() when you would like the widgets (aka: Dijits) to be created.
+The declarative method requires you include the [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/core/client/Parser.java Parser] (dojo/parser) and have either `dojoConfig.parseOnLoad` set to `true`, or you manually call `Parser.parse()` when you would like the widgets (aka: Dijits) to be created.
+
+Dijit stores all active widgets in the [Registry] (digit/registry), and uses id's as unique qualifiers. `Registry.byId()` returns the instance (widget) from a passed ID, allowing you access to all methods and properties within:
+
+{{{
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.core.client.DojoReady;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.Parser;
+import gwt.dojo.dijit.client.Dialog;
+import gwt.dojo.dijit.client.Registry;
+
+import com.google.gwt.core.client.EntryPoint;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
+	
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		JsArray modules = JsArray.create();
+		modules.push(Parser.MODULE);
+		modules.push(DojoReady.MODULE);
+		modules.push(Registry.MODULE);
+		modules.push(Dialog.MODULE);
+		Dojo.require(modules, this);
+	}
+
+	@Override
+	public void callback(JsArray arguments) {
+		// DOM.byId("someId") would only be a normal domNode.
+		Dialog myDialog = Registry.byId("someId");
+		myDialog.set(Dialog.CONTENT, "<p>I've been replaced!</p>");
+		myDialog.show();
+	}
+}
+}}}
