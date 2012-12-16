@@ -4,6 +4,8 @@
  * *DOM, Events and Effects*
   * [DojoDOM Dojo DOM]
   * [DojoEvents Events with Dojo]
+ * *Widgets and Apps*
+  * [DijitLayout Layout with Dijit]
  * *Ajax and Data Modeling*
   * [DojoObjectStore Dojo Object Store]
   * [JsonRestStore JsonRest Store]
