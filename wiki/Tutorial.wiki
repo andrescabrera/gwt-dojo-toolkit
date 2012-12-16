@@ -1,5 +1,7 @@
-#summary Tutorial.
+#summary Documentation
 #labels Featured
+
+=== Tutorial ===
 
  * *DOM, Events and Effects*
   * [DojoDOM Dojo DOM]
@@ -15,4 +17,4 @@
  * *Introduction to GWT Dojo Mobile*
   * [HelloWorldMobile Hello, World!]
 
-= Reference Guide =
+=== Reference Guide ===
