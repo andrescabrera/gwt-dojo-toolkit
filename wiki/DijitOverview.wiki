@@ -8,3 +8,45 @@ In *gwt-dojo-toolkit* Dijit is a separate GWT module. To use it add the followin
 <inherits name='gwt.dojo.dijit.Dijit' />
 <inherits name='gwt.dojo.dijit.ClaroTheme' />
 }}}
+
+=Dijit Basics=
+
+You can use Dijit in one of two ways: *declaratively* by using special attributes inside of regular HTML tags, and *programmatically* through GWT Java (you are welcome to mix-and-match the two styles). You have the same options either way.
+
+{{{
+
+}}} import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.core.client.DojoReady;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
+import gwt.dojo.dijit.client.Dialog;
+
+import com.google.gwt.core.client.EntryPoint;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
+	
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		JsArray modules = JsArray.create();
+		modules.push(DojoReady.MODULE);
+		modules.push(Dialog.MODULE);
+		Dojo.require(modules, this);
+	}
+
+	@Override
+	public void callback(JsArray arguments) {
+		// create a "hidden" Dialog:
+		JsObject options = JsObject.create(Dialog.TITLE, "Hello Dijit");
+		Dialog myDialog = Dialog.create(options);
+		myDialog.startup();
+		
+		// Hint: In order to open the dialog, you have to call
+		//myDialog.show();
+	}
+}
