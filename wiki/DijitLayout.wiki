@@ -50,9 +50,42 @@ Dijit provides a small collection of flexible widgets to meet common layout requ
 </html>
 }}}
 
-To use get-dojo-toolkit's Dijit module you have to add the following lines into your project's *.gwt.xml file:
+The markup has out top, sidebar and center wrapped in handy divs, and we've got the GWT `script` tag already in place. Also in the projects *.gwt.xml file we load the Claro theme and the get-dojo-toolkit's Dijit module:
 
 {{{
 <inherits name='gwt.dojo.dijit.Dijit' />
 <inherits name='gwt.dojo.dijit.ClaroTheme' />
 }}}
+
+In the `<body>`, notice the `claro` class which is necessary to apply the Claro CSS theme to the contents. Omitting it is a common gotcha.
+
+The application's stylesheet has just a few rules that we'll need as we define the layout:
+
+{{{
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+ 
+#appLayout {
+    height: 100%;
+}
+#leftCol {
+    width: 14em;
+}
+ 
+.claro .demoLayout .edgePanel {
+    background-color: #d0e9fc;
+}
+ 
+#viewsChart {
+    width: 550px;
+    height: 550px;
+}
+}}}
+
+To get the desired arrangement and behavior of content regions, we want the layout to fill the viewport.  We explicitly set the document and the outermost element to 100% of the viewport height. `overflow: hidden` is used as we don't want a document scrollbar; scrolling will happen as necessary in the different regions of out layout. We've given the DIV that will become the left column a fixed width in `em`. The other fixed regions will derive their size from their initial content.
+
+= Adding Widgets = 
