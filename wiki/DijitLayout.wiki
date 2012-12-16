@@ -98,6 +98,7 @@ To get started, let's add a `require` call to load these dependencies:
 import gwt.dojo.core.client.Dojo;
 import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.Parser;
 import gwt.dojo.dijit.client.layout.BorderContainer;
 import gwt.dojo.dijit.client.layout.ContentPane;
 import gwt.dojo.dijit.client.layout.TabContainer;
@@ -114,6 +115,7 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 	 */
 	public void onModuleLoad() {
 		JsArray modules = JsArray.create();
+		modules.push(Parser.MODULE);
 		modules.push(BorderContainer.MODULE);
 		modules.push(TabContainer.MODULE);
 		modules.push(ContentPane.MODULE);
@@ -126,3 +128,5 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 	}
 }
 }}}
+
+Notice in the Dojo configuration `dojoConfig` inside the 
