@@ -58,3 +58,5 @@ is identical to:
 {{{
 <div data-dojo-type="dijit/Dialog" title="Hello Dijit!" id="someId"></div>
 }}}
+
+The declarative method requires you include the [https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/core/client/Parser.java Parser] (dojo/parser) and have either dojoConfig.parseOnLoad set to true, or you manually call parser.parse() when you would like the widgets (aka: Dijits) to be created.
