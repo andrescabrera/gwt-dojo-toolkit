@@ -187,3 +187,7 @@ For example, we'll be using the markup or *declerative way* of instantiating the
 }}}
 
 [http://ggeorg.arkasoft.com/wiki-layout-1/ View Demo]
+
+The outer `appLayout` element has been configured as a `BorderContainer`, and the child divs are each `ContentPane`s. This gives us a full-screen flexible layout. Go ahead and try resizing your demo window, to see how the left region stays a fixed width, while the center/right region sizes to fit. You may also notice a handle on the vertical divider, between the left and center regions, which allows you to manually set their relative widths.
+
+This is what we mean by dynamic and interactive layout. We'll get to adding in the tab-strip shown in the initial demo, but first let's back up and look a bit closer at the individual layout widgets and their use.
