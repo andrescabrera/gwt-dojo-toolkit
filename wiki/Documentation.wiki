@@ -14,7 +14,7 @@
   * *Introduction to GWT Dojo Mobile*
    * [HelloWorldMobile Hello, World!]
  * *Reference Guide*
-  * *GWT Dojo Core*
+  * *Dojo Core*
    * [DojoOverview Dojo Overview]
-  * *GWT Dojo Dijit*
+  * *Dojo Dijit*
    * [DijitOverview Dijit Overview]
