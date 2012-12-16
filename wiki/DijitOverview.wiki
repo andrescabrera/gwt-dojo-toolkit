@@ -1,4 +1,5 @@
-#summary Dijit Overview.
+
+Dijit Overview.
 
 The Dijit module includes Dojo's extensive UI library of widgets and components. Some examples of these widgets include dialog boxes, calendars, color palettes, tooltips, and trees. It also includes a set of form controls that provide much more functionality than the standard HTML form controls, as well as complete layout management options.
 
