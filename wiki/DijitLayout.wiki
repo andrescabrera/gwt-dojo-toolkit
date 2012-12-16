@@ -89,3 +89,40 @@ html, body {
 To get the desired arrangement and behavior of content regions, we want the layout to fill the viewport.  We explicitly set the document and the outermost element to 100% of the viewport height. `overflow: hidden` is used as we don't want a document scrollbar; scrolling will happen as necessary in the different regions of out layout. We've given the DIV that will become the left column a fixed width in `em`. The other fixed regions will derive their size from their initial content.
 
 = Adding Widgets = 
+
+To implement the layout, we'll be using three widget classes from Dijit: [BorderContainer], [TabContainer] and [ContentPane].
+
+To get started, let's add a `require` call to load these dependencies:
+
+{{{
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.dijit.client.layout.BorderContainer;
+import gwt.dojo.dijit.client.layout.ContentPane;
+import gwt.dojo.dijit.client.layout.TabContainer;
+
+import com.google.gwt.core.client.EntryPoint;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
+
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		JsArray modules = JsArray.create();
+		modules.push(BorderContainer.MODULE);
+		modules.push(TabContainer.MODULE);
+		modules.push(ContentPane.MODULE);
+		Dojo.require(modules, this);
+	}
+
+	@Override
+	public void callback(JsArray arguments) {
+
+	}
+}
+}}}
