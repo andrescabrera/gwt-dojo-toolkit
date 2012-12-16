@@ -186,8 +186,22 @@ For example, we'll be using the markup or *declerative way* of instantiating the
 	</body>
 }}}
 
-[http://ggeorg.arkasoft.com/wiki-layout-1/ View Demo]
+*[http://ggeorg.arkasoft.com/wiki-layout-1/ View Demo]*
 
 The outer `appLayout` element has been configured as a `BorderContainer`, and the child divs are each `ContentPane`s. This gives us a full-screen flexible layout. Go ahead and try resizing your demo window, to see how the left region stays a fixed width, while the center/right region sizes to fit. You may also notice a handle on the vertical divider, between the left and center regions, which allows you to manually set their relative widths.
 
 This is what we mean by dynamic and interactive layout. We'll get to adding in the tab-strip shown in the initial demo, but first let's back up and look a bit closer at the individual layout widgets and their use.
+
+= BorderContainer =
+
+[https://code.google.com/p/gwt-dojo-toolkit/source/browse/trunk/src/gwt/dojo/dijit/client/layout/BorderContainer.java BorderContainer] allows you to define a layout subdivided into regions. The `center` region is always flexible and auto-sized, while the other regions are fixed in size: `top`, `bottom`, `leading`, `trailing`, `left` or `right`.
+
+http://dojotoolkit.org/documentation/tutorials/1.8/dijit_layout/images/borderContainer.png
+
+All Dijit widgets support internationalization (i18n), so Dijit can't assume left-to-right flow of content and controls on the page. For left-to-right locales (e.g. Arabic, Hebrew), it is reversed. That being said, you can use `left` and `right` as appropriate to ensure that sections are always on the side of your choosing, regardless of locale. use what fits your content logically.
+
+Each region is represented by a child widget, as we saw in the App Layout example. All Dijit widgets support the `region` property, so in principle, you can use any widget in these positions, though clearly some will work better than others. The fixed-size regions (all but `center`) can have a end-user-moveable divider associated with them by setting a `splitter` property.
+
+When using BorderContainer, the initial sizes or regions are specified in the normal manner using CSS - using rulers in a stylesheet or as inline style. Note that although you can set an initial size of say, 50%, it will be converted to `px` as it renders, so relative proportions in percentage units are not maintained as the BorderContainer is resized. The center region should not be given style height or width; it will always occupy whatever space remains.
+
+Up to now as we've been building out layout, all the regions were `ContentPane`s - a very general purpose content-loading and content-containing widget, but as we saw in the first App Layout where a TabContainer occupied the center region, that needn't be so. In fact, BorderContainer works quite happily as a region in a BorderContainer.
