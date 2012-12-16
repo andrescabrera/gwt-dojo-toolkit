@@ -4,6 +4,9 @@
  * *DOM, Events and Effects*
   * [DojoDOM Dojo DOM]
   * [DojoEvents Events with Dojo]
+
+=== Tutorial ===
+
  * *Widgets and Apps*
   * [DijitLayout Layout with Dijit]
  * *Ajax and Data Modeling*
