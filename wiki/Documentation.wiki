@@ -1,7 +1,5 @@
-#summary Documentation
 #labels Featured,Phase-Implementation
-
-== Tutorial ==
+=== Tutorial ===
 
  * *DOM, Events and Effects*
   * [DojoDOM Dojo DOM]
@@ -17,4 +15,4 @@
  * *Introduction to GWT Dojo Mobile*
   * [HelloWorldMobile Hello, World!]
 
-== Reference Guide ==
+=== Reference Guide ===
