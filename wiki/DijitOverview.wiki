@@ -95,8 +95,30 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 	public void callback(JsArray arguments) {
 		// DOM.byId("someId") would only be a normal domNode.
 		Dialog myDialog = Registry.byId("someId");
-		myDialog.set(Dialog.CONTENT, "<p>I've been replaced!</p>");
+		myDialog.set(Dialog.CONTENT, "<p>I am some content.</p>");
 		myDialog.show();
 	}
 }
+}}}
+
+If you need a reference to the actual Node used to display the widget, Dijit stores it as a property in the instance: `DOMNODE`. You can use this property for styling, positioning, or other DOM manipulation.
+
+When creating widgets programmatically, pass an `id:""` parameter:
+
+{{{
+JsObject options = JsObject.create();
+options.put(Dialog.ID, "someId");
+options.put(Dialog.TITLE, "Hello Dijit");
+Dialog myDialog = Dialog.create(options);
+}}}
+
+Otherwise, a unique ID will be generated for you:
+
+{{{
+JsObject options = JsObject.create();
+//options.put(Dialog.ID, "someId");
+options.put(Dialog.TITLE, "Hello Dijit");
+Dialog myDialog = Dialog.create(options);
+
+Window.alert(myDialog.getString(Dialog.ID));
 }}}
