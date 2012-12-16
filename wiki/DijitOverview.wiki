@@ -1,4 +1,4 @@
-#summary GWT Dijit Overview.
+#summary Dijit Overview.
 
 Dijit is GWT Dojo's UI Library module, and lives as a separate GWT module. To use it add: 
 
@@ -8,3 +8,5 @@ Dijit is GWT Dojo's UI Library module, and lives as a separate GWT module. To us
 }}}
 
 into your application *.gwt.xml file.
+
+The Dijit module includes Dojo's extensive UI library of widgets and components. Some examples of these widgets include dialog boxes, calendars, color palettes, tooltips, and trees. It also includes a set of form controls that provide much more functionality than the standard HTML form controls, as well as complete layout management options.
