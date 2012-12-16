@@ -1,4 +1,6 @@
+#summary Documentation Outline
 #labels Featured,Phase-Implementation
+
  * *Tutorial*
   * *DOM, Events and Effects*
    * [DojoDOM Dojo DOM]
