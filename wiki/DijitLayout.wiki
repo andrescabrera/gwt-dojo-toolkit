@@ -50,7 +50,9 @@ Dijit provides a small collection of flexible widgets to meet common layout requ
 </html>
 }}}
 
-The markup has out top, sidebar and center wrapped in handy divs, and we've got the GWT `script` tag already in place. Also in the projects *.gwt.xml file we load the Claro theme and the get-dojo-toolkit's Dijit module:
+Notice in the `dojoConfig` variable in the script tag we've set `parseOnLoad` to `true`. This tells Dojo to run the parser automatically to "widgetize" the elements it finds. Given that we're fully relying on the parser, we have no need for `dojo/domReady!` or anything like that - we're just loading what we use.
+
+The markup has our top, sidebar and center wrapped in handy divs, and we've got the GWT `script` tag already in place. Also in the projects *.gwt.xml file we load the Claro theme and the get-dojo-toolkit's Dijit module:
 
 {{{
 <inherits name='gwt.dojo.dijit.Dijit' />
@@ -129,4 +131,43 @@ public class Gwt_dojo_demo implements EntryPoint, DojoCallback {
 }
 }}}
 
-Notice in the Dojo configuration `dojoConfig` inside the 
+Notice that we have also explicitly loaded the dojo/parser module. This is of monumental importance; despite popular misconception, dojo/parser does not load automatically when parseOnLoad is set to true, and never has.
+
+The widget classes will now load in the background, and the parser will walk over the DOM. But nothing is actually going to happen yet - we need to create those layout widgets.
+
+For example, we'll be using the markup or *declerative way* of instantiating the widgets. The `data-dojo-` attributes on each element provide instruction for Dojo parser on what widget class to instantiate, and hold the properties to configure the widget instance with.
+
+{{{
+	<body class="claro">
+	
+		<div id="appLayout" class="demoLayout"
+			 data-dojo-type="dijit/layout/BorderContainer"
+			 data-dojo-props="design: 'headline'">
+
+			<div class="centerPanel"
+				 data-dojo-type="dijit/layout/ContentPane"
+				 data-dojo-props="region: 'center'">
+				<div>
+					<h4>Group 1 Content</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+				<div>
+					<h4>Group 2 Content</h4>
+				</div>
+				<div>
+					<h4>Group 3 Content</h4>
+				</div>
+			</div>
+		
+			<div class="edgePanel"
+				 data-dojo-type="dijit/layout/ContentPane"
+				 data-dojo-props="region: 'top'">Header content (top)</div>
+				 
+			<div id="leftCol" class="edgePanel"
+				 data-dojo-type="dijit/layout/ContentPane"
+				 data-dojo-props="region: 'left', splitter: true">Sidebar content (left)</div>
+			
+		</div>
+
+	</body>
+}}}
