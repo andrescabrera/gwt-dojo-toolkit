@@ -6,6 +6,7 @@ Creating dynamic and interactive layouts is a challenge common to any graphical 
 
 = Getting Started =
 
-You can manage layout of the entire page, or just a small part of it. For this tutorial, we'll be developing a desktop application-like UI layout, with some controls and content being fixed on the page.
+You can manage layout of the entire page, or just a small part of it. For this tutorial, we'll be developing a desktop application-like UI layout, with some controls and content being fixed on the page. It should end up looking like this:
 
-http://dojotoolkit.org/documentation/tutorials/1.8/dijit_layout/images/appLayout.png
+|| What you'll be creating ||
+|| http://dojotoolkit.org/documentation/tutorials/1.8/dijit_layout/images/appLayout.png ||
