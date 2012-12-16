@@ -122,3 +122,17 @@ Dialog myDialog = Dialog.create(options);
 
 Window.alert(myDialog.getString(Dialog.ID));
 }}}
+
+All Dijits follow the same programmatic convention. Create a new instance, pass an object-hash or properties, and supply an optional "source node reference".
+
+TODO
+
+This will cause the creator to use the node with `id="makeADialog"`, and turn it into a Dialog.
+
+= Attributes =
+
+Widgets have attributes much like DOM nodes. The attributes are one of the two main interfaces to programmatically interact with the widget.
+
+== set() and get() ==
+
+In general attributes can be both set at initialization and modified after the widget is created, although some attributes, like `id` and `type`, which are marked [const], can only be set at initialization. Other attributes, like "focused" 
