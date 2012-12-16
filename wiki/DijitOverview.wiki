@@ -1,4 +1,4 @@
-#summary GWT Dojo Dijit Overview.
+#summary GWT Dijit Overview.
 
 Dijit is GWT Dojo's UI Library module, and lives as a separate GWT module. To use it add: 
 
