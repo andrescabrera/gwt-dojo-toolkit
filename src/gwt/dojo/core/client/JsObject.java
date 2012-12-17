@@ -50,14 +50,13 @@ public class JsObject extends JavaScriptObject {
 		}
 	}
 
-	public static <T extends JsObject> T create(String module,
-			JsObject options) {
+	public static <T extends JsObject> T create(String module, JsObject options) {
 		return create(ref(module), options);
 	}
 
 	private static native <T extends JsObject> T create(
 			JavaScriptObject objectRef, JsObject options) /*-{
-		return new objectRef(options);
+		return new objectRef(options || {});
 	}-*/;
 
 	/**
