@@ -20,3 +20,4 @@
    * [DojoOverview Dojo Overview]
   * *Dijit*
    * [DijitOverview Dijit Overview]
+   * [DijitTree Tree]
