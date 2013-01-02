@@ -1,11 +1,12 @@
+
 package gwt.dojo.mobile.app.client;
 
-import gwt.dojo.client.Dojo;
-import gwt.dojo.client.MessageHub;
-import gwt.dojo.client.RequireCallback;
-import gwt.dojo.client.SubscribeCallback;
-import gwt.dojo.client.util.JsArray;
-import gwt.dojo.client.util.JsObject;
+import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.core.client.JsArray;
+import gwt.dojo.core.client.JsObject;
+import gwt.dojo.core.client.MessageHub;
+import gwt.dojo.core.client.SubscribeCallback;
 import gwt.dojo.mobile.client.Parser;
 import gwt.dojo.mobile.client.View;
 
@@ -18,7 +19,7 @@ import com.google.gwt.dom.client.Element;
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class Main implements EntryPoint, RequireCallback {
+public class Main implements EntryPoint, DojoCallback {
 
 	/**
 	 * This is the entry point method.
@@ -31,7 +32,7 @@ public class Main implements EntryPoint, RequireCallback {
 	}
 
 	@Override
-	public void callback(JsObject arguments) {
+	public void callback(JsArray arguments) {
 		MessageHub.subscribe(View.TOPIC_STARTVIEW, new SubscribeCallback() {
 			@Override
 			public void callback(String topic, JsArray message) {
@@ -54,4 +55,5 @@ public class Main implements EntryPoint, RequireCallback {
 			}
 		});
 	}
+
 }
