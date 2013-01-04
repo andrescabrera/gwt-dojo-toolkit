@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
-    <inherits name="com.google.gwt.json.JSON" />
-
-    <script src="dojo-mobile-release-1.8.1/dojo/dojo.js"/>
+    <inherits name="gwt.dojo.mobile.Mobile" />
 </module>

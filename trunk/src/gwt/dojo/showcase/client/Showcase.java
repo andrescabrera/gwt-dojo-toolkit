@@ -31,7 +31,7 @@ import gwt.dojo.mobile.client.EdgeToEdgeCategory;
 import gwt.dojo.mobile.client.EdgeToEdgeList;
 import gwt.dojo.mobile.client.Heading;
 import gwt.dojo.mobile.client.ListItem;
-import gwt.dojo.mobile.client.Parser;
+import gwt.dojo.mobile.client.MobileParser;
 import gwt.dojo.mobile.client.ProgressIndicator;
 import gwt.dojo.mobile.client.ScrollableView;
 import gwt.dojo.mobile.client.ToolBarButton;
@@ -86,7 +86,7 @@ public class Showcase implements EntryPoint {
 	}
 
 	protected void startup(JsArray arguments) {
-		Parser.parse();
+		MobileParser.parse();
 
 		{
 			// initialize view with two splitter panes
@@ -278,7 +278,7 @@ public class Showcase implements EntryPoint {
 								.createDivElement();
 						tmpContainer.setInnerHTML(response.getText());
 						rightPane.appendChild(tmpContainer);
-						JsArray ws = Parser.parse(tmpContainer);
+						JsArray ws = MobileParser.parse(tmpContainer);
 						for (int i = 0, n = ws.length(); i < n; i++) {
 							if (ws.getJsObject(i).hasProperty("startup")) {
 								_WidgetBase.cast(ws.getJsObject(i)).startup();

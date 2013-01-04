@@ -21,7 +21,7 @@ import gwt.dojo.core.client.JsObject;
 
 import com.google.gwt.dom.client.Element;
 
-public class Parser extends JsObject {
+public class MobileParser extends JsObject {
 
 	public static final String MODULE = "dojox/mobile/parser";
 
@@ -30,11 +30,11 @@ public class Parser extends JsObject {
 	 * 
 	 * @return {@code Parser} instance.
 	 */
-	private static Parser ref() {
+	private static MobileParser ref() {
 		return Dojo.require(MODULE);
 	}
 
-	protected Parser() {
+	protected MobileParser() {
 		// Required by JSNI
 	}
 	
