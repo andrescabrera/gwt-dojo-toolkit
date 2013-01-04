@@ -4,10 +4,9 @@ package gwt.dojo.mobile.app.client;
 import gwt.dojo.core.client.Dojo;
 import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.core.client.JsArray;
-import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.MessageHub;
 import gwt.dojo.core.client.SubscribeCallback;
-import gwt.dojo.mobile.client.Parser;
+import gwt.dojo.mobile.client.MobileParser;
 import gwt.dojo.mobile.client.View;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -41,7 +40,7 @@ public class Main implements EntryPoint, DojoCallback {
 		});
 
 		// Parse the page for widgets!
-		Parser.parse();
+		MobileParser.parse();
 	}
 
 	protected void hideLoadDiv() {
