@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='showcase'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
+
+  <!-- Other module inherits                                      -->
+  <inherits name='gwt.dojo.data.Data'/>
+  <inherits name='gwt.dojo.mobile.Mobile'/>
+  <inherits name='gwt.dojo.dijit.ClaroTheme'/>
+
+  <!-- Specify the app entry point class.                         -->
+  <entry-point class='gwt.dojo.showcase.client.Showcase'/>
+
+  <!-- Specify the paths for translatable code                    -->
+  <source path='client'/>
+  <source path='shared'/>
+
+</module>
