@@ -1,4 +1,4 @@
-Build started: Sun Dec 09 2012 06:07:57 GMT+0200 (EET)
+Build started: Tue Jan 08 2013 18:18:30 GMT+0200 (EET)
 Build application version: 1.7.0dev (23930)
 Messages:
 info(100) Assumed module uses legacy loader API.
@@ -149,9 +149,9 @@ info(102) Optimizing module
 	module: dojox/mobile
 	module: dojo/dojo
 info(107) Package Version:
-	package: dijit; version: 1.8.1
-	package: dojox; version: 1.8.1
-	package: dojo; version: 1.8.1
+	package: dijit; version: 1.8.3
+	package: dojox; version: 1.8.3
+	package: dojo; version: 1.8.3
 warn(216) dojo/has plugin resource could not be resolved during build-time.
 	plugin resource id: touch?dojox/gesture/tap; reference module id: dojox/treemap/DrillDownUp
 	plugin resource id: dojo-parser?:dojo/_base/window; reference module id: dojox/mvc/parserExtension
@@ -170,221 +170,6 @@ warn(224) A plugin dependency was encountered but there was no build-time plugin
 	module: dojo/request; plugin: dojo/request/default
 	module: dojo/request/registry; plugin: dojo/request/default
 Layer Contents:
-dojox/mobile/compat:
-	dojox/mobile/compat
-
-dojox/mobile/app:
-	dojo/uacss
-	dojox/mobile/app/_Widget
-	dojox/mobile/app/ImageThumbView
-	dojox/mobile/TransitionEvent
-	dojox/mobile/ViewController
-	dojox/mobile/_ItemBase
-	dojox/mobile/ToolBarButton
-	dijit/hccss
-	dojox/mobile/Container
-	dijit/_Contained
-	dijit/form/_TextBoxMixin
-	dojox/mobile/parser
-	dijit/_Container
-	dojox/mobile/app/SceneController
-	dojox/mobile/app/_base
-	dijit/_base/scroll
-	dojo/fx
-	dijit/_base
-	dojox/mobile/sniff
-	dojox/mobile/ProgressIndicator
-	dijit/form/_FormWidgetMixin
-	dijit/BackgroundIframe
-	dojox/mobile
-	dijit/form/_FormValueMixin
-	dojox/mobile/common
-	dojox/mobile/iconUtils
-	dojox/mobile/Heading
-	dojox/main
-	dojox/mobile/RoundRectList
-	dojo/Stateful
-	dojox/mobile/viewRegistry
-	dojo/touch
-	dojox/mobile/app/List
-	dojo/require
-	dojox/mobile/app/ListSelector
-	dojo/hccss
-	dojox/mobile/EdgeToEdgeCategory
-	dojo/string
-	dojox/mobile/TextBox
-	dijit/registry
-	dijit/Destroyable
-	dijit/_base/manager
-	dijit/_base/place
-	dojox/mobile/View
-	dijit/WidgetSet
-	dojo/fx/easing
-	dijit/a11y
-	dijit/typematic
-	dojox/mobile/app/ImageView
-	dijit/_base/focus
-	dojox/mobile/ListItem
-	dojox/mobile/app/StageController
-	dojox/mobile/app
-	dijit/place
-	dojox/mobile/app/_event
-	dojox/mobile/_base
-	dojox/mobile/Button
-	dojox/mobile/Switch
-	dijit/focus
-	dijit/_base/sniff
-	dojox/mobile/Pane
-	dijit/main
-	dojox/mobile/RoundRect
-	dijit/form/_ButtonMixin
-	dijit/_base/typematic
-	dojox/mobile/RoundRectCategory
-	dojox/mobile/app/TextBox
-	dojox/mobile/app/SceneAssistant
-	dijit/_base/popup
-	dojox/mobile/transition
-	dijit/_base/wai
-	dojo/window
-	dojox/mobile/EdgeToEdgeList
-	dijit/popup
-	dojox/mobile/uacss
-	dijit/_base/window
-	dijit/_WidgetBase
-	dojox/mobile/app/AlertDialog
-
-dojox/mobile:
-	dojox/mobile/ViewController
-	dojox/mobile/RoundRect
-	dojox/mobile/RoundRectList
-	dojox/mobile/sniff
-	dojox/mobile/viewRegistry
-	dojox/mobile/TransitionEvent
-	dijit/_WidgetBase
-	dojox/mobile
-	dojox/mobile/View
-	dojox/main
-	dojox/mobile/transition
-	dojo/touch
-	dojo/Stateful
-	dojox/mobile/Heading
-	dojox/mobile/Switch
-	dojox/mobile/ListItem
-	dijit/registry
-	dojox/mobile/Pane
-	dojox/mobile/common
-	dojox/mobile/iconUtils
-	dojox/mobile/uacss
-	dojox/mobile/RoundRectCategory
-	dojox/mobile/ProgressIndicator
-	dojox/mobile/EdgeToEdgeList
-	dojox/mobile/EdgeToEdgeCategory
-	dojox/mobile/Container
-	dojox/mobile/ToolBarButton
-	dojox/mobile/_ItemBase
-	dijit/_Contained
-	dojox/mobile/_base
-	dijit/main
-	dijit/Destroyable
-	dijit/_Container
-
-dojox/charting/widget/Chart2D:
-	dojox/charting/plot2d/ClusteredBars
-	dojox/charting/plot2d/Lines
-	dijit/_TemplatedMixin
-	dojox/charting/plot2d/Areas
-	dojox/lang/functional/array
-	dijit/place
-	dojox/charting/themes/GreySkies
-	dojox/charting/Chart2D
-	dojox/charting/Series
-	dijit/focus
-	dijit/hccss
-	dojox/charting/plot2d/Spider
-	dojox/gfx/_base
-	dojo/Stateful
-	dojox/charting/axis2d/Invisible
-	dojox/charting/action2d/MoveSlice
-	dojox/charting/action2d/Magnify
-	dojo/hccss
-	dojox/charting/widget/Legend
-	dojox/charting/plot2d/common
-	dijit/main
-	dojox/gfx/shape
-	dijit/_OnDijitClickMixin
-	dojox/charting/action2d/Tooltip
-	dojox/charting/widget/Sparkline
-	dojox/charting/plot2d/Grid
-	dojox/charting/plot2d/Markers
-	dojox/charting/widget/Chart2D
-	dojo/cache
-	dojox/lang/utils
-	dojox/main
-	dojox/charting/plot2d/Columns
-	dojox/lang/functional
-	dojox/charting/plot2d/StackedBars
-	dojo/uacss
-	dijit/Tooltip
-	dojo/string
-	dijit/a11yclick
-	dojox/charting/action2d/Base
-	dijit/Destroyable
-	dojox/charting/plot2d/Stacked
-	dojox/charting/plot2d/Pie
-	dojox/color/_base
-	dojox/gfx
-	dojox/charting/action2d/PlotAction
-	dojox/charting/plot2d/Bars
-	dojox/lang/functional/fold
-	dojox/lang/functional/object
-	dojox/charting/scaler/linear
-	dijit/_base/manager
-	dojox/gfx/gradutils
-	dojox/charting/plot2d/Base
-	dijit/BackgroundIframe
-	dijit/_WidgetBase
-	dojox/charting/plot2d/Default
-	dojox/charting/plot2d/StackedLines
-	dijit/templates/Tooltip.html
-	dojox/charting/axis2d/common
-	dojo/fx/easing
-	dojox/charting/plot2d/StackedAreas
-	dojox/charting/action2d/Highlight
-	dojox/charting/plot2d/_PlotEvents
-	dojox/charting/plot2d/commonStacked
-	dojox/charting/Element
-	dojox/gfx/matrix
-	dojox/charting/axis2d/Base
-	dojox/lang/functional/scan
-	dojox/charting/scaler/primitive
-	dojo/window
-	dojox/gfx/fx
-	dojox/charting/plot2d/StackedColumns
-	dijit/_FocusMixin
-	dojox/charting/SimpleTheme
-	dojox/gfx/renderer
-	dojox/charting/plot2d/OHLC
-	dojo/colors
-	dojox/lang/functional/reversed
-	dijit/registry
-	dojox/charting/Chart
-	dojox/charting/plot2d/Candlesticks
-	dojox/charting/axis2d/Default
-	dojox/charting/plot2d/Scatter
-	dojox/charting/plot2d/ClusteredColumns
-	dojox/charting/widget/Chart
-	dojox/charting/action2d/Shake
-	dojox/lang/functional/lambda
-	dojox/charting/plot2d/CartesianBase
-	dijit/a11y
-	dojox/charting/themes/common
-	dojox/charting/plot2d/MarkersOnly
-	dijit/_Widget
-	dojo/touch
-	dojo/fx
-	dojox/charting/scaler/common
-	dojox/charting/plot2d/Bubble
-
 dojo/dojo:
 	dojo/_base/fx
 	dojo/dom-form
@@ -454,6 +239,124 @@ dojox/mobile/app/compat:
 	dojox/mobile/compat
 	dojo/require
 	dijit/main
+
+dojox/grid/DataGrid:
+	dojo/uacss
+	dijit/hccss
+	dojox/grid/_View
+	dijit/_Contained
+	dojo/dnd/Selector
+	dojox/grid/DataSelection
+	dijit/templates/CheckedMenuItem.html
+	dojo/dnd/Manager
+	dijit/a11yclick
+	dojox/grid/_RowSelector
+	dojox/grid/_Layout
+	dojox/grid/_Grid
+	dijit/nls/loading
+	dojox/main
+	dojo/dnd/Mover
+	dojo/Stateful
+	dojo/touch
+	dojox/grid/Selection
+	dijit/_CssStateMixin
+	dojox/grid/resources/_Grid.html
+	dojox/grid/_RowManager
+	dojo/hccss
+	dojo/string
+	dojo/dnd/Avatar
+	dojox/grid/_Scroller
+	dojox/grid/_Events
+	dojo/dnd/autoscroll
+	dijit/registry
+	dijit/Destroyable
+	dojox/html/metrics
+	dojox/grid/_EditManager
+	dijit/a11y
+	dijit/CheckedMenuItem
+	dojo/dnd/Container
+	dojo/dnd/common
+	dojox/grid/_ViewManager
+	dojox/grid/cells
+	dijit/_Widget
+	dijit/_FocusMixin
+	dijit/_OnDijitClickMixin
+	dojo/cache
+	dijit/focus
+	dojox/grid/util
+	dojox/grid/DataGrid
+	dijit/templates/MenuItem.html
+	dijit/main
+	dojox/grid/resources/View.html
+	dojox/grid/_FocusManager
+	dijit/MenuItem
+	dijit/_TemplatedMixin
+	dojox/grid/_SelectionPreserver
+	dojo/window
+	dojox/grid/_Builder
+	dojo/dnd/Source
+	dojox/grid/cells/_base
+	dijit/_WidgetBase
+	dojo/dnd/Moveable
+
+dojox/gfx:
+	dojox/gfx
+	dojox/gfx/_base
+	dojox/gfx/renderer
+
+dojox/dtl:
+	dojox/dtl/_base
+	dojox/dtl/tag/loader
+	dojo/date
+	dojox/date/php
+	dojox/dtl
+	dojox/dtl/ext-dojo/NodeList
+	dojox/dtl/utils/date
+	dojox/dtl/tag/loop
+	dojox/string/Builder
+	dojox/string/tokenize
+	dojox/dtl/tag/misc
+	dojox/dtl/Context
+	dojox/dtl/tag/logic
+	dojox/dtl/tag/date
+
+dojox/mobile:
+	dojox/mobile/ViewController
+	dojox/mobile/RoundRect
+	dojox/mobile/RoundRectList
+	dojox/mobile/sniff
+	dojox/mobile/viewRegistry
+	dojox/mobile/TransitionEvent
+	dijit/_WidgetBase
+	dojox/mobile
+	dojox/mobile/View
+	dojox/main
+	dojox/mobile/transition
+	dojo/touch
+	dojo/Stateful
+	dojox/mobile/Heading
+	dojox/mobile/Switch
+	dojox/mobile/ListItem
+	dijit/registry
+	dojox/mobile/Pane
+	dojox/mobile/common
+	dojox/mobile/iconUtils
+	dojox/mobile/uacss
+	dojox/mobile/RoundRectCategory
+	dojox/mobile/ProgressIndicator
+	dojox/mobile/EdgeToEdgeList
+	dojox/mobile/EdgeToEdgeCategory
+	dojox/mobile/Container
+	dojox/mobile/ToolBarButton
+	dojox/mobile/_ItemBase
+	dijit/_Contained
+	dojox/mobile/_base
+	dijit/main
+	dijit/Destroyable
+	dijit/_Container
+
+dojox/mobile/compat:
+	dojox/mobile/compat
 
 dijit/dijit-all:
 	dijit/_editor/plugins/FontChoice
@@ -628,21 +531,102 @@ dijit/dijit-all:
 	dijit/Tree
 	dijit/form/HorizontalSlider
 
-dojox/dtl:
-	dojox/dtl/_base
-	dojox/dtl/tag/loader
-	dojo/date
-	dojox/date/php
-	dojox/dtl
-	dojox/dtl/ext-dojo/NodeList
-	dojox/dtl/utils/date
-	dojox/dtl/tag/loop
-	dojox/string/Builder
-	dojox/string/tokenize
-	dojox/dtl/tag/misc
-	dojox/dtl/Context
-	dojox/dtl/tag/logic
-	dojox/dtl/tag/date
+dojox/charting/widget/Chart2D:
+	dojox/charting/plot2d/ClusteredBars
+	dojox/charting/plot2d/Lines
+	dijit/_TemplatedMixin
+	dojox/charting/plot2d/Areas
+	dojox/lang/functional/array
+	dijit/place
+	dojox/charting/themes/GreySkies
+	dojox/charting/Chart2D
+	dojox/charting/Series
+	dijit/focus
+	dijit/hccss
+	dojox/charting/plot2d/Spider
+	dojox/gfx/_base
+	dojo/Stateful
+	dojox/charting/axis2d/Invisible
+	dojox/charting/action2d/MoveSlice
+	dojox/charting/action2d/Magnify
+	dojo/hccss
+	dojox/charting/widget/Legend
+	dojox/charting/plot2d/common
+	dijit/main
+	dojox/gfx/shape
+	dijit/_OnDijitClickMixin
+	dojox/charting/action2d/Tooltip
+	dojox/charting/widget/Sparkline
+	dojox/charting/plot2d/Grid
+	dojox/charting/plot2d/Markers
+	dojox/charting/widget/Chart2D
+	dojo/cache
+	dojox/lang/utils
+	dojox/main
+	dojox/charting/plot2d/Columns
+	dojox/lang/functional
+	dojox/charting/plot2d/StackedBars
+	dojo/uacss
+	dijit/Tooltip
+	dojo/string
+	dijit/a11yclick
+	dojox/charting/action2d/Base
+	dijit/Destroyable
+	dojox/charting/plot2d/Stacked
+	dojox/charting/plot2d/Pie
+	dojox/color/_base
+	dojox/gfx
+	dojox/charting/action2d/PlotAction
+	dojox/charting/plot2d/Bars
+	dojox/lang/functional/fold
+	dojox/lang/functional/object
+	dojox/charting/scaler/linear
+	dijit/_base/manager
+	dojox/gfx/gradutils
+	dojox/charting/plot2d/Base
+	dijit/BackgroundIframe
+	dijit/_WidgetBase
+	dojox/charting/plot2d/Default
+	dojox/charting/plot2d/StackedLines
+	dijit/templates/Tooltip.html
+	dojox/charting/axis2d/common
+	dojo/fx/easing
+	dojox/charting/plot2d/StackedAreas
+	dojox/charting/action2d/Highlight
+	dojox/charting/plot2d/_PlotEvents
+	dojox/charting/plot2d/commonStacked
+	dojox/charting/Element
+	dojox/gfx/matrix
+	dojox/charting/axis2d/Base
+	dojox/lang/functional/scan
+	dojox/charting/scaler/primitive
+	dojo/window
+	dojox/gfx/fx
+	dojox/charting/plot2d/StackedColumns
+	dijit/_FocusMixin
+	dojox/charting/SimpleTheme
+	dojox/gfx/renderer
+	dojox/charting/plot2d/OHLC
+	dojo/colors
+	dojox/lang/functional/reversed
+	dijit/registry
+	dojox/charting/Chart
+	dojox/charting/plot2d/Candlesticks
+	dojox/charting/axis2d/Default
+	dojox/charting/plot2d/Scatter
+	dojox/charting/plot2d/ClusteredColumns
+	dojox/charting/widget/Chart
+	dojox/charting/action2d/Shake
+	dojox/lang/functional/lambda
+	dojox/charting/plot2d/CartesianBase
+	dijit/a11y
+	dojox/charting/themes/common
+	dojox/charting/plot2d/MarkersOnly
+	dijit/_Widget
+	dojo/touch
+	dojo/fx
+	dojox/charting/scaler/common
+	dojox/charting/plot2d/Bubble
 
 dijit/dijit:
 	dojo/uacss
@@ -693,73 +677,89 @@ dijit/dijit:
 	dijit/_base/window
 	dijit/_WidgetBase
 
-dojox/gfx:
-	dojox/gfx
-	dojox/gfx/_base
-	dojox/gfx/renderer
-
-dojox/grid/DataGrid:
+dojox/mobile/app:
 	dojo/uacss
+	dojox/mobile/app/_Widget
+	dojox/mobile/app/ImageThumbView
+	dojox/mobile/TransitionEvent
+	dojox/mobile/ViewController
+	dojox/mobile/_ItemBase
+	dojox/mobile/ToolBarButton
 	dijit/hccss
-	dojox/grid/_View
+	dojox/mobile/Container
 	dijit/_Contained
-	dojo/dnd/Selector
-	dojox/grid/DataSelection
-	dijit/templates/CheckedMenuItem.html
-	dojo/dnd/Manager
-	dijit/a11yclick
-	dojox/grid/_RowSelector
-	dojox/grid/_Layout
-	dojox/grid/_Grid
-	dijit/nls/loading
+	dijit/form/_TextBoxMixin
+	dojox/mobile/parser
+	dijit/_Container
+	dojox/mobile/app/SceneController
+	dojox/mobile/app/_base
+	dijit/_base/scroll
+	dojo/fx
+	dijit/_base
+	dojox/mobile/sniff
+	dojox/mobile/ProgressIndicator
+	dijit/form/_FormWidgetMixin
+	dijit/BackgroundIframe
+	dojox/mobile
+	dijit/form/_FormValueMixin
+	dojox/mobile/common
+	dojox/mobile/iconUtils
+	dojox/mobile/Heading
 	dojox/main
-	dojo/dnd/Mover
+	dojox/mobile/RoundRectList
 	dojo/Stateful
+	dojox/mobile/viewRegistry
 	dojo/touch
-	dojox/grid/Selection
-	dijit/_CssStateMixin
-	dojox/grid/resources/_Grid.html
-	dojox/grid/_RowManager
+	dojox/mobile/app/List
+	dojo/require
+	dojox/mobile/app/ListSelector
 	dojo/hccss
+	dojox/mobile/EdgeToEdgeCategory
 	dojo/string
-	dojo/dnd/Avatar
-	dojox/grid/_Scroller
-	dojox/grid/_Events
-	dojo/dnd/autoscroll
+	dojox/mobile/TextBox
 	dijit/registry
 	dijit/Destroyable
-	dojox/html/metrics
-	dojox/grid/_EditManager
+	dijit/_base/manager
+	dijit/_base/place
+	dojox/mobile/View
+	dijit/WidgetSet
+	dojo/fx/easing
 	dijit/a11y
-	dijit/CheckedMenuItem
-	dojo/dnd/Container
-	dojo/dnd/common
-	dojox/grid/_ViewManager
-	dojox/grid/cells
-	dijit/_Widget
-	dijit/_FocusMixin
-	dijit/_OnDijitClickMixin
-	dojo/cache
+	dijit/typematic
+	dojox/mobile/app/ImageView
+	dijit/_base/focus
+	dojox/mobile/ListItem
+	dojox/mobile/app/StageController
+	dojox/mobile/app
+	dijit/place
+	dojox/mobile/app/_event
+	dojox/mobile/_base
+	dojox/mobile/Button
+	dojox/mobile/Switch
 	dijit/focus
-	dojox/grid/util
-	dojox/grid/DataGrid
-	dijit/templates/MenuItem.html
+	dijit/_base/sniff
+	dojox/mobile/Pane
 	dijit/main
-	dojox/grid/resources/View.html
-	dojox/grid/_FocusManager
-	dijit/MenuItem
-	dijit/_TemplatedMixin
-	dojox/grid/_SelectionPreserver
+	dojox/mobile/RoundRect
+	dijit/form/_ButtonMixin
+	dijit/_base/typematic
+	dojox/mobile/RoundRectCategory
+	dojox/mobile/app/TextBox
+	dojox/mobile/app/SceneAssistant
+	dijit/_base/popup
+	dojox/mobile/transition
+	dijit/_base/wai
 	dojo/window
-	dojox/grid/_Builder
-	dojo/dnd/Source
-	dojox/grid/cells/_base
+	dojox/mobile/EdgeToEdgeList
+	dijit/popup
+	dojox/mobile/uacss
+	dijit/_base/window
 	dijit/_WidgetBase
-	dojo/dnd/Moveable
+	dojox/mobile/app/AlertDialog
 
 
 
 Process finished normally
 	errors: 0
 	warnings: 15
-	build time: 75.237 seconds
+	build time: 88.701 seconds
