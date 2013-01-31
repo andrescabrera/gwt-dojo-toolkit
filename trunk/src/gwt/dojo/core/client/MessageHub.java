@@ -61,7 +61,44 @@ public class MessageHub extends JsObject {
 	};
 
 	private final native void _publish(String topic, JsArray args) /*-{
-		this.publish(topic, args, "!@#$%^&*()_+");
+		switch (args.length) {
+		case 0:
+			this.publish(topic);
+			break;
+		case 1:
+			this.publish(topic, args[0]);
+			break;
+		case 2:
+			this.publish(topic, args[0], args[1]);
+			break;
+		case 3:
+			this.publish(topic, args[0], args[1], args[2]);
+			break;
+		case 4:
+			this.publish(topic, args[0], args[1], args[2], args[3]);
+			break;
+		case 5:
+			this.publish(topic, args[0], args[1], args[2], args[3], args[4]);
+			break;
+		case 6:
+			this.publish(topic, args[0], args[1], args[2], args[3], args[4],
+					args[5]);
+			break;
+		case 7:
+			this.publish(topic, args[0], args[1], args[2], args[3], args[4],
+					args[5], args[6]);
+			break;
+		case 8:
+			this.publish(topic, args[0], args[1], args[2], args[3], args[4],
+					args[5], args[6], args[7]);
+			break;
+		case 9:
+			this.publish(topic, args[0], args[1], args[2], args[3], args[4],
+					args[5], args[6], args[7], args[8]);
+			break;
+		default:
+			throw "Too many args";
+		}
 	}-*/;
 
 	/**
@@ -83,9 +120,6 @@ public class MessageHub extends JsObject {
 	private final native SubscribeHandle _subscribe(String topic,
 			SubscribeCallback callback) /*-{
 		var func = function() {
-			if (arguments.length == 2 && arguments[1] === "!@#$%^&*()_+") {
-				arguments = arguments[0];
-			}
 			callback.@gwt.dojo.core.client.SubscribeCallback::callback(Ljava/lang/String;Lgwt/dojo/core/client/JsArray;)(topic, arguments);
 		}
 		return this.subscribe(topic, func);
