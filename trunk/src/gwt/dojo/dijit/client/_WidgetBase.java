@@ -17,10 +17,10 @@ package gwt.dojo.dijit.client;
 
 import gwt.dojo.core.client.EventCallback;
 import gwt.dojo.core.client.EventHandle;
+import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.Stateful;
 
-import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
 
 /**
@@ -273,7 +273,7 @@ public class _WidgetBase extends Stateful {
 	 * 
 	 * @return All the widgets contained by this widget.
 	 */
-	public final native <T extends JsObject> JsArray<T> getChildren() /*-{
+	public final native JsArray getChildren() /*-{
 		return this.getChildren();
 	}-*/;
 

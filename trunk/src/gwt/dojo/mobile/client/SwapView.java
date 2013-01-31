@@ -43,4 +43,5 @@ public class SwapView extends View implements IScrollableMixin {
 	public final native void goTo(int dir) /*-{
 		this.goTo(dir);
 	}-*/;
+
 }

@@ -15,40 +15,53 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.core.client.JsObject;
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client._WidgetBase;
 
 /**
  * A carousel widget that manages a list of images.
- * 
- * @author ggeorg
+ * <p>
+ * The carousel widget manages a list of images that can be displayed
+ * horizontally, and allows the user to scroll through the list and select a
+ * single item.
  */
 public class Carousel extends _WidgetBase implements IContainer, IContained {
 
 	public static final String MODULE = "dojox/mobile/Carousel";
+
+	public static final String TOPIC_CAROUSEL_SELECT = "/dojox/mobile/carouselSelect";
 
 	public static native Carousel create() /*-{
 		return new $wnd.dojox.mobile.Carousel();
 	}-*/;
 
 	/**
-	 * numVisible: Number (3)
+	 * numVisible: Number (default: 2)
 	 * <p>
 	 * The number of visible items.
 	 */
 	public static final String NUMVISIBLE = "numVisible";
 
 	/**
-	 * title: String
+	 * itemWidth: Number (default: 0)
+	 * <p>
+	 * The number of visible items (=numVisible) is determined by (carousel
+	 * width / itemWidth). If itemWidth is specified, numVisible is
+	 * automatically calculated. If resize() is called, numVisible is
+	 * recalculated and the layout is changed accordingly.
+	 */
+	public static final String ITEMWIDTH = "itemWidth";
+
+	/**
+	 * title: String (default: "")
 	 * <p>
 	 * A title of the carousel to be displayed on the title bar.
 	 */
 	public static final String TITLE = "title";
 
 	/**
-	 * pageIndicator: Boolean (true)
+	 * pageIndicator: Boolean (default: true)
 	 * <p>
 	 * If {@code true}, a page indicator, a series of small dots that indicate
 	 * the current page, is displayed on the title bar.
@@ -56,14 +69,14 @@ public class Carousel extends _WidgetBase implements IContainer, IContained {
 	public static final String PAGEINDICATOR = "pageIndicator";
 
 	/**
-	 * navButton: Boolean (false)
+	 * navButton: Boolean (default: false)
 	 * <p>
-	 * If {@code true}, navigation buttons are displyaed on the title bar.
+	 * If {@code true}, navigation buttons are displayed on the title bar.
 	 */
 	public static final String NAVBUTTON = "navButton";
 
 	/**
-	 * height: String ("300px")
+	 * height: String
 	 * <p>
 	 * Explicitly specified height of the widget (ex. "300px"). If "inherit" is
 	 * specified, the height is inherited from its offset parent.
@@ -71,25 +84,11 @@ public class Carousel extends _WidgetBase implements IContainer, IContained {
 	public static final String HEIGHT = "height";
 
 	/**
-	 * store: Object
+	 * selectable: Boolean (default: true)
 	 * <p>
-	 * Reference to data provider object used by this widget.
+	 * If true, an item can be selected by clicking it.
 	 */
-	public static final String STORE = "store";
-
-	/**
-	 * query: Object
-	 * <p>
-	 * A query that can be passed to 'store' to initially filter the items.
-	 */
-	public static final String QUERY = "query";
-
-	/**
-	 * queryOptions: Object
-	 * <p>
-	 * An optional parameter for the query.
-	 */
-	public static final String QUERYOPTIONS = "queryOptions";
+	public static final String SELECTABLE = "selectable";
 
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,
@@ -99,19 +98,41 @@ public class Carousel extends _WidgetBase implements IContainer, IContained {
 	}
 
 	/**
-	 * Sets the store to use with this widget.
+	 * Returns the index of a given item widget.
 	 * 
-	 * @param store
-	 * @param query
-	 * @param queryOptions
+	 * @return The index of a given item widget.
 	 */
-	public final native void setStore(JsObject store, JsObject query,
-			JsObject queryOptions) /*-{
-		this.setStore(store, query, queryOptions);
+	public final native int getIndexByItemWidget(_WidgetBase widget) /*-{
+		return this.getIndexByItemWidget(widget);
 	}-*/;
-	
-	public final native void refresh() /*-{
-		this.refresh();
+
+	/**
+	 * Resizes the child items of the carousel.
+	 */
+	public final native void resizeItems() /*-{
+		this.resizeItems();
+	}-*/;
+
+	public final native void resize() /*-{
+		this.resize();
+	}-*/;
+
+	/**
+	 * Select the given widget.
+	 * 
+	 * @param index
+	 */
+	public final native void select(int index) /*-{
+		this.select(index);
+	}-*/;
+
+	/**
+	 * Select the given widget.
+	 * 
+	 * @param itemWidget
+	 */
+	public final native void select(_WidgetBase itemWidget) /*-{
+		this.select(itemWidget);
 	}-*/;
 
 }

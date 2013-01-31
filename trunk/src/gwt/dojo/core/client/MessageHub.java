@@ -17,7 +17,6 @@ package gwt.dojo.core.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-
 /**
  * A centralized hub for publishing and subscribing to global messages by topic.
  * One can subscribe to the messages by using {@code subscribe()}, and one can
@@ -62,7 +61,7 @@ public class MessageHub extends JsObject {
 	};
 
 	private final native void _publish(String topic, JsArray args) /*-{
-		this.publish(topic, args);
+		this.publish(topic, args, "!@#$%^&*()_+");
 	}-*/;
 
 	/**
@@ -83,15 +82,11 @@ public class MessageHub extends JsObject {
 
 	private final native SubscribeHandle _subscribe(String topic,
 			SubscribeCallback callback) /*-{
-		var func = function(message) {
-			if (!(typeof message == 'object' && message instanceof Array)) {
-				if (message) {
-					message = [ message ];
-				} else {
-					message = [];
-				}
+		var func = function() {
+			if (arguments.length == 2 && arguments[1] === "!@#$%^&*()_+") {
+				arguments = arguments[0];
 			}
-			callback.@gwt.dojo.core.client.SubscribeCallback::callback(Ljava/lang/String;Lgwt/dojo/core/client/JsArray;)(topic, message);
+			callback.@gwt.dojo.core.client.SubscribeCallback::callback(Ljava/lang/String;Lgwt/dojo/core/client/JsArray;)(topic, arguments);
 		}
 		return this.subscribe(topic, func);
 	}-*/;
