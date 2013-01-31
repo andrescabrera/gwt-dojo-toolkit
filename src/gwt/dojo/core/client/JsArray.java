@@ -19,23 +19,23 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.json.client.JSONArray;
 
 public class JsArray extends JavaScriptObject {
-	
+
 	public static JsArray create() {
 		return JavaScriptObject.createArray().cast();
 	}
-	
+
 	public static JsArray create(Object... values) {
 		return JsArray.create().push(values);
 	}
-	
+
 	public static JsArray create(int... values) {
 		return JsArray.create().push(values);
 	}
-	
+
 	public static JsArray create(double... values) {
 		return JsArray.create().push(values);
 	}
-	
+
 	public static JsArray create(boolean... values) {
 		return JsArray.create().push(values);
 	}
@@ -90,7 +90,7 @@ public class JsArray extends JavaScriptObject {
 		this[this.length] = value;
 		return this;
 	}-*/;
-	
+
 	public final JsArray push(JsObject... values) {
 		JsArray result = this;
 		if (values != null) {
@@ -116,7 +116,7 @@ public class JsArray extends JavaScriptObject {
 		this[this.length] = value;
 		return this;
 	}-*/;
-	
+
 	public final JsArray push(String... values) {
 		JsArray result = this;
 		if (values != null) {
@@ -129,9 +129,13 @@ public class JsArray extends JavaScriptObject {
 
 	// Integer property
 
-	public final native int getInteger(int index, int defaultValue) /*-{
-		return this[index] || defaultValue;
+	public final native int getInteger(int index) /*-{
+		return Number(this[index]);
 	}-*/;
+
+//	public final native int getInteger(int index, int defaultValue) /*-{
+//		return this[index] || defaultValue;
+//	}-*/;
 
 	public final native JsArray set(int index, int value) /*-{
 		this[index] = value;
@@ -142,7 +146,7 @@ public class JsArray extends JavaScriptObject {
 		this[this.length] = value;
 		return this;
 	}-*/;
-	
+
 	public final JsArray push(int... values) {
 		JsArray result = this;
 		if (values != null) {
@@ -159,9 +163,9 @@ public class JsArray extends JavaScriptObject {
 		return Number(this[index]);
 	}-*/;
 
-	public final native double getDouble(int index, double defaultValue) /*-{
-		return this[index] || defaultValue;
-	}-*/;
+//	public final native double getDouble(int index, double defaultValue) /*-{
+//		return this[index] || defaultValue;
+//	}-*/;
 
 	public final native JsArray set(int index, double value) /*-{
 		this[index] = value;
@@ -172,7 +176,7 @@ public class JsArray extends JavaScriptObject {
 		this[this.length] = value;
 		return this;
 	}-*/;
-	
+
 	public final JsArray push(double... values) {
 		JsArray result = this;
 		if (values != null) {
@@ -201,7 +205,7 @@ public class JsArray extends JavaScriptObject {
 		this[this.length] = value;
 		return this;
 	}-*/;
-	
+
 	public final JsArray push(boolean... values) {
 		JsArray result = this;
 		if (values != null) {
@@ -257,80 +261,83 @@ public class JsArray extends JavaScriptObject {
 	public final native void setLength(int newLength) /*-{
 		this.length = newLength;
 	}-*/;
-	
+
 	// ------------------------------------------------------------------------
-	
-	  /**
-	   * Shifts the first value off the array.
-	   * 
-	   * @return the shifted boolean
-	   */
-	  public final native boolean shiftBoolean() /*-{
-	    return Boolean(this.shift());
-	  }-*/;
 
-	  /**
-	   * Shifts the first value off the array.
-	   * 
-	   * @return the shifted double
-	   */
-	  public final native double shiftNumber() /*-{
-	    return Number(this.shift());
-	  }-*/;
+	/**
+	 * Shifts the first value off the array.
+	 * 
+	 * @return the shifted boolean
+	 */
+	public final native boolean shiftBoolean() /*-{
+		return Boolean(this.shift());
+	}-*/;
 
-	  /**
-	   * Shifts the first value off the array.
-	   * 
-	   * @return the shifted {@link JavaScriptObject}
-	   */
-	  public final native <T extends JavaScriptObject> T shiftObject() /*-{
-	    return Object(this.shift());
-	  }-*/;
+	/**
+	 * Shifts the first value off the array.
+	 * 
+	 * @return the shifted double
+	 */
+	public final native double shiftNumber() /*-{
+		return Number(this.shift());
+	}-*/;
 
-	  /**
-	   * Shifts the first value off the array.
-	   * 
-	   * @return the shifted String
-	   */
-	  public final native String shiftString() /*-{
-	    return String(this.shift());
-	  }-*/;
+	/**
+	 * Shifts the first value off the array.
+	 * 
+	 * @return the shifted {@link JavaScriptObject}
+	 */
+	public final native <T extends JavaScriptObject> T shiftObject() /*-{
+		return Object(this.shift());
+	}-*/;
 
-	  /**
-	   * Shifts a boolean onto the beginning of the array.
-	   * 
-	   * @param value the value to the stored
-	   */
-	  public final native void unshift(boolean value) /*-{
-	    this.unshift(value);
-	  }-*/;
+	/**
+	 * Shifts the first value off the array.
+	 * 
+	 * @return the shifted String
+	 */
+	public final native String shiftString() /*-{
+		return String(this.shift());
+	}-*/;
 
-	  /**
-	   * Shifts a double onto the beginning of the array.
-	   * 
-	   * @param value the value to store
-	   */
-	  public final native void unshift(double value) /*-{
-	    this.unshift(value);
-	  }-*/;
+	/**
+	 * Shifts a boolean onto the beginning of the array.
+	 * 
+	 * @param value
+	 *            the value to the stored
+	 */
+	public final native void unshift(boolean value) /*-{
+		this.unshift(value);
+	}-*/;
 
-	  /**
-	   * Shifts a {@link JavaScriptObject} onto the beginning of the array.
-	   * 
-	   * @param value the value to store
-	   */
-	  public final native void unshift(JavaScriptObject value) /*-{
-	    this.unshift(value);
-	  }-*/;
+	/**
+	 * Shifts a double onto the beginning of the array.
+	 * 
+	 * @param value
+	 *            the value to store
+	 */
+	public final native void unshift(double value) /*-{
+		this.unshift(value);
+	}-*/;
 
-	  /**
-	   * Shifts a String onto the beginning of the array.
-	   * 
-	   * @param value the value to store
-	   */
-	  public final native void unshift(String value) /*-{
-	    this.unshift(value);
-	  }-*/;
+	/**
+	 * Shifts a {@link JavaScriptObject} onto the beginning of the array.
+	 * 
+	 * @param value
+	 *            the value to store
+	 */
+	public final native void unshift(JavaScriptObject value) /*-{
+		this.unshift(value);
+	}-*/;
 
+	/**
+	 * Shifts a String onto the beginning of the array.
+	 * 
+	 * @param value
+	 *            the value to store
+	 */
+	public final native void unshift(String value) /*-{
+		this.unshift(value);
+	}-*/;
 
 }

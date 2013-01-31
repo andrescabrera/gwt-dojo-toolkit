@@ -21,7 +21,6 @@ import java.util.logging.Logger;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.NativeEvent;
 
 public class Dojo {

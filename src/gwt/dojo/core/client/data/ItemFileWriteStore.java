@@ -13,34 +13,34 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.data.client;
+package gwt.dojo.core.client.data;
 
 import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.Stateful;
 
-public class ItemFileReadStore extends Stateful {
+public class ItemFileWriteStore extends Stateful {
 
-	public static final String MODULE = "dojo/data/ItemFileReadStore";
+	public static final String MODULE = "dojo/data/ItemFileWriteStore";
 
-	public static native ItemFileReadStore create() /*-{
+	public static native ItemFileWriteStore create() /*-{
 		try {
-			return new $wnd.dojo.data.ItemFileReadStore();
+			return new $wnd.dojo.data.ItemFileWriteStore();
 		} catch (e) {
 			alert(e);
 		}
 	}-*/;
 
-	public static native ItemFileReadStore create(JsObject data) /*-{
+	public static native ItemFileWriteStore create(JsObject data) /*-{
 		try {
-			return new $wnd.dojo.data.ItemFileReadStore({
+			return new $wnd.dojo.data.ItemFileWriteStore({
 				data : data
 			});
 		} catch (e) {
 			alert(e);
 		}
 	}-*/;
-
-	protected ItemFileReadStore() {
+	
+	protected ItemFileWriteStore() {
 	}
 
 }
