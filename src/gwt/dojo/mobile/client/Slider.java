@@ -15,16 +15,20 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._WidgetBase;
+import gwt.dojo.dijit.client.form.IFormValueMixin;
 
-public class Slider extends _WidgetBase {
+public class Slider extends _WidgetBase implements IFormValueMixin {
 	
 	public static final String MODULE = "dojox/mobile/Slider";
-
-	public static Slider byId(String id) {
-		return Registry.byId(id);
-	}
+	
+	public static final String VALUE = "value";
+	public static final String MIN = "min";
+	public static final String MAX = "max";
+	public static final String STEP = "step";
+	public static final String FLIP = "flip";
+	public static final String ORIENTATION = "orientation";
+	public static final String HALO = "halo";
 	
 	public static native Slider create() /*-{
 		return new $wnd.dojox.mobile.Slider();

@@ -20,8 +20,10 @@ import java.util.logging.Logger;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
+import com.google.gwt.core.client.JavaScriptException;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.NativeEvent;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public class Dojo {
 	private static final Logger sLogger = Logger.getLogger("Dojo");
@@ -126,11 +128,11 @@ public class Dojo {
 		};
 		return $wnd.dojo.connect(obj, event, context, func);
 	}-*/;
-	
+
 	// ------------------------------------------------------------------------
 	// Helper methods for callback functions & uncaught exceptions.
 	// ------------------------------------------------------------------------
-	
+
 	private static void doDojoCallback(DojoCallback callback, JsArray arguments) {
 		try {
 			callback.callback(arguments);
@@ -138,11 +140,45 @@ public class Dojo {
 			handleUncaughtException(t);
 		}
 	}
-	
+
 	private static void doCallback(EventCallback callback, JsObject thiz,
 			NativeEvent event) {
 		try {
 			callback.callback(thiz, event);
+		} catch (Throwable t) {
+			handleUncaughtException(t);
+		}
+	}
+
+	private static void doCallback(SubscribeCallback callback, String topic,
+			JsArray message) {
+		try {
+			callback.callback(topic, message);
+		} catch (Throwable t) {
+			handleUncaughtException(t);
+		}
+	}
+
+	private static <T> void doCallback(AsyncCallback<T> callback, T result) {
+		try {
+			callback.onSuccess(result);
+		} catch (Throwable t) {
+			handleUncaughtException(t);
+		}
+	}
+
+	private static <T> void doCallback(AsyncCallback<T> callback, String error) {
+		try {
+			callback.onFailure(new JavaScriptException(error));
+		} catch (Throwable t) {
+			handleUncaughtException(t);
+		}
+	}
+
+	private static void doCallback(WatchCallback callback, Stateful source,
+			String name, PropertyChangeEvent event) {
+		try {
+			callback.callback(source, name, event);
 		} catch (Throwable t) {
 			handleUncaughtException(t);
 		}
@@ -156,7 +192,7 @@ public class Dojo {
 			sLogger.log(Level.SEVERE, "Uncaught exception escaped: ", t);
 		}
 	}
-	
+
 	// ------------------------------------------------------------------------
 
 	/**

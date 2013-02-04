@@ -133,9 +133,10 @@ public class JsArray extends JavaScriptObject {
 		return Number(this[index]);
 	}-*/;
 
-//	public final native int getInteger(int index, int defaultValue) /*-{
-//		return this[index] || defaultValue;
-//	}-*/;
+	public final native int getInteger(int index, int defaultValue) /*-{
+		var result = Number(this[index]);
+		return result != NaN ? result : defaultValue;
+	}-*/;
 
 	public final native JsArray set(int index, int value) /*-{
 		this[index] = value;
@@ -163,9 +164,10 @@ public class JsArray extends JavaScriptObject {
 		return Number(this[index]);
 	}-*/;
 
-//	public final native double getDouble(int index, double defaultValue) /*-{
-//		return this[index] || defaultValue;
-//	}-*/;
+	public final native int getDouble(int index, double defaultValue) /*-{
+		var result = Number(this[index]);
+		return result != NaN ? result : defaultValue;
+	}-*/;
 
 	public final native JsArray set(int index, double value) /*-{
 		this[index] = value;

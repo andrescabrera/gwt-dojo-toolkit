@@ -13,21 +13,17 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.core.client;
+package gwt.dojo.mobile.client;
 
-/**
- * The callback to execute when a property changes.
- * 
- * @author ggeorg
- */
-public interface WatchCallback {
+public class EdgeToEdgeStoreList extends EdgeToEdgeList implements IStoreListMixin {
 
-	/**
-	 * 
-	 * @param source
-	 * @param name
-	 * @param event
-	 */
-	void callback(Stateful source, String name, PropertyChangeEvent event);
+	public static final String MODULE = "dojox/mobile/EdgeToEdgeStoreList";
+
+	public static native EdgeToEdgeStoreList create() /*-{
+		return new $wnd.dojox.mobile.EdgeToEdgeStoreList();
+	}-*/;
+
+	protected EdgeToEdgeStoreList() {
+	}
 
 }
