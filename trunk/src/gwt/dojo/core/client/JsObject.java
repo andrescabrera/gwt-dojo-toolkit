@@ -94,7 +94,7 @@ public class JsObject extends JavaScriptObject {
 
 	// JavaScriptObject property
 
-	public final JsObject getJsObject(String property) {
+	public final <T extends JsObject> T getJsObject(String property) {
 		return getJavaScriptObject(property);
 	}
 

@@ -18,7 +18,6 @@ package gwt.dojo.core.client;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 
-
 /**
  * Base class for objects that provide named properties with optional
  * getter/setter control and the ability to watch for property changes.
@@ -119,7 +118,7 @@ public class Stateful extends JsObject {
 				oldValue : oldValue,
 				value : value
 			};
-			callback.@gwt.dojo.core.client.WatchCallback::callback(Lgwt/dojo/core/client/JsObject;Ljava/lang/String;Lgwt/dojo/core/client/PropertyChangeEvent;)(this, name, event);
+			@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/WatchCallback;Lgwt/dojo/core/client/Stateful;Ljava/lang/String;Lgwt/dojo/core/client/PropertyChangeEvent;)(callback, this, name, event);
 		};
 		this.watch(name, func);
 	}-*/;
@@ -140,7 +139,7 @@ public class Stateful extends JsObject {
 				oldValue : oldValue,
 				newValue : newValue
 			};
-			callback.@gwt.dojo.core.client.WatchCallback::callback(Lgwt/dojo/core/client/JsObject;Ljava/lang/String;Lgwt/dojo/core/client/PropertyChangeEvent;)(this, name, event);
+			@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/WatchCallback;Lgwt/dojo/core/client/Stateful;Ljava/lang/String;Lgwt/dojo/core/client/PropertyChangeEvent;)(callback, this, name, event);
 		};
 		this.watch(func);
 	}-*/;

@@ -60,41 +60,34 @@ public class MessageHub extends JsObject {
 		ref()._publish(topic, args);
 	};
 
-	private final native void _publish(String topic, JsArray args) /*-{
-		switch (args.length) {
+	private final native void _publish(String topic, JsArray a) /*-{
+		switch (a.length) {
 		case 0:
 			this.publish(topic);
 			break;
 		case 1:
-			this.publish(topic, args[0]);
+			this.publish(topic, a[0]);
 			break;
 		case 2:
-			this.publish(topic, args[0], args[1]);
+			this.publish(topic, a[0], a[1]);
 			break;
 		case 3:
-			this.publish(topic, args[0], args[1], args[2]);
+			this.publish(topic, a[0], a[1], a[2]);
 			break;
 		case 4:
-			this.publish(topic, args[0], args[1], args[2], args[3]);
+			this.publish(topic, a[0], a[1], a[2], a[3]);
 			break;
 		case 5:
-			this.publish(topic, args[0], args[1], args[2], args[3], args[4]);
+			this.publish(topic, a[0], a[1], a[2], a[3], a[4]);
 			break;
 		case 6:
-			this.publish(topic, args[0], args[1], args[2], args[3], args[4],
-					args[5]);
+			this.publish(topic, a[0], a[1], a[2], a[3], a[4], a[5]);
 			break;
 		case 7:
-			this.publish(topic, args[0], args[1], args[2], args[3], args[4],
-					args[5], args[6]);
+			this.publish(topic, a[0], a[1], a[2], a[3], a[4], a[5], a[6]);
 			break;
 		case 8:
-			this.publish(topic, args[0], args[1], args[2], args[3], args[4],
-					args[5], args[6], args[7]);
-			break;
-		case 9:
-			this.publish(topic, args[0], args[1], args[2], args[3], args[4],
-					args[5], args[6], args[7], args[8]);
+			this.publish(topic, a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7]);
 			break;
 		default:
 			throw "Too many args";
@@ -120,7 +113,7 @@ public class MessageHub extends JsObject {
 	private final native SubscribeHandle _subscribe(String topic,
 			SubscribeCallback callback) /*-{
 		var func = function() {
-			callback.@gwt.dojo.core.client.SubscribeCallback::callback(Ljava/lang/String;Lgwt/dojo/core/client/JsArray;)(topic, arguments);
+			@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/SubscribeCallback;Ljava/lang/String;Lgwt/dojo/core/client/JsArray;)(callback, topic, arguments);
 		}
 		return this.subscribe(topic, func);
 	}-*/;
