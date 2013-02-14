@@ -39,6 +39,7 @@
 			<fileset dir="src">
 				<include name="**/*.java" />
 				<exclude name="**/showcase/**" />
+				<exclude name="org.apache.pivot/**" />
 			</fileset>
 		</jar>
 	</target>
