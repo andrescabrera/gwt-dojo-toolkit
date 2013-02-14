@@ -20,6 +20,7 @@ import gwt.dojo.core.client.EventCallback;
 import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.DojoCallback;
+import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._WidgetBase;
 import gwt.dojo.mobile.client.Button;
 import gwt.dojo.mobile.client.ListItem;
@@ -58,7 +59,7 @@ public class FormsController implements Controller, EventCallback {
 
 	@Override
 	public void activate(ListItem listItem) {
-		Slider slider = Slider.byId("alertSlider");
+		Slider slider = Registry.byId("alertSlider");
 		slider.on("focus", new EventCallback() {
 			@Override
 			public void callback(JsObject source, NativeEvent event) {
