@@ -126,6 +126,8 @@ var clz = declare(/*===== "dojox.gesture.swipe", =====*/Base, {
 		}
 		info.dx = dx;
 		info.dy = dy;
+		info.clientX = e.clientX;
+		info.clientY = e.clientY;
 		return info;
 	}
 });
