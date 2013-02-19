@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='imerzaccess'>
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<!-- Other module inherits -->
+	<inherits name='com.google.gwt.json.JSON' />
+	<inherits name='gwt.dojo.Dojo-mobile' />
+
+	<script src="cordova/cordova-2.3.0.js" />
+	<script src="cordova/imerz-access.js" />
+	<script src="cordova/movie-player.js" />
+
+</module>

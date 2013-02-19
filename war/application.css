@@ -1,2 +1,41 @@
 /** Add css rules here for your application. */
 
+* {
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background: none !important;
+	color: white;
+}
+
+.channel-carousel {
+	height: 200px;
+	border-bottom: 1px solid white;
+	
+	padding: 0 0 1em 0;
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.26, rgba(0,0,0,1.0)),
+		color-stop(0.67, rgba(3,3,3,.5)),
+		color-stop(0, rgba(255,255,255,.7))
+	);
+	
+	-webkit-box-shadow: 3px 3px 3em #000;
+}
+
+#player-play-paused.play {
+	background-image: url('images/play-icon.png');
+}
+
+#player-play-paused.paused {
+	background-image: url('images/paused-icon.png');
+}

@@ -1,0 +1,31 @@
+{
+    "items": [
+        { "src": "images/flip1.jpg", "value": "ch1", "headerText": "Channel #1" },
+        { "src": "images/flip1.jpg", "value": "ch2", "headerText": "Channel #2" },
+        { "src": "images/flip1.jpg", "value": "ch3", "headerText": "Channel #3" },
+        
+        { "src": "images/flip1.jpg", "value": "ch4", "headerText": "Channel #4" },
+        { "src": "images/flip1.jpg", "value": "ch5", "headerText": "Channel #5" },
+        
+        { "src": "images/flip2.jpg", "value": "ch6", "headerText": "Channel #6" },
+        { "src": "images/flip2.jpg", "value": "ch7", "headerText": "Channel #7" },
+        
+        { "src": "images/flip2.jpg", "value": "ch8", "headerText": "Channel #8" },
+        { "src": "images/flip2.jpg", "value": "ch9", "headerText": "Channel #9" },
+        { "src": "images/flip2.jpg", "value": "ch10", "headerText": "Channel #10" },
+        
+        { "src": "images/flip1.jpg", "value": "ch11", "headerText": "Channel #11" },
+        { "src": "images/flip1.jpg", "value": "ch12", "headerText": "Channel #12" },
+        { "src": "images/flip1.jpg", "value": "ch13", "headerText": "Channel #13" },
+        
+        { "src": "images/flip1.jpg", "value": "ch14", "headerText": "Channel #14" },
+        { "src": "images/flip1.jpg", "value": "ch15", "headerText": "Channel #15" },
+        
+        { "src": "images/flip2.jpg", "value": "ch16", "headerText": "Channel #16" },
+        { "src": "images/flip2.jpg", "value": "ch17", "headerText": "Channel #17" },
+        
+        { "src": "images/flip2.jpg", "value": "ch18", "headerText": "Channel #18" },
+        { "src": "images/flip2.jpg", "value": "ch19", "headerText": "Channel #19" },
+        { "src": "images/flip2.jpg", "value": "ch20", "headerText": "Channel #20" }
+    ]
+}

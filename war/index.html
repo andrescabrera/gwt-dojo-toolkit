@@ -8,7 +8,7 @@
 		
 		<link type="text/css" rel="stylesheet" href="application.css">
 		
-		<title>GWT Dojo Mobile Demo Application</title>
+		<title>IMerzAccess</title>
 		
 		<script>
 		dojoConfig= {
@@ -16,67 +16,124 @@
 		};
 		</script>
 		
-		<script type="text/javascript" src="gwt_dojo_toolkit_mobile/gwt_dojo_toolkit_mobile.nocache.js"></script>
+		<!-- Need to load the theme files as well as base theme file -->
+		<script type="text/javascript" src="imerzaccess/dojo/dojox/mobile/deviceTheme.js"
+			data-dojo-config="mblThemeFiles: ['base','SimpleDialog']"></script>
+		
+		<script type="text/javascript" src="imerzaccess/imerzaccess.nocache.js"></script>
 	</head>
-	<body>
+	<body class="transparent">
 
-<div id="general" data-dojo-type="dojox.mobile.View">
-    <h1 data-dojo-type="dojox.mobile.Heading">General</h1>
-    <ul data-dojo-type="dojox.mobile.RoundRectList">
-        <li data-dojo-type="dojox.mobile.ListItem">
-            Airplane Mode
-            <!-- the switch -->
-            <div class="mblItemSwitch" data-dojo-type="dojox.mobile.Switch"></div>
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'mac'">
-            Wi-Fi
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'AcmePhone'">
-            Carrier
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'about'">
-            About
-        </li>
-    </ul>
-</div>
- 
-<div id="about" data-dojo-type="dojox.mobile.View">
-    <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="back:'General', moveTo:'general'">About</h1>
-    <h2 data-dojo-type="dojox.mobile.RoundRectCategory">Generic Mobile Device</h2>
-    <ul data-dojo-type="dojox.mobile.RoundRectList">
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'AcmePhone'">
-            Network                                            
-        </li>                                                
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'AcmePhone'">
-            Line
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'1024'">
-            Songs
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'10'">
-            Videos
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'96'">
-            Photos
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'2'">
-            Applications
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'29.3 BG'">
-            Capacity
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'28.0 BG'">
-            Available
-        </li>
-        <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'3.0 (7A341)'">
-            Version
-        </li>
-    </ul>
-</div>
+		<div data-dojo-type="dojo.store.JsonRest" data-dojo-id="sampleStore" 
+			data-dojo-props='target:"channels-carousel.json"'>
+		</div>
+		
+		<!-- deviceSelectorStore -->
+		<div data-dojo-type="dojo.store.Memory" data-dojo-id="deviceSelectorStore"
+            data-dojo-props='idProperty:"deviceId"'></div>
 
-<div id="loadDiv" style="position:absolute; left:0px; top:0px; width:100%; height:100%; z-index:999; display:table; text-align:center; background-color: white;">
-	<span style="display:table-cell; vertical-align:middle; font-size: 150%;"">Loading...</span>
-</div>
+		<div id='device-selector-dlg' data-dojo-type='dojox.mobile.SimpleDialog'
+			data-dojo-props='modal:"true", closeButton:"true"'>
+			<div class='mblSimpleDialogTitle'>Device List</div>
+			<div style='height: 13em;'>
+				<div data-dojo-type="dojox.mobile.ScrollablePane" data-dojo-props='height:"100%"'>
+					<ul id='device-selector-list' data-dojo-type="dojox.mobile.EdgeToEdgeStoreList"
+						data-dojo-props='store:deviceSelectorStore'>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id='controls-dlg' data-dojo-type='dojox.mobile.SimpleDialog'
+			data-dojo-props='modal:"true", closeButton:"true"'>
+			<div id='controls-dlg-title' class='mblSimpleDialogTitle'>Controls</div>
+			<div class='mblSimpleDialogText'>Time: <span id='controls-dlg-mediatime'>00:00</span><span id='controls-dlg-duration' style='float:right;color:gray;'>00:00</span></div>
+			<input id='controls-dlg-mediatime-slider' data-dojo-type="dojox.mobile.Slider" value='0' min='0' max='100' step='1' type='range' style='width: 90%;'>
+			<div class='mblSimpleDialogText'>Volume: <span id='controls-dlg-volume'>0</span>%</div>
+			<input id='controls-dlg-volume-slider' data-dojo-type="dojox.mobile.Slider" value='0' min='0' max="100" step="1" type="range" style='width: 90%;'>
+			<div class='mblSimpleDialogText'><span>Title</span><span style='float:right'>1/4</span></div>
+			<div data-dojo-type="dojox.mobile.Heading" style='margin-top: 1em;'>
+				<span id="controls-btn-play-pause-btn" data-dojo-type="dojox.mobile.ToolBarButton" 
+					data-dojo-props='icon:"images/playback_start.png", pause:false'>
+				</span>
+				<span data-dojo-type="dojox.mobile.ToolBarButton" 
+					data-dojo-props='icon:"images/playback_stop.png"'>
+				</span>
+				<span data-dojo-type="dojox.mobile.ToolBarButton" 
+					data-dojo-props='icon:"images/playback_prev.png"'>
+				</span>
+				<span data-dojo-type="dojox.mobile.ToolBarButton" 
+					data-dojo-props='icon:"images/playback_next.png"'>
+				</span>
+				<span data-dojo-type="dojox.mobile.ToolBarButton" 
+					data-dojo-props='label:"PUSH",defaultColor:"mblColorGray"' style="float:right;">
+				</span>
+			</div>
+		</div>
 
+		<div id='main' data-dojo-type='dojox.mobile.ScrollableView' data-dojo-props='selected:"true"'>
+			<div data-dojo-type="dojox.mobile.Heading" 
+				data-dojo-props='fixed:"top", label:"Channels", back:"Settings", moveTo:"settings"'>
+				<span id="main-device-selector-btn" data-dojo-type="dojox.mobile.ToolBarButton"
+					data-dojo-props='icon:"mblDomButtonWhiteUpArrow"' style="float:right;">
+				</span>
+				<span id="main-channel-search-btn" data-dojo-type="dojox.mobile.ToolBarButton"
+					data-dojo-props='icon:"mblDomButtonWhiteSearch"' style="float:right;">
+				</span>
+			</div>
+	    	<div class='channel-carousel' data-dojo-type='dojox.mobile.Pane' >
+				<div id="carousel1" data-dojo-type="dojox.mobile.StoreCarousel"
+					data-dojo-props='store:sampleStore, height:"100%", itemWidth:96, title:"My Channels"'>
+				</div>
+			</div>
+			<div class='channel-carousel' data-dojo-type='dojox.mobile.ContentPane' >
+				<div id="carousel2" data-dojo-type="dojox.mobile.StoreCarousel"
+					data-dojo-props='store:sampleStore, height:"100%", itemWidth:96, title:"Most Popular"'>
+				</div>
+			</div>
+			
+			<div class='channel-carousel' data-dojo-type='dojox.mobile.ContentPane' >
+				<div id="carousel3" data-dojo-type="dojox.mobile.StoreCarousel"
+					data-dojo-props='store:sampleStore, height:"100%", itemWidth:96, title:"Categories"'>
+				</div>
+			</div>
+		</div>
+		
+		<div id='settings' data-dojo-type='dojox.mobile.ScrollableView'>
+			<div data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"top", label:"Settings"'>
+				<span id="settings-done-btn" data-dojo-type="dojox.mobile.ToolBarButton" 
+					data-dojo-props='label:"Done",defaultColor:"mblColorBlue"' style="float:right;">
+				</span>
+			</div>
+		</div>
+		
+		<div id='channel-search' data-dojo-type='dojox.mobile.ScrollableView'>
+			<div data-dojo-type="dojox.mobile.Heading" 
+				data-dojo-props='fixed:"top", label:"Channel Search", back:"Back", moveTo:"main"'>
+			</div>
+		</div>
+		
+		<div id='player' data-dojo-type='dojox.mobile.View' style='position:absolute; top:0px; bottom:0px; left:0px; right:0px;'>
+			<div id="player-heading" data-dojo-type="dojox.mobile.Heading" style='position:absolute; bottom:0px; left:0px; right:0px;'>
+				<span id="player-done-btn" data-dojo-type="dojox.mobile.ToolBarButton" 
+					data-dojo-props='label:"Done",defaultColor:"mblColorBlue"'>
+				</span>
+				<span id="player-device-selector-btn" data-dojo-type="dojox.mobile.ToolBarButton"
+					data-dojo-props='icon:"mblDomButtonWhiteUpArrow"' style="float:right;">
+				</span>
+				<span id="player-controls-btn" data-dojo-type="dojox.mobile.ToolBarButton"
+					data-dojo-props='icon:"mblDomButtonGreenCircleArrow"' style="float:right; padding-left:1em; padding-right:1em;">
+				</span>
+			</div>
+			
+			<div id='player-video-info-panel' style='position:absolute; left:0px; right:0px; top:0px;'>
+				<div id='player-play-paused' class='play' style='float:left; width:22px; height: 22px;'></div>
+				<div id='player-mediatime' style='float:right; height: 22px; font-size: 22px;'>00:00</div>
+			</div>
+		</div>
+
+		<div id="loadDiv" style="position:absolute; left:0px; top:0px; width:100%; height:100%; z-index:999; display:table; text-align:center; background-color: white;">
+			<span style="display:table-cell; vertical-align:middle; font-size: 150%; color: #4d4d4d;">Loading...</span>
+		</div>
 	</body>
 </html>
