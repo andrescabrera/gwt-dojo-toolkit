@@ -150,6 +150,15 @@ public class Dojo {
 		}
 	}
 
+	private static void doCallback(AspectCallback callback, JsObject thiz,
+			JsArray arguments) {
+		try {
+			callback.callback(arguments);
+		} catch (Throwable t) {
+			handleUncaughtException(t);
+		}
+	}
+
 	private static void doCallback(SubscribeCallback callback, String topic,
 			JsArray message) {
 		try {

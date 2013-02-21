@@ -23,8 +23,10 @@ import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._WidgetBase;
 import gwt.dojo.mobile.client.Button;
+import gwt.dojo.mobile.client.CheckBox;
 import gwt.dojo.mobile.client.ListItem;
 import gwt.dojo.mobile.client.Slider;
+import gwt.dojo.mobile.client.Switch;
 import gwt.dojo.showcase.client.Showcase;
 
 import com.google.gwt.core.client.JavaScriptObject;
@@ -76,10 +78,14 @@ public class FormsController implements Controller, EventCallback {
 				form.reset();
 
 				try {
-					_WidgetBase.byId("alertSwitch").set("value", "off");
-					_WidgetBase.byId("alertSlider").set("value", 0);
-					_WidgetBase.byId("alert-all").set("checked", false);
-					_WidgetBase.byId("alert-urgent").set("checked", true);
+					Switch s = Registry.byId("alertSwitch");
+					s.set("value", "off");
+					Slider slider = Registry.byId("alertSlider");
+					slider.set("value", 0);
+					CheckBox cb1 = Registry.byId("alert-all");
+					cb1.set("checked", false);
+					CheckBox cb2 = Registry.byId("alert-urgent");
+					cb2.set("checked", true);
 				} catch (Exception e) {
 					Window.alert("" + e);
 				}

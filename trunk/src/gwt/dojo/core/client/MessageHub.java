@@ -113,7 +113,11 @@ public class MessageHub extends JsObject {
 	private final native SubscribeHandle _subscribe(String topic,
 			SubscribeCallback callback) /*-{
 		var func = function() {
-			@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/SubscribeCallback;Ljava/lang/String;Lgwt/dojo/core/client/JsArray;)(callback, topic, arguments);
+			try {
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/SubscribeCallback;Ljava/lang/String;Lgwt/dojo/core/client/JsArray;)(callback, topic, arguments);
+			} catch (ex) {
+				alert("Error in subscribe callback");
+			}
 		}
 		return this.subscribe(topic, func);
 	}-*/;

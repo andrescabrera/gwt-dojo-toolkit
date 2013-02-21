@@ -15,19 +15,22 @@
  */
 package gwt.dojo.dijit.client;
 
+import gwt.dojo.core.client.AspectCallback;
+import gwt.dojo.core.client.AspectHandle;
 import gwt.dojo.core.client.EventCallback;
 import gwt.dojo.core.client.EventHandle;
 import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.Stateful;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 
 /**
  * Base class for Dijit widgets.
  * <p>
- * ({@link _WidgetController} extends this class adding support for various features
- * needed by desktop.
+ * ({@link _WidgetController} extends this class adding support for various
+ * features needed by desktop.
  * 
  * @author ggeorg
  */
@@ -35,10 +38,6 @@ public class _WidgetBase extends Stateful {
 
 	public static _WidgetBase cast(JsObject o) {
 		return o.cast();
-	}
-
-	public static Stateful byId(String id) {
-		return Registry.byId(id);
 	}
 
 	/**
@@ -232,27 +231,57 @@ public class _WidgetBase extends Stateful {
 	 * Call specified callback function when event occurs, ex:
 	 * {@code myWidget.on("click", ...)}.
 	 * 
-	 * @param type
+	 * @param event
 	 *            The event type.
 	 * @param callback
 	 *            The specified callback function.
 	 * @return A handle which can be used to remove this event.
 	 */
-	public final native EventHandle on(String type, EventCallback callback) /*-{
+	public final native EventHandle on(String event, EventCallback callback) /*-{
 		var func = function(e) {
 			try {
-				callback.@gwt.dojo.core.client.EventCallback::callback(Lgwt/dojo/core/client/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(this,e);
-			} catch (e) {
-				alert(e)
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/EventCallback;Lgwt/dojo/core/client/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(callback, this, e);
+			} catch (ex) {
+				alert("Error in event callback: " + ex);
 			}
-			;
 		};
-		try {
-			return this.on(type, func);
-		} catch (e) {
-			alert(e)
-		}
-		;
+		return this.on(event, func);
+	}-*/;
+
+	/**
+	 * Call specified callback function when event occurs...
+	 * 
+	 * @param event
+	 * @param callback
+	 * @return
+	 */
+	public final native EventHandle on(JavaScriptObject event,
+			EventCallback callback) /*-{
+		var func = function(e) {
+			try {
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/EventCallback;Lgwt/dojo/core/client/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(callback, this, e);
+			} catch (ex) {
+				alert("Error in event callback: " + ex);
+			}
+		};
+		return this.on(event, func);
+	}-*/;
+
+	/**
+	 * 
+	 * @param event
+	 * @param callback
+	 * @return
+	 */
+	public final native AspectHandle on(String event, AspectCallback callback) /*-{
+		var func = function(e) {
+			try {
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsObject;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
+			} catch (ex) {
+				alert("Error in aspect callback: " + ex);
+			}
+		};
+		return this.on(event, func);
 	}-*/;
 
 	/**
