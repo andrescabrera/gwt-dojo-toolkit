@@ -48,5 +48,10 @@
 		<delete dir="war/WEB-INF/classes" failonerror="false" />
 		<delete dir="war/dojo" failonerror="false" />
 	</target>
+	
+	<!-- This is called from the Ooyala build. Should not be run on its own -->
+	<target name="buildAndCopy" depends="jar" description="Builds the jar and copies it to the Ooyala lib dir">
+		<copy file="${ant.project.name}-${project.version}.jar" todir="${gwt-dojo-toolkit.ooyala.lib.dir}" overwrite="true"/>/>
+	</target>
 
 </project>
