@@ -63,9 +63,9 @@ public class DojoOn extends JsObject {
 
 	private final native AspectHandle _on(JsObject object, String event,
 			AspectCallback callback) /*-{
-		var func = function(e) {
+		var func = function() {
 			try {
-				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsObject;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
 			} catch (ex) {
 				alert("Error in aspect callback: " + ex);
 			}

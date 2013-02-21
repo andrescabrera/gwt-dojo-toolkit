@@ -150,8 +150,7 @@ public class Dojo {
 		}
 	}
 
-	private static void doCallback(AspectCallback callback, JsObject thiz,
-			JsArray arguments) {
+	private static void doCallback(AspectCallback callback, JsArray arguments) {
 		try {
 			callback.callback(arguments);
 		} catch (Throwable t) {
