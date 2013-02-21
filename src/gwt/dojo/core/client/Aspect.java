@@ -73,7 +73,7 @@ public class Aspect extends JsObject {
 				alert("Error in aspect callback: " + ex);
 			}
 		};
-		return this.after(target, methodName, func);
+		return this.after(target, methodName, func, receiveArguments);
 	}-*/;
 
 	/**
