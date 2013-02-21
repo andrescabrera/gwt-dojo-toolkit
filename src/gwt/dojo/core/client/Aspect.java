@@ -68,7 +68,7 @@ public class Aspect extends JsObject {
 			AspectCallback callback, boolean receiveArguments) /*-{
 		var func = function() {
 			try {
-				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsObject;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
 			} catch (ex) {
 				alert("Error in aspect callback: " + ex);
 			}
@@ -89,7 +89,7 @@ public class Aspect extends JsObject {
 			AspectCallback callback) /*-{
 		var func = function() {
 			try {
-				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsObject;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
 			} catch (ex) {
 				alert("Error in aspect callback: " + ex);
 			}
@@ -109,7 +109,7 @@ public class Aspect extends JsObject {
 			AspectCallback callback) /*-{
 		var func = function() {
 			try {
-				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsObject;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
 			} catch (ex) {
 				alert("Error in aspect callback: " + ex);
 			}
