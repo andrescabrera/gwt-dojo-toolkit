@@ -15,7 +15,6 @@
  */
 package gwt.dojo.core.client;
 
-
 public interface AspectCallback {
-	void callback(JsObject arguments);
+	void callback(JsArray arguments);
 }

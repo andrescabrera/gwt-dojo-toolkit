@@ -67,7 +67,11 @@ public class Aspect extends JsObject {
 	public final native AspectHandle after(JsObject target, String methodName,
 			AspectCallback callback, boolean receiveArguments) /*-{
 		var func = function() {
-			callback.@gwt.dojo.core.client.AspectCallback::callback(Lgwt/dojo/core/client/JsObject;)(arguments);
+			try {
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsObject;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
+			} catch (ex) {
+				alert("Error in aspect callback: " + ex);
+			}
 		};
 		return this.after(target, methodName, func);
 	}-*/;
@@ -84,7 +88,11 @@ public class Aspect extends JsObject {
 	public final native AspectHandle before(JsObject target, String methodName,
 			AspectCallback callback) /*-{
 		var func = function() {
-			callback.@gwt.dojo.core.client.AspectCallback::callback(Lgwt/dojo/core/client/JsObject;)(arguments);
+			try {
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsObject;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
+			} catch (ex) {
+				alert("Error in aspect callback: " + ex);
+			}
 		};
 		return this.before(target, methodName, func);
 	}-*/;
@@ -100,7 +108,11 @@ public class Aspect extends JsObject {
 	public final native AspectHandle around(JsObject target, String methodName,
 			AspectCallback callback) /*-{
 		var func = function() {
-			callback.@gwt.dojo.core.client.AspectCallback::callback(Lgwt/dojo/core/client/JsObject;)(arguments);
+			try {
+				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsObject;Lgwt/dojo/core/client/JsArray;)(callback,arguments);
+			} catch (ex) {
+				alert("Error in aspect callback: " + ex);
+			}
 		};
 		return this.around(target, methodName, func);
 	}-*/;
