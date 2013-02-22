@@ -50,8 +50,8 @@
 	</target>
 	
 	<!-- This is called from the Ooyala build. Should not be run on its own -->
-	<target name="buildAndCopy" depends="jar" description="Builds the jar and copies it to the Ooyala lib dir">
-		<copy file="${ant.project.name}-${project.version}.jar" todir="${gwt-dojo-toolkit.ooyala.lib.dir}" overwrite="true"/>
-	</target>
+	<target name="buildAndCopy" depends="jar" description="Builds the jar and copies it to a target directory">
+        <copy file="${ant.project.name}-${project.version}.jar" todir="${build.and.copy.target.dir}" overwrite="true"/>
+    </target>
 
 </project>
