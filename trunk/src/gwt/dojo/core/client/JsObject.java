@@ -153,7 +153,7 @@ public class JsObject extends JavaScriptObject {
 	// Boolean property
 
 	public final native boolean getBoolean(String property) /*-{
-		return Boolean(this[index]);
+		return Boolean(this[property]);
 	}-*/;
 
 	public final native boolean getBoolean(String property, boolean defaultValue) /*-{
