@@ -153,11 +153,12 @@ public class JsObject extends JavaScriptObject {
 	// Boolean property
 
 	public final native boolean getBoolean(String property) /*-{
-		return (typeof this[property] === "boolean") ? this[property] : false;
+		return Boolean(this[index]);
 	}-*/;
 
 	public final native boolean getBoolean(String property, boolean defaultValue) /*-{
-		return (typeof this[property] === "boolean") ? this[property] : defaultValue;
+		var value = this[property];
+		return (typeof value === "boolean") ? value : defaultValue;
 	}-*/;
 
 	public final native JsObject put(String property, boolean value) /*-{

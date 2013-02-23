@@ -196,7 +196,8 @@ public class JsArray extends JavaScriptObject {
 	}-*/;
 
 	public final native boolean getBoolean(int index, boolean defaultValue) /*-{
-		return this[index] || defaultValue;
+		var value = this[index];
+		return (typeof value === "boolean") ? value : defaultValue;
 	}-*/;
 
 	public final native void set(int index, boolean value) /*-{
