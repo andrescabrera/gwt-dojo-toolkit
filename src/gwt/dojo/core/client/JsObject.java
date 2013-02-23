@@ -138,7 +138,7 @@ public class JsObject extends JavaScriptObject {
 	// Double property
 
 	public final native double getDouble(String property) /*-{
-		return this[property] || 0;
+		return this[property] || 0; // TODO change to NaN
 	}-*/;
 
 	public final native double getDouble(String property, double defaultValue) /*-{
@@ -153,11 +153,11 @@ public class JsObject extends JavaScriptObject {
 	// Boolean property
 
 	public final native boolean getBoolean(String property) /*-{
-		return this[property] || false;
+		return (typeof this[property] === "boolean") ? this[property] : false;
 	}-*/;
 
 	public final native boolean getBoolean(String property, boolean defaultValue) /*-{
-		return this[property] || defaultValue;
+		return (typeof this[property] === "boolean") ? this[property] : defaultValue;
 	}-*/;
 
 	public final native JsObject put(String property, boolean value) /*-{
