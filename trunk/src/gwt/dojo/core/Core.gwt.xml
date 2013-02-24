@@ -2,5 +2,5 @@
 <module>
     <inherits name="com.google.gwt.json.JSON" /><!-- TODO remove reference -->
 
-    <script src="dojo/dojo/dojo.js" />
+    <!-- <script src="dojo/dojo/dojo.js" />  -->
 </module>
