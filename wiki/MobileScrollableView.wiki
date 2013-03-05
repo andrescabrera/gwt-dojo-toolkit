@@ -1,0 +1,16 @@
+#summary A view with touch scroll capability.
+
+= Introduction =
+
+ScrollableView is a container widget which represents an entire mobile device screen, and has a touch scrolling capability. ScrollableView is a subclass of dojox.mobile.View. Unlike the base View class, ScrollableView’s domNode always stays at the top of the screen and its height is “100%” of the screen. Inside this fixed domNode, the containerNode scrolls. The browser’s default scrolling behavior is disabled, and the scrolling mechanism is re-implemented in JavaScript. Thus the user does not need to use the two-finger operation to scroll the inner DIV (containerNode). The main purpose of this widget is to realize fixed-positioned header and/or footer bars.
+
+The animation below shows the difference between View and ScrollableView scrolling behavior.
+
+http://livedocs.dojotoolkit.org/dojox/mobile/ScrollableView-anim.gif
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
