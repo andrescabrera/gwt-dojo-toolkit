@@ -22,34 +22,47 @@ import com.google.gwt.json.client.JSONObject;
 
 public class JsObject extends JavaScriptObject {
 
+	/**
+	 * 
+	 * @return
+	 */
 	public static JsObject create() {
 		return JavaScriptObject.createObject().cast();
 	}
 
-	public static JsObject create(String property, Object value) {
-		return JsObject.create().put(property, value);
-	}
-
-	public static JsObject create(String property, int value) {
-		return JsObject.create().put(property, value);
-	}
-
-	public static JsObject create(String property, double value) {
-		return JsObject.create().put(property, value);
-	}
-
-	public static JsObject create(String property, boolean value) {
-		return JsObject.create().put(property, value);
-	}
-
+	/**
+	 * 
+	 * @param module
+	 * @return
+	 */
 	public static <T extends JavaScriptObject> T ref(String module) {
 		try {
 			return Dojo.require(module);
 		} catch (JavaScriptException e) {
-			throw new NullPointerException("Undefined module '" + module + "'");
+			throw new NullPointerException("Undefined module: " + module);
 		}
 	}
 
+	/**
+	 * 
+	 * @param module
+	 * @return
+	 */
+	public static <T extends JsObject> T create(String module) {
+		return create(ref(module));
+	}
+
+	private static native <T extends JsObject> T create(
+			JavaScriptObject objectRef) /*-{
+		return new objectRef();
+	}-*/;
+
+	/**
+	 * 
+	 * @param module
+	 * @param options
+	 * @return
+	 */
 	public static <T extends JsObject> T create(String module, JsObject options) {
 		return create(ref(module), options);
 	}
@@ -57,6 +70,23 @@ public class JsObject extends JavaScriptObject {
 	private static native <T extends JsObject> T create(
 			JavaScriptObject objectRef, JsObject options) /*-{
 		return new objectRef(options || {});
+	}-*/;
+
+	/**
+	 * 
+	 * @param module
+	 * @param options
+	 * @param nodeRef
+	 * @return
+	 */
+	public static <T extends JsObject> T create(String module,
+			JsObject options, String nodeRef) {
+		return create(ref(module), options, nodeRef);
+	}
+
+	private static native <T extends JsObject> T create(
+			JavaScriptObject objectRef, JsObject options, String nodeRef) /*-{
+		return new objectRef(options || {}, nodeRef);
 	}-*/;
 
 	/**

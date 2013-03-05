@@ -101,6 +101,34 @@ public class JsArray extends JavaScriptObject {
 		return result;
 	}
 
+	// JsArray entry
+
+	@SuppressWarnings("unchecked")
+	public final <T extends JsArray> T getJsArray(int index) {
+		Object o = get(index);
+		return o != null && o instanceof JavaScriptObject ? (T) o : null;
+	}
+
+	public final native JsArray set(int index, JsArray value) /*-{
+		this[index] = value;
+		return this;
+	}-*/;
+
+	public final native JsArray push(JsArray value) /*-{
+		this[this.length] = value;
+		return this;
+	}-*/;
+
+	public final JsArray push(JsArray... values) {
+		JsArray result = this;
+		if (values != null) {
+			for (int i = 0; i < values.length; i++) {
+				this.push(values[i]);
+			}
+		}
+		return result;
+	}
+
 	// String entry
 
 	public final native String getString(int index) /*-{

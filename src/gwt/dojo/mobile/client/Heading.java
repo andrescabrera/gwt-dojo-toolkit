@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,11 +15,26 @@
  */
 package gwt.dojo.mobile.client;
 
+import gwt.dojo.core.client.JsObject;
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client._WidgetBase;
 
 public class Heading extends _WidgetBase implements IContainer, IContained {
+
+	public static final String MODULE = "dojox/mobile/Heading";
+
+	public static Heading create() {
+		return JsObject.create(MODULE, JsObject.create());
+	};
+
+	public static Heading create(JsObject options) {
+		return JsObject.create(MODULE, options);
+	};
+
+	public static Heading create(JsObject options, String nodeRef) {
+		return JsObject.create(MODULE, options, nodeRef);
+	};
 
 	/**
 	 * back: String
@@ -91,12 +106,6 @@ public class Heading extends _WidgetBase implements IContainer, IContained {
 	 * "top" or "bottom".
 	 */
 	public static final String FIXED = "fixed";
-
-	public static final String MODULE = "dojox/mobile/Heading";
-
-	public static native Heading create() /*-{
-		return new $wnd.dojox.mobile.Heading();
-	}-*/;
 
 	protected Heading() {
 	}

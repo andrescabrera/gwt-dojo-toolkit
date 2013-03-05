@@ -35,28 +35,36 @@ public class Dojo {
 	/**
 	 * Load AMD required modules.
 	 * 
-	 * @param dependencies
+	 * @param modules
 	 *            A list of module identifiers to load before calling callback.
 	 * @param callback
 	 *            Callback to call when dependencies are loaded.
 	 */
-	public static native void require(JsArray/* <String> */dependencies,
-			DojoCallback callback) /*-{
+	public static native void require(JsArray/* <String> */modules,
+			DojoCallback<?> callback) /*-{
 		var callbackFcn = function() {
+			var _this = this;
 			var _arguments = arguments;
 
-			if (typeof $wnd.dojo.ready === 'undefined') {
-				@gwt.dojo.core.client.Dojo::doDojoCallback(Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(callback, _arguments);
+			if (modules.indexOf("dojo/ready") == -1) {
+				try {
+					@gwt.dojo.core.client.Dojo::doDojoCallback(Ljava/lang/Object;Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(_this, callback, _arguments);
+				} catch (ex) {
+					alert("Error in require callback: " + ex);
+				}
 			} else {
+				alert("----");
 				var onReadyFcn = function() {
-					@gwt.dojo.core.client.Dojo::doDojoCallback(Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(callback, _arguments);
+					try {
+						@gwt.dojo.core.client.Dojo::doDojoCallback(Ljava/lang/Object;Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(_this, callback, _arguments);
+					} catch (ex) {
+						alert("Error in require callback: " + ex);
+					}
 				};
-
 				$wnd.dojo.ready(onReadyFcn);
 			}
 		};
-
-		$wnd.require(dependencies, callbackFcn);
+		$wnd.require(modules, callbackFcn);
 	}-*/;
 
 	/**
@@ -133,9 +141,10 @@ public class Dojo {
 	// Helper methods for callback functions & uncaught exceptions.
 	// ------------------------------------------------------------------------
 
-	private static void doDojoCallback(DojoCallback callback, JsArray arguments) {
+	private static void doDojoCallback(Object context,
+			DojoCallback<Object> callback, JsArray arguments) {
 		try {
-			callback.callback(arguments);
+			callback.callback(context, arguments);
 		} catch (Throwable t) {
 			handleUncaughtException(t);
 		}
