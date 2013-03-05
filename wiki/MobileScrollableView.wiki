@@ -22,8 +22,12 @@ http://livedocs.dojotoolkit.org/dojox/mobile/ScrollableView-anim.gif
 || scrollDir || string || "v" || Specify a scrolling direction. "v" for vertical, "h" for horizontal, or "vh" for both. ||
 || fadeScrollBar || boolean || true || Use the fade animation to hide scroll bar. ||
 || disableFlashScrollBar || boolean || false  || Disable flashing of scroll bar when a view is shown. ||
-|| threshold || Number || 4 || Drag threshold value in pixels. The user needs to drag at least the specified pixels before a real drag operation starts. ||
-|| height || String || "" || Explicitly specified height of the widget (ex. "300px"). If "inherit" is specified, the height is inherited from its offset parent. If "auto" is specified, the content height, which could be smaller than the entire screen height, is used. If nothing is specified, the entire screen height is used. ||
+|| threshold || number || 4 || Drag threshold value in pixels. The user needs to drag at least the specified pixels before a real drag operation starts. ||
+|| height || string || "" || Explicitly specified height of the widget (ex. "300px"). If "inherit" is specified, the height is inherited from its offset parent. If "auto" is specified, the content height, which could be smaller than the entire screen height, is used. If nothing is specified, the entire screen height is used. ||
+
+= Usage =
+
+Basic usage is the same as for [MovieView dojox.mobile.View]. If you do not need fixed-positioned header and/or footer bars, you should use [MovieView dojox.mobile.View].
 
 = Details =
 
