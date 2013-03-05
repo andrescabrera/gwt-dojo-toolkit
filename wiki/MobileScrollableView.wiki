@@ -27,7 +27,7 @@ http://livedocs.dojotoolkit.org/dojox/mobile/ScrollableView-anim.gif
 
 = Usage =
 
-Basic usage is the same as for [MobileView dojox.mobile.View]. If you do not need fixed-positioned header and/or footer bars, you should use [MobileView dojox.mobile.View].
+Basic usage is the same as for [MobileView View]. If you do not need fixed-positioned header and/or footer bars, you should use [MobileView View].
 
 = Details =
 
