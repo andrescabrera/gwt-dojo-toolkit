@@ -34,9 +34,18 @@ RoundRectList list1 = RoundRectList.create();
 _Container.cast(view1).addChild(list1);
 
 for (int i = 1; i <= 3; i++) {
-	ListItem item = ListItem.create(JsObject.create().put(ListItem.LABEL, "Dcoument 000" + 1));
+	JsObject liOptions = JsObject.create();
+	liOptions.put(ListItem.LABEL, "Document " + i);
+	liOptions.put(ListItem.ICON, "images/icon-" + i + ".png");
+	liOptions.put(ListItem.MOVETO, "view2");
+	ListItem item = ListItem.create(liOptions);
 	_Container.cast(list1).addChild(item);
 }
 
 view1.startup();
+}}}
+{{{
+<body>
+	<div id="view1"></div>
+</body>
 }}}
