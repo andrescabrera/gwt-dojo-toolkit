@@ -25,3 +25,4 @@
     * *Views*
      * [MobileView View]
      * [MobileScrollableView ScrollableView]
+     * [MobileSwapView SwapView]
