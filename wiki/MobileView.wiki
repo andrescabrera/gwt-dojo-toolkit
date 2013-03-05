@@ -1,0 +1,12 @@
+#summary A container that represents a mobile device screen.
+
+= Introduction =
+
+View is a container widget which represents an entire mobile device screen. One html page can have multiple Views, but only one View is visible at a time. The user can navigate through views with animated transition effects.
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
