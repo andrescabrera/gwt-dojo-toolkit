@@ -29,9 +29,21 @@ http://livedocs.dojotoolkit.org/dojox/mobile/ScrollableView-anim.gif
 
 Basic usage is the same as for [MobileView View]. If you do not need fixed-positioned header and/or footer bars, you should use [MobileView View].
 
-= Details =
+= Examples =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== View header/footer bar example ==
+
+View header/footer bars are fixed-positioned bars which are local to the view in which they belong. That is, the bars stay in fixed positions while their parent view is shown, but when the view moves to another, they go away with the view.
+
+To make a bar widget (Heading, TabBar, or perhaps your custom bar widget) fixed-positioned,
+
+ # Place it inside ScrollableView.
+ # Add fixed:”top” for a header bar, or fixed:”bottom” for a footer bar.
+
+{{{
+<div id="view1" data-dojo-type="dojox.mobile.ScrollableView">
+  <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"top"'>View Header Bar</h1>
+  ....
+  <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"bottom"'>View Footer Bar</h1>
+</div>
+}}}
