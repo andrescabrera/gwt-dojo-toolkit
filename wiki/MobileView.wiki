@@ -24,20 +24,17 @@ Views can be nested to form a group of views.
 {{{
 View view1 = View.create((JsObject) null, "view1");
 
-Heading heading1 = Heading.create(JsObject.create()
-		.put(Heading.LABEL, "View 1"));
+Heading heading1 = Heading.create(JsObject.create().put(Heading.LABEL, "View 1"));
 _Container.cast(view1).addChild(heading1);
 
-RoundRectCategory categ1 = RoundRectCategory.create(JsObject.create()
-		.put(RoundRectCategory.LABEL, "Documents"));
+RoundRectCategory categ1 = RoundRectCategory.create(JsObject.create().put(RoundRectCategory.LABEL, "Documents"));
 _Container.cast(view1).addChild(categ1);
 
 RoundRectList list1 = RoundRectList.create();
 _Container.cast(view1).addChild(list1);
 
 for (int i = 1; i <= 3; i++) {
-	ListItem item = ListItem.create(JsObject.create()
-			.put(ListItem.LABEL, "Dcoument 000" + 1));
+	ListItem item = ListItem.create(JsObject.create().put(ListItem.LABEL, "Dcoument 000" + 1));
 	_Container.cast(list1).addChild(item);
 }
 
