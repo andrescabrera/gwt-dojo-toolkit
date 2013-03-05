@@ -8,4 +8,12 @@ View is a container widget which represents an entire mobile device screen. One 
 
 || Parameter || Type || Default || Description ||
 || selected || boolean || false || If true, the view is displayed at startup time. ||
-|| keepScrollPos || boolean || true || If true, the scroll position is kept when transition occurs between views. ||
+|| keepScrollPos || boolean || true || If true, the scroll position is kept when transition occurs 
+between views. ||
+|| tag || string || "div" || A name of html tag to create as domNode. ||
+
+= Usage =
+
+View is a container which represents the device screen. You should place all the contents in a View. There may be one or more Views in a page. If no views have selected=true, the first view is displayed at startup time.
+
+Views can be nested to form a group of views.
