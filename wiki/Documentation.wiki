@@ -24,3 +24,4 @@
   * *Dojo Mobile*
     * *Views*
      * [MobileView View]
+     * [MobileScrollableView ScrollableView]
