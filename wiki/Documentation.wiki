@@ -15,12 +15,12 @@
    * [ConnectingStoreToTree Connecting a Store to a Tree]
   * *Introduction to GWT Dojo Mobile*
    * [HelloWorldMobile Hello, World!]
-   * *Available Widgets*
-    * *Views*
-     * [MobileView View]
  * *Reference Guide*
   * *Dojo Core*
    * [DojoOverview Dojo Overview]
   * *Dijit*
    * [DijitOverview Dijit Overview]
    * [DijitTree Tree]
+  * *Dojo Mobile*
+    * *Views*
+     * [MobileView View]
