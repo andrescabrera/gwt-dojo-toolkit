@@ -47,3 +47,5 @@ To make a bar widget (Heading, TabBar, or perhaps your custom bar widget) fixed-
   <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='fixed:"bottom"'>View Footer Bar</h1>
 </div>
 }}}
+
+http://livedocs.dojotoolkit.org/dojox/mobile/ScrollableView-example1-anim.gif
