@@ -17,7 +17,7 @@
    * [HelloWorldMobile Hello, World!]
    * *Available Widgets*
     * *Views*
-     * [View View]
+     * [MobileView View]
  * *Reference Guide*
   * *Dojo Core*
    * [DojoOverview Dojo Overview]
