@@ -31,9 +31,13 @@ public class Stateful extends JsObject {
 
 	public static final String MODULE = "dojo/Stateful";
 
-	public static native Stateful create() /*-{
-		return new $wnd.dojo.Stateful();
-	}-*/;
+	public static Stateful create() {
+		return JsObject.create(MODULE);
+	};
+
+	public static Stateful create(JsObject options) {
+		return JsObject.create(MODULE, options);
+	};
 
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,

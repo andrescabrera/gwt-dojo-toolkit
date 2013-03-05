@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,9 +15,23 @@
  */
 package gwt.dojo.mobile.client;
 
+import gwt.dojo.core.client.JsObject;
+
 public class ListItem extends _ItemBase {
 
 	public static final String MODULE = "dojox/mobile/ListItem";
+	
+	public static ListItem create() {
+		return JsObject.create(MODULE, JsObject.create());
+	};
+
+	public static ListItem create(JsObject options) {
+		return JsObject.create(MODULE, options);
+	};
+
+	public static ListItem create(JsObject options, String nodeRef) {
+		return JsObject.create(MODULE, options, nodeRef);
+	};
 
 	/**
 	 * rightText: String
@@ -105,9 +119,7 @@ public class ListItem extends _ItemBase {
 	 */
 	public static final String RIGHTICON2TITLE = "rightIcon2Title";
 
-	public static native ListItem create() /*-{
-		return new $wnd.dojox.mobile.ListItem();
-	}-*/;
+	public static final String ICON = "icon";
 
 	protected ListItem() {
 	}

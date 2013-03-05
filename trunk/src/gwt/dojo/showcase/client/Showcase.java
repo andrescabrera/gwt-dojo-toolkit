@@ -77,9 +77,9 @@ public class Showcase implements EntryPoint {
 				"dojox/mobile/ProgressIndicator",
 				"dojox/mobile/FixedSplitterPane", "dojox/mobile/SwapView",
 				"dojox/mobile/TabBar", "dojo/domReady!");
-		Dojo.require(modules, new DojoCallback() {
+		Dojo.require(modules, new DojoCallback<Object>() {
 			@Override
-			public void callback(JsArray arguments) {
+			public void callback(Object context, JsArray arguments) {
 				startup(arguments);
 			}
 		});

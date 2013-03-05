@@ -23,11 +23,14 @@ import com.google.gwt.dom.client.Element;
 
 /**
  * Mixin for widgets to have touch scrolling capability.
- * 
- * @author ggeorg
  */
 public class _ScrollableMixin extends JavaScriptObject {
 
+	/**
+	 * 
+	 * @param widget
+	 * @return
+	 */
 	public static _ScrollableMixin cast(IScrollableMixin widget) {
 		assert widget instanceof _WidgetBase : "Not a widget";
 		return ((_WidgetBase) widget).cast();
@@ -37,10 +40,42 @@ public class _ScrollableMixin extends JavaScriptObject {
 	}
 
 	/**
-	 * Search for application-specific header or footer.
+	 * Scrolls the pane until the searching node is in the view.
+	 * 
+	 * @param node
+	 *            A DOM node to be searched for view.
 	 */
-	public final native void findAppBars() /*-{
-		this.findAppBars();
+	public final native void scrollIntoView(Element node) /*-{
+		this.scrollIntoView(node);
+	}-*/;
+
+	/**
+	 * Scrolls the pane until the searching node is in the view.
+	 * 
+	 * @param node
+	 *            A DOM node to be searched for view.
+	 * @param alignWithTop
+	 *            If {@code true}, aligns the node at the top of the pane. If
+	 *            {@code false}, aligns the node at the bottom of the pane.
+	 */
+	public final native void scrollIntoView(Element node, boolean alignWithTop) /*-{
+		this.scrollIntoView(node, alignWithTop);
+	}-*/;
+
+	/**
+	 * Scrolls the pane until the searching node is in the view.
+	 * 
+	 * @param node
+	 *            A DOM node to be searched for view.
+	 * @param alignWithTop
+	 *            If {@code true}, aligns the node at the top of the pane. If
+	 *            {@code false}, aligns the node at the bottom of the pane.
+	 * @param duration
+	 *            Duration of scrolling in seconds. (ex. 0.3).
+	 */
+	public final native void scrollIntoView(Element node, boolean alignWithTop,
+			double duration) /*-{
+		this.scrollIntoView(node, alignWithTop, duration);
 	}-*/;
 
 	/**
@@ -58,10 +93,19 @@ public class _ScrollableMixin extends JavaScriptObject {
 	}-*/;
 
 	/**
-	 * Slides to the given position to{x:value,y:value}, duration, easing
-	 * algorithm
+	 * Scrolls to the given position with the slide animation.
+	 * 
+	 * @param to
+	 *            The scroll destination position. An object with x and/or y.
+	 *            ex. {x:0, y:-5}, {y:-29}, etc.
+	 * @param duration
+	 *            Duration of scrolling in seconds. (ex. 0.3).
+	 * @param easing
+	 *            The name of easing effect which webkit supports. "ease",
+	 *            "linear", "ease-in", "ease-out", etc.
 	 */
 	public final native void slideTo(JsObject to, double duration, String easing) /*-{
 		this.slideTo(to, duration, easing);
 	}-*/;
+
 }

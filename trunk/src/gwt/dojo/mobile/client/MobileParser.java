@@ -37,13 +37,17 @@ public class MobileParser extends JsObject {
 	protected MobileParser() {
 		// Required by JSNI
 	}
-	
+
 	public static JsArray/* <JsObject> */parse() {
 		return ref()._parse();
 	}
 
 	private final native JsArray/* <JsObject> */_parse() /*-{
-		return this.parse();
+		try {
+			return this.parse();
+		} catch (e) {
+			alert(e); // TODO throw exception that we can catch from Java
+		}
 	}-*/;
 
 	public static JsArray/* <JsObject> */parse(Element node) {
@@ -51,6 +55,10 @@ public class MobileParser extends JsObject {
 	}
 
 	public final native JsArray/* <JsObject> */_parse(Element node) /*-{
-		return this.parse(node);
+		try {
+			return this.parse(node);
+		} catch (e) {
+			alert(e); // TODO throw exception that we can catch from Java
+		}
 	}-*/;
 }

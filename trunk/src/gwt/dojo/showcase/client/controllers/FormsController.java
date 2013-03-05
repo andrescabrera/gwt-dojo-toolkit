@@ -16,12 +16,11 @@
 package gwt.dojo.showcase.client.controllers;
 
 import gwt.dojo.core.client.Dojo;
+import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.core.client.EventCallback;
 import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
-import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.dijit.client.Registry;
-import gwt.dojo.dijit.client._WidgetBase;
 import gwt.dojo.mobile.client.Button;
 import gwt.dojo.mobile.client.CheckBox;
 import gwt.dojo.mobile.client.ListItem;
@@ -49,9 +48,9 @@ public class FormsController implements Controller, EventCallback {
 		modules.push("dojox/mobile/TextBox", "dojox/mobile/TextArea",
 				"dojox/mobile/CheckBox", "dojox/mobile/RadioButton",
 				"dojox/mobile/Slider");
-		Dojo.require(modules, new DojoCallback() {
+		Dojo.require(modules, new DojoCallback<Object>() {
 			@Override
-			public void callback(final JsArray arguments) {
+			public void callback(Object context, JsArray arguments) {
 				ListItem listItem = source.cast();
 				listItem.set("controller", FormsController.this);
 				showcase.showView(listItem);

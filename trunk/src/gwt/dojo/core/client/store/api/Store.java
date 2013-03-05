@@ -314,17 +314,18 @@ public abstract class Store extends JsObject {
 	 *            The identity to use to lookup the object.
 	 * @return The object in the store that matches the given id.
 	 */
-	public final native JsObject byId(Object id) /*-{
+	public final native JsObject byId(String id) /*-{
 		return this.get(id);
 	}-*/;
 
 	/**
 	 * Returns an object's identity.
 	 * 
-	 * @return The object to get the identity from.
+	 * @param object
+	 * @return
 	 */
-	public final native Object getIdentity() /*-{
-		return this.getIdentity();
+	public final native Object getIdentity(JsObject object) /*-{
+		return this.getIdentity(object);
 	}-*/;
 
 	/**
