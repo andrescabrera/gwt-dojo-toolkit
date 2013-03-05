@@ -4,9 +4,8 @@
 
 View is a container widget which represents an entire mobile device screen. One html page can have multiple Views, but only one View is visible at a time. The user can navigate through views with animated transition effects.
 
-= Details =
+= Constructor Parameters =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+|| Parameter || Type || Default || Description ||
+|| selected || boolean || false || If true, the view is displayed at startup time. ||
+|| keepScrollPos || boolean || true || If true, the scroll position is kept when transition occurs between views. ||
