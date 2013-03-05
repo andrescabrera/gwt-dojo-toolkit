@@ -41,6 +41,8 @@ In this example, there are two Views, "view1" and "view2", and the user can move
 </div>
 }}}
 
+http://dojotoolkit.org/reference-guide/1.8/_images/View-anim.gif
+
 == Programmatic example ==
 
 {{{
