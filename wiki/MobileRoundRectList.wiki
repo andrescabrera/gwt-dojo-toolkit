@@ -1,0 +1,7 @@
+#summary A list of items in a rounded-corner rectangle.
+
+= Introduction =
+
+RoundRectList is a rounded rectangle list, which can be used to display a group of items. Each item must be dojox.mobile.ListItem.
+
+http://livedocs.dojotoolkit.org/dojox/mobile/RoundRectList.png
