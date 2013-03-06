@@ -28,3 +28,4 @@
      * [MobileSwapView SwapView]
     * *Lists*
      * [MobileRoundRectCategory RoundRectCategory]
+     * [MobileEdgeToEdgeCategory EdgeToEdgeCategory]
