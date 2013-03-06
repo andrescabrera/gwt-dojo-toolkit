@@ -1,0 +1,7 @@
+#summary Edge-To-Edge list category.
+
+= Introduction =
+
+EdgeToEdgeCategory is a category header for an edge-to-edge list.
+
+http://livedocs.dojotoolkit.org/dojox/mobile/EdgeToEdgeCategory.png
