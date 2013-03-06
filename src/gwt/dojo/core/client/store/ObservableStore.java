@@ -15,6 +15,7 @@
  */
 package gwt.dojo.core.client.store;
 
+import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.store.api.Store;
 
 /**
@@ -26,15 +27,12 @@ import gwt.dojo.core.client.store.api.Store;
 public class ObservableStore extends Store {
 
 	public static final String MODULE = "dojo/store/Observable";
-	
-	private static final ObservableStore ref() {
-		return ref(MODULE);
-	}
 
 	protected ObservableStore() {}
 	
 	public static final ObservableStore create(Store store) {
-		return ref()._create(store);
+		ObservableStore observableStore = JsObject.ref(ObservableStore.MODULE);
+		return observableStore._create(store);
 	}
 	
 	private final native ObservableStore _create(Store store) /*-{

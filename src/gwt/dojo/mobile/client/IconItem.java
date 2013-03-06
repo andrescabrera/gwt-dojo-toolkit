@@ -19,10 +19,6 @@ public class IconItem extends _ItemBase {
 
 	public static final String MODULE = "dojox/mobile/IconItem";
 
-	public static native IconItem create() /*-{
-		return new $wnd.dojox.mobile.IconItem();
-	}-*/;
-
 	protected IconItem() {
 	}
 

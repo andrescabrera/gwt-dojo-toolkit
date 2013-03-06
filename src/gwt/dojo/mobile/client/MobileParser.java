@@ -15,7 +15,6 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.core.client.Dojo;
 import gwt.dojo.core.client.JsArray;
 import gwt.dojo.core.client.JsObject;
 
@@ -25,21 +24,13 @@ public class MobileParser extends JsObject {
 
 	public static final String MODULE = "dojox/mobile/parser";
 
-	/**
-	 * Return instance of {@code Parser} class.
-	 * 
-	 * @return {@code Parser} instance.
-	 */
-	private static MobileParser ref() {
-		return Dojo.require(MODULE);
-	}
-
 	protected MobileParser() {
 		// Required by JSNI
 	}
 
 	public static JsArray/* <JsObject> */parse() {
-		return ref()._parse();
+		MobileParser mobileParser = JsObject.ref(MobileParser.MODULE);
+		return mobileParser._parse();
 	}
 
 	private final native JsArray/* <JsObject> */_parse() /*-{
@@ -51,7 +42,8 @@ public class MobileParser extends JsObject {
 	}-*/;
 
 	public static JsArray/* <JsObject> */parse(Element node) {
-		return ref()._parse(node);
+		MobileParser mobileParser = JsObject.ref(MobileParser.MODULE);
+		return mobileParser._parse(node);
 	}
 
 	public final native JsArray/* <JsObject> */_parse(Element node) /*-{

@@ -23,10 +23,6 @@ public class SpinWheelSlot extends _WidgetBase implements IContained,
 
 	public static final String MODULE = "dojox/mobile/SpinWheelSlot";
 
-	public static native SpinWheelSlot create() /*-{
-		return new $wnd.dojox.mobile.SpinWheelSlot();
-	}-*/;
-
 	protected SpinWheelSlot() {
 	}
 

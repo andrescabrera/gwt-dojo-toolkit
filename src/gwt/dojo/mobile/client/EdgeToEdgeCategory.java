@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,14 +15,19 @@
  */
 package gwt.dojo.mobile.client;
 
+/**
+ * A category header for an edge-to-edge list.
+ */
 public class EdgeToEdgeCategory extends RoundRectCategory {
 	
+	/**
+	 * Module: {@code dojox/mobile/EdgeToEdgeCategory}.
+	 */
 	public static final String MODULE = "dojox/mobile/EdgeToEdgeCategory";
-
-	public static native EdgeToEdgeCategory create() /*-{
-		return new $wnd.dojox.mobile.EdgeToEdgeCategory();
-	}-*/;
 	
+	/**
+	 * JSNI required constructor.
+	 */
 	protected EdgeToEdgeCategory() {
 	}
 

@@ -15,7 +15,6 @@
  */
 package gwt.dojo.core.client.store;
 
-import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.store.api.Store;
 
 /**
@@ -28,18 +27,6 @@ public class JsonRestStore extends Store {
 	 * Module reference.
 	 */
 	public static final String MODULE = "dojo/store/JsonRest";
-
-	/**
-	 * Create a {@code JsonRestStore} instance.
-	 * 
-	 * @param options
-	 *            This provides any configuration information that will be mixed
-	 *            into the store.
-	 * @return
-	 */
-	public static JsonRestStore create(JsObject options) {
-		return create(MODULE, options);
-	}
 
 	/**
 	 * headers: Object (default: null)

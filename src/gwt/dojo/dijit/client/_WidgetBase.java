@@ -36,10 +36,6 @@ import com.google.gwt.dom.client.Element;
  */
 public class _WidgetBase extends Stateful {
 
-	public static _WidgetBase cast(JsObject o) {
-		return o.cast();
-	}
-
 	/**
 	 * id: [const] String
 	 * <p>

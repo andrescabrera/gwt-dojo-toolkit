@@ -15,7 +15,6 @@
  */
 package gwt.dojo.dijit.client.layout;
 
-
 /**
  * Provides layout in up to 5 regions, a mandatory center with optional borders
  * along its 4 sides.
@@ -61,10 +60,6 @@ public class BorderContainer extends _LayoutWidget {
 	 * Save splitter positions in a cookie.
 	 */
 	public static final String PERSIST = "persist";
-
-	public static native BorderContainer create() /*-{
-		return new $wnd.dijit.layout.BorderContainer();
-	}-*/;
 
 	/**
 	 * Default constructor.

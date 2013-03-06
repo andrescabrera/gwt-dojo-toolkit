@@ -23,12 +23,8 @@ import gwt.dojo.dijit.client.form.ICheckBoxMixin;
  * @author ggeorg
  */
 public class CheckBox extends ToggleButton implements ICheckBoxMixin {
-	
-	public static final String MODULE = "dojox/mobile/CheckBox";
 
-	public static native CheckBox create() /*-{
-		return new $wnd.dojox.mobile.CheckBox();
-	}-*/;
+	public static final String MODULE = "dojox/mobile/CheckBox";
 	
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,

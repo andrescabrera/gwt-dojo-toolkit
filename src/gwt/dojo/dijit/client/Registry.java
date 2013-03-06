@@ -20,9 +20,9 @@ import gwt.dojo.core.client.JsObject;
 import com.google.gwt.dom.client.Node;
 
 public class Registry extends JsObject {
-	
+
 	public static final String MODULE = "dijit/registry";
-	
+
 	/**
 	 * Find a widget by it's id.
 	 * 
@@ -31,9 +31,10 @@ public class Registry extends JsObject {
 	 * @return The widget or {@code null}.
 	 */
 	public static <T extends JsObject> T byId(String id) {
-		return Registry.get()._byId(id);
+		Registry ref = JsObject.ref(Registry.MODULE);
+		return ref._byId(id);
 	}
-	
+
 	/**
 	 * Find a widget by it's corresponding DOM node.
 	 * 
@@ -42,12 +43,9 @@ public class Registry extends JsObject {
 	 * @return The widget or {@code null}.
 	 */
 	public static <T extends JsObject> T byNode(Node node) {
-		return Registry.get()._byNode(node);
+		Registry ref = JsObject.ref(Registry.MODULE);
+		return ref._byNode(node);
 	};
-
-	private static native Registry get() /*-{
-		return $wnd.dijit.registry;
-	}-*/;
 
 	protected Registry() {
 	}
@@ -56,13 +54,6 @@ public class Registry extends JsObject {
 		return this.byId(id);
 	}-*/;
 
-	/**
-	 * Find a widget by it's corresponding DOM node.
-	 * 
-	 * @param node
-	 *            The widget's DOM node.
-	 * @return The widget or {@code null}.
-	 */
 	public final native <T extends JsObject> T _byNode(Node node) /*-{
 		return this.byNode(node);
 	}-*/;

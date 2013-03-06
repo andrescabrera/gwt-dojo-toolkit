@@ -18,10 +18,6 @@ package gwt.dojo.mobile.client;
 public class SpinWheelDatePicker extends SpinWheel {
 	
 	public static final String MODULE = "dojox/mobile/SpinWheelDatePicker";
-
-	public static native SpinWheelDatePicker create() /*-{
-		return new $wnd.dojox.mobile.SpinWheelDatePicker();
-	}-*/;
 	
 	protected SpinWheelDatePicker() {
 	}

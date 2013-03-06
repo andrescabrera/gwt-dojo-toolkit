@@ -17,10 +17,6 @@ public class SimpleDialog extends Pane {
 
 	public static final String MODULE = "dojox/mobile/SimpleDialog";
 
-	public static native Pane create() /*-{
-		return new $wnd.dojox.mobile.SimpleDialog();
-	}-*/;
-
 	/**
 	 * top: String (default: "auto")
 	 * <p>

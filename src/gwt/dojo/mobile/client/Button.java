@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,7 +15,6 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.dijit.client.Registry;
 import gwt.dojo.dijit.client._WidgetBase;
 import gwt.dojo.dijit.client.form.IButtonMixin;
 import gwt.dojo.dijit.client.form.IFormWidgetMixin;
@@ -24,14 +23,6 @@ public class Button extends _WidgetBase implements IFormWidgetMixin,
 		IButtonMixin {
 
 	public static final String MODULE = "dojox/mobile/Button";
-
-	public static Button byId(String string) {
-		return Registry.byId(string);
-	}
-
-	public static native Button create() /*-{
-		return new $wnd.dojox.mobile.Button();
-	}-*/;
 
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,

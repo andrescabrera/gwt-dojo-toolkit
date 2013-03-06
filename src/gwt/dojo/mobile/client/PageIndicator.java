@@ -21,10 +21,6 @@ import gwt.dojo.dijit.client._WidgetBase;
 public class PageIndicator extends _WidgetBase implements IContained {
 	
 	public static final String MODULE = "dojox/mobile/PageIndicator";
-
-	public static native PageIndicator create() /*-{
-		return new $wnd.dojox.mobile.PageIndicator();
-	}-*/;
 	
 	protected PageIndicator() {
 	}

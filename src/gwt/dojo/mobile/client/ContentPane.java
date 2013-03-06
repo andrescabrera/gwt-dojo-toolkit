@@ -19,12 +19,8 @@ import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client._WidgetBase;
 
 public class ContentPane extends _WidgetBase implements IContained {
-	
-	public static final String MODULE = "dojox/mobile/ContentPane";
 
-	public static native ContentPane create() /*-{
-		return new $wnd.dojox.mobile.ContentPane();
-	}-*/;
+	public static final String MODULE = "dojox/mobile/ContentPane";
 	
 	/**
 	 * href: String (default: "")

@@ -21,10 +21,6 @@ public class Tooltip extends _WidgetBase {
 
 	public static final String MODULE = "dojox/mobile/Tooltip";
 
-	public static native Tooltip create() /*-{
-		return new $wnd.dojox.mobile.Tooltip();
-	}-*/;
-
 	protected Tooltip() {
 	}
 

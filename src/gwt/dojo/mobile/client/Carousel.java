@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -31,10 +31,6 @@ public class Carousel extends _WidgetBase implements IContainer, IContained {
 	public static final String MODULE = "dojox/mobile/Carousel";
 
 	public static final String TOPIC_CAROUSEL_SELECT = "/dojox/mobile/carouselSelect";
-
-	public static native Carousel create() /*-{
-		return new $wnd.dojox.mobile.Carousel();
-	}-*/;
 
 	/**
 	 * numVisible: Number (default: 2)

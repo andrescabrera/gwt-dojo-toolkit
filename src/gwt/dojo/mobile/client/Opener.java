@@ -21,10 +21,6 @@ public class Opener extends _WidgetBase {
 
 	public static final String MODULE = "dojox/mobile/Opener";
 
-	public static native Opener create() /*-{
-		return new $wnd.dojox.mobile.Opener();
-	}-*/;
-
 	protected Opener() {
 	}
 

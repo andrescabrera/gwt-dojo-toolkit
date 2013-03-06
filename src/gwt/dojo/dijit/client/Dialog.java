@@ -15,19 +15,9 @@
  */
 package gwt.dojo.dijit.client;
 
-import gwt.dojo.core.client.JsObject;
-
 public class Dialog extends _WidgetBase {
 
 	public static final String MODULE = "dijit/Dialog";
-
-	public static Dialog create() {
-		return create(null);
-	};
-	
-	public static Dialog create(JsObject options) {
-		return JsObject.create(MODULE, options);
-	}
 	
 	public static final String CONTENT = "content";
 

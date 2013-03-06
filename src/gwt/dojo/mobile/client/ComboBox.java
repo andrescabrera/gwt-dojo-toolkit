@@ -27,10 +27,6 @@ public class ComboBox extends _WidgetBase implements IAutoCompleterMixin {
 
 	public static final String MODULE = "dojox/mobile/ComboBox";
 
-	public static native ComboBox create() /*-{
-		return new $wnd.dojox.mobile.ComboBox();
-	}-*/;
-
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,
 	 * empty, no-arg constructor.

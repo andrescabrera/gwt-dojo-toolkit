@@ -26,10 +26,6 @@ public class StackContainer extends _LayoutWidget {
 
 	public static final String MODULE = "dijit/layout/StackContainer";
 
-	public static native StackContainer create() /*-{
-		return new $wnd.dijit.layout.StackContainer();
-	}-*/;
-
 	protected StackContainer() {
 	}
 
