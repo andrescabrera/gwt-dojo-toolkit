@@ -15,7 +15,6 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.core.client.JsObject;
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client._WidgetBase;
@@ -23,14 +22,6 @@ import gwt.dojo.dijit.client._WidgetBase;
 public class TabBar extends _WidgetBase implements IContainer, IContained {
 
 	public static final String MODULE = "dojox/mobile/TabBar";
-
-	public static native TabBar create() /*-{
-		return new $wnd.dojox.mobile.TabBar();
-	}-*/;
-
-	public static native TabBar create(JsObject params) /*-{
-		return new $wnd.dojox.mobile.TabBar(params);
-	}-*/;
 
 	/**
 	 * iconBase: String

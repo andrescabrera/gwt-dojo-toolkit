@@ -30,10 +30,6 @@ public class Slider extends _WidgetBase implements IFormValueMixin {
 	public static final String ORIENTATION = "orientation";
 	public static final String HALO = "halo";
 	
-	public static native Slider create() /*-{
-		return new $wnd.dojox.mobile.Slider();
-	}-*/;
-	
 	protected Slider() {
 	}
 

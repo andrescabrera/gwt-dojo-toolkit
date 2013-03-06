@@ -15,7 +15,6 @@
  */
 package gwt.dojo.core.client.store;
 
-import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.store.api.Store;
 
 /**
@@ -27,15 +26,6 @@ public class MemoryStore extends Store {
 	 * Module reference.
 	 */
 	public static final String MODULE = "dojo/store/Memory";
-
-	/**
-	 * Create a new {@code MemoryStore} instance.
-	 * 
-	 * @return {@code MemoryStore} instance.
-	 */
-	public static MemoryStore create(JsObject options) {
-		return create(MODULE, options);
-	}
 
 	/**
 	 * data: Array (default: null).

@@ -20,10 +20,6 @@ import gwt.dojo.dijit.client.form.IExpandingTextAreaMixin;
 public class ExpandingTextArea extends TextArea implements IExpandingTextAreaMixin {
 	
 	public static final String MODULE = "dojox/mobile/ExpandingTextArea";
-
-	public static native ExpandingTextArea create() /*-{
-		return new $wnd.dojox.mobile.ExpandingTextArea();
-	}-*/;
 	
 	protected ExpandingTextArea() {
 	}

@@ -22,10 +22,6 @@ import gwt.dojo.dijit.client._WidgetBase;
 public class FixedSplitter extends _WidgetBase implements IContainer, IContained {
 	
 	public static final String MODULE = "dojox/mobile/FixedSplitter";
-
-	public static native FixedSplitter create() /*-{
-		return $wnd.dojox.mobile.FixedSplitter();
-	}-*/;
 	
 	/**
 	 * Default constructor.

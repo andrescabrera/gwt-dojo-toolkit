@@ -24,10 +24,6 @@ public class ToggleButton extends Button implements IToggleButtonMixin {
 
 	public static final String MODULE = "dijit/form/ToggleButton";
 
-	public static native ToggleButton create() /*-{
-		return new $wnd.dijit.form.ToggleButton();
-	}-*/;
-
 	protected ToggleButton() {
 	}
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,13 +15,23 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.dijit.client.form.IToggleButtonMixin;
+/**
+ * A dojo/store-enabled version of RoundRectList.
+ * <p>
+ * {@code RoundRectStoreList} is an enhanced version of {@link RoundRectList}.
+ * It can generate {@code ListItem}s according to the given dojo/store store.
+ */
+public class RoundRectStoreList extends RoundRectList implements IStoreListMixin {
 
-public class ToggleButton extends Button implements IToggleButtonMixin {
-	
-	public static final String MODULE = "dojox/mobile/ToggleButton";
-	
-	protected ToggleButton() {
+	/**
+	 * Module: {@code dojox/mobile/RoundRectStoreList}.
+	 */
+	public static final String MODULE = "dojox/mobile/RoundRectStoreList";
+
+	/**
+	 * JSNI required constructor.
+	 */
+	protected RoundRectStoreList() {
 	}
 
 }

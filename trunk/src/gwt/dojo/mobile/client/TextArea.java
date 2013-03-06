@@ -18,10 +18,6 @@ package gwt.dojo.mobile.client;
 public class TextArea extends TextBox {
 	public static final String MODULE = "dojox/mobile/TextArea";
 
-	public static native TextArea create() /*-{
-		return new $wnd.dojox.mobile.TextArea();
-	}-*/;
-
 	protected TextArea() {
 	}
 

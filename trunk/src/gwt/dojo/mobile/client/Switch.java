@@ -21,10 +21,6 @@ import gwt.dojo.dijit.client._WidgetBase;
 public class Switch extends _WidgetBase implements IContained {
 	
 	public static final String MODULE = "dojox/mobile/Switch";
-
-	public static native Switch create() /*-{
-		return new $wnd.dojox.mobile.Switch();
-	}-*/;
 	
 	protected Switch() {
 	}

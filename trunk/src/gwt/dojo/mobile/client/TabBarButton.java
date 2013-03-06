@@ -24,10 +24,6 @@ public class TabBarButton extends _ItemBase {
 
 	public static final String MODULE = "dojox/mobile/TabBarButton";
 
-	public static native TabBarButton create() /*-{
-		return new $wnd.dojox.mobile.TabBarButton();
-	}-*/;
-
 	/**
 	 * icon1: String
 	 * <p>

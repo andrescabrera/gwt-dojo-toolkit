@@ -24,10 +24,6 @@ public class CheckBox extends ToggleButton implements ICheckBoxMixin {
 
 	public static final String MODULE = "dijit/form/CheckBox";
 
-	public static native CheckBox create() /*-{
-		return new $wnd.dijit.form.CheckBox();
-	}-*/;
-
 	protected CheckBox() {
 	}
 }

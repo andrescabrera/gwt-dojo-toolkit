@@ -42,6 +42,7 @@ public class Dojo {
 	 */
 	public static native void require(JsArray/* <String> */modules,
 			DojoCallback<?> callback) /*-{
+
 		var callbackFcn = function() {
 			var _this = this;
 			var _arguments = arguments;
@@ -53,7 +54,6 @@ public class Dojo {
 					alert("Error in require callback: " + ex);
 				}
 			} else {
-				alert("----");
 				var onReadyFcn = function() {
 					try {
 						@gwt.dojo.core.client.Dojo::doDojoCallback(Ljava/lang/Object;Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(_this, callback, _arguments);
@@ -64,7 +64,8 @@ public class Dojo {
 				$wnd.dojo.ready(onReadyFcn);
 			}
 		};
-		$wnd.require(modules, callbackFcn);
+
+		$wnd.require(modules, callback ? callbackFcn : null);
 	}-*/;
 
 	/**

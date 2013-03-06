@@ -15,19 +15,9 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.dijit.client.Registry;
-
 public class ToolBarButton extends _ItemBase {
 
 	public static final String MODULE = "dojox/mobile/ToolBarButton";
-	
-	public static ToolBarButton byId(String id) {
-		return Registry.byId(id);
-	}
-
-	public static native ToolBarButton create() /*-{
-		return new $wnd.dojox.mobile.ToolBarButton();
-	}-*/;
 
 	protected ToolBarButton() {
 	}

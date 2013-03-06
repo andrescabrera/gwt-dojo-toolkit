@@ -24,10 +24,6 @@ public class FixedSplitterPane extends _WidgetBase implements IContainer,
 
 	public static final String MODULE = "dojox/mobile/FixedSplitterPane";
 
-	public static native FixedSplitterPane create() /*-{
-		return new $wnd.dojox.mobile.FixedSplitterPane();
-	}-*/;
-
 	protected FixedSplitterPane() {
 	}
 

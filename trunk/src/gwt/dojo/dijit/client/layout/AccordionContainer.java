@@ -27,10 +27,6 @@ public class AccordionContainer extends StackContainer {
 
 	public static final String MODULE = "dijit/layout/AccordionContainer";
 
-	public static native AccordionContainer create() /*-{
-		return new $wnd.dijit.layout.AccordionContainer();
-	}-*/;
-
 	protected AccordionContainer() {
 	}
 

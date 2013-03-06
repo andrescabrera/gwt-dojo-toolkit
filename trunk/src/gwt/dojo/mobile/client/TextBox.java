@@ -24,10 +24,6 @@ public class TextBox extends _WidgetBase implements IFormValueMixin,
 
 	public static final String MODULE = "dojox/mobile/TextBox";
 
-	public static native TextBox create() /*-{
-		return new $wnd.dojox.mobile.TextBox();
-	}-*/;
-
 	protected TextBox() {
 	}
 

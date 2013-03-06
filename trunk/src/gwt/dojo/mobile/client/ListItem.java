@@ -15,23 +15,21 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.core.client.JsObject;
-
+/**
+ * An item of either {@link RoundRectList} or {@link EdgeToEdgeList}.
+ * <p>
+ * {@code ListItem} represents an item of either {@link RoundRectList} or
+ * {@link EdgeToEdgeList}. There are three ways to move to a different view:
+ * moveTo, href, and url. You can choose only one of them.
+ * <p>
+ * A child DOM node (or widget) can have the layout attribute, whose value is
+ * "left", "right", or "center". Such nodes will be aligned as specified.
+ * <p>
+ * TODO examples
+ */
 public class ListItem extends _ItemBase {
 
 	public static final String MODULE = "dojox/mobile/ListItem";
-	
-	public static ListItem create() {
-		return JsObject.create(MODULE, JsObject.create());
-	};
-
-	public static ListItem create(JsObject options) {
-		return JsObject.create(MODULE, options);
-	};
-
-	public static ListItem create(JsObject options, String nodeRef) {
-		return JsObject.create(MODULE, options, nodeRef);
-	};
 
 	/**
 	 * rightText: String
@@ -57,6 +55,14 @@ public class ListItem extends _ItemBase {
 	public static final String RIGHTICON2 = "rightIcon2";
 
 	/**
+	 * deleteIcon: String
+	 * <p>
+	 * A delete icon to display at the left of the item. The value can be either
+	 * a path for an image file or a class name of a DOM button.
+	 */
+	public static final String DELETEICON = "deleteIcon";
+
+	/**
 	 * anchorLabel: Boolean
 	 * <p>
 	 * If true, the label text becomes a clickable anchor text. When the user
@@ -74,13 +80,6 @@ public class ListItem extends _ItemBase {
 	public static final String NOARROW = "noArrow";
 
 	/**
-	 * selected: Boolean
-	 * <p>
-	 * If true, the item is highlighted to indicate it is selected.
-	 */
-	public static final String SELECTED = "selected";
-
-	/**
 	 * checked: Boolean
 	 * <p>
 	 * If true, a check mark is displayed at the right of the item.
@@ -96,7 +95,23 @@ public class ListItem extends _ItemBase {
 	public static final String ARROWCLASS = "arrowClass";
 
 	/**
-	 * variableHeight: Boolean
+	 * checkClass: String
+	 * <p>
+	 * An icon to display as a check mark. The value can be either a path for an
+	 * image file or a class name of a DOM button.
+	 */
+	public static final String CHECKCLASS = "checkClass";
+
+	/**
+	 * uncheckClass: String
+	 * <p>
+	 * An icon to display as an uncheck mark. The value can be either a path for
+	 * an image file or a class name of a DOM button.
+	 */
+	public static final String UNCHECKCLASS = "uncheckClass";
+
+	/**
+	 * variableHeight: Boolean (default: false)
 	 * <p>
 	 * If true, the height of the item varies according to its content. In dojo
 	 * 1.6 or older, the "mblVariableHeight" class was used for this purpose. In
@@ -104,14 +119,14 @@ public class ListItem extends _ItemBase {
 	 * compatibility.
 	 */
 	public static final String VARIABLEHEIGHT = "variableHeight";
-	
+
 	/**
 	 * rightIconTitle: String
 	 * <p>
 	 * An alt text for the right icon.
 	 */
 	public static final String RIGHTICONTITLE = "rightIconTitle";
-	
+
 	/**
 	 * rightIcon2Title: String
 	 * <p>
@@ -119,8 +134,30 @@ public class ListItem extends _ItemBase {
 	 */
 	public static final String RIGHTICON2TITLE = "rightIcon2Title";
 
-	public static final String ICON = "icon";
+	/**
+	 * header: Boolean
+	 * <p>
+	 * If true, this item is rendered as a category header.
+	 */
+	public static final String HEADER = "header";
 
+	/**
+	 * busy: Boolean (default: false)
+	 * <p>
+	 * If true, a progress indicator spins.
+	 */
+	public static final String BUSY = "busy";
+
+	/**
+	 * progStyle: String
+	 * <p>
+	 * A css class name to add to the progress indicator.
+	 */
+	public static final String PROGSTYLE = "progStyle";
+
+	/**
+	 * JSNI required constructor.
+	 */
 	protected ListItem() {
 	}
 

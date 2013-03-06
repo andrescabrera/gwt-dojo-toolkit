@@ -15,10 +15,6 @@ public class Pane extends _WidgetBase implements IContained {
 
 	public static final String MODULE = "dojox/mobile/Pane";
 
-	public static native Pane create() /*-{
-		return new $wnd.dojox.mobile.Pane();
-	}-*/;
-
 	/**
 	 * Default constructor.
 	 */

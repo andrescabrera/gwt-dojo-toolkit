@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -16,21 +16,18 @@
 package gwt.dojo.mobile.client;
 
 /**
- * A container that can be flipped horizontally.
+ * A container that can be swiped horizontally.
  * <p>
- * SwapView is a container widget that represents entire mobile device screen,
- * and can be swiped horizontally. When SwapView is swiped, it finds an adjacent
- * SwapView to open it.
- * 
- * @author ggeorg
+ * {@ code SwapView} is a container widget that represents entire mobile device
+ * screen, and can be swiped horizontally. {@code SwapView} is a subclass of
+ * {@link View}. {@code SwapView} allows the user to swipe the screen left or
+ * right to move between the views. When {@code SwapView} is swiped, it finds an
+ * adjacent {@code SwapView} to open. When the transition is done, a topic
+ * {@code /dojox/mobile/viewChanged} is published.
  */
 public class SwapView extends View implements IScrollableMixin {
 
 	public static final String MODULE = "dojox/mobile/SwapView";
-
-	public static native SwapView create() /*-{
-		return new $wnd.dojox.mobile.SwapView();
-	}-*/;
 
 	protected SwapView() {
 	}

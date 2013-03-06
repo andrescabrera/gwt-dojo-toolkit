@@ -67,7 +67,7 @@ public class FormsController implements Controller, EventCallback {
 				Window.alert("focus");
 			}
 		});
-		Button resetBtn = Button.byId("resetBtn");
+		Button resetBtn = Registry.byId("resetBtn");
 		resetBtn.on("click", new EventCallback() {
 			@Override
 			public void callback(JsObject source, NativeEvent event) {

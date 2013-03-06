@@ -23,10 +23,6 @@ public class IconContainer extends _WidgetBase implements IContainer, IContained
 
 	public static final String MODULE = "dojox/mobile/IconContainer";
 
-	public static native IconContainer create() /*-{
-		return new $wnd.dojox.mobile.IconContainer();
-	}-*/;
-
 	protected IconContainer() {
 	}
 

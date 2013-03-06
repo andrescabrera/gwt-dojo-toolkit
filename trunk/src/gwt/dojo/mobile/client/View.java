@@ -17,7 +17,6 @@ package gwt.dojo.mobile.client;
 
 import gwt.dojo.core.client.DojoCallback;
 import gwt.dojo.core.client.JsArray;
-import gwt.dojo.core.client.JsObject;
 import gwt.dojo.dijit.client.IContained;
 import gwt.dojo.dijit.client.IContainer;
 import gwt.dojo.dijit.client._WidgetBase;
@@ -32,18 +31,6 @@ import gwt.dojo.dijit.client._WidgetBase;
 public class View extends _WidgetBase implements IContainer, IContained {
 
 	public static final String MODULE = "dojox/mobile/View";
-
-	public static View create() {
-		return JsObject.create(MODULE);
-	};
-
-	public static View create(JsObject options) {
-		return JsObject.create(MODULE, options);
-	};
-
-	public static View create(JsObject options, String nodeRef) {
-		return JsObject.create(MODULE, options, nodeRef);
-	};
 
 	/**
 	 * selected: Boolean (default: {@code false})
@@ -151,7 +138,16 @@ public class View extends _WidgetBase implements IContainer, IContained {
 	 */
 	public final native <T> void performTransition(String moveTo, int dir,
 			String transition, T context, DojoCallback<T> callback) /*-{
-		this.performTransition(moveTo, dir, transition, context, callback);
+		var callbackFcn = function() {
+			try {
+				@gwt.dojo.core.client.Dojo::doDojoCallback(Ljava/lang/Object;Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(this, callback, _arguments);
+			} catch (ex) {
+				alert("Error in callback: " + ex);
+			}
+		};
+
+		this.performTransition(moveTo, dir, transition, context,
+				callback ? callbackFcn : null);
 	}-*/;
 
 	/**

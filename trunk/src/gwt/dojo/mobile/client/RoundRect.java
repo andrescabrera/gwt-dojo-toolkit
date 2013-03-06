@@ -23,10 +23,6 @@ public class RoundRect extends _WidgetBase implements IContainer, IContained {
 
 	public static final String MODULE = "dojox/mobile/RoundRect";
 
-	public static native RoundRect create() /*-{
-		return new $wnd.dojox.mobile.RoundRect();
-	}-*/;
-
 	protected RoundRect() {
 	}
 

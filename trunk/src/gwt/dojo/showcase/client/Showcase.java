@@ -130,93 +130,93 @@ public class Showcase implements EntryPoint {
 	};
 
 	private void initNavList() {
-		ScrollableView navView = ScrollableView.byId("navigation");
+		ScrollableView navView = Registry.byId("navigation");
 
-		EdgeToEdgeCategory cat = EdgeToEdgeCategory.create();
+		EdgeToEdgeCategory cat = JsObject.create(EdgeToEdgeCategory.MODULE);
 		cat.set("label", "Controls");
 		_Container.cast((IContainer) navView).addChild(cat);
 
-		EdgeToEdgeList list = EdgeToEdgeList.create();
+		EdgeToEdgeList list = JsObject.create(EdgeToEdgeList.MODULE);
 		list.set("id", "controls").set("iconBase",
 				"images/navigation_list_all_29.png");
 		_Container.cast(navView).addChild(list);
 
-		ListItem item = ListItem.create();
+		ListItem item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "buttons").set("label", "Buttons")
 				.set("iconPos", "0,0,29,29")
 				.set("demourl", "views/buttons.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
 		_Container.cast(list).addChild(item);
 
-		item = ListItem.create();
+		item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "forms").set("label", "Forms")
 				.set("iconPos", "29,0,29,29")
 				.set("demourl", "views/forms.html").set("moveTo", "#");
 		item.on("click", new FormsController(this));
 		_Container.cast(list).addChild(item);
 
-		item = ListItem.create();
+		item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "mobileSwitches").set("label", "Switches")
 				.set("iconPos", "29,0,29,29")
 				.set("demourl", "views/mobileSwitches.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
 		_Container.cast(list).addChild(item);
 
-		item = ListItem.create();
+		item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "flippableView").set("label", "Flippable")
 				.set("iconPos", "58,0,29,29")
 				.set("demourl", "views/flippableViews.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
 		_Container.cast(list).addChild(item);
 
-		item = ListItem.create();
+		item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "icons").set("label", "Icons")
 				.set("iconPos", "87,0,29,29");
 		_Container.cast(list).addChild(item);
 
-		item = ListItem.create();
+		item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "tabBar").set("label", "Tab Bar")
 				.set("iconPos", "116,0,29,29")
 				.set("demourl", "views/tabBar.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
 		_Container.cast(list).addChild(item);
 
-		item = ListItem.create();
+		item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "headings").set("label", "Headings")
 				.set("iconPos", "145,0,29,29");
 		_Container.cast(list).addChild(item);
 
-		item = ListItem.create();
+		item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "list").set("label", "Lists")
 				.set("iconPos", "203,0,29,29")
 				.set("demourl", "views/lists.html").set("moveTo", "#");
 		item.on("click", onNavItemClick);
 		_Container.cast(list).addChild(item);
 
-		cat = EdgeToEdgeCategory.create();
+		cat = JsObject.create(EdgeToEdgeCategory.MODULE);
 		cat.set("label", "Effects");
 		_Container.cast(navView).addChild(cat);
 
-		list = EdgeToEdgeList.create();
+		list = JsObject.create(EdgeToEdgeList.MODULE);
 		list.set("id", "effects").set("iconBase",
 				"images/navigation_list_all_29.png");
 		_Container.cast(navView).addChild(list);
 
-		item = ListItem.create();
+		item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "mobileTransitions").set("label", "Transitions")
 				.set("iconPos", "290,0,29,29");
 		_Container.cast(list).addChild(item);
 
-		item = ListItem.create();
+		item = JsObject.create(ListItem.MODULE);
 		item.set("viewId", "css3").set("label", "CSS 3")
 				.set("iconPos", "406,0,29,29");
 		_Container.cast(list).addChild(item);
 
-		cat = EdgeToEdgeCategory.create();
+		cat = JsObject.create(EdgeToEdgeCategory.MODULE);
 		cat.set("label", "Data");
 		_Container.cast(navView).addChild(cat);
 
-		list = EdgeToEdgeList.create();
+		list = JsObject.create(EdgeToEdgeList.MODULE);
 		list.set("id", "dataList").set("iconBase",
 				"images/navigation_list_all_29.png");
 		_Container.cast(navView).addChild(list);
@@ -228,13 +228,13 @@ public class Showcase implements EntryPoint {
 	 * @param show
 	 */
 	private void showProgressIndicator(boolean show) {
-		ProgressIndicator prog = ProgressIndicator.get();
 		// TODO: remove this workaround
-		prog.stop();
+		ProgressIndicator.stop();
 		if (show) {
-			Element domNode = prog.getJavaScriptObject("domNode");
+			Element domNode = ProgressIndicator.get().getJavaScriptObject(
+					"domNode");
 			Document.get().getElementById("rightPane").appendChild(domNode);
-			prog.start();
+			ProgressIndicator.start();
 		}
 	}
 
@@ -281,7 +281,8 @@ public class Showcase implements EntryPoint {
 						JsArray ws = MobileParser.parse(tmpContainer);
 						for (int i = 0, n = ws.length(); i < n; i++) {
 							if (ws.getJsObject(i).hasProperty("startup")) {
-								_WidgetBase.cast(ws.getJsObject(i)).startup();
+								_WidgetBase w = ws.getJsObject(i);
+								w.startup();
 							}
 						}
 
@@ -363,10 +364,10 @@ public class Showcase implements EntryPoint {
 							// button and load the source code of current view.
 							headerLabel.setInnerHTML(listItem
 									.getString("label"));
-							ToolBarButton srcBtn = ToolBarButton
+							ToolBarButton srcBtn = Registry
 									.byId("sourceButton");
 							srcBtn.set("backTo", listItem.getString("viewId"));
-							srcBtn.select(true);
+							//srcBtn.select(true);
 							sourceButton.setInnerHTML(srcBtn.getBoolean(
 									"selected", false) ? "Demo" : "Source");
 

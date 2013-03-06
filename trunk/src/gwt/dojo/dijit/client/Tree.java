@@ -19,18 +19,6 @@ public class Tree extends _WidgetBase implements ITemplatedMixin {
 
 	public static final String MODULE = "dijit/Tree";
 
-	public static Tree create() {
-		return Tree.create(null);
-	}
-
-	public static native Tree create(JsObject options) /*-{
-		try {
-			return new $wnd.dijit.Tree(options || {});
-		} catch (e) {
-			alert(e);
-		}
-	}-*/;
-
 	/**
 	 * model: dijit/tree/model
 	 * <p>

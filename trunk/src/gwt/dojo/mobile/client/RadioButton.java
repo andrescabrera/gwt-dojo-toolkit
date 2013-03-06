@@ -20,10 +20,6 @@ import gwt.dojo.dijit.client.form.IRadioButtonMixin;
 public class RadioButton extends CheckBox implements IRadioButtonMixin {
 	
 	public static final String MODULE = "dojox/mobile/RadioButton";
-
-	public static native RadioButton create() /*-{
-		return $wnd.dojox.mobile.RadioButton();
-	}-*/;
 	
 	protected RadioButton() {
 	}

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,14 +15,24 @@
  */
 package gwt.dojo.mobile.client;
 
-public class EdgeToEdgeDataList extends EdgeToEdgeList implements IDataListMixin {
+/**
+ * A dojo/data-enabled version of {@link EdgeToEdgeList}.
+ * <p>
+ * {@code EdgeToEdgeDataList} is an enhanced version of {@link EdgeToEdgeList}.
+ * It can generate {@link ListItem}s according to the given dojo/data store.
+ */
+@Deprecated
+public class EdgeToEdgeDataList extends EdgeToEdgeList implements
+		IDataListMixin {
 
+	/**
+	 * Module: {@code dojox/mobile/EdgeToEdgeDataList}.
+	 */
 	public static final String MODULE = "dojox/mobile/EdgeToEdgeDataList";
 
-	public static native EdgeToEdgeDataList create() /*-{
-		return new $wnd.dojox.mobile.EdgeToEdgeDataList();
-	}-*/;
-
+	/**
+	 * JSNI required constructor.
+	 */
 	protected EdgeToEdgeDataList() {
 	}
 

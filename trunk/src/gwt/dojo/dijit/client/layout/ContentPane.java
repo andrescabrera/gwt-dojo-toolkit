@@ -34,10 +34,6 @@ public class ContentPane extends _WidgetBase implements IContentPaneResizeMixin 
 
 	public static final String MODULE = "dijit/layout/ContentPane";
 
-	public static native ContentPane create() /*-{
-		return new $wnd.dijit.layout.ContentPane();
-	}-*/;
-
 	/**
 	 * href: String (default: "")
 	 * <p>

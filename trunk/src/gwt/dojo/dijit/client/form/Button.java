@@ -29,10 +29,6 @@ public class Button extends _FormWidget implements IButtonMixin {
 
 	public static final String MODULE = "dijit/form/Button";
 
-	public static native Button create() /*-{
-		return new $wnd.dijit.form.Button();
-	}-*/;
-
 	/**
 	 * duration: Number (1000)
 	 * <p>

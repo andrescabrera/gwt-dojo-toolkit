@@ -23,10 +23,6 @@ public class SpinWheel extends _WidgetBase implements IContainer, IContained {
 
 	public static final String MODULE = "dojox/mobile/SpinWheel";
 
-	public static native SpinWheel create() /*-{
-		return new $wnd.dojox.mobile.SpinWheel();
-	}-*/;
-
 	protected SpinWheel() {
 	}
 

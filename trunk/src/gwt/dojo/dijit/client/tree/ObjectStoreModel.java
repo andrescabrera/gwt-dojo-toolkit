@@ -1,7 +1,5 @@
 package gwt.dojo.dijit.client.tree;
 
-import gwt.dojo.core.client.JsObject;
-
 /**
  * Implements dijit/tree/model connecting dijit/Tree to a dojo/store/api/Store
  * that implements {@code getChildern()}.
@@ -12,14 +10,6 @@ import gwt.dojo.core.client.JsObject;
 public class ObjectStoreModel extends TreeModel {
 
 	public static final String MODULE = "dijit/tree/ObjectStoreModel";
-
-	public static native ObjectStoreModel create(JsObject options) /*-{
-		try {
-			return new $wnd.dijit.tree.ObjectStoreModel(options || {});
-		} catch (e) {
-			alert(e);
-		}
-	}-*/;
 
 	/**
 	 * store: dojo/store/api/Store (default: null)

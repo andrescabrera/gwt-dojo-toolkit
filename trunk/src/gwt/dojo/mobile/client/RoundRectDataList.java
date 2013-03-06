@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -15,20 +15,23 @@
  */
 package gwt.dojo.mobile.client;
 
-import gwt.dojo.dijit.client.Registry;
-
+/**
+ * A dojo/data-enabled version of RoundRectList.
+ * <p>
+ * {@code RoundRectDataList} is an enhanced version of {@link RoundRectList}. It
+ * can generate {@link ListItem}s according to the given dojo/data store.
+ */
+@Deprecated
 public class RoundRectDataList extends RoundRectList implements IDataListMixin {
 
+	/**
+	 * Module: {@code dojox/mobile/RoundRectDataList}.
+	 */
 	public static final String MODULE = "dojox/mobile/RoundRectDataList";
 
-	public static RoundRectDataList byId(String id) {
-		return Registry.byId(id);
-	}
-
-	public static native RoundRectDataList create() /*-{
-		return new $wnd.dojox.mobile.RoundRectDataList();
-	}-*/;
-
+	/**
+	 * JSNI required constructor.
+	 */
 	protected RoundRectDataList() {
 	}
 

@@ -29,24 +29,37 @@ public class ProgressIndicator extends JsObject {
 
 	public static final String MODULE = "dojox/mobile/ProgressIndicator";
 
-	public static native ProgressIndicator get() /*-{
-		return $wnd.dojox.mobile.ProgressIndicator.getInstance();
-	}-*/;
+	public static ProgressIndicator get() {
+		return JsObject.ref(ProgressIndicator.MODULE);
+	}
+
+	public static void start() {
+		ProgressIndicator ref = JsObject.ref(ProgressIndicator.MODULE);
+		ref.startImpl();
+	};
+
+	public static void stop() {
+		ProgressIndicator ref = JsObject.ref(ProgressIndicator.MODULE);
+		ref.stopImpl();
+	};
+
+	public static void setImage(String file) {
+		ProgressIndicator ref = JsObject.ref(ProgressIndicator.MODULE);
+		ref.setImageImpl(file);
+	};
 
 	protected ProgressIndicator() {
 	}
 
-	public final native void start() /*-{
+	private final native void startImpl() /*-{
 		this.start();
 	}-*/;
 
-	public final native void stop() /*-{
-		try {
+	private final native void stopImpl() /*-{
 		this.stop();
-		}catch(e){alert(e);}
 	}-*/;
 
-	public final native void setImage(String file) /*-{
+	private final native void setImageImpl(String file) /*-{
 		this.setImage(file);
 	}-*/;
 }
