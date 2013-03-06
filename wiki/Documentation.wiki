@@ -31,3 +31,4 @@
      * [MobileEdgeToEdgeCategory EdgeToEdgeCategory]
      * [MobileRoundRectList RoundRectList]
      * [MobileEdgeToEdgeList EdgeToEdgeList]
+     * [MobileRoundRectStoreList RoundRectStoreList]
