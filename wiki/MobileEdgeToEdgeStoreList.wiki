@@ -4,4 +4,4 @@
 
 EdgeToEdgeStoreList is an enhanced version of dojox.mobile.EdgeToEdgeList. It can generate ListItems according to the given dojo.store store.
 
-http://livedocs.dojotoolkit.org/dojox/mobile/EdgeToEdgeStoreList.png
+http://dojotoolkit.org/reference-guide/1.8/_images/EdgeToEdgeStoreList.png
