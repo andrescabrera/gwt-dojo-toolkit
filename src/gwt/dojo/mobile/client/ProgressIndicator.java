@@ -43,30 +43,18 @@ public class ProgressIndicator extends JsObject {
 		return ref.getInstance();
 	}-*/;
 
-	public static void start() {
-		instance.startImpl();
-	};
-
-	public static void stop() {
-		instance.stopImpl();
-	};
-
-	public static void setImage(String file) {
-		instance.setImageImpl(file);
-	};
-
 	protected ProgressIndicator() {
 	}
 
-	private final native void startImpl() /*-{
+	public final native void start() /*-{
 		this.start();
 	}-*/;
 
-	private final native void stopImpl() /*-{
+	public final native void stop() /*-{
 		this.stop();
 	}-*/;
 
-	private final native void setImageImpl(String file) /*-{
+	public final native void setImage(String file) /*-{
 		this.setImage(file);
 	}-*/;
 }
