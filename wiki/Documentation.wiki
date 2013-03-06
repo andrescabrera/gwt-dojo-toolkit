@@ -30,3 +30,4 @@
      * [MobileRoundRectCategory RoundRectCategory]
      * [MobileEdgeToEdgeCategory EdgeToEdgeCategory]
      * [MobileRoundRectList RoundRectList]
+     * [MobileEdgeToEdgeList EdgeToEdgeList]
