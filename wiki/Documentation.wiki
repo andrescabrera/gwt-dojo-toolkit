@@ -32,3 +32,4 @@
      * [MobileRoundRectList RoundRectList]
      * [MobileEdgeToEdgeList EdgeToEdgeList]
      * [MobileRoundRectStoreList RoundRectStoreList]
+     * [MobileEdgeToEdgeStoreList EdgeToEdgeStoreList]
