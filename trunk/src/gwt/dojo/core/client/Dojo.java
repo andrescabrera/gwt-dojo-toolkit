@@ -70,12 +70,11 @@ public class Dojo {
 
 	/**
 	 * 
-	 * @param dependency
+	 * @param module
 	 * @return
 	 */
-	public static native <T extends JavaScriptObject> T require(
-			String dependency) /*-{
-		return $wnd.require(dependency);
+	public static native <T extends JavaScriptObject> T require(String module) /*-{
+		return $wnd.require(module);
 	}-*/;
 
 	/**

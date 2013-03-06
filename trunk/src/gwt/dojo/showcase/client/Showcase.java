@@ -229,12 +229,12 @@ public class Showcase implements EntryPoint {
 	 */
 	private void showProgressIndicator(boolean show) {
 		// TODO: remove this workaround
-		ProgressIndicator.stop();
+		ProgressIndicator.get().stop();
 		if (show) {
 			Element domNode = ProgressIndicator.get().getJavaScriptObject(
 					"domNode");
 			Document.get().getElementById("rightPane").appendChild(domNode);
-			ProgressIndicator.start();
+			ProgressIndicator.get().start();
 		}
 	}
 
