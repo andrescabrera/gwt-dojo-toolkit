@@ -1,0 +1,7 @@
+#summary RoundRectList with dojo.store support.
+
+= Introduction =
+
+RoundRectStoreList is an enhanced version of dojox.mobile.RoundRectList. It can generate ListItems according to the given dojo.store store.
+
+http://livedocs.dojotoolkit.org/dojox/mobile/RoundRectStoreList.png
