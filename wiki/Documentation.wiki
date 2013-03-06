@@ -22,11 +22,11 @@
    * [DijitOverview Dijit Overview]
    * [DijitTree Tree]
   * *Dojo Mobile*
-    * *Views*
+    * Views
      * [MobileView View]
      * [MobileScrollableView ScrollableView]
      * [MobileSwapView SwapView]
-    * *Lists*
+    * Lists
      * [MobileRoundRectCategory RoundRectCategory]
      * [MobileEdgeToEdgeCategory EdgeToEdgeCategory]
      * [MobileRoundRectList RoundRectList]
