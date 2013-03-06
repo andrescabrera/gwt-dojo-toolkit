@@ -1,0 +1,7 @@
+#summary Rounded-corner list category.
+
+= Introduction =
+
+RoundRectCategory is a category header for a rounded rectangle list.
+
+http://livedocs.dojotoolkit.org/dojox/mobile/RoundRectCategory.png
