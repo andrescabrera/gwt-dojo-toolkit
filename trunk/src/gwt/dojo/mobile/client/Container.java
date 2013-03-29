@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 ArkaSoft LLC.
+ * Copyright 2012, 2013 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,14 +13,25 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.core.client;
+package gwt.dojo.mobile.client;
 
-public class DojoText extends JsObject {
+import gwt.dojo.dijit.client.IContainer;
 
-	public static final String MODULE$(String filePath) {
-		return "dojo/text!" + filePath;
-	}
+/**
+ * A simple container-type widget.
+ * <p>
+ * Container is a simple general-purpose container widget. It is a widget, but
+ * can be regarded as a simple `<div>` element.
+ */
+public class Container extends Pane implements IContainer {
 
-	protected DojoText() {
+	public static final String MODULE = "dojox/mobile/Container";
+
+	/**
+	 * Not directly instantiable.
+	 * <p>
+	 * All subclasses must also define a protected, empty, no-arg constructor.
+	 */
+	protected Container() {
 	}
 }

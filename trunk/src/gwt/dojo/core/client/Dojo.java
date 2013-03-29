@@ -26,7 +26,7 @@ import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public class Dojo {
-	private static final Logger sLogger = Logger.getLogger("Dojo");
+	private static final Logger LOG = Logger.getLogger(Dojo.class.getName());
 
 	public static native void require(JsArray modules) /*-{
 		$wnd.require(modules);
@@ -42,7 +42,6 @@ public class Dojo {
 	 */
 	public static native void require(JsArray/* <String> */modules,
 			DojoCallback<?> callback) /*-{
-
 		var callbackFcn = function() {
 			var _this = this;
 			var _arguments = arguments;
@@ -150,6 +149,16 @@ public class Dojo {
 		}
 	}
 
+	private static Object doDojoCallback(Object context,
+			DojoGenericCallback<Object, Object> callback, JsArray arguments) {
+		try {
+			return callback.callback(context, arguments);
+		} catch (Throwable t) {
+			handleUncaughtException(t);
+			return null;
+		}
+	}
+
 	private static void doCallback(EventCallback callback, JsObject thiz,
 			NativeEvent event) {
 		try {
@@ -205,8 +214,8 @@ public class Dojo {
 		UncaughtExceptionHandler handler = GWT.getUncaughtExceptionHandler();
 		if (handler != null) {
 			handler.onUncaughtException(t);
-		} else if (sLogger.isLoggable(Level.SEVERE)) {
-			sLogger.log(Level.SEVERE, "Uncaught exception escaped: ", t);
+		} else if (LOG.isLoggable(Level.SEVERE)) {
+			LOG.log(Level.SEVERE, "Uncaught exception escaped: ", t);
 		}
 	}
 

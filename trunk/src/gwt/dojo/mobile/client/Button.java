@@ -25,8 +25,9 @@ public class Button extends _WidgetBase implements IFormWidgetMixin,
 	public static final String MODULE = "dojox/mobile/Button";
 
 	/**
-	 * Not directly instantiable. All subclasses must also define a protected,
-	 * empty, no-arg constructor.
+	 * Not directly instantiable.
+	 * <p>
+	 * All subclasses must also define a protected, empty, no-arg constructor.
 	 */
 	protected Button() {
 	}

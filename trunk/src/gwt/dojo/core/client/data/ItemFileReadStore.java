@@ -15,7 +15,6 @@
  */
 package gwt.dojo.core.client.data;
 
-import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.Stateful;
 
 /**
@@ -24,24 +23,6 @@ import gwt.dojo.core.client.Stateful;
 public class ItemFileReadStore extends Stateful {
 
 	public static final String MODULE = "dojo/data/ItemFileReadStore";
-
-	public static native ItemFileReadStore create() /*-{
-		try {
-			return new $wnd.dojo.data.ItemFileReadStore();
-		} catch (e) {
-			alert(e);
-		}
-	}-*/;
-
-	public static native ItemFileReadStore create(JsObject data) /*-{
-		try {
-			return new $wnd.dojo.data.ItemFileReadStore({
-				data : data
-			});
-		} catch (e) {
-			alert(e);
-		}
-	}-*/;
 
 	protected ItemFileReadStore() {
 	}

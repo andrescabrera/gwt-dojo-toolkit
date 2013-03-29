@@ -1,5 +1,5 @@
 /*
- * Copyright 2012, 2013 ArkaSoft LLC.
+ * Copyright 2012 ArkaSoft LLC.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -13,23 +13,14 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package gwt.dojo.mobile.client;
+package gwt.dojo.core.client;
 
-import gwt.dojo.dijit.client.IContained;
-import gwt.dojo.dijit.client._WidgetBase;
+public class Text extends JsObject {
 
-/**
- * A widget for the title of the accordion.
- */
-public class Accordion extends _WidgetBase implements IContained {
-
-	public static final String MODULE = "dojox/mobile/Accordion";
-
-	/**
-	 * Not directly instantiable. All subclasses must also define a protected,
-	 * empty, no-arg constructor.
-	 */
-	protected Accordion() {
+	public static final String MODULE$(String filePath) {
+		return "dojo/text!" + filePath;
 	}
 
+	protected Text() {
+	}
 }

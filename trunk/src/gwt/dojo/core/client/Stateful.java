@@ -31,20 +31,26 @@ public class Stateful extends JsObject {
 
 	public static final String MODULE = "dojo/Stateful";
 
-	public static Stateful create() {
-		return JsObject.create(MODULE);
-	};
-
-	public static Stateful create(JsObject options) {
-		return JsObject.create(MODULE, options);
-	};
-
 	/**
 	 * Not directly instantiable. All subclasses must also define a protected,
 	 * empty, no-arg constructor.
 	 */
 	protected Stateful() {
 	}
+
+	// DojoCallback
+
+	public final native void set(String property, DojoCallback<?> callback) /*-{
+		var callbackFcn = function() {
+			try {
+				@gwt.dojo.core.client.Dojo::doDojoCallback(Ljava/lang/Object;Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(this,callback,arguments);
+			} catch (e) {
+				alert("Callback error: " + e);
+			}
+		};
+
+		this.set(callback ? callbackFcn : null);
+	}-*/;
 
 	// Object property
 

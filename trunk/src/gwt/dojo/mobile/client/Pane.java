@@ -16,10 +16,11 @@ public class Pane extends _WidgetBase implements IContained {
 	public static final String MODULE = "dojox/mobile/Pane";
 
 	/**
-	 * Default constructor.
+	 * Not directly instantiable.
+	 * <p>
+	 * All subclasses must also define a protected, empty, no-arg constructor.
 	 */
 	protected Pane() {
-		// Required by JSNI.
 	}
 
 	/**

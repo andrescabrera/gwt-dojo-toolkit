@@ -24,15 +24,8 @@ import gwt.dojo.core.client.JsObject;
  * @author ggeorg
  */
 public class Element extends JsObject {
-
-	@SuppressWarnings("unchecked")
-	public static Element create() {
-		throw new IllegalArgumentException("no chart");
-	};
-
-	public static native Element create(Chart chart) /*-{
-		return new $wnd.dojox.charting.Element(chart);
-	}-*/;
+	
+	public static final String MODULE = "dojox/charting/Element";
 
 	protected Element() {
 	}

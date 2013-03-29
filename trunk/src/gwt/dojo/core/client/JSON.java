@@ -10,19 +10,6 @@ public class JSON extends JsObject {
 	public static final String MODULE = "dojo/json";
 
 	/**
-	 * Returns instance of {@code JSON} class.
-	 * 
-	 * @return {@code JSON} instance.
-	 */
-	private static JSON ref() {
-		return Dojo.require(MODULE);
-	};
-
-	protected JSON() {
-		// Required by JSNI
-	}
-
-	/**
 	 * Parses a [JSON] (http://json.org) string to return a JavaScript object.
 	 * <p>
 	 * This function follows [native JSON
@@ -46,14 +33,10 @@ public class JSON extends JsObject {
 	 */
 	public static <T extends JavaScriptObject> T parse(String str,
 			boolean strict) {
-		return ref()._parse(str, strict);
+		JSON jsonRef = JsObject.ref(JSON.MODULE);
+		return jsonRef._parse(str, strict);
 	}
-
-	private final native <T extends JavaScriptObject> T _parse(String str,
-			boolean strict) /*-{
-		return this.parse(str, strict);
-	}-*/;
-
+	
 	/**
 	 * Returns a [JSON](http://json.org) serialization of an object. This
 	 * function follows [native JSON API](https://developer.mozilla.org/en/JSON)
@@ -64,9 +47,10 @@ public class JSON extends JsObject {
 	 * @return Returns a [JSON](http://json.org) serialization of an object.
 	 */
 	public static String stringify(JavaScriptObject value) {
-		return ref()._stringify(value, "");
+		JSON jsonRef = JsObject.ref(JSON.MODULE);
+		return jsonRef._stringify(value, "");
 	}
-
+	
 	/**
 	 * Returns a [JSON](http://json.org) serialization of an object. This
 	 * function follows [native JSON API](https://developer.mozilla.org/en/JSON)
@@ -79,8 +63,18 @@ public class JSON extends JsObject {
 	 * @return Returns a [JSON](http://json.org) serialization of an object.
 	 */
 	public static String stringify(JavaScriptObject value, String spacer) {
-		return ref()._stringify(value, spacer);
+		JSON jsonRef = JsObject.ref(JSON.MODULE);
+		return jsonRef._stringify(value, spacer);
 	}
+
+	protected JSON() {
+		// Required by JSNI
+	}
+
+	private final native <T extends JavaScriptObject> T _parse(String str,
+			boolean strict) /*-{
+		return this.parse(str, strict);
+	}-*/;
 
 	private final native String _stringify(JavaScriptObject value, String spacer) /*-{
 		return this.stringify(value, "", spacer);
