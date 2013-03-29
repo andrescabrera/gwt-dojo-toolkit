@@ -17,6 +17,7 @@ package gwt.dojo.dijit.client;
 
 import gwt.dojo.core.client.JsObject;
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Node;
 
 public class Registry extends JsObject {
@@ -47,6 +48,29 @@ public class Registry extends JsObject {
 		return ref._byNode(node);
 	};
 
+	/**
+	 * Generates a unique id for a given {@code widgetType}.
+	 * 
+	 * @param widgetType
+	 * @return
+	 */
+	public static String getUniqueId(String widgetType) {
+		Registry ref = JsObject.ref(Registry.MODULE);
+		return ref._getUniqueId(widgetType);
+	}
+
+	/**
+	 * Returns the widget whose DOM tree contains the specified DOMNode, or
+	 * {@code null} if the node is not contained within the DOM tree of any
+	 * widget.
+	 * 
+	 * @param node
+	 */
+	public static <T extends _WidgetBase> T getEnclosingWidget(Element node) {
+		Registry ref = JsObject.ref(Registry.MODULE);
+		return ref._getEnclosingWidget(node);
+	}
+
 	protected Registry() {
 	}
 
@@ -56,5 +80,14 @@ public class Registry extends JsObject {
 
 	public final native <T extends JsObject> T _byNode(Node node) /*-{
 		return this.byNode(node);
+	}-*/;
+
+	private final native String _getUniqueId(String widgetType) /*-{
+		return this.getUniqueId(widgetType);
+	}-*/;
+
+	private final native <T extends _WidgetBase> T _getEnclosingWidget(
+			Element node) /*-{
+		return this.getEnclosingWidget(node);
 	}-*/;
 }
