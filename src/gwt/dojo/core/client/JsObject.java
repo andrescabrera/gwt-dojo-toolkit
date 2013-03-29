@@ -19,6 +19,8 @@ import com.google.gwt.core.client.JavaScriptException;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONValue;
 
 public class JsObject extends JavaScriptObject {
 
@@ -26,8 +28,35 @@ public class JsObject extends JavaScriptObject {
 	 * 
 	 * @return
 	 */
-	public static JsObject create() {
+	public final static JsObject create() {
 		return JavaScriptObject.createObject().cast();
+	}
+
+	/**
+	 * Returns a non-null reference if this {@code jsonString} is really a
+	 * JsObject.
+	 * 
+	 * @param jsonString
+	 *            A JSON array to parse.
+	 * @param strict
+	 *            TODO
+	 * @return a reference to a {@code JsObject} if this {@code jsonString} is a
+	 *         {@code JsObject} or {@code null} otherwise.
+	 * @throws NullPointerException
+	 *             if {@code jsonString} is <code>null</code>
+	 * @throws IllegalArgumentException
+	 *             if {@code jsonString} is empty
+	 */
+	public static <T extends JsObject> T create(String jsonString,
+			boolean strict) {
+		JSONValue jsonValue = strict ? JSONParser.parseStrict(jsonString)
+				: JSONParser.parseLenient(jsonString);
+		JSONObject jsonObject = jsonValue.isObject();
+		if (jsonObject != null) {
+			return jsonObject.getJavaScriptObject().cast();
+		} else {
+			return null;
+		}
 	}
 
 	/**
@@ -35,7 +64,7 @@ public class JsObject extends JavaScriptObject {
 	 * @param module
 	 * @return
 	 */
-	public static <T extends JavaScriptObject> T ref(String module) {
+	public final static <T extends JavaScriptObject> T ref(String module) {
 		try {
 			return Dojo.require(module);
 		} catch (JavaScriptException e) {
@@ -48,11 +77,11 @@ public class JsObject extends JavaScriptObject {
 	 * @param module
 	 * @return
 	 */
-	public static <T extends JsObject> T create(String module) {
+	public final static <T extends JsObject> T create(String module) {
 		return create(ref(module));
 	}
 
-	private static native <T extends JsObject> T create(
+	private final static native <T extends JsObject> T create(
 			JavaScriptObject objectRef) /*-{
 		return new objectRef();
 	}-*/;
@@ -63,11 +92,12 @@ public class JsObject extends JavaScriptObject {
 	 * @param options
 	 * @return
 	 */
-	public static <T extends JsObject> T create(String module, JsObject options) {
+	public final static <T extends JsObject> T create(String module,
+			JsObject options) {
 		return create(ref(module), options);
 	}
 
-	private static native <T extends JsObject> T create(
+	private final static native <T extends JsObject> T create(
 			JavaScriptObject objectRef, JsObject options) /*-{
 		return new objectRef(options || {});
 	}-*/;
@@ -79,22 +109,37 @@ public class JsObject extends JavaScriptObject {
 	 * @param nodeRef
 	 * @return
 	 */
-	public static <T extends JsObject> T create(String module,
+	public final static <T extends JsObject> T create(String module,
 			JsObject options, String nodeRef) {
 		return create(ref(module), options, nodeRef);
 	}
 
-	private static native <T extends JsObject> T create(
+	private final static native <T extends JsObject> T create(
 			JavaScriptObject objectRef, JsObject options, String nodeRef) /*-{
 		return new objectRef(options || {}, nodeRef);
 	}-*/;
 
 	/**
-	 * Not directly instantiable. All subclasses must also define a protected,
-	 * empty, no-arg constructor.
+	 * Not directly instantiable.
+	 * <p>
+	 * All subclasses must also define a protected, empty, no-arg constructor.
 	 */
 	protected JsObject() {
 	}
+
+	// DojoCallback
+
+	public final native void put(String property, DojoCallback<?> callback) /*-{
+		var callbackFcn = function() {
+			try {
+				@gwt.dojo.core.client.Dojo::doDojoCallback(Ljava/lang/Object;Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(this,callback,arguments);
+			} catch (e) {
+				alert("Callback error: " + e);
+			}
+		};
+
+		this[property] = callback ? callbackFcn : null;
+	}-*/;
 
 	// Object property
 
