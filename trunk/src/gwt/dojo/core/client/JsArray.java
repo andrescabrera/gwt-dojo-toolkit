@@ -17,32 +17,74 @@ package gwt.dojo.core.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.json.client.JSONArray;
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONValue;
 
 public class JsArray extends JavaScriptObject {
 
-	public static JsArray create() {
+	public final static JsArray create() {
 		return JavaScriptObject.createArray().cast();
 	}
 
-	public static JsArray create(Object... values) {
+	public final static JsArray create(Object... values) {
 		return JsArray.create().push(values);
 	}
 
-	public static JsArray create(int... values) {
+	public final static JsArray create(JsObject... values) {
 		return JsArray.create().push(values);
 	}
 
-	public static JsArray create(double... values) {
+	public final static JsArray create(JsArray... values) {
 		return JsArray.create().push(values);
 	}
 
-	public static JsArray create(boolean... values) {
+	public final static JsArray create(String... values) {
+		return JsArray.create().push(values);
+	}
+
+	public final static JsArray create(int... values) {
+		return JsArray.create().push(values);
+	}
+
+	public final static JsArray create(double... values) {
+		return JsArray.create().push(values);
+	}
+
+	public final static JsArray create(boolean... values) {
 		return JsArray.create().push(values);
 	}
 
 	/**
-	 * Not directly instantiable. All subclasses must also define a protected,
-	 * empty, no-arg constructor.
+	 * Returns a non-null reference if this {@code jsonString} is really a
+	 * JsArray.
+	 * 
+	 * @param jsonString
+	 *            A JSON array to parse.
+	 * @param strict
+	 *            TODO
+	 * @return a reference to a {@code JsArray} if this {@code jsonString} is a
+	 *         {@code JsArray} or {@code null} otherwise.
+	 * @throws NullPointerException
+	 *             if {@code jsonString} is <code>null</code>
+	 * @throws IllegalArgumentException
+	 *             if {@code jsonString} is empty
+	 */
+	public static final <T extends JsArray> T create(String jsonString,
+			boolean strict) {
+		JSONValue jsonValue = strict ? JSONParser.parseStrict(jsonString)
+				: JSONParser.parseLenient(jsonString);
+		JSONArray jsonArray = jsonValue.isArray();
+		if (jsonArray != null) {
+			return jsonArray.getJavaScriptObject().cast();
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Not directly instantiable.
+	 * <p>
+	 * All subclasses must also define a protected, empty, no-arg constructor.
 	 */
 	protected JsArray() {
 	}
@@ -247,8 +289,67 @@ public class JsArray extends JavaScriptObject {
 		return result;
 	}
 
+	// ---
+
+	public final native String typeof(int index) /*-{
+		return typeof this[index];
+	}-*/;
+
+	public final native boolean isObject(int index) /*-{
+		var value = this[index];
+		switch (typeof value) {
+		case "object":
+		case "undefined":
+			return true;
+		default:
+			return false;
+		}
+	}-*/;
+
+	public final native boolean isString(int index) /*-{
+		var value = this[index];
+		switch (typeof value) {
+		case "string":
+			return true;
+		default:
+			return false;
+		}
+	}-*/;
+
+	public final native boolean isNumber(int index) /*-{
+		var value = this[index];
+		switch (typeof value) {
+		case "number":
+			return true;
+		default:
+			return false;
+		}
+	}-*/;
+
+	public final native boolean isBoolean(int index) /*-{
+		var value = this[index];
+		switch (typeof value) {
+		case "number":
+			return true;
+		default:
+			return false;
+		}
+	}-*/;
+
+	public final native boolean isArray(int index) /*-{
+		return typeof this[index] === "object" && this[index] instanceof Array;
+	}-*/;
+
+	public final native boolean isNull(int index) /*-{
+		return this[index] === null;
+	}-*/;
+
+	// ------------------------------------------------------------------------
+	// JsArray standard API
+	// ------------------------------------------------------------------------
+
 	/**
-	 * Converts a JsObject into a JSON representation that can be used to
+	 * Converts a JsArray into a JSON representation that can be used to
 	 * communicate with a JSON service.
 	 */
 	public final String toJson() {
@@ -292,8 +393,6 @@ public class JsArray extends JavaScriptObject {
 	public final native void setLength(int newLength) /*-{
 		this.length = newLength;
 	}-*/;
-
-	// ------------------------------------------------------------------------
 
 	/**
 	 * Shifts the first value off the array.
