@@ -1,6 +1,6 @@
 package gwt.dojo.core.client;
 
-public class DojoReady extends JsObject {
+public class Ready extends JsObject {
 
 	public static final String MODULE = "dojo/ready";
 
@@ -8,6 +8,6 @@ public class DojoReady extends JsObject {
 		Dojo.require(JsArray.create(MODULE), cb);
 	}
 
-	protected DojoReady() {
+	protected Ready() {
 	}
 }

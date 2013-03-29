@@ -15,30 +15,11 @@
  */
 package gwt.dojo.core.client.data;
 
-import gwt.dojo.core.client.JsObject;
 import gwt.dojo.core.client.Stateful;
 
 public class ItemFileWriteStore extends Stateful {
 
 	public static final String MODULE = "dojo/data/ItemFileWriteStore";
-
-	public static native ItemFileWriteStore create() /*-{
-		try {
-			return new $wnd.dojo.data.ItemFileWriteStore();
-		} catch (e) {
-			alert(e);
-		}
-	}-*/;
-
-	public static native ItemFileWriteStore create(JsObject data) /*-{
-		try {
-			return new $wnd.dojo.data.ItemFileWriteStore({
-				data : data
-			});
-		} catch (e) {
-			alert(e);
-		}
-	}-*/;
 	
 	protected ItemFileWriteStore() {
 	}

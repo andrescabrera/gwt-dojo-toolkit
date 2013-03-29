@@ -57,22 +57,6 @@ public class Chart extends JsObject {
 	public static final String TITLEFONT = "titleFont";
 	public static final String TITLEFONTCOLOR = "titleFontColor";
 
-	public static native Chart create(String nodeId) /*-{
-		try {
-			return new $wnd.dojox.charting.Chart(nodeId);
-		} catch (e) {
-			alert(e);
-		}
-	}-*/;
-
-	public static native Chart create(String nodeId, JsObject kwArgs) /*-{
-		try {
-			return new $wnd.dojox.charting.Chart(nodeId, kwArgs);
-		} catch (e) {
-			alert(e);
-		}
-	}-*/;
-
 	protected Chart() {
 	}
 

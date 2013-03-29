@@ -1,7 +1,6 @@
 package gwt.dojo.core.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.Element;
 
 /**
  * A function that provides core event listening functionality. With this
@@ -15,29 +14,28 @@ public class DojoOn extends JsObject {
 	 */
 	public static final String MODULE = "dojo/on";
 
-	public static final EventHandle on(Element node, String event,
+	public static final EventHandle on(JavaScriptObject object, String event,
 			EventCallback callback) {
-		return DojoOn.ref()._on(node, event, callback);
+		DojoOn ref = JsObject.ref(DojoOn.MODULE);
+		return ref._on(object, event, callback);
 	}
 
-	public static final EventHandle on(Element node, JavaScriptObject event,
-			EventCallback callback) {
-		return DojoOn.ref()._on(node, event, callback);
+	public static final EventHandle on(JavaScriptObject object,
+			JavaScriptObject event, EventCallback callback) {
+		DojoOn ref = JsObject.ref(DojoOn.MODULE);
+		return ref._on(object, event, callback);
 	}
-	
-	public static final AspectHandle on(JsObject object, String event,
+
+	public static final AspectHandle on(JavaScriptObject object, String event,
 			AspectCallback callback) {
-		return DojoOn.ref()._on(object, event, callback);
-	}
-
-	private static final DojoOn ref() {
-		return ref(MODULE);
+		DojoOn ref = JsObject.ref(DojoOn.MODULE);
+		return ref._on(object, event, callback);
 	}
 
 	protected DojoOn() {
 	}
 
-	private final native EventHandle _on(Element node, String event,
+	private final native EventHandle _on(JavaScriptObject object, String event,
 			EventCallback callback) /*-{
 		var func = function(e) {
 			try {
@@ -46,11 +44,11 @@ public class DojoOn extends JsObject {
 				alert("Error in event callback: " + ex);
 			}
 		};
-		return this(node, event, func);
+		return this(object, event, func);
 	}-*/;
 
-	private final native EventHandle _on(Element node, JavaScriptObject event,
-			EventCallback callback) /*-{
+	private final native EventHandle _on(JavaScriptObject object,
+			JavaScriptObject event, EventCallback callback) /*-{
 		var func = function(e) {
 			try {
 				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/EventCallback;Lgwt/dojo/core/client/JsObject;Lcom/google/gwt/dom/client/NativeEvent;)(callback, this, e);
@@ -58,11 +56,11 @@ public class DojoOn extends JsObject {
 				alert("Error in event callback: " + ex);
 			}
 		};
-		return this(node, event, func);
+		return this(object, event, func);
 	}-*/;
 
-	private final native AspectHandle _on(JsObject object, String event,
-			AspectCallback callback) /*-{
+	private final native AspectHandle _on(JavaScriptObject object,
+			String event, AspectCallback callback) /*-{
 		var func = function() {
 			try {
 				@gwt.dojo.core.client.Dojo::doCallback(Lgwt/dojo/core/client/AspectCallback;Lgwt/dojo/core/client/JsArray;)(callback,arguments);

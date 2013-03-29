@@ -10,10 +10,6 @@ public class Item extends JsObject {
 
 	public static final String MODULE = "dojo/data/api/Item";
 
-	public static native Item create() /*-{
-		return new $wnd.dojo.data.api.Item();
-	}-*/;
-
 	protected Item() {
 	}
 }
