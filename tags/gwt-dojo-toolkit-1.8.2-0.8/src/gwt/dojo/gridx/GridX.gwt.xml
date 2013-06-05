@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<inherits name="gwt.dojo.Dojo"/>
+	<inherits name="gwt.dojo.dijit.Dijit"/>
+	
+	<!-- <script src="dojo/gridx/gwt-gridx-require.js" />  -->
+</module>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<!-- Used in JsObject and JsArray -->
+	<inherits name="com.google.gwt.json.JSON" />
+
+	<!-- <script src="dojo/dojo/dojo.js" /> -->
+</module>
