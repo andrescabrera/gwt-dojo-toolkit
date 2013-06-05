@@ -3,5 +3,5 @@
 	<!-- Used in JsObject and JsArray -->
 	<inherits name="com.google.gwt.json.JSON" />
 
-	<!-- <script src="dojo/dojo/dojo.js" /> -->
+	<script src="dojo/dojo/dojo.js" />
 </module>
