@@ -140,7 +140,7 @@ public class View extends _WidgetBase implements IContainer, IContained {
 			String transition, T context, DojoCallback<T> callback) /*-{
 		var callbackFcn = function() {
 			try {
-				@gwt.dojo.core.client.Dojo::doDojoCallback(Ljava/lang/Object;Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(this, callback, _arguments);
+				@gwt.dojo.core.client.Dojo::doDojoCallback(Ljava/lang/Object;Lgwt/dojo/core/client/DojoCallback;Lgwt/dojo/core/client/JsArray;)(this, callback, arguments);
 			} catch (ex) {
 				alert("Error in callback: " + ex);
 			}
